@@ -774,7 +774,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\koyas\\AndroidStudioProjects\\CareerHunt\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "source": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\CareerHunt\\app\\src\\main\\res\\values-night\\themes.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -1915,6 +1915,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\CareerHunt\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,97",
+                        "endColumns": "41,41",
+                        "endOffsets": "92,134"
+                    },
+                    "to": {
+                        "startLines": "648,967",
+                        "startColumns": "4,4",
+                        "startOffsets": "33134,56810",
+                        "endColumns": "41,41",
+                        "endOffsets": "33171,56847"
+                    }
+                },
+                {
                     "source": "C:\\Users\\koyas\\.gradle\\caches\\transforms-3\\67d934aaa5898ac61459ab78551a7382\\transformed\\databinding-adapters-8.2.2\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,4",
@@ -2061,25 +2078,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\koyas\\AndroidStudioProjects\\CareerHunt\\app\\src\\main\\res\\values\\themes.xml",
-                    "from": {
-                        "startLines": "2,12,7",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "100,476,325",
-                        "endLines": "5,12,10",
-                        "endColumns": "12,68,12",
-                        "endOffsets": "319,540,470"
-                    },
-                    "to": {
-                        "startLines": "2490,6382,9178",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "174367,446429,637228",
-                        "endLines": "2493,6382,9181",
-                        "endColumns": "12,67,12",
-                        "endOffsets": "174480,446492,637373"
-                    }
-                },
-                {
                     "source": "C:\\Users\\koyas\\.gradle\\caches\\transforms-3\\44ea359e7abc3b0abf69ff9223e9ba39\\transformed\\navigation-fragment-2.7.7\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,9,12",
@@ -2115,6 +2113,23 @@
                         "endLines": "1825,9298,12416,12422",
                         "endColumns": "52,24,24,24",
                         "endOffsets": "121318,641395,757838,758080"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\CareerHunt\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "1,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "16,122",
+                        "endColumns": "47,69",
+                        "endOffsets": "59,187"
+                    },
+                    "to": {
+                        "startLines": "1987,2014",
+                        "startColumns": "4,4",
+                        "startOffsets": "131292,134152",
+                        "endColumns": "47,69",
+                        "endOffsets": "131335,134217"
                     }
                 },
                 {
@@ -2168,23 +2183,6 @@
                         "startOffsets": "122007,124226",
                         "endColumns": "41,59",
                         "endOffsets": "122044,124281"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\koyas\\AndroidStudioProjects\\CareerHunt\\app\\src\\main\\res\\values\\colors.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,97",
-                        "endColumns": "41,41",
-                        "endOffsets": "92,134"
-                    },
-                    "to": {
-                        "startLines": "648,967",
-                        "startColumns": "4,4",
-                        "startOffsets": "33134,56810",
-                        "endColumns": "41,41",
-                        "endOffsets": "33171,56847"
                     }
                 },
                 {
@@ -2313,6 +2311,25 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\CareerHunt\\app\\src\\main\\res\\values\\themes.xml",
+                    "from": {
+                        "startLines": "2,12,7",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "100,476,325",
+                        "endLines": "5,12,10",
+                        "endColumns": "12,68,12",
+                        "endOffsets": "319,540,470"
+                    },
+                    "to": {
+                        "startLines": "2490,6382,9178",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "174367,446429,637228",
+                        "endLines": "2493,6382,9181",
+                        "endColumns": "12,67,12",
+                        "endOffsets": "174480,446492,637373"
+                    }
+                },
+                {
                     "source": "C:\\Users\\koyas\\.gradle\\caches\\transforms-3\\a7abb35ca83888b1d31d4b65dc575e29\\transformed\\coordinatorlayout-1.1.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,6,16",
@@ -2367,23 +2384,6 @@
                         "endLines": "12398,12404,12410,12413,12577",
                         "endColumns": "24,24,24,24,24",
                         "endOffsets": "757099,757343,757590,757723,762878"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\koyas\\AndroidStudioProjects\\CareerHunt\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "1,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "16,122",
-                        "endColumns": "47,69",
-                        "endOffsets": "59,187"
-                    },
-                    "to": {
-                        "startLines": "1987,2014",
-                        "startColumns": "4,4",
-                        "startOffsets": "131292,134152",
-                        "endColumns": "47,69",
-                        "endOffsets": "131335,134217"
                     }
                 }
             ]

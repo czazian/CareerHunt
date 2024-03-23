@@ -17,7 +17,7 @@ drawable baseline_search_24
 drawable border
 drawable button_click
 drawable ic_launcher_background
-drawable ic_launcher_foreground
+drawable logo
 drawable profile
 drawable uniqlo
 id alumni
@@ -70,6 +70,7 @@ layout fragment_search_job
 layout fragment_setting
 menu bottom_navigation
 mipmap ic_launcher
+mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 string app_name
 string hello_blank_fragment
