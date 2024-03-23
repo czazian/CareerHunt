@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#23E1E1E1"
+    tools:context=".JobListing">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topContainer"
+        android:layout_width="0dp"
+        android:layout_height="79dp"
+        android:background=" #138ef0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileImage"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/profile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.49"
+            app:shapeAppearanceOverlay="@style/circleImageView" />
+
+        <TextView
+            android:id="@+id/lblWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:text="Welcome, "
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/lblUserName"
+            app:layout_constraintStart_toEndOf="@+id/profileImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/lblUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Koyasu_An"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/profileImage"
+            app:layout_constraintTop_toBottomOf="@+id/lblWelcome" />
+
+        <ImageButton
+            android:id="@+id/btnAddJob"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/button_click"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_add_box_24"
+            android:tint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/btnNotification"
+            app:layout_constraintEnd_toStartOf="@+id/btnNotification"
+            app:layout_constraintTop_toTopOf="@+id/btnNotification" />
+
+        <ImageButton
+            android:id="@+id/btnNotification"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="20dp"
+            android:adjustViewBounds="false"
+            android:background="@drawable/button_click"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_notifications_none_24"
+            android:tint="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/overallContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/topContainer"
+        tools:layout_editor_absoluteX="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/recommendedContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="20dp"
+            android:paddingRight="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/txtRecommendedTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recommended Jobs"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/btnShowAllRecommended"
+                app:layout_constraintEnd_toStartOf="@+id/btnShowAllRecommended"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/btnShowAllRecommended"
+                android:layout_width="53dp"
+                android:layout_height="23dp"
+                android:backgroundTint="#00FFFFFF"
+                android:gravity="center"
+                android:padding="0dp"
+                android:text="Show All"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/txtRecommendedTitle"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/itemContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/border"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/btnShowAllRecommended"
+                tools:layout_editor_absoluteX="20dp">
+
+                <ImageView
+                    android:id="@+id/imgCompany"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/uniqlo"
+                    app:layout_constraintEnd_toStartOf="@+id/lblJobTitle"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/lblJobTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginBottom="2dp"
+                    android:text="Software Engineer"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/lblCompanyName"
+                    app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imgCompany"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/lblCompanyName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="Uniqlo Malaysia"
+                    android:textColor="#919191"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toEndOf="@+id/imgCompany"
+                    app:layout_constraintTop_toBottomOf="@+id/lblJobTitle" />
+
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/baseline_bookmark_24"
+                    android:tint="#138ef0"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/lblCompanyName"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/lblDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="We are seeking a highly skilled and motivated Software Engineer to join our dynamic team. The  ..."
+                    android:textColor="#919191"
+                    app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+                    app:lineHeight="20dp"
+                    tools:layout_editor_absoluteX="17dp" />
+
+
+                <!--Horizontal Line-->
+                <View
+                    android:id="@+id/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#CDCDCD"
+                    app:layout_constraintTop_toBottomOf="@+id/lblDesc"
+                    tools:layout_editor_absoluteX="15dp" />
+
+                <ImageView
+                    android:id="@+id/clock"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/baseline_access_time_24"
+                    android:tint="#919191"
+                    app:layout_constraintBottom_toBottomOf="@+id/lblType"
+                    app:layout_constraintEnd_toStartOf="@+id/lblType"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/lblType" />
+
+                <TextView
+                    android:id="@+id/lblType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Full Time"
+                    android:textColor="#919191"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
+                    app:layout_constraintStart_toEndOf="@+id/clock" />
+
+                <ImageView
+                    android:id="@+id/locationIcon"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/baseline_location_pin_24"
+                    android:tint="#919191"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView8"
+                    app:layout_constraintEnd_toStartOf="@+id/textView8"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/lblType"
+                    app:layout_constraintTop_toTopOf="@+id/textView8"
+                    app:layout_constraintVertical_bias="0.666" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Seri Kembangan, Selangor"
+                    android:textColor="#919191"
+                    app:layout_constraintStart_toEndOf="@+id/locationIcon"
+                    app:layout_constraintTop_toBottomOf="@+id/line" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/newPostedContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/recommendedContainer"
+            tools:layout_editor_absoluteX="16dp">
+
+            <Button
+                android:id="@+id/btnShowAllLatest"
+                android:layout_width="53dp"
+                android:layout_height="23dp"
+                android:backgroundTint="#00FFFFFF"
+                android:gravity="center"
+                android:padding="0dp"
+                android:text="Show All"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/lblLatestTitle"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/lblLatestTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Posted Jobs"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/btnShowAllLatest"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/itemContainer2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/btnShowAllLatest"
+                tools:layout_editor_absoluteX="20dp">
+
+                <ImageView
+                    android:id="@+id/imgCompanyNew"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/uniqlo"
+                    app:layout_constraintEnd_toStartOf="@+id/lblJobTitleNew"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/lblJobTitleNew"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginBottom="2dp"
+                    android:text="Software Engineer"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/lblCompanyNameNew"
+                    app:layout_constraintEnd_toStartOf="@+id/bookMarkNew"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imgCompanyNew"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/lblCompanyNameNew"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="Uniqlo Malaysia"
+                    android:textColor="#919191"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/bookMarkNew"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toEndOf="@+id/imgCompanyNew"
+                    app:layout_constraintTop_toBottomOf="@+id/lblJobTitleNew" />
+
+                <ImageButton
+                    android:id="@+id/bookMarkNew"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:backgroundTint="#00FFFFFF"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/baseline_bookmark_border_24"
+                    android:tint="#138ef0"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/lblCompanyNameNew"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/lblDescNew"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="We are seeking a highly skilled and motivated Software Engineer to join our dynamic team. The  ..."
+                    android:textColor="#919191"
+                    app:layout_constraintTop_toBottomOf="@+id/bookMarkNew"
+                    app:lineHeight="20dp"
+                    tools:layout_editor_absoluteX="17dp" />
+
+
+                <!--Horizontal Line-->
+                <View
+                    android:id="@+id/lineNew"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#CDCDCD"
+                    app:layout_constraintTop_toBottomOf="@+id/lblDescNew"
+                    tools:layout_editor_absoluteX="15dp" />
+
+                <ImageView
+                    android:id="@+id/clockNew"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/baseline_access_time_24"
+                    android:tint="#919191"
+                    app:layout_constraintBottom_toBottomOf="@+id/lblTypeNew"
+                    app:layout_constraintEnd_toStartOf="@+id/lblTypeNew"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/lblTypeNew" />
+
+                <TextView
+                    android:id="@+id/lblTypeNew"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="Full Time"
+                    android:textColor="#919191"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/locationNew"
+                    app:layout_constraintStart_toEndOf="@+id/clockNew" />
+
+                <ImageView
+                    android:id="@+id/locationIconNew"
+                    android:layout_width="23dp"
+                    android:layout_height="23dp"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/baseline_location_pin_24"
+                    android:tint="#919191"
+                    app:layout_constraintBottom_toBottomOf="@+id/locationNew"
+                    app:layout_constraintEnd_toStartOf="@+id/locationNew"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/lblTypeNew"
+                    app:layout_constraintTop_toTopOf="@+id/locationNew"
+                    app:layout_constraintVertical_bias="0.666" />
+
+                <TextView
+                    android:id="@+id/locationNew"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Seri Kembangan, Selangor"
+                    android:textColor="#919191"
+                    app:layout_constraintStart_toEndOf="@+id/locationIconNew"
+                    app:layout_constraintTop_toBottomOf="@+id/lineNew" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
