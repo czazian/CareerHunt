@@ -1,26 +1,22 @@
 [
     {
+        "merged": "com.example.careerhunt.app-mergeDebugResources-49:/layout/fragment_setting.xml",
+        "source": "com.example.careerhunt.app-main-52:/layout/fragment_setting.xml"
+    },
+    {
         "merged": "com.example.careerhunt.app-mergeDebugResources-49:/layout/fragment_job_listing.xml",
         "source": "com.example.careerhunt.app-main-52:/layout/fragment_job_listing.xml"
     },
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-49:\\layout\\fragment_setting.xml",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\layout\\fragment_setting.xml"
+        "merged": "com.example.careerhunt.app-mergeDebugResources-49:/layout/activity_main.xml",
+        "source": "com.example.careerhunt.app-main-52:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-49:\\layout\\fragment_job_detail.xml",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\layout\\fragment_job_detail.xml"
+        "merged": "com.example.careerhunt.app-mergeDebugResources-49:/layout/fragment_search_job.xml",
+        "source": "com.example.careerhunt.app-main-52:/layout/fragment_search_job.xml"
     },
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-49:\\layout\\fragment_search_job.xml",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\layout\\fragment_search_job.xml"
-    },
-    {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-49:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-49:\\layout\\fragment_job_listing.xml",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\layout\\fragment_job_listing.xml"
+        "merged": "com.example.careerhunt.app-mergeDebugResources-49:/layout/fragment_job_detail.xml",
+        "source": "com.example.careerhunt.app-main-52:/layout/fragment_job_detail.xml"
     }
 ]
