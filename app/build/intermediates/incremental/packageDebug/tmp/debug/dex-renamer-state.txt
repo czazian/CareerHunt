@@ -1,4 +1,4 @@
-#Mon Mar 25 00:30:10 SGT 2024
+#Mon Mar 25 00:55:08 SGT 2024
 base.0=C\:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\koyas\\OneDrive\\Documents\\GitHub\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\11\\classes.dex

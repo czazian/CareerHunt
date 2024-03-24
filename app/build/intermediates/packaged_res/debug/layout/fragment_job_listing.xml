@@ -199,11 +199,11 @@
                     android:backgroundTint="#00FFFFFF"
                     android:scaleType="centerCrop"
                     android:src="@drawable/baseline_bookmark_24"
-                    app:tint="#138ef0"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/lblCompanyName"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="#138ef0" />
 
                 <TextView
                     android:id="@+id/lblDesc"
@@ -232,13 +232,13 @@
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:src="@drawable/baseline_access_time_24"
-                    app:tint="#919191"
                     app:layout_constraintBottom_toBottomOf="@+id/lblType"
                     app:layout_constraintEnd_toStartOf="@+id/lblType"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/lblType" />
+                    app:layout_constraintTop_toTopOf="@+id/lblType"
+                    app:tint="#919191" />
 
                 <TextView
                     android:id="@+id/lblType"
@@ -256,13 +256,13 @@
                     android:layout_height="23dp"
                     android:layout_marginStart="10dp"
                     android:src="@drawable/baseline_location_pin_24"
-                    app:tint="#919191"
                     app:layout_constraintBottom_toBottomOf="@+id/textView8"
                     app:layout_constraintEnd_toStartOf="@+id/textView8"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/lblType"
                     app:layout_constraintTop_toTopOf="@+id/textView8"
-                    app:layout_constraintVertical_bias="0.666" />
+                    app:layout_constraintVertical_bias="0.666"
+                    app:tint="#919191" />
 
                 <TextView
                     android:id="@+id/textView8"

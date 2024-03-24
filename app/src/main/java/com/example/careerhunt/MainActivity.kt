@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.explore -> {
                     val transaction = fragmentManager.beginTransaction()
-                    val fragment = AddJob()
+                    val fragment = SearchJob()
                     transaction.replace(binding.frameLayout.id, fragment)
                     transaction.addToBackStack(null)
                     transaction.commit()

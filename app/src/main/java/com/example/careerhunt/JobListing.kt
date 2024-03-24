@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import kotlinx.coroutines.currentCoroutineContext
@@ -23,11 +24,25 @@ class JobListing : Fragment() {
         val addBtn: ImageButton = view.findViewById(R.id.btnAddJob)
         addBtn.setOnClickListener () {
 
-            val action = JobListingDirections.actionJobListingToAddJob()
-            Navigation.findNavController(view).navigate(action)
+            val fragment = AddJob()
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
 
+            transaction?.replace(R.id.frameLayout, fragment)
+            transaction?.addToBackStack(null)
+            transaction?.commit()
+        }
+
+        val container = view.findViewById<ConstraintLayout>(R.id.itemContainer)
+        container.setOnClickListener() {
+            val fragment = JobDetail()
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+
+            transaction?.replace(R.id.frameLayout, fragment)
+            transaction?.addToBackStack(null)
+            transaction?.commit()
         }
 
         return view
     }
+
 }
