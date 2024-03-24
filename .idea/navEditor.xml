@@ -8,27 +8,32 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="navigation">
+                  <entry key="addJob">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-175" />
-                            <option name="y" value="72" />
+                            <option name="x" value="109" />
+                            <option name="y" value="-15" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="jobListing">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-95" />
+                            <option name="y" value="-15" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="mainActivity3">
+                            <entry key="action_jobListing_to_addJob">
                               <value>
-                                <LayoutPositions>
-                                  <option name="myPosition">
-                                    <Point>
-                                      <option name="x" value="12" />
-                                      <option name="y" value="12" />
-                                    </Point>
-                                  </option>
-                                </LayoutPositions>
+                                <LayoutPositions />
                               </value>
                             </entry>
                           </map>

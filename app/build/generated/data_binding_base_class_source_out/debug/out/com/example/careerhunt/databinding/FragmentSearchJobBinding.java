@@ -4,25 +4,115 @@ package com.example.careerhunt.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.careerhunt.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class FragmentSearchJobBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final ConstraintLayout rootView;
 
-  private FragmentSearchJobBinding(@NonNull FrameLayout rootView) {
+  @NonNull
+  public final ImageButton btnBack2;
+
+  @NonNull
+  public final ImageButton btnFilter;
+
+  @NonNull
+  public final ImageView clock;
+
+  @NonNull
+  public final ImageButton imageButton2;
+
+  @NonNull
+  public final ImageButton imageButton3;
+
+  @NonNull
+  public final ImageView imgCompany;
+
+  @NonNull
+  public final ConstraintLayout itemCont;
+
+  @NonNull
+  public final ConstraintLayout itemContainer;
+
+  @NonNull
+  public final TextView lblCompanyName;
+
+  @NonNull
+  public final TextView lblDesc;
+
+  @NonNull
+  public final TextView lblJobTitle;
+
+  @NonNull
+  public final TextView lblResultNum;
+
+  @NonNull
+  public final TextView lblType;
+
+  @NonNull
+  public final View line;
+
+  @NonNull
+  public final ImageView locationIcon;
+
+  @NonNull
+  public final ConstraintLayout searchBox;
+
+  @NonNull
+  public final ConstraintLayout searchContainer;
+
+  @NonNull
+  public final TextView textView8;
+
+  @NonNull
+  public final EditText txtSearch;
+
+  private FragmentSearchJobBinding(@NonNull ConstraintLayout rootView,
+      @NonNull ImageButton btnBack2, @NonNull ImageButton btnFilter, @NonNull ImageView clock,
+      @NonNull ImageButton imageButton2, @NonNull ImageButton imageButton3,
+      @NonNull ImageView imgCompany, @NonNull ConstraintLayout itemCont,
+      @NonNull ConstraintLayout itemContainer, @NonNull TextView lblCompanyName,
+      @NonNull TextView lblDesc, @NonNull TextView lblJobTitle, @NonNull TextView lblResultNum,
+      @NonNull TextView lblType, @NonNull View line, @NonNull ImageView locationIcon,
+      @NonNull ConstraintLayout searchBox, @NonNull ConstraintLayout searchContainer,
+      @NonNull TextView textView8, @NonNull EditText txtSearch) {
     this.rootView = rootView;
+    this.btnBack2 = btnBack2;
+    this.btnFilter = btnFilter;
+    this.clock = clock;
+    this.imageButton2 = imageButton2;
+    this.imageButton3 = imageButton3;
+    this.imgCompany = imgCompany;
+    this.itemCont = itemCont;
+    this.itemContainer = itemContainer;
+    this.lblCompanyName = lblCompanyName;
+    this.lblDesc = lblDesc;
+    this.lblJobTitle = lblJobTitle;
+    this.lblResultNum = lblResultNum;
+    this.lblType = lblType;
+    this.line = line;
+    this.locationIcon = locationIcon;
+    this.searchBox = searchBox;
+    this.searchContainer = searchContainer;
+    this.textView8 = textView8;
+    this.txtSearch = txtSearch;
   }
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -43,10 +133,126 @@ public final class FragmentSearchJobBinding implements ViewBinding {
 
   @NonNull
   public static FragmentSearchJobBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.btnBack2;
+      ImageButton btnBack2 = ViewBindings.findChildViewById(rootView, id);
+      if (btnBack2 == null) {
+        break missingId;
+      }
 
-    return new FragmentSearchJobBinding((FrameLayout) rootView);
+      id = R.id.btnFilter;
+      ImageButton btnFilter = ViewBindings.findChildViewById(rootView, id);
+      if (btnFilter == null) {
+        break missingId;
+      }
+
+      id = R.id.clock;
+      ImageView clock = ViewBindings.findChildViewById(rootView, id);
+      if (clock == null) {
+        break missingId;
+      }
+
+      id = R.id.imageButton2;
+      ImageButton imageButton2 = ViewBindings.findChildViewById(rootView, id);
+      if (imageButton2 == null) {
+        break missingId;
+      }
+
+      id = R.id.imageButton3;
+      ImageButton imageButton3 = ViewBindings.findChildViewById(rootView, id);
+      if (imageButton3 == null) {
+        break missingId;
+      }
+
+      id = R.id.imgCompany;
+      ImageView imgCompany = ViewBindings.findChildViewById(rootView, id);
+      if (imgCompany == null) {
+        break missingId;
+      }
+
+      id = R.id.itemCont;
+      ConstraintLayout itemCont = ViewBindings.findChildViewById(rootView, id);
+      if (itemCont == null) {
+        break missingId;
+      }
+
+      id = R.id.itemContainer;
+      ConstraintLayout itemContainer = ViewBindings.findChildViewById(rootView, id);
+      if (itemContainer == null) {
+        break missingId;
+      }
+
+      id = R.id.lblCompanyName;
+      TextView lblCompanyName = ViewBindings.findChildViewById(rootView, id);
+      if (lblCompanyName == null) {
+        break missingId;
+      }
+
+      id = R.id.lblDesc;
+      TextView lblDesc = ViewBindings.findChildViewById(rootView, id);
+      if (lblDesc == null) {
+        break missingId;
+      }
+
+      id = R.id.lblJobTitle;
+      TextView lblJobTitle = ViewBindings.findChildViewById(rootView, id);
+      if (lblJobTitle == null) {
+        break missingId;
+      }
+
+      id = R.id.lblResultNum;
+      TextView lblResultNum = ViewBindings.findChildViewById(rootView, id);
+      if (lblResultNum == null) {
+        break missingId;
+      }
+
+      id = R.id.lblType;
+      TextView lblType = ViewBindings.findChildViewById(rootView, id);
+      if (lblType == null) {
+        break missingId;
+      }
+
+      id = R.id.line;
+      View line = ViewBindings.findChildViewById(rootView, id);
+      if (line == null) {
+        break missingId;
+      }
+
+      id = R.id.locationIcon;
+      ImageView locationIcon = ViewBindings.findChildViewById(rootView, id);
+      if (locationIcon == null) {
+        break missingId;
+      }
+
+      id = R.id.searchBox;
+      ConstraintLayout searchBox = ViewBindings.findChildViewById(rootView, id);
+      if (searchBox == null) {
+        break missingId;
+      }
+
+      ConstraintLayout searchContainer = (ConstraintLayout) rootView;
+
+      id = R.id.textView8;
+      TextView textView8 = ViewBindings.findChildViewById(rootView, id);
+      if (textView8 == null) {
+        break missingId;
+      }
+
+      id = R.id.txtSearch;
+      EditText txtSearch = ViewBindings.findChildViewById(rootView, id);
+      if (txtSearch == null) {
+        break missingId;
+      }
+
+      return new FragmentSearchJobBinding((ConstraintLayout) rootView, btnBack2, btnFilter, clock,
+          imageButton2, imageButton3, imgCompany, itemCont, itemContainer, lblCompanyName, lblDesc,
+          lblJobTitle, lblResultNum, lblType, line, locationIcon, searchBox, searchContainer,
+          textView8, txtSearch);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

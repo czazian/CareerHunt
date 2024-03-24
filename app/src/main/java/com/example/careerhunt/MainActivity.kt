@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             val transaction = fragmentManager.beginTransaction()
             val initialFragment = JobListing()
-            transaction.replace(binding.frametLayout.id, initialFragment)
+            transaction.replace(binding.frameLayout.id, initialFragment)
             transaction.addToBackStack(null)
             transaction.commit()
         }
@@ -30,35 +30,35 @@ class MainActivity : AppCompatActivity() {
                 R.id.home -> {
                     val transaction = fragmentManager.beginTransaction()
                     val fragment = JobListing()
-                    transaction.replace(binding.frametLayout.id, fragment)
+                    transaction.replace(binding.frameLayout.id, fragment)
                     transaction.addToBackStack(null)
                     transaction.commit()
                 }
                 R.id.explore -> {
                     val transaction = fragmentManager.beginTransaction()
-                    val fragment = JobListing()
-                    transaction.replace(binding.frametLayout.id, fragment)
+                    val fragment = AddJob()
+                    transaction.replace(binding.frameLayout.id, fragment)
                     transaction.addToBackStack(null)
                     transaction.commit()
                 }
                 R.id.interview -> {
                     val transaction = fragmentManager.beginTransaction()
-                    val fragment = JobListing()
-                    transaction.replace(binding.frametLayout.id, fragment)
+                    val fragment = JobDetail()
+                    transaction.replace(binding.frameLayout.id, fragment)
                     transaction.addToBackStack(null)
                     transaction.commit()
                 }
                 R.id.alumni -> {
                     val transaction = fragmentManager.beginTransaction()
                     val fragment = JobListing()
-                    transaction.replace(binding.frametLayout.id, fragment)
+                    transaction.replace(binding.frameLayout.id, fragment)
                     transaction.addToBackStack(null)
                     transaction.commit()
                 }
                 R.id.setting -> {
                     val transaction = fragmentManager.beginTransaction()
                     val fragment = Setting()
-                    transaction.replace(binding.frametLayout.id, fragment)
+                    transaction.replace(binding.frameLayout.id, fragment)
                     transaction.addToBackStack(null)
                     transaction.commit()
                 }
