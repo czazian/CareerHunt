@@ -11,4 +11,9 @@
     </style>
 
     <style name="Theme.CareerHunt" parent="Base.Theme.CareerHunt" />
+
+    <style name="BottomSheetAnimation" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
 </resources>

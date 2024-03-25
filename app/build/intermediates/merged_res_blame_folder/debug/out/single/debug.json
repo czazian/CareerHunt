@@ -16,12 +16,20 @@
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\drawable\\baseline_edit_document_24.xml"
     },
     {
+        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-50:\\anim_slide_out_bottom.xml.flat",
+        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\anim\\slide_out_bottom.xml"
+    },
+    {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-50:\\drawable_baseline_house_24.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\drawable\\baseline_house_24.xml"
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-50:\\drawable_baseline_tune_24.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\drawable\\baseline_tune_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-50:\\layout_filter.xml.flat",
+        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\layout\\filter.xml"
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-50:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
@@ -72,6 +80,10 @@
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\drawable\\logo.png"
     },
     {
+        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-50:\\drawable_bottom_sheet.xml.flat",
+        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\drawable\\bottom_sheet.xml"
+    },
+    {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-50:\\drawable_button_click.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\drawable\\button_click.xml"
     },
@@ -86,6 +98,10 @@
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-50:\\drawable_baseline_arrow_back_24.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\drawable\\baseline_arrow_back_24.xml"
+    },
+    {
+        "merged": "com.example.careerhunt.app-merged_res-50:/anim_slide_in_bottom.xml.flat",
+        "source": "com.example.careerhunt.app-main-52:/anim/slide_in_bottom.xml"
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-50:\\drawable_baseline_construction_24.xml.flat",
@@ -196,15 +212,19 @@
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\layout\\fragment_setting.xml"
     },
     {
+        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-50:\\layout_bottom_sheet.xml.flat",
+        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\layout\\bottom_sheet.xml"
+    },
+    {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-50:\\navigation_my_navigation.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\navigation\\my_navigation.xml"
     },
     {
-        "merged": "com.example.careerhunt.app-merged_res-50:/layout_fragment_add_job.xml.flat",
-        "source": "com.example.careerhunt.app-main-52:/layout/fragment_add_job.xml"
-    },
-    {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-50:\\drawable_profile.jpg.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\drawable\\profile.jpg"
+    },
+    {
+        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-50:\\anim_slide_in_bottom.xml.flat",
+        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\anim\\slide_in_bottom.xml"
     }
 ]

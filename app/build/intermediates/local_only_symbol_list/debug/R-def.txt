@@ -1,5 +1,7 @@
 R_DEF: Internal format may change without notice
 local
+anim slide_in_bottom
+anim slide_out_bottom
 color black
 color white
 drawable baseline_access_time_24
@@ -18,6 +20,7 @@ drawable baseline_people_alt_24
 drawable baseline_search_24
 drawable baseline_tune_24
 drawable border
+drawable bottom_sheet
 drawable button_click
 drawable circled
 drawable ic_launcher_background
@@ -25,6 +28,7 @@ drawable logo
 drawable profile
 drawable textbox
 drawable uniqlo
+id ApplyBtn
 id Container
 id action_jobListing_to_addJob
 id addJob
@@ -42,6 +46,8 @@ id btnNotification
 id btnSave
 id btnShowAllLatest
 id btnShowAllRecommended
+id category
+id categoryCont
 id clock
 id clockNew
 id comIcon
@@ -56,7 +62,9 @@ id detailMiddle
 id detailTop
 id expectedSalary
 id explore
+id filterCont
 id frameLayout
+id full
 id home
 id imageButton2
 id imageButton3
@@ -103,6 +111,8 @@ id locationIcon
 id locationIconNew
 id locationNew
 id lvlPostDateResult
+id max
+id min
 id my_navigation
 id newPostedContainer
 id notiDate
@@ -115,11 +125,14 @@ id notiTop
 id notificationCont
 id numOfNotification
 id overallContainer
+id part
 id profileImage
 id radioGroup
 id rbFull
 id rbPart
+id rdlGroup
 id recommendedContainer
+id salaryRange
 id scrollView2
 id scrollView3
 id searchBox
@@ -128,6 +141,10 @@ id setting
 id submitBtn
 id submitBtnCont
 id textView
+id textView3
+id textView4
+id textView6
+id textView7
 id textView8
 id top
 id topContainer
@@ -137,7 +154,9 @@ id txtLocation
 id txtRecommendedTitle
 id txtSalary
 id txtSearch
+id typeCont
 layout activity_main
+layout bottom_sheet
 layout fragment_add_job
 layout fragment_job_detail
 layout fragment_job_listing
@@ -152,6 +171,7 @@ navigation my_navigation
 string app_name
 string hello_blank_fragment
 style Base.Theme.CareerHunt
+style BottomSheetAnimation
 style Theme.CareerHunt
 style circleImageView
 xml backup_rules
