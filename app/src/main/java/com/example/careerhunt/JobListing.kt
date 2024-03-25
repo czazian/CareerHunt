@@ -42,6 +42,16 @@ class JobListing : Fragment() {
             transaction?.commit()
         }
 
+        val notiButton = view.findViewById<ImageButton>(R.id.btnNotification)
+        notiButton.setOnClickListener(){
+            val fragment = Notification()
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+
+            transaction?.replace(R.id.frameLayout, fragment)
+            transaction?.addToBackStack(null)
+            transaction?.commit()
+        }
+
         return view
     }
 

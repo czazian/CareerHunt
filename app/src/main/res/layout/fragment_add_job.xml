@@ -41,9 +41,10 @@
             app:tint="#FFFFFF" />
 
         <ScrollView
+            android:id="@+id/scrollView3"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/submitBtnCont"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,10 +58,6 @@
                 android:layout_gravity="center_horizontal"
                 android:backgroundTint="#FDFDFD"
                 android:foregroundTint="#00FFFFFF">
-
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
 
                 <TextView
                     android:id="@+id/jobLocation"
@@ -92,9 +89,12 @@
                 <Spinner
                     android:id="@+id/ddlCategory"
                     android:layout_width="200dp"
-                    android:layout_height="30dp"
+                    android:layout_height="50dp"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/border"
+                    android:padding="10dp"
                     app:layout_constraintBottom_toTopOf="@+id/radioGroup"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -118,7 +118,7 @@
                     android:id="@+id/jobSalary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Salary (RM) :"
+                    android:text="Salary(RM) :"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintBaseline_toBaselineOf="@+id/txtSalary"
@@ -129,31 +129,37 @@
 
                 <EditText
                     android:id="@+id/txtDescription"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:height="50dp"
+                    android:background="@drawable/border"
                     android:ems="10"
                     android:gravity="start|top"
                     android:inputType="textMultiLine"
+                    android:padding="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/jobDescription"
-                    app:layout_constraintTop_toBottomOf="@+id/txtSalary" />
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/jobDescription"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <TextView
                     android:id="@+id/jobDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="5dp"
                     android:text="Description :"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/txtDescription"
-                    app:layout_constraintEnd_toStartOf="@+id/txtDescription"
-                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintBottom_toTopOf="@+id/txtDescription"
                     app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/jobSalary" />
 
                 <androidx.constraintlayout.widget.Barrier
                     android:layout_width="wrap_content"
@@ -164,11 +170,14 @@
                 <EditText
                     android:id="@+id/txtJobTitle"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/border"
                     android:ems="10"
+                    android:hint="E.g. Accountant"
                     android:inputType="text"
+                    android:padding="10dp"
                     app:layout_constraintBottom_toTopOf="@+id/txtLocation"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -192,11 +201,14 @@
                 <EditText
                     android:id="@+id/txtLocation"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="30dp"
+                    android:background="@drawable/border"
                     android:ems="10"
+                    android:hint="E.g. Kuala Lumpur"
                     android:inputType="text"
+                    android:padding="10dp"
                     app:layout_constraintBottom_toTopOf="@+id/ddlCategory"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -219,30 +231,62 @@
                         android:id="@+id/rbPart"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/border"
+                        android:padding="10dp"
                         android:text="Part Time" />
 
                     <RadioButton
                         android:id="@+id/rbFull"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/border"
+                        android:padding="10dp"
                         android:text="Full Time" />
                 </RadioGroup>
 
                 <EditText
                     android:id="@+id/txtSalary"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/border"
                     android:ems="10"
+                    android:hint="E.g. 3000"
                     android:inputType="number"
-                    app:layout_constraintBottom_toTopOf="@+id/txtDescription"
+                    android:padding="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/jobSalary"
                     app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/submitBtnCont"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/submitBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:backgroundTint="#138EF0"
+                android:text="Submit"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

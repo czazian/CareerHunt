@@ -3026,6 +3026,7 @@ drawable baseline_construction_24
 drawable baseline_edit_document_24
 drawable baseline_house_24
 drawable baseline_location_pin_24
+drawable baseline_manage_accounts_24
 drawable baseline_notifications_none_24
 drawable baseline_people_alt_24
 drawable baseline_search_24
@@ -3253,6 +3254,7 @@ id btnAddJob
 id btnApply
 id btnBack
 id btnBack2
+id btnBack3
 id btnCancel
 id btnFilter
 id btnNotification
@@ -3398,6 +3400,8 @@ id ignoreRequest
 id image
 id imageButton2
 id imageButton3
+id imageView
+id imageView2
 id imgCompany
 id imgCompanyNew
 id immediateStop
@@ -3438,15 +3442,18 @@ id lblLatestTitle
 id lblMainTitle
 id lblResultNum
 id lblSalaryResult
+id lblTitleNoti
 id lblType
 id lblTypeNew
 id lblUserName
 id lblWelcome
+id lblpostDate
 id left
 id leftToRight
 id legacy
 id line
 id line1
+id line2
 id line3
 id lineNew
 id linear
@@ -3457,6 +3464,7 @@ id locationIcon
 id locationIconNew
 id locationNew
 id ltr
+id lvlPostDateResult
 id m3_side_sheet
 id marquee
 id masked
@@ -3536,9 +3544,18 @@ id noState
 id none
 id normal
 id north
+id notiDate
+id notiDate2
+id notiImg
+id notiImg2
+id notiMsg
+id notiMsg2
+id notiTop
+id notificationCont
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id numOfNotification
 id off
 id on
 id onAttachStateChangeListener
@@ -3606,6 +3623,7 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollView2
+id scrollView3
 id scrollable
 id searchBox
 id searchContainer
@@ -3661,6 +3679,8 @@ id staticPostLayout
 id stop
 id stretch
 id submenuarrow
+id submitBtn
+id submitBtnCont
 id submit_area
 id supportScrollUp
 id tabMode
@@ -3877,6 +3897,7 @@ layout design_text_input_start_icon
 layout fragment_add_job
 layout fragment_job_detail
 layout fragment_job_listing
+layout fragment_notification
 layout fragment_search_job
 layout fragment_setting
 layout ime_base_split_test_activity

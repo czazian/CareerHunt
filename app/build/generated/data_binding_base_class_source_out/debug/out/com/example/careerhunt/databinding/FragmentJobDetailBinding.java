@@ -75,6 +75,15 @@ public final class FragmentJobDetailBinding implements ViewBinding {
   public final TextView lblSalaryResult;
 
   @NonNull
+  public final TextView lblpostDate;
+
+  @NonNull
+  public final View line;
+
+  @NonNull
+  public final TextView lvlPostDateResult;
+
+  @NonNull
   public final ScrollView scrollView2;
 
   @NonNull
@@ -87,6 +96,7 @@ public final class FragmentJobDetailBinding implements ViewBinding {
       @NonNull ConstraintLayout detailMiddle, @NonNull ConstraintLayout detailTop,
       @NonNull TextView expectedSalary, @NonNull TextView jobCat, @NonNull TextView jobLoca,
       @NonNull TextView jobTi, @NonNull TextView jobTy, @NonNull TextView lblSalaryResult,
+      @NonNull TextView lblpostDate, @NonNull View line, @NonNull TextView lvlPostDateResult,
       @NonNull ScrollView scrollView2, @NonNull TextView textView) {
     this.rootView = rootView;
     this.btnApply = btnApply;
@@ -106,6 +116,9 @@ public final class FragmentJobDetailBinding implements ViewBinding {
     this.jobTi = jobTi;
     this.jobTy = jobTy;
     this.lblSalaryResult = lblSalaryResult;
+    this.lblpostDate = lblpostDate;
+    this.line = line;
+    this.lvlPostDateResult = lvlPostDateResult;
     this.scrollView2 = scrollView2;
     this.textView = textView;
   }
@@ -235,6 +248,24 @@ public final class FragmentJobDetailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.lblpostDate;
+      TextView lblpostDate = ViewBindings.findChildViewById(rootView, id);
+      if (lblpostDate == null) {
+        break missingId;
+      }
+
+      id = R.id.line;
+      View line = ViewBindings.findChildViewById(rootView, id);
+      if (line == null) {
+        break missingId;
+      }
+
+      id = R.id.lvlPostDateResult;
+      TextView lvlPostDateResult = ViewBindings.findChildViewById(rootView, id);
+      if (lvlPostDateResult == null) {
+        break missingId;
+      }
+
       id = R.id.scrollView2;
       ScrollView scrollView2 = ViewBindings.findChildViewById(rootView, id);
       if (scrollView2 == null) {
@@ -249,8 +280,8 @@ public final class FragmentJobDetailBinding implements ViewBinding {
 
       return new FragmentJobDetailBinding((ConstraintLayout) rootView, btnApply, btnBack, btnSave,
           comIcon, comName, descResult, descTitle, detailBottom, detailContainer, detailMiddle,
-          detailTop, expectedSalary, jobCat, jobLoca, jobTi, jobTy, lblSalaryResult, scrollView2,
-          textView);
+          detailTop, expectedSalary, jobCat, jobLoca, jobTi, jobTy, lblSalaryResult, lblpostDate,
+          line, lvlPostDateResult, scrollView2, textView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
