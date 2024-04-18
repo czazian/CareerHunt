@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.careerhunt.app-mergeDebugResources-49:/values-ne/values-ne.xml",
+            "outputFile": "com.example.careerhunt.app-mergeDebugResources-2:/values-ne/values-ne.xml",
             "map": [
                 {
                     "source": "C:\\Users\\leona\\.gradle\\caches\\transforms-3\\826b3ef135ec5a3cd2cd20c53e2b22ee\\transformed\\appcompat-1.6.1\\res\\values-ne\\values-ne.xml",

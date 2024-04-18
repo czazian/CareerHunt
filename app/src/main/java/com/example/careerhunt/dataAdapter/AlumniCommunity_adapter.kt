@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
+import com.example.careerhunt.AlumniCommunityDetail
 import com.example.careerhunt.R
 import com.example.careerhunt.data.AlumniCommunity
 import java.text.SimpleDateFormat
@@ -43,6 +46,17 @@ class AlumniCommunity_adapter(private val alumniCommunityList: List<AlumniCommun
         holder.tvTitle.text = currentItem.title
         holder.tvContent.text = currentItem.content
         holder.tvTime.text = currentItem.date.format(DateTimeFormatter.ISO_DATE)
+
+        holder.itemView.findViewById<View>(R.id.constraintLayout1).setOnClickListener {
+            // Handle post item click
+            val context = holder.itemView.context
+            val fragment = AlumniCommunityDetail.newInstance("1", "2")
+            (context as AppCompatActivity).supportFragmentManager.beginTransaction()
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .replace(R.id.frameLayout, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
 
     }
 }
