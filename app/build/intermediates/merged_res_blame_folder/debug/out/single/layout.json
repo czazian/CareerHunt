@@ -1,42 +1,50 @@
 [
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-49:\\layout\\fragment_setting.xml",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\layout\\fragment_setting.xml"
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-50:\\layout\\fragment_setting.xml",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-53:\\layout\\fragment_setting.xml"
     },
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-49:\\layout\\fragment_job_detail.xml",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\layout\\fragment_job_detail.xml"
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-50:\\layout\\fragment_add_job.xml",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-53:\\layout\\fragment_add_job.xml"
     },
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-49:\\layout\\fragment_search_job.xml",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\layout\\fragment_search_job.xml"
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-50:\\layout\\bottom_sheet.xml",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-53:\\layout\\bottom_sheet.xml"
     },
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-49:\\layout\\fragment_add_job.xml",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\layout\\fragment_add_job.xml"
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-50:\\layout\\fragment_job_listing.xml",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-53:\\layout\\fragment_job_listing.xml"
     },
     {
-        "merged": "com.example.careerhunt.app-mergeDebugResources-49:/layout/bottom_sheet.xml",
-        "source": "com.example.careerhunt.app-main-52:/layout/bottom_sheet.xml"
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-50:\\layout\\fragment_alumni.xml",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-53:\\layout\\fragment_alumni.xml"
     },
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-49:\\layout\\fragment_notification.xml",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\layout\\fragment_notification.xml"
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-50:\\layout\\fragment_notification.xml",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-53:\\layout\\fragment_notification.xml"
     },
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-49:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-50:\\layout\\fragment_job_detail.xml",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-53:\\layout\\fragment_job_detail.xml"
     },
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-49:\\layout\\bottom_sheet.xml",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\layout\\bottom_sheet.xml"
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-50:\\layout\\alumni_list_item.xml",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-53:\\layout\\alumni_list_item.xml"
     },
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-49:\\layout\\fragment_job_listing.xml",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\layout\\fragment_job_listing.xml"
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-50:\\layout\\fragment_search_job.xml",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-53:\\layout\\fragment_search_job.xml"
     },
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-49:\\layout\\filter.xml",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-52:\\layout\\filter.xml"
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-50:\\layout\\alumni_operation.xml",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-53:\\layout\\alumni_operation.xml"
+    },
+    {
+        "merged": "com.example.careerhunt.app-mergeDebugResources-50:/layout/alumni_list_item.xml",
+        "source": "com.example.careerhunt.app-main-53:/layout/alumni_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-50:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-53:\\layout\\activity_main.xml"
     }
 ]

@@ -309,6 +309,10 @@ attr circularflow_defaultAngle
 attr circularflow_defaultRadius
 attr circularflow_radiusInDP
 attr circularflow_viewCenter
+attr civ_border_color
+attr civ_border_overlay
+attr civ_border_width
+attr civ_circle_background_color
 attr clearTop
 attr clearsTag
 attr clickAction
@@ -3081,6 +3085,7 @@ drawable m3_tabs_background
 drawable m3_tabs_line_indicator
 drawable m3_tabs_rounded_line_indicator
 drawable m3_tabs_transparent_background
+drawable male
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
@@ -3228,6 +3233,7 @@ id aligned
 id all
 id allStates
 id alumni
+id alumni_recycle_view
 id always
 id androidx_window_activity_scope
 id animateToEnd
@@ -3260,9 +3266,12 @@ id btnBack
 id btnBack2
 id btnBack3
 id btnCancel
+id btnComment
 id btnFilter
+id btnLike
 id btnNotification
 id btnSave
+id btnShare
 id btnShowAllLatest
 id btnShowAllRecommended
 id buttonPanel
@@ -3297,6 +3306,7 @@ id comName
 id compress
 id confirm_button
 id constraint
+id constraintLayout
 id container
 id content
 id contentPanel
@@ -3412,6 +3422,7 @@ id imageView
 id imageView2
 id imgCompany
 id imgCompanyNew
+id imgViewProfile
 id immediateStop
 id included
 id indeterminate
@@ -3750,6 +3761,11 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvContent
+id tvSchool
+id tvTime
+id tvTitle
+id tvUsername
 id txtDescription
 id txtJobTitle
 id txtLocation
@@ -3763,6 +3779,7 @@ id unlabeled
 id up
 id useLogo
 id vertical_only
+id view
 id view_offset_helper
 id view_transition
 id view_tree_lifecycle_owner
@@ -3896,6 +3913,8 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
+layout alumni_list_item
+layout alumni_operation
 layout bottom_sheet
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -3914,6 +3933,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_add_job
+layout fragment_alumni
 layout fragment_job_detail
 layout fragment_job_listing
 layout fragment_notification
@@ -5313,6 +5333,7 @@ styleable Carousel carousel_alignment carousel_backwardTransition carousel_empty
 styleable CheckedTextView android_checkMark checkMarkCompat checkMarkTint checkMarkTintMode
 styleable Chip android_textAppearance android_textSize android_textColor android_ellipsize android_maxWidth android_text android_checkable checkedIcon checkedIconEnabled checkedIconTint checkedIconVisible chipBackgroundColor chipCornerRadius chipEndPadding chipIcon chipIconEnabled chipIconSize chipIconTint chipIconVisible chipMinHeight chipMinTouchTargetSize chipStartPadding chipStrokeColor chipStrokeWidth chipSurfaceColor closeIcon closeIconEnabled closeIconEndPadding closeIconSize closeIconStartPadding closeIconTint closeIconVisible ensureMinTouchTargetSize hideMotionSpec iconEndPadding iconStartPadding rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec textEndPadding textStartPadding
 styleable ChipGroup checkedChip chipSpacing chipSpacingHorizontal chipSpacingVertical selectionRequired singleLine singleSelection
+styleable CircleImageView civ_border_color civ_border_overlay civ_border_width civ_circle_background_color
 styleable CircularProgressIndicator indicatorDirectionCircular indicatorInset indicatorSize
 styleable ClockFaceView clockFaceBackgroundColor clockNumberTextColor
 styleable ClockHandView clockHandColor materialCircleRadius selectorSize

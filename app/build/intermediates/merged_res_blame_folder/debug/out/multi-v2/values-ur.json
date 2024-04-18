@@ -1,44 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.careerhunt.app-mergeDebugResources-48:/values-ur/values-ur.xml",
+            "outputFile": "com.example.careerhunt.app-mergeDebugResources-49:/values-ur/values-ur.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\koyas\\.gradle\\caches\\transforms-3\\9660a9cb54f7bbc4e28308efb4763ad7\\transformed\\core-1.12.0\\res\\values-ur\\values-ur.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,153,255,357,461,564,662,776",
-                        "endColumns": "97,101,101,103,102,97,113,100",
-                        "endOffsets": "148,250,352,456,559,657,771,872"
-                    },
-                    "to": {
-                        "startLines": "38,39,40,41,42,43,44,111",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "3457,3555,3657,3759,3863,3966,4064,9507",
-                        "endColumns": "97,101,101,103,102,97,113,100",
-                        "endOffsets": "3550,3652,3754,3858,3961,4059,4173,9603"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\koyas\\.gradle\\caches\\transforms-3\\7267a4a3daea2f370990b558ba71de49\\transformed\\navigation-ui-2.7.7\\res\\values-ur\\values-ur.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,167",
-                        "endColumns": "111,114",
-                        "endOffsets": "162,277"
-                    },
-                    "to": {
-                        "startLines": "107,108",
-                        "startColumns": "4,4",
-                        "startOffsets": "9114,9226",
-                        "endColumns": "111,114",
-                        "endOffsets": "9221,9336"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\koyas\\.gradle\\caches\\transforms-3\\3d94f2ddae9f2b16b5782a896b77f7e7\\transformed\\material-1.11.0\\res\\values-ur\\values-ur.xml",
+                    "source": "C:\\Users\\leona\\.gradle\\caches\\transforms-3\\3d94f2ddae9f2b16b5782a896b77f7e7\\transformed\\material-1.11.0\\res\\values-ur\\values-ur.xml",
                     "from": {
                         "startLines": "2,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -57,7 +23,41 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\koyas\\.gradle\\caches\\transforms-3\\826b3ef135ec5a3cd2cd20c53e2b22ee\\transformed\\appcompat-1.6.1\\res\\values-ur\\values-ur.xml",
+                    "source": "C:\\Users\\leona\\.gradle\\caches\\transforms-3\\7267a4a3daea2f370990b558ba71de49\\transformed\\navigation-ui-2.7.7\\res\\values-ur\\values-ur.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,167",
+                        "endColumns": "111,114",
+                        "endOffsets": "162,277"
+                    },
+                    "to": {
+                        "startLines": "107,108",
+                        "startColumns": "4,4",
+                        "startOffsets": "9114,9226",
+                        "endColumns": "111,114",
+                        "endOffsets": "9221,9336"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\leona\\.gradle\\caches\\transforms-3\\9660a9cb54f7bbc4e28308efb4763ad7\\transformed\\core-1.12.0\\res\\values-ur\\values-ur.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,153,255,357,461,564,662,776",
+                        "endColumns": "97,101,101,103,102,97,113,100",
+                        "endOffsets": "148,250,352,456,559,657,771,872"
+                    },
+                    "to": {
+                        "startLines": "38,39,40,41,42,43,44,111",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "3457,3555,3657,3759,3863,3966,4064,9507",
+                        "endColumns": "97,101,101,103,102,97,113,100",
+                        "endOffsets": "3550,3652,3754,3858,3961,4059,4173,9603"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\leona\\.gradle\\caches\\transforms-3\\826b3ef135ec5a3cd2cd20c53e2b22ee\\transformed\\appcompat-1.6.1\\res\\values-ur\\values-ur.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

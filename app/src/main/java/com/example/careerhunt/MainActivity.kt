@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.alumni -> {
                     val transaction = fragmentManager.beginTransaction()
-                    val fragment = JobListing()
+                    val fragment = Alumni()
                     transaction.replace(binding.frameLayout.id, fragment)
                     transaction.addToBackStack(null)
                     transaction.commit()
