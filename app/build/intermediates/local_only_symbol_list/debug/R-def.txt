@@ -57,7 +57,8 @@ id clock
 id clockNew
 id comIcon
 id comName
-id constraintLayout
+id constraintLayout1
+id constraintLayout2
 id container
 id ddlCategory
 id descResult
