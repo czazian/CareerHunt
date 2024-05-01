@@ -140,7 +140,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toTopOf="@+id/lblCompanyName"
-                    app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+                    app:layout_constraintEnd_toStartOf="@+id/bookmarkBtn"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/imgCompany"
                     app:layout_constraintTop_toTopOf="parent"
@@ -155,14 +155,14 @@
                     android:text="Uniqlo Malaysia"
                     android:textColor="#919191"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+                    app:layout_constraintEnd_toStartOf="@+id/bookmarkBtn"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintHorizontal_chainStyle="spread_inside"
                     app:layout_constraintStart_toEndOf="@+id/imgCompany"
                     app:layout_constraintTop_toBottomOf="@+id/lblJobTitle" />
 
                 <ImageButton
-                    android:id="@+id/imageButton2"
+                    android:id="@+id/bookmarkBtn"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_marginTop="5dp"
@@ -183,7 +183,7 @@
                     android:layout_marginTop="10dp"
                     android:text="We are seeking a highly skilled and motivated Software Engineer to join our dynamic team. The  ..."
                     android:textColor="#919191"
-                    app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+                    app:layout_constraintTop_toBottomOf="@+id/bookmarkBtn"
                     app:lineHeight="20dp"
                     tools:layout_editor_absoluteX="17dp" />
 
@@ -218,7 +218,7 @@
                     android:layout_marginStart="5dp"
                     android:text="Full Time"
                     android:textColor="#919191"
-                    app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/lblLocation"
                     app:layout_constraintStart_toEndOf="@+id/clock" />
 
                 <ImageView
@@ -227,16 +227,16 @@
                     android:layout_height="23dp"
                     android:layout_marginStart="10dp"
                     android:src="@drawable/baseline_location_pin_24"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView8"
-                    app:layout_constraintEnd_toStartOf="@+id/textView8"
+                    app:layout_constraintBottom_toBottomOf="@+id/lblLocation"
+                    app:layout_constraintEnd_toStartOf="@+id/lblLocation"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/lblType"
-                    app:layout_constraintTop_toTopOf="@+id/textView8"
+                    app:layout_constraintTop_toTopOf="@+id/lblLocation"
                     app:layout_constraintVertical_bias="0.666"
                     app:tint="#919191" />
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/lblLocation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"

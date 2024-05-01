@@ -23,6 +23,9 @@ public final class FragmentSearchJobBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ImageButton bookmarkBtn;
+
+  @NonNull
   public final ImageButton btnBack2;
 
   @NonNull
@@ -30,9 +33,6 @@ public final class FragmentSearchJobBinding implements ViewBinding {
 
   @NonNull
   public final ImageView clock;
-
-  @NonNull
-  public final ImageButton imageButton2;
 
   @NonNull
   public final ImageButton imageButton3;
@@ -56,6 +56,9 @@ public final class FragmentSearchJobBinding implements ViewBinding {
   public final TextView lblJobTitle;
 
   @NonNull
+  public final TextView lblLocation;
+
+  @NonNull
   public final TextView lblResultNum;
 
   @NonNull
@@ -74,25 +77,22 @@ public final class FragmentSearchJobBinding implements ViewBinding {
   public final ConstraintLayout searchContainer;
 
   @NonNull
-  public final TextView textView8;
-
-  @NonNull
   public final EditText txtSearch;
 
   private FragmentSearchJobBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ImageButton btnBack2, @NonNull ImageButton btnFilter, @NonNull ImageView clock,
-      @NonNull ImageButton imageButton2, @NonNull ImageButton imageButton3,
+      @NonNull ImageButton bookmarkBtn, @NonNull ImageButton btnBack2,
+      @NonNull ImageButton btnFilter, @NonNull ImageView clock, @NonNull ImageButton imageButton3,
       @NonNull ImageView imgCompany, @NonNull ConstraintLayout itemCont,
       @NonNull ConstraintLayout itemContainer, @NonNull TextView lblCompanyName,
-      @NonNull TextView lblDesc, @NonNull TextView lblJobTitle, @NonNull TextView lblResultNum,
-      @NonNull TextView lblType, @NonNull View line, @NonNull ImageView locationIcon,
-      @NonNull ConstraintLayout searchBox, @NonNull ConstraintLayout searchContainer,
-      @NonNull TextView textView8, @NonNull EditText txtSearch) {
+      @NonNull TextView lblDesc, @NonNull TextView lblJobTitle, @NonNull TextView lblLocation,
+      @NonNull TextView lblResultNum, @NonNull TextView lblType, @NonNull View line,
+      @NonNull ImageView locationIcon, @NonNull ConstraintLayout searchBox,
+      @NonNull ConstraintLayout searchContainer, @NonNull EditText txtSearch) {
     this.rootView = rootView;
+    this.bookmarkBtn = bookmarkBtn;
     this.btnBack2 = btnBack2;
     this.btnFilter = btnFilter;
     this.clock = clock;
-    this.imageButton2 = imageButton2;
     this.imageButton3 = imageButton3;
     this.imgCompany = imgCompany;
     this.itemCont = itemCont;
@@ -100,13 +100,13 @@ public final class FragmentSearchJobBinding implements ViewBinding {
     this.lblCompanyName = lblCompanyName;
     this.lblDesc = lblDesc;
     this.lblJobTitle = lblJobTitle;
+    this.lblLocation = lblLocation;
     this.lblResultNum = lblResultNum;
     this.lblType = lblType;
     this.line = line;
     this.locationIcon = locationIcon;
     this.searchBox = searchBox;
     this.searchContainer = searchContainer;
-    this.textView8 = textView8;
     this.txtSearch = txtSearch;
   }
 
@@ -137,6 +137,12 @@ public final class FragmentSearchJobBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.bookmarkBtn;
+      ImageButton bookmarkBtn = ViewBindings.findChildViewById(rootView, id);
+      if (bookmarkBtn == null) {
+        break missingId;
+      }
+
       id = R.id.btnBack2;
       ImageButton btnBack2 = ViewBindings.findChildViewById(rootView, id);
       if (btnBack2 == null) {
@@ -152,12 +158,6 @@ public final class FragmentSearchJobBinding implements ViewBinding {
       id = R.id.clock;
       ImageView clock = ViewBindings.findChildViewById(rootView, id);
       if (clock == null) {
-        break missingId;
-      }
-
-      id = R.id.imageButton2;
-      ImageButton imageButton2 = ViewBindings.findChildViewById(rootView, id);
-      if (imageButton2 == null) {
         break missingId;
       }
 
@@ -203,6 +203,12 @@ public final class FragmentSearchJobBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.lblLocation;
+      TextView lblLocation = ViewBindings.findChildViewById(rootView, id);
+      if (lblLocation == null) {
+        break missingId;
+      }
+
       id = R.id.lblResultNum;
       TextView lblResultNum = ViewBindings.findChildViewById(rootView, id);
       if (lblResultNum == null) {
@@ -235,22 +241,16 @@ public final class FragmentSearchJobBinding implements ViewBinding {
 
       ConstraintLayout searchContainer = (ConstraintLayout) rootView;
 
-      id = R.id.textView8;
-      TextView textView8 = ViewBindings.findChildViewById(rootView, id);
-      if (textView8 == null) {
-        break missingId;
-      }
-
       id = R.id.txtSearch;
       EditText txtSearch = ViewBindings.findChildViewById(rootView, id);
       if (txtSearch == null) {
         break missingId;
       }
 
-      return new FragmentSearchJobBinding((ConstraintLayout) rootView, btnBack2, btnFilter, clock,
-          imageButton2, imageButton3, imgCompany, itemCont, itemContainer, lblCompanyName, lblDesc,
-          lblJobTitle, lblResultNum, lblType, line, locationIcon, searchBox, searchContainer,
-          textView8, txtSearch);
+      return new FragmentSearchJobBinding((ConstraintLayout) rootView, bookmarkBtn, btnBack2,
+          btnFilter, clock, imageButton3, imgCompany, itemCont, itemContainer, lblCompanyName,
+          lblDesc, lblJobTitle, lblLocation, lblResultNum, lblType, line, locationIcon, searchBox,
+          searchContainer, txtSearch);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

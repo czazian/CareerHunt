@@ -1,5 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\CareerHunt\app\src\main\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\CareerHunt\app\src\main\res"><file name="slide_in_bottom" path="C:\CareerHunt\app\src\main\res\anim\slide_in_bottom.xml" qualifiers="" type="anim"/><file name="slide_out_bottom" path="C:\CareerHunt\app\src\main\res\anim\slide_out_bottom.xml" qualifiers="" type="anim"/><file name="baseline_access_time_24" path="C:\CareerHunt\app\src\main\res\drawable\baseline_access_time_24.xml" qualifiers="" type="drawable"/><file name="baseline_add_box_24" path="C:\CareerHunt\app\src\main\res\drawable\baseline_add_box_24.xml" qualifiers="" type="drawable"/><file name="baseline_arrow_back_24" path="C:\CareerHunt\app\src\main\res\drawable\baseline_arrow_back_24.xml" qualifiers="" type="drawable"/><file name="baseline_bookmark_24" path="C:\CareerHunt\app\src\main\res\drawable\baseline_bookmark_24.xml" qualifiers="" type="drawable"/><file name="baseline_bookmark_border_24" path="C:\CareerHunt\app\src\main\res\drawable\baseline_bookmark_border_24.xml" qualifiers="" type="drawable"/><file name="baseline_business_center_24" path="C:\CareerHunt\app\src\main\res\drawable\baseline_business_center_24.xml" qualifiers="" type="drawable"/><file name="baseline_construction_24" path="C:\CareerHunt\app\src\main\res\drawable\baseline_construction_24.xml" qualifiers="" type="drawable"/><file name="baseline_edit_document_24" path="C:\CareerHunt\app\src\main\res\drawable\baseline_edit_document_24.xml" qualifiers="" type="drawable"/><file name="baseline_house_24" path="C:\CareerHunt\app\src\main\res\drawable\baseline_house_24.xml" qualifiers="" type="drawable"/><file name="baseline_location_pin_24" path="C:\CareerHunt\app\src\main\res\drawable\baseline_location_pin_24.xml" qualifiers="" type="drawable"/><file name="baseline_manage_accounts_24" path="C:\CareerHunt\app\src\main\res\drawable\baseline_manage_accounts_24.xml" qualifiers="" type="drawable"/><file name="baseline_notifications_none_24" path="C:\CareerHunt\app\src\main\res\drawable\baseline_notifications_none_24.xml" qualifiers="" type="drawable"/><file name="baseline_people_alt_24" path="C:\CareerHunt\app\src\main\res\drawable\baseline_people_alt_24.xml" qualifiers="" type="drawable"/><file name="baseline_search_24" path="C:\CareerHunt\app\src\main\res\drawable\baseline_search_24.xml" qualifiers="" type="drawable"/><file name="baseline_tune_24" path="C:\CareerHunt\app\src\main\res\drawable\baseline_tune_24.xml" qualifiers="" type="drawable"/><file name="border" path="C:\CareerHunt\app\src\main\res\drawable\border.xml" qualifiers="" type="drawable"/><file name="bottom_sheet" path="C:\CareerHunt\app\src\main\res\drawable\bottom_sheet.xml" qualifiers="" type="drawable"/><file name="button_click" path="C:\CareerHunt\app\src\main\res\drawable\button_click.xml" qualifiers="" type="drawable"/><file name="circled" path="C:\CareerHunt\app\src\main\res\drawable\circled.xml" qualifiers="" type="drawable"/><file name="ic_launcher_background" path="C:\CareerHunt\app\src\main\res\drawable\ic_launcher_background.xml" qualifiers="" type="drawable"/><file name="logo" path="C:\CareerHunt\app\src\main\res\drawable\logo.png" qualifiers="" type="drawable"/><file name="male" path="C:\CareerHunt\app\src\main\res\drawable\male.png" qualifiers="" type="drawable"/><file name="profile" path="C:\CareerHunt\app\src\main\res\drawable\profile.jpg" qualifiers="" type="drawable"/><file name="textbox" path="C:\CareerHunt\app\src\main\res\drawable\textbox.xml" qualifiers="" type="drawable"/><file name="uniqlo" path="C:\CareerHunt\app\src\main\res\drawable\uniqlo.png" qualifiers="" type="drawable"/><file name="activity_main" path="C:\CareerHunt\app\src\main\res\layout\activity_main.xml" qualifiers="" type="layout"/><file name="alumni_list_item" path="C:\CareerHunt\app\src\main\res\layout\alumni_list_item.xml" qualifiers="" type="layout"/><file name="alumni_operation" path="C:\CareerHunt\app\src\main\res\layout\alumni_operation.xml" qualifiers="" type="layout"/><file name="bottom_sheet" path="C:\CareerHunt\app\src\main\res\layout\bottom_sheet.xml" qualifiers="" type="layout"/><file name="fragment_add_job" path="C:\CareerHunt\app\src\main\res\layout\fragment_add_job.xml" qualifiers="" type="layout"/><file name="fragment_alumni" path="C:\CareerHunt\app\src\main\res\layout\fragment_alumni.xml" qualifiers="" type="layout"/><file name="fragment_alumni_community_detail" path="C:\CareerHunt\app\src\main\res\layout\fragment_alumni_community_detail.xml" qualifiers="" type="layout"/><file name="fragment_job_detail" path="C:\CareerHunt\app\src\main\res\layout\fragment_job_detail.xml" qualifiers="" type="layout"/><file name="fragment_job_listing" path="C:\CareerHunt\app\src\main\res\layout\fragment_job_listing.xml" qualifiers="" type="layout"/><file name="fragment_notification" path="C:\CareerHunt\app\src\main\res\layout\fragment_notification.xml" qualifiers="" type="layout"/><file name="fragment_search_job" path="C:\CareerHunt\app\src\main\res\layout\fragment_search_job.xml" qualifiers="" type="layout"/><file name="fragment_setting" path="C:\CareerHunt\app\src\main\res\layout\fragment_setting.xml" qualifiers="" type="layout"/><file name="bottom_navigation" path="C:\CareerHunt\app\src\main\res\menu\bottom_navigation.xml" qualifiers="" type="menu"/><file name="ic_launcher" path="C:\CareerHunt\app\src\main\res\mipmap-anydpi-v26\ic_launcher.xml" qualifiers="anydpi-v26" type="mipmap"/><file name="ic_launcher_round" path="C:\CareerHunt\app\src\main\res\mipmap-anydpi-v26\ic_launcher_round.xml" qualifiers="anydpi-v26" type="mipmap"/><file name="ic_launcher" path="C:\CareerHunt\app\src\main\res\mipmap-hdpi\ic_launcher.webp" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher_foreground" path="C:\CareerHunt\app\src\main\res\mipmap-hdpi\ic_launcher_foreground.webp" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\CareerHunt\app\src\main\res\mipmap-hdpi\ic_launcher_round.webp" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\CareerHunt\app\src\main\res\mipmap-mdpi\ic_launcher.webp" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher_foreground" path="C:\CareerHunt\app\src\main\res\mipmap-mdpi\ic_launcher_foreground.webp" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\CareerHunt\app\src\main\res\mipmap-mdpi\ic_launcher_round.webp" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\CareerHunt\app\src\main\res\mipmap-xhdpi\ic_launcher.webp" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher_foreground" path="C:\CareerHunt\app\src\main\res\mipmap-xhdpi\ic_launcher_foreground.webp" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\CareerHunt\app\src\main\res\mipmap-xhdpi\ic_launcher_round.webp" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\CareerHunt\app\src\main\res\mipmap-xxhdpi\ic_launcher.webp" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher_foreground" path="C:\CareerHunt\app\src\main\res\mipmap-xxhdpi\ic_launcher_foreground.webp" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\CareerHunt\app\src\main\res\mipmap-xxhdpi\ic_launcher_round.webp" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\CareerHunt\app\src\main\res\mipmap-xxxhdpi\ic_launcher.webp" qualifiers="xxxhdpi-v4" type="mipmap"/><file name="ic_launcher_foreground" path="C:\CareerHunt\app\src\main\res\mipmap-xxxhdpi\ic_launcher_foreground.webp" qualifiers="xxxhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\CareerHunt\app\src\main\res\mipmap-xxxhdpi\ic_launcher_round.webp" qualifiers="xxxhdpi-v4" type="mipmap"/><file name="my_navigation" path="C:\CareerHunt\app\src\main\res\navigation\my_navigation.xml" qualifiers="" type="navigation"/><file path="C:\CareerHunt\app\src\main\res\values\colors.xml" qualifiers=""><color name="black">#FF000000</color><color name="white">#FFFFFFFF</color></file><file path="C:\CareerHunt\app\src\main\res\values\strings.xml" qualifiers=""><string name="app_name">CareerHunt</string><string name="hello_blank_fragment">Hello blank fragment</string></file><file path="C:\CareerHunt\app\src\main\res\values\themes.xml" qualifiers=""><style name="Base.Theme.CareerHunt" parent="Theme.Material3.DayNight.NoActionBar">
+<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res"><file name="slide_in_bottom" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\anim\slide_in_bottom.xml" qualifiers="" type="anim"/><file name="slide_out_bottom" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\anim\slide_out_bottom.xml" qualifiers="" type="anim"/><file name="arrow_down" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\arrow_down.png" qualifiers="" type="drawable"/><file name="baseline_access_time_24" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\baseline_access_time_24.xml" qualifiers="" type="drawable"/><file name="baseline_add_box_24" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\baseline_add_box_24.xml" qualifiers="" type="drawable"/><file name="baseline_arrow_back_24" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\baseline_arrow_back_24.xml" qualifiers="" type="drawable"/><file name="baseline_bookmark_24" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\baseline_bookmark_24.xml" qualifiers="" type="drawable"/><file name="baseline_bookmark_border_24" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\baseline_bookmark_border_24.xml" qualifiers="" type="drawable"/><file name="baseline_business_center_24" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\baseline_business_center_24.xml" qualifiers="" type="drawable"/><file name="baseline_construction_24" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\baseline_construction_24.xml" qualifiers="" type="drawable"/><file name="baseline_edit_document_24" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\baseline_edit_document_24.xml" qualifiers="" type="drawable"/><file name="baseline_house_24" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\baseline_house_24.xml" qualifiers="" type="drawable"/><file name="baseline_location_pin_24" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\baseline_location_pin_24.xml" qualifiers="" type="drawable"/><file name="baseline_manage_accounts_24" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\baseline_manage_accounts_24.xml" qualifiers="" type="drawable"/><file name="baseline_notifications_none_24" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\baseline_notifications_none_24.xml" qualifiers="" type="drawable"/><file name="baseline_people_alt_24" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\baseline_people_alt_24.xml" qualifiers="" type="drawable"/><file name="baseline_search_24" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\baseline_search_24.xml" qualifiers="" type="drawable"/><file name="baseline_tune_24" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\baseline_tune_24.xml" qualifiers="" type="drawable"/><file name="border" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\border.xml" qualifiers="" type="drawable"/><file name="bottom_sheet" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\bottom_sheet.xml" qualifiers="" type="drawable"/><file name="button_click" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\button_click.xml" qualifiers="" type="drawable"/><file name="button_ripple_effect" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\button_ripple_effect.xml" qualifiers="" type="drawable"/><file name="circled" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\circled.xml" qualifiers="" type="drawable"/><file name="ic_launcher_background" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\ic_launcher_background.xml" qualifiers="" type="drawable"/><file name="inputborder" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\inputborder.xml" qualifiers="" type="drawable"/><file name="logo" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\logo.png" qualifiers="" type="drawable"/><file name="male" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\male.png" qualifiers="" type="drawable"/><file name="profile" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\profile.jpg" qualifiers="" type="drawable"/><file name="textbox" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\textbox.xml" qualifiers="" type="drawable"/><file name="uniqlo" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\drawable\uniqlo.png" qualifiers="" type="drawable"/><file name="activity_main" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\layout\activity_main.xml" qualifiers="" type="layout"/><file name="alumni_comment_list" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\layout\alumni_comment_list.xml" qualifiers="" type="layout"/><file name="alumni_list_item" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\layout\alumni_list_item.xml" qualifiers="" type="layout"/><file name="alumni_operation" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\layout\alumni_operation.xml" qualifiers="" type="layout"/><file name="bottom_sheet" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\layout\bottom_sheet.xml" qualifiers="" type="layout"/><file name="fragment_add_job" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\layout\fragment_add_job.xml" qualifiers="" type="layout"/><file name="fragment_alumni" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\layout\fragment_alumni.xml" qualifiers="" type="layout"/><file name="fragment_alumni_community_detail" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\layout\fragment_alumni_community_detail.xml" qualifiers="" type="layout"/><file name="fragment_job_detail" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\layout\fragment_job_detail.xml" qualifiers="" type="layout"/><file name="fragment_job_listing" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\layout\fragment_job_listing.xml" qualifiers="" type="layout"/><file name="fragment_notification" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\layout\fragment_notification.xml" qualifiers="" type="layout"/><file name="fragment_search_job" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\layout\fragment_search_job.xml" qualifiers="" type="layout"/><file name="fragment_setting" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\layout\fragment_setting.xml" qualifiers="" type="layout"/><file name="job_viewholder" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\layout\job_viewholder.xml" qualifiers="" type="layout"/><file name="bottom_navigation" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\menu\bottom_navigation.xml" qualifiers="" type="menu"/><file name="ic_launcher" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\mipmap-anydpi-v26\ic_launcher.xml" qualifiers="anydpi-v26" type="mipmap"/><file name="ic_launcher_round" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\mipmap-anydpi-v26\ic_launcher_round.xml" qualifiers="anydpi-v26" type="mipmap"/><file name="ic_launcher" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\mipmap-hdpi\ic_launcher.webp" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher_foreground" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\mipmap-hdpi\ic_launcher_foreground.webp" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\mipmap-hdpi\ic_launcher_round.webp" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\mipmap-mdpi\ic_launcher.webp" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher_foreground" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\mipmap-mdpi\ic_launcher_foreground.webp" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\mipmap-mdpi\ic_launcher_round.webp" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\mipmap-xhdpi\ic_launcher.webp" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher_foreground" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\mipmap-xhdpi\ic_launcher_foreground.webp" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\mipmap-xhdpi\ic_launcher_round.webp" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\mipmap-xxhdpi\ic_launcher.webp" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher_foreground" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\mipmap-xxhdpi\ic_launcher_foreground.webp" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\mipmap-xxhdpi\ic_launcher_round.webp" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\mipmap-xxxhdpi\ic_launcher.webp" qualifiers="xxxhdpi-v4" type="mipmap"/><file name="ic_launcher_foreground" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\mipmap-xxxhdpi\ic_launcher_foreground.webp" qualifiers="xxxhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\mipmap-xxxhdpi\ic_launcher_round.webp" qualifiers="xxxhdpi-v4" type="mipmap"/><file name="my_navigation" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\navigation\my_navigation.xml" qualifiers="" type="navigation"/><file path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\values\colors.xml" qualifiers=""><color name="black">#FF000000</color><color name="white">#FFFFFFFF</color><color name="lightGrey">#f7f7f7</color></file><file path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\values\strings.xml" qualifiers=""><string name="app_name">CareerHunt</string><string name="hello_blank_fragment">Hello blank fragment</string><string-array name="state">
+        <item>Kuala Lumpur</item>
+        <item>Johor</item>
+        <item>Kedah</item>
+        <item>Kelantan</item>
+        <item>Malacca</item>
+        <item>Negeri Sembilan</item>
+        <item>Pahang</item>
+        <item>Penang</item>
+        <item>Perak</item>
+        <item>Perlis</item>
+        <item>Sabah</item>
+        <item>Sarawak</item>
+        <item>Selangor</item>
+        <item>Terengganu</item>
+    </string-array><string-array name="johor_city">
+        <item>Batu Pahat</item>
+        <item>Jahor Bahru</item>
+        <item>Kluang</item>
+        <item>Kota Tinggi</item>
+        <item>Kulai</item>
+        <item>Mersing</item>
+        <item>Muar</item>
+        <item>Pontian Kechil</item>
+        <item>Segamat</item>
+        <item>Tangkak</item>
+    </string-array><string-array name="kedah_city">
+        <item>Baling</item>
+        <item>Serdang</item>
+        <item>Alor Setar</item>
+        <item>Sungai Petani</item>
+        <item>Jitra</item>
+        <item>Kulim</item>
+        <item>Kuah</item>
+        <item>Kuala Nerang</item>
+        <item>Pendang</item>
+        <item>Pokok Sena</item>
+        <item>Sik</item>
+        <item>Yan Besar</item>
+    </string-array><string-array name="kelantan_city">
+        <item>Bachok</item>
+        <item>Gua Musang</item>
+        <item>Jeli</item>
+        <item>Kota Bharu</item>
+        <item>Kuala Krai</item>
+        <item>Machang</item>
+        <item>Pasir Mas</item>
+        <item>Pasir Puteh</item>
+        <item>Tanah Merah</item>
+        <item>Tumpat</item>
+    </string-array><string-array name="malacca_city">
+        <item>Alor Gajah</item>
+        <item>Jasin</item>
+        <item>Malacca City</item>
+    </string-array><string-array name="nSembilan_city">
+        <item>Kuala Klawang</item>
+        <item>Bandar Seri Jempol</item>
+        <item>Kuala Pilah</item>
+        <item>Port Dickson</item>
+        <item>Rembau</item>
+        <item>Seremban</item>
+        <item>Tampin</item>
+    </string-array><string-array name="pahang_city">
+        <item>Bentong</item>
+        <item>Bandar Bera</item>
+        <item>Tanah Rata</item>
+        <item>Jerantut</item>
+        <item>Kuantan</item>
+        <item>Kuala Lipis</item>
+        <item>Maran</item>
+        <item>Pekan</item>
+        <item>Raub</item>
+        <item>Kuala Rompin</item>
+        <item>Temerloh</item>
+    </string-array><string-array name="penang_city">
+        <item>Bukit Mertajam</item>
+        <item>Kepala Batas</item>
+        <item>George Town</item>
+        <item>Sungai Jawi</item>
+        <item>Balik Pulau</item>
+    </string-array><string-array name="perak_city">
+        <item>Bagan Datuk</item>
+        <item>Tapah</item>
+        <item>Teluk Intan</item>
+        <item>Gerik</item>
+        <item>Kampar</item>
+        <item>Parit Buntar</item>
+        <item>Batu Gajah</item>
+        <item>Kuala Kangsar</item>
+        <item>Taiping</item>
+        <item>Seri Manjung</item>
+        <item>Tanjung Malim</item>
+        <item>Seri Iskandar</item>
+    </string-array><string-array name="perlis_city">
+        <item>Kangar</item>
+    </string-array><string-array name="sabah_city">
+        <item>Interior</item>
+        <item>Kudat</item>
+        <item>Sandakan</item>
+        <item>Tawau</item>
+        <item>West Coast</item>
+    </string-array><string-array name="sarawak_city">
+        <item>Betong</item>
+        <item>Bintulu</item>
+        <item>Kapit</item>
+        <item>Kuching</item>
+        <item>Limbang</item>
+        <item>Miri</item>
+        <item>Mukah</item>
+        <item>Samarahan</item>
+        <item>Sarikei</item>
+        <item>Serian</item>
+        <item>Sibu</item>
+        <item>Sri Aman</item>
+    </string-array><string-array name="selangor_city">
+        <item>Bandar Baru Selayang</item>
+        <item>Bandar Baru Bangi</item>
+        <item>Kuala Kubu Bharu</item>
+        <item>Klang</item>
+        <item>Teluk Datok</item>
+        <item>Kuala Selangor</item>
+        <item>Subang</item>
+        <item>Sabak</item>
+        <item>Salak Tinggi</item>
+    </string-array><string-array name="terengganu_city">
+        <item>Kampung Raja</item>
+        <item>Kuala Dungun</item>
+        <item>Kuala Berang</item>
+        <item>Chukai</item>
+        <item>Kuala Nerus</item>
+        <item>Kuala Terengganu</item>
+        <item>Marang</item>
+        <item>Bandar Permaisuri</item>
+    </string-array><string-array name="kualaLumpur_city">
+        <item>Kepong</item>
+        <item>Batu</item>
+        <item>Wangsa Maju</item>
+        <item>Segambut</item>
+        <item>Setiawangsa</item>
+        <item>Titiwangsa</item>
+        <item>Bukit Bintang</item>
+        <item>Seputeh</item>
+        <item>Cheras</item>
+        <item>Bandar Tun Razak</item>
+        <item>Lembah Pantai</item>
+    </string-array><string-array name="jobCategory">
+        <item>Accounting</item>
+        <item>Administrative</item>
+        <item>Office Support</item>
+        <item>Art and Design</item>
+        <item>Banking and Finance</item>
+        <item>Customer Service</item>
+        <item>Construction</item>
+        <item>Consulting</item>
+        <item>Education</item>
+        <item>Engineering</item>
+        <item>Farming and Animal</item>
+        <item>Healthcare</item>
+        <item>Human Resource</item>
+        <item>IT and Computing</item>
+        <item>Manufacturing</item>
+        <item>Marketing</item>
+        <item>Science</item>
+        <item>Retail</item>
+        <item>Sales</item>
+        <item>Insurance</item>
+        <item>Hospitality</item>
+    </string-array></file><file path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\values\themes.xml" qualifiers=""><style name="Base.Theme.CareerHunt" parent="Theme.Material3.DayNight.NoActionBar">
         
         
     </style><style name="circleImageView" parent="">
@@ -8,7 +175,7 @@
     </style><style name="Theme.CareerHunt" parent="Base.Theme.CareerHunt"/><style name="BottomSheetAnimation" parent="@android:style/Animation.Dialog">
         <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
         <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
-    </style></file><file path="C:\CareerHunt\app\src\main\res\values-night\themes.xml" qualifiers="night-v8"><style name="Base.Theme.CareerHunt" parent="Theme.Material3.DayNight.NoActionBar">
+    </style></file><file path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\values-night\themes.xml" qualifiers="night-v8"><style name="Base.Theme.CareerHunt" parent="Theme.Material3.DayNight.NoActionBar">
         
         
-    </style></file><file name="backup_rules" path="C:\CareerHunt\app\src\main\res\xml\backup_rules.xml" qualifiers="" type="xml"/><file name="data_extraction_rules" path="C:\CareerHunt\app\src\main\res\xml\data_extraction_rules.xml" qualifiers="" type="xml"/><file name="alumni_comment_list" path="C:\CareerHunt\app\src\main\res\layout\alumni_comment_list.xml" qualifiers="" type="layout"/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\CareerHunt\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\CareerHunt\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\CareerHunt\app\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\CareerHunt\app\build\generated\res\resValues\debug"/></dataSet><mergedItems/></merger>
+    </style></file><file name="backup_rules" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\xml\backup_rules.xml" qualifiers="" type="xml"/><file name="data_extraction_rules" path="C:\GitHub\CareerHunt\CareerHunt\app\src\main\res\xml\data_extraction_rules.xml" qualifiers="" type="xml"/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\GitHub\CareerHunt\CareerHunt\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\GitHub\CareerHunt\CareerHunt\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\GitHub\CareerHunt\CareerHunt\app\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\GitHub\CareerHunt\CareerHunt\app\build\generated\res\resValues\debug"/></dataSet><mergedItems/></merger>

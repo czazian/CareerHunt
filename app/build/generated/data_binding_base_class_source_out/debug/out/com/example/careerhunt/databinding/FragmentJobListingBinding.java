@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.careerhunt.R;
@@ -22,9 +22,6 @@ import java.lang.String;
 public final class FragmentJobListingBinding implements ViewBinding {
   @NonNull
   private final ConstraintLayout rootView;
-
-  @NonNull
-  public final ImageButton bookMarkNew;
 
   @NonNull
   public final ImageButton btnAddJob;
@@ -39,55 +36,10 @@ public final class FragmentJobListingBinding implements ViewBinding {
   public final Button btnShowAllRecommended;
 
   @NonNull
-  public final ImageView clock;
-
-  @NonNull
-  public final ImageView clockNew;
-
-  @NonNull
   public final ConstraintLayout container;
 
   @NonNull
-  public final ImageButton imageButton2;
-
-  @NonNull
-  public final ImageView imgCompany;
-
-  @NonNull
-  public final ImageView imgCompanyNew;
-
-  @NonNull
-  public final ConstraintLayout itemContainer;
-
-  @NonNull
-  public final ConstraintLayout itemContainer2;
-
-  @NonNull
-  public final TextView lblCompanyName;
-
-  @NonNull
-  public final TextView lblCompanyNameNew;
-
-  @NonNull
-  public final TextView lblDesc;
-
-  @NonNull
-  public final TextView lblDescNew;
-
-  @NonNull
-  public final TextView lblJobTitle;
-
-  @NonNull
-  public final TextView lblJobTitleNew;
-
-  @NonNull
   public final TextView lblLatestTitle;
-
-  @NonNull
-  public final TextView lblType;
-
-  @NonNull
-  public final TextView lblTypeNew;
 
   @NonNull
   public final TextView lblUserName;
@@ -96,19 +48,7 @@ public final class FragmentJobListingBinding implements ViewBinding {
   public final TextView lblWelcome;
 
   @NonNull
-  public final View line;
-
-  @NonNull
-  public final View lineNew;
-
-  @NonNull
-  public final ImageView locationIcon;
-
-  @NonNull
-  public final ImageView locationIconNew;
-
-  @NonNull
-  public final TextView locationNew;
+  public final RecyclerView newJobRecyclerView;
 
   @NonNull
   public final ConstraintLayout newPostedContainer;
@@ -123,7 +63,7 @@ public final class FragmentJobListingBinding implements ViewBinding {
   public final ConstraintLayout recommendedContainer;
 
   @NonNull
-  public final TextView textView8;
+  public final RecyclerView recommendedJobRecyclerView;
 
   @NonNull
   public final ConstraintLayout topContainer;
@@ -132,57 +72,30 @@ public final class FragmentJobListingBinding implements ViewBinding {
   public final TextView txtRecommendedTitle;
 
   private FragmentJobListingBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ImageButton bookMarkNew, @NonNull ImageButton btnAddJob,
-      @NonNull ImageButton btnNotification, @NonNull Button btnShowAllLatest,
-      @NonNull Button btnShowAllRecommended, @NonNull ImageView clock, @NonNull ImageView clockNew,
-      @NonNull ConstraintLayout container, @NonNull ImageButton imageButton2,
-      @NonNull ImageView imgCompany, @NonNull ImageView imgCompanyNew,
-      @NonNull ConstraintLayout itemContainer, @NonNull ConstraintLayout itemContainer2,
-      @NonNull TextView lblCompanyName, @NonNull TextView lblCompanyNameNew,
-      @NonNull TextView lblDesc, @NonNull TextView lblDescNew, @NonNull TextView lblJobTitle,
-      @NonNull TextView lblJobTitleNew, @NonNull TextView lblLatestTitle, @NonNull TextView lblType,
-      @NonNull TextView lblTypeNew, @NonNull TextView lblUserName, @NonNull TextView lblWelcome,
-      @NonNull View line, @NonNull View lineNew, @NonNull ImageView locationIcon,
-      @NonNull ImageView locationIconNew, @NonNull TextView locationNew,
-      @NonNull ConstraintLayout newPostedContainer, @NonNull ConstraintLayout overallContainer,
-      @NonNull ShapeableImageView profileImage, @NonNull ConstraintLayout recommendedContainer,
-      @NonNull TextView textView8, @NonNull ConstraintLayout topContainer,
+      @NonNull ImageButton btnAddJob, @NonNull ImageButton btnNotification,
+      @NonNull Button btnShowAllLatest, @NonNull Button btnShowAllRecommended,
+      @NonNull ConstraintLayout container, @NonNull TextView lblLatestTitle,
+      @NonNull TextView lblUserName, @NonNull TextView lblWelcome,
+      @NonNull RecyclerView newJobRecyclerView, @NonNull ConstraintLayout newPostedContainer,
+      @NonNull ConstraintLayout overallContainer, @NonNull ShapeableImageView profileImage,
+      @NonNull ConstraintLayout recommendedContainer,
+      @NonNull RecyclerView recommendedJobRecyclerView, @NonNull ConstraintLayout topContainer,
       @NonNull TextView txtRecommendedTitle) {
     this.rootView = rootView;
-    this.bookMarkNew = bookMarkNew;
     this.btnAddJob = btnAddJob;
     this.btnNotification = btnNotification;
     this.btnShowAllLatest = btnShowAllLatest;
     this.btnShowAllRecommended = btnShowAllRecommended;
-    this.clock = clock;
-    this.clockNew = clockNew;
     this.container = container;
-    this.imageButton2 = imageButton2;
-    this.imgCompany = imgCompany;
-    this.imgCompanyNew = imgCompanyNew;
-    this.itemContainer = itemContainer;
-    this.itemContainer2 = itemContainer2;
-    this.lblCompanyName = lblCompanyName;
-    this.lblCompanyNameNew = lblCompanyNameNew;
-    this.lblDesc = lblDesc;
-    this.lblDescNew = lblDescNew;
-    this.lblJobTitle = lblJobTitle;
-    this.lblJobTitleNew = lblJobTitleNew;
     this.lblLatestTitle = lblLatestTitle;
-    this.lblType = lblType;
-    this.lblTypeNew = lblTypeNew;
     this.lblUserName = lblUserName;
     this.lblWelcome = lblWelcome;
-    this.line = line;
-    this.lineNew = lineNew;
-    this.locationIcon = locationIcon;
-    this.locationIconNew = locationIconNew;
-    this.locationNew = locationNew;
+    this.newJobRecyclerView = newJobRecyclerView;
     this.newPostedContainer = newPostedContainer;
     this.overallContainer = overallContainer;
     this.profileImage = profileImage;
     this.recommendedContainer = recommendedContainer;
-    this.textView8 = textView8;
+    this.recommendedJobRecyclerView = recommendedJobRecyclerView;
     this.topContainer = topContainer;
     this.txtRecommendedTitle = txtRecommendedTitle;
   }
@@ -214,12 +127,6 @@ public final class FragmentJobListingBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.bookMarkNew;
-      ImageButton bookMarkNew = ViewBindings.findChildViewById(rootView, id);
-      if (bookMarkNew == null) {
-        break missingId;
-      }
-
       id = R.id.btnAddJob;
       ImageButton btnAddJob = ViewBindings.findChildViewById(rootView, id);
       if (btnAddJob == null) {
@@ -244,101 +151,11 @@ public final class FragmentJobListingBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.clock;
-      ImageView clock = ViewBindings.findChildViewById(rootView, id);
-      if (clock == null) {
-        break missingId;
-      }
-
-      id = R.id.clockNew;
-      ImageView clockNew = ViewBindings.findChildViewById(rootView, id);
-      if (clockNew == null) {
-        break missingId;
-      }
-
       ConstraintLayout container = (ConstraintLayout) rootView;
-
-      id = R.id.imageButton2;
-      ImageButton imageButton2 = ViewBindings.findChildViewById(rootView, id);
-      if (imageButton2 == null) {
-        break missingId;
-      }
-
-      id = R.id.imgCompany;
-      ImageView imgCompany = ViewBindings.findChildViewById(rootView, id);
-      if (imgCompany == null) {
-        break missingId;
-      }
-
-      id = R.id.imgCompanyNew;
-      ImageView imgCompanyNew = ViewBindings.findChildViewById(rootView, id);
-      if (imgCompanyNew == null) {
-        break missingId;
-      }
-
-      id = R.id.itemContainer;
-      ConstraintLayout itemContainer = ViewBindings.findChildViewById(rootView, id);
-      if (itemContainer == null) {
-        break missingId;
-      }
-
-      id = R.id.itemContainer2;
-      ConstraintLayout itemContainer2 = ViewBindings.findChildViewById(rootView, id);
-      if (itemContainer2 == null) {
-        break missingId;
-      }
-
-      id = R.id.lblCompanyName;
-      TextView lblCompanyName = ViewBindings.findChildViewById(rootView, id);
-      if (lblCompanyName == null) {
-        break missingId;
-      }
-
-      id = R.id.lblCompanyNameNew;
-      TextView lblCompanyNameNew = ViewBindings.findChildViewById(rootView, id);
-      if (lblCompanyNameNew == null) {
-        break missingId;
-      }
-
-      id = R.id.lblDesc;
-      TextView lblDesc = ViewBindings.findChildViewById(rootView, id);
-      if (lblDesc == null) {
-        break missingId;
-      }
-
-      id = R.id.lblDescNew;
-      TextView lblDescNew = ViewBindings.findChildViewById(rootView, id);
-      if (lblDescNew == null) {
-        break missingId;
-      }
-
-      id = R.id.lblJobTitle;
-      TextView lblJobTitle = ViewBindings.findChildViewById(rootView, id);
-      if (lblJobTitle == null) {
-        break missingId;
-      }
-
-      id = R.id.lblJobTitleNew;
-      TextView lblJobTitleNew = ViewBindings.findChildViewById(rootView, id);
-      if (lblJobTitleNew == null) {
-        break missingId;
-      }
 
       id = R.id.lblLatestTitle;
       TextView lblLatestTitle = ViewBindings.findChildViewById(rootView, id);
       if (lblLatestTitle == null) {
-        break missingId;
-      }
-
-      id = R.id.lblType;
-      TextView lblType = ViewBindings.findChildViewById(rootView, id);
-      if (lblType == null) {
-        break missingId;
-      }
-
-      id = R.id.lblTypeNew;
-      TextView lblTypeNew = ViewBindings.findChildViewById(rootView, id);
-      if (lblTypeNew == null) {
         break missingId;
       }
 
@@ -354,33 +171,9 @@ public final class FragmentJobListingBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.line;
-      View line = ViewBindings.findChildViewById(rootView, id);
-      if (line == null) {
-        break missingId;
-      }
-
-      id = R.id.lineNew;
-      View lineNew = ViewBindings.findChildViewById(rootView, id);
-      if (lineNew == null) {
-        break missingId;
-      }
-
-      id = R.id.locationIcon;
-      ImageView locationIcon = ViewBindings.findChildViewById(rootView, id);
-      if (locationIcon == null) {
-        break missingId;
-      }
-
-      id = R.id.locationIconNew;
-      ImageView locationIconNew = ViewBindings.findChildViewById(rootView, id);
-      if (locationIconNew == null) {
-        break missingId;
-      }
-
-      id = R.id.locationNew;
-      TextView locationNew = ViewBindings.findChildViewById(rootView, id);
-      if (locationNew == null) {
+      id = R.id.newJobRecyclerView;
+      RecyclerView newJobRecyclerView = ViewBindings.findChildViewById(rootView, id);
+      if (newJobRecyclerView == null) {
         break missingId;
       }
 
@@ -408,9 +201,9 @@ public final class FragmentJobListingBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textView8;
-      TextView textView8 = ViewBindings.findChildViewById(rootView, id);
-      if (textView8 == null) {
+      id = R.id.recommendedJobRecyclerView;
+      RecyclerView recommendedJobRecyclerView = ViewBindings.findChildViewById(rootView, id);
+      if (recommendedJobRecyclerView == null) {
         break missingId;
       }
 
@@ -426,13 +219,10 @@ public final class FragmentJobListingBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentJobListingBinding((ConstraintLayout) rootView, bookMarkNew, btnAddJob,
-          btnNotification, btnShowAllLatest, btnShowAllRecommended, clock, clockNew, container,
-          imageButton2, imgCompany, imgCompanyNew, itemContainer, itemContainer2, lblCompanyName,
-          lblCompanyNameNew, lblDesc, lblDescNew, lblJobTitle, lblJobTitleNew, lblLatestTitle,
-          lblType, lblTypeNew, lblUserName, lblWelcome, line, lineNew, locationIcon,
-          locationIconNew, locationNew, newPostedContainer, overallContainer, profileImage,
-          recommendedContainer, textView8, topContainer, txtRecommendedTitle);
+      return new FragmentJobListingBinding((ConstraintLayout) rootView, btnAddJob, btnNotification,
+          btnShowAllLatest, btnShowAllRecommended, container, lblLatestTitle, lblUserName,
+          lblWelcome, newJobRecyclerView, newPostedContainer, overallContainer, profileImage,
+          recommendedContainer, recommendedJobRecyclerView, topContainer, txtRecommendedTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

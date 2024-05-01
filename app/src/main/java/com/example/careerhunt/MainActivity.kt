@@ -3,7 +3,11 @@ package com.example.careerhunt
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.ViewModelProvider
+import com.example.careerhunt.data.Company
 import com.example.careerhunt.databinding.ActivityMainBinding
+import com.example.careerhunt.viewModel.CompanyViewModel
+import com.example.careerhunt.viewModel.JobViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +18,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+
+        //TESTING - HARDCODED CREATION OF ONE COMPANY
+//        var companyViewModel: CompanyViewModel
+//        companyViewModel = ViewModelProvider(this).get(CompanyViewModel::class.java)
+//        val byteArray = byteArrayOf(65, 66, 67, 68, 69)
+//        val company = Company(0, "company@gmail.com", "Uniqlo", "123", byteArray, "01234567890", "Hello World Street 4, Jalan 19/99.")
+//        companyViewModel.addCompany(company)
+
 
         //Set initial fragment
         if (savedInstanceState == null) {
@@ -50,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.alumni -> {
                     val transaction = fragmentManager.beginTransaction()
-                    val fragment = Alumni()
+                    val fragment = Setting()
                     transaction.replace(binding.frameLayout.id, fragment)
                     transaction.addToBackStack(null)
                     transaction.commit()
