@@ -5,7 +5,7 @@
     android:id="@+id/FAQlist"
     android:paddingStart="?android:attr/expandableListPreferredItemPaddingLeft"
     android:paddingEnd="10dp"
-    android:textSize="18dp"
+    android:textSize="18sp"
     android:paddingBottom="20dp"
     android:paddingTop="20dp">
 </TextView>

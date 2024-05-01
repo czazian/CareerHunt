@@ -4278,10 +4278,12 @@ int string call_notification_hang_up_action 0x7f120027
 int string call_notification_incoming_text 0x7f120028
 int string call_notification_ongoing_text 0x7f120029
 int string call_notification_screening_text 0x7f12002a
+int string change_profile_picture 0x7f1200b1
 int string character_counter_content_description 0x7f12002b
 int string character_counter_overflowed_content_description 0x7f12002c
 int string character_counter_pattern 0x7f12002d
 int string clear_text_end_icon_content_description 0x7f12002e
+int string company_nemail 0x7f1200b2
 int string dark_mode 0x7f1200ab
 int string dest_title 0x7f12002f
 int string edit_profile 0x7f1200ac

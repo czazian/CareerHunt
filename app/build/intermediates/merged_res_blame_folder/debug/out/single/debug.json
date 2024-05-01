@@ -28,12 +28,12 @@
         "source": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-59:\\layout\\fragment_register_business.xml"
     },
     {
-        "merged": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-57:\\drawable-night_baseline_list_24.xml.flat",
-        "source": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-59:\\drawable-night\\baseline_list_24.xml"
-    },
-    {
         "merged": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-57:\\drawable-night_baseline_job_field.xml.flat",
         "source": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-59:\\drawable-night\\baseline_job_field.xml"
+    },
+    {
+        "merged": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-57:\\drawable-night_baseline_list_24.xml.flat",
+        "source": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-59:\\drawable-night\\baseline_list_24.xml"
     },
     {
         "merged": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-57:\\drawable_baseline_transgender_24.xml.flat",
@@ -68,20 +68,20 @@
         "source": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-59:\\drawable\\link_hower.xml"
     },
     {
-        "merged": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-57:\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-59:\\mipmap-mdpi\\ic_launcher_round.webp"
-    },
-    {
         "merged": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-57:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-59:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "com.example.careerhunt.app-merged_res-57:/drawable-night_baseline_bookmark_24.xml.flat",
-        "source": "com.example.careerhunt.app-main-59:/drawable-night/baseline_bookmark_24.xml"
+        "merged": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-57:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-59:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
         "merged": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-57:\\drawable_button_click.xml.flat",
         "source": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-59:\\drawable\\button_click.xml"
+    },
+    {
+        "merged": "com.example.careerhunt.app-merged_res-57:/layout_fragment_edit_business_acc.xml.flat",
+        "source": "com.example.careerhunt.app-main-59:/layout/fragment_edit_business_acc.xml"
     },
     {
         "merged": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-57:\\drawable_border.xml.flat",
@@ -100,12 +100,12 @@
         "source": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-59:\\layout\\activity_login_container.xml"
     },
     {
-        "merged": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-57:\\layout_job_viewholder.xml.flat",
-        "source": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-59:\\layout\\job_viewholder.xml"
-    },
-    {
         "merged": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-57:\\drawable_baseline_business_24.xml.flat",
         "source": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-59:\\drawable\\baseline_business_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-57:\\layout_job_viewholder.xml.flat",
+        "source": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-59:\\layout\\job_viewholder.xml"
     },
     {
         "merged": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-57:\\drawable-night_baseline_navigate_next_24.xml.flat",
@@ -438,6 +438,10 @@
     {
         "merged": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-57:\\drawable-notnight_baseline_navigate_next_24.xml.flat",
         "source": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-59:\\drawable-notnight\\baseline_navigate_next_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-57:\\drawable-night_baseline_bookmark_24.xml.flat",
+        "source": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-59:\\drawable-night\\baseline_bookmark_24.xml"
     },
     {
         "merged": "C:\\Users\\Asus\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-57:\\drawable_baseline_add_box_24.xml.flat",

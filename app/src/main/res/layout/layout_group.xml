@@ -6,7 +6,7 @@
     android:paddingEnd="10dp"
     android:paddingBottom="20dp"
     android:paddingTop="20dp"
-    android:textSize="18dp"
+    android:textSize="18sp"
     android:layout_height="70dp">
 
 </TextView>

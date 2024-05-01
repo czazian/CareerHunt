@@ -396,6 +396,8 @@ mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 navigation my_navigation
 string app_name
+string change_profile_picture
+string company_nemail
 string dark_mode
 string edit_profile
 string faq

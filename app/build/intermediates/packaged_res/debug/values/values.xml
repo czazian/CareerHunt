@@ -205,6 +205,8 @@
     <color name="textColor2">#878787</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">CareerHunt</string>
+    <string name="change_profile_picture">Change profile picture</string>
+    <string name="company_nemail">Company\nEmail</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="faq">FAQ</string>

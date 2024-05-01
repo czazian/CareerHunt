@@ -121,12 +121,12 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="265dp"
-        android:drawableStart="@drawable/baseline_bookmark_24"
-        android:text=" Bookmark"
+        android:text="@string/bookmark"
         android:textColor="@color/textColor"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tbInfo" />
+        app:layout_constraintTop_toBottomOf="@+id/tbInfo"
+        app:drawableStartCompat="@drawable/baseline_bookmark_24" />
 
     <TextView
         android:id="@+id/txtApplied"
@@ -135,12 +135,12 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="265dp"
-        android:drawableStart="@drawable/baseline_applied"
-        android:text=" Applied"
+        android:text="@string/applied"
         android:textColor="@color/textColor"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtBookmark" />
+        app:layout_constraintTop_toBottomOf="@+id/txtBookmark"
+        app:drawableStartCompat="@drawable/baseline_applied" />
 
     <ImageButton
         android:id="@+id/btnApplied"
@@ -183,9 +183,9 @@
         android:layout_marginStart="45dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="265dp"
-        android:text="Logout"
+        android:text="@string/logout"
         android:textColor="@color/textColor"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtFAQ" />
 
@@ -196,12 +196,12 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="265dp"
-        android:drawableStart="@drawable/baseline_change_language"
-        android:text=" Languages"
+        android:text="@string/languages"
         android:textColor="@color/textColor"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/swMode" />
+        app:layout_constraintTop_toBottomOf="@+id/swMode"
+        app:drawableStartCompat="@drawable/baseline_change_language" />
 
     <TextView
         android:id="@+id/txtFAQ"
@@ -210,12 +210,12 @@
         android:layout_marginStart="18dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="265dp"
-        android:drawableStart="@drawable/baseline_assistant_24"
-        android:text=" FAQ"
+        android:text="@string/faq"
         android:textColor="@color/textColor"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLanguage" />
+        app:layout_constraintTop_toBottomOf="@+id/txtLanguage"
+        app:drawableStartCompat="@drawable/baseline_assistant_24" />
 
 
     <Button
@@ -224,8 +224,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:textSize="17dp"
-        android:text="Edit Profile"
+        android:textSize="17sp"
+        android:text="@string/edit_profile"
         style="@style/buttonStyle"
         android:background="@drawable/custom_button"
         app:layout_constraintEnd_toEndOf="parent"

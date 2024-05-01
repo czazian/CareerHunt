@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:text="Personal Details"
+        android:text="@string/personal_details"
         android:textColor="#3E7AE1"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -86,11 +86,11 @@
         android:drawableStart="@drawable/custom_email_icon"
         android:drawablePadding="12dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        android:textSize="17dp"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -102,13 +102,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="24dp"
-        android:drawableStart="@drawable/baseline_transgender_24"
         android:drawablePadding="10dp"
-        android:text="Gender"
+        android:text="@string/gender"
         android:textColor="@color/textColor2"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tfPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/tfPhone"
+        app:drawableStartCompat="@drawable/baseline_transgender_24" />
 
     <EditText
         android:id="@+id/tfPass"
@@ -122,7 +122,7 @@
         android:drawableStart="@drawable/custom_lock_icon"
         android:drawablePadding="12dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -141,7 +141,7 @@
         android:drawableStart="@drawable/custom_phone"
         android:drawablePadding="12dp"
         android:ems="10"
-        android:hint="Phone Number (eg.0123456789)"
+        android:hint="@string/phone_number_eg_0123456789"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -169,7 +169,7 @@
             android:layout_gravity="center"
             android:checked="false"
             android:padding="2dp"
-            android:text="Male"
+            android:text="@string/male"
             android:textAlignment="center"
             android:textSize="18sp"
             tools:layout_editor_absoluteX="26dp"
@@ -182,7 +182,7 @@
             android:layout_gravity="center"
             android:checked="false"
             android:padding="2dp"
-            android:text="Female"
+            android:text="@string/female"
             android:textAlignment="center"
             android:textSize="18sp" />
     </RadioGroup>
@@ -221,16 +221,15 @@
     <Button
         android:id="@+id/btnSubmit"
         style="@style/buttonStyle"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/custom_button"
-        android:text="Submit"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:text="@string/submit"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/spEduLevel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spEduLevel" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

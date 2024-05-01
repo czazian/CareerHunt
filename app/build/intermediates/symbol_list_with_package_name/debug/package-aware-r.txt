@@ -4279,10 +4279,12 @@ string call_notification_hang_up_action
 string call_notification_incoming_text
 string call_notification_ongoing_text
 string call_notification_screening_text
+string change_profile_picture
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
 string clear_text_end_icon_content_description
+string company_nemail
 string dark_mode
 string dest_title
 string edit_profile
