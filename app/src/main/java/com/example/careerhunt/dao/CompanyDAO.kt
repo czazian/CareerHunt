@@ -18,4 +18,12 @@ interface CompanyDAO {
     //Get specific company details by passing company ID - Use the Foreign Key (from Job) to retrieve records (from Company)
     @Query("SELECT * FROM company_table WHERE companyID = :companyID")
     fun readCompany(companyID: Int): LiveData<Company>
+
+    //For registration of Business Account
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun registerAcc(company: Company)
+
+    //Taking the value from the DB
+    @Query("Select * from company_table")
+    fun retrieveCompInfo(): LiveData<List<Company>>
 }

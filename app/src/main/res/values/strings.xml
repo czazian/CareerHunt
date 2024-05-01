@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">CareerHunt</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="job_listing">Job Listing</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="languages">Languages</string>
+    <string name="faq">FAQ</string>
+    <string name="logout">Logout</string>
     <string-array name="state">
         <item>Kuala Lumpur</item>
         <item>Johor</item>
@@ -183,5 +189,20 @@
         <item>Sales</item>
         <item>Insurance</item>
         <item>Hospitality</item>
+    </string-array>
+
+    <string-array name="job_field">
+        <item>Information Technology</item>
+        <item>Computer Science</item>
+        <item>Broadcasting Media</item>
+        <item>Finance</item>
+        <item>Accounting</item>
+        <item>Human Resource</item>
+    </string-array>
+
+    <string-array name="language">
+        <item>English</item>
+        <item>Chinese</item>
+        <item>Malay</item>
     </string-array>
 </resources>
