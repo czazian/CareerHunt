@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.careerhunt.app-mergeDebugResources-2:/values-watch-v21/values-watch-v21.xml",
+            "outputFile": "com.example.careerhunt.app-mergeDebugResources-55:/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\koyas\\.gradle\\caches\\transforms-3\\3b0f4c3372588c446bc59c3c31459416\\transformed\\appcompat-1.6.1\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-3\\3b0f4c3372588c446bc59c3c31459416\\transformed\\appcompat-1.6.1\\res\\values-watch-v21\\values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",

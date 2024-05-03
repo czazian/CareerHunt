@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
         //TESTING - HARDCODED CREATION OF ONE COMPANY
 //        var companyViewModel: CompanyViewModel
 //        companyViewModel = ViewModelProvider(this).get(CompanyViewModel::class.java)
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
 
-            when (item.itemId){
+            when (item.itemId) {
                 R.id.home -> {
                     val transaction = fragmentManager.beginTransaction()
                     val fragment = JobListing()
@@ -48,6 +47,7 @@ class MainActivity : AppCompatActivity() {
                     transaction.addToBackStack(null)
                     transaction.commit()
                 }
+
                 R.id.explore -> {
                     val transaction = fragmentManager.beginTransaction()
                     val fragment = SearchJob()
@@ -55,6 +55,7 @@ class MainActivity : AppCompatActivity() {
                     transaction.addToBackStack(null)
                     transaction.commit()
                 }
+
                 R.id.interview -> {
                     val transaction = fragmentManager.beginTransaction()
                     val fragment = JobDetail()
@@ -62,6 +63,7 @@ class MainActivity : AppCompatActivity() {
                     transaction.addToBackStack(null)
                     transaction.commit()
                 }
+
                 R.id.alumni -> {
                     val transaction = fragmentManager.beginTransaction()
                     val fragment = Setting()
@@ -69,10 +71,22 @@ class MainActivity : AppCompatActivity() {
                     transaction.addToBackStack(null)
                     transaction.commit()
                 }
+
                 R.id.setting -> {
+                    // After a successful login, show the frameLayout and hide the businessProfileLayout
                     val transaction = fragmentManager.beginTransaction()
-                    val fragment = Setting()
-                    transaction.replace(binding.frameLayout.id, fragment)
+
+
+                    // retrieve the value from LoginPage.kt
+                    val userType = intent.getStringExtra("user_type")
+
+                    if (userType == "Business") {
+                        val fragment = BusinessAccount()
+                        transaction.replace(binding.frameLayout.id, fragment)
+                    } else if (userType == "Personal") {
+                        val fragment = UserProfile()
+                        transaction.replace(binding.frameLayout.id, fragment)
+                    }
                     transaction.addToBackStack(null)
                     transaction.commit()
                 }

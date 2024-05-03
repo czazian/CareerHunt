@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/userProfileContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00FFFFFF"
+    tools:context=".UserProfile">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/headerProfile"
+        android:layout_width="420dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:background="#138ef0"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:title="                          User Profile"
+        app:titleTextColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Angeline Chuang"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        />
+
+    <Spinner
+        android:id="@+id/spLanguage"
+        style="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="60dp"
+        android:drawablePadding="12dp"
+        android:dropDownWidth="wrap_content"
+        android:entries="@array/language"
+        android:spinnerMode="dropdown"
+        app:layout_constraintStart_toEndOf="@id/txtLanguage"
+        app:layout_constraintTop_toBottomOf="@+id/swMode" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="5dp"
+        android:text="angeline@gmail.com"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvName"
+        app:layout_constraintVertical_bias="0.911" />
+
+
+    <Switch
+        android:id="@+id/swMode"
+        android:layout_width="374dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="18dp"
+        android:drawableStart="@drawable/baseline_bedtime_24"
+        android:text=" Dark Mode"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbPreference"/>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbPreference"
+        android:layout_width="420dp"
+        android:layout_height="50dp"
+        android:background="#185787"
+        android:layout_marginTop="20dp"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:title="Preferences"
+        app:titleTextColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/txtApplied" />
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbInfo"
+        android:layout_width="420dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:background="#185787"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnEditProfile"
+        app:title="Information"
+        app:titleTextColor="#FFFFFF" />
+
+    <ImageButton
+        android:id="@+id/btnBookmark"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="212dp"
+        style="@style/imgButtonStyle"
+        app:layout_constraintStart_toEndOf="@id/txtBookmark"
+        app:layout_constraintTop_toBottomOf="@+id/tbInfo"
+        app:srcCompat="@drawable/baseline_navigate_next_24" />
+
+    <TextView
+        android:id="@+id/txtBookmark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="265dp"
+        android:text="@string/bookmark"
+        android:textColor="@color/textColor"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbInfo"
+        app:drawableStartCompat="@drawable/baseline_bookmark_24" />
+
+    <TextView
+        android:id="@+id/txtApplied"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="265dp"
+        android:text="@string/applied"
+        android:textColor="@color/textColor"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtBookmark"
+        app:drawableStartCompat="@drawable/baseline_applied" />
+
+    <ImageButton
+        android:id="@+id/btnApplied"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="233dp"
+        style="@style/imgButtonStyle"
+        app:layout_constraintStart_toEndOf="@id/txtApplied"
+        app:layout_constraintTop_toBottomOf="@+id/btnBookmark"
+        app:srcCompat="@drawable/baseline_navigate_next_24" />
+
+
+    <ImageButton
+        android:id="@+id/btnFAQ"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="262dp"
+        style="@style/imgButtonStyle"
+        app:layout_constraintStart_toEndOf="@id/txtFAQ"
+        app:layout_constraintTop_toBottomOf="@+id/spLanguage"
+        app:srcCompat="@drawable/baseline_navigate_next_24" />
+
+    <ImageButton
+        android:id="@+id/btnLogout"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="242dp"
+        style="@style/imgButtonStyle"
+        app:layout_constraintStart_toEndOf="@id/txtLogout"
+        app:layout_constraintTop_toBottomOf="@+id/txtFAQ"
+        app:srcCompat="@drawable/baseline_logout_24" />
+
+    <TextView
+        android:id="@+id/txtLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="265dp"
+        android:text="@string/logout"
+        android:textColor="@color/textColor"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFAQ" />
+
+    <TextView
+        android:id="@+id/txtLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="265dp"
+        android:text="@string/languages"
+        android:textColor="@color/textColor"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/swMode"
+        app:drawableStartCompat="@drawable/baseline_change_language" />
+
+    <TextView
+        android:id="@+id/txtFAQ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="265dp"
+        android:text="@string/faq"
+        android:textColor="@color/textColor"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtLanguage"
+        app:drawableStartCompat="@drawable/baseline_assistant_24" />
+
+
+    <Button
+        android:id="@+id/btnEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="17sp"
+        android:text="@string/edit_profile"
+        style="@style/buttonStyle"
+        android:background="@drawable/custom_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="2dp"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+        <ImageView
+            android:id="@+id/profilePic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/profile_pic" />
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

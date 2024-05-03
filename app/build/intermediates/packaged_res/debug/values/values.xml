@@ -23,6 +23,14 @@
         <item>Insurance</item>
         <item>Hospitality</item>
     </string-array>
+    <string-array name="job_field">
+        <item>Information Technology</item>
+        <item>Computer Science</item>
+        <item>Broadcasting Media</item>
+        <item>Finance</item>
+        <item>Accounting</item>
+        <item>Human Resource</item>
+    </string-array>
     <string-array name="johor_city">
         <item>Batu Pahat</item>
         <item>Jahor Bahru</item>
@@ -73,6 +81,11 @@
         <item>Cheras</item>
         <item>Bandar Tun Razak</item>
         <item>Lembah Pantai</item>
+    </string-array>
+    <string-array name="language">
+        <item>English</item>
+        <item>Chinese</item>
+        <item>Malay</item>
     </string-array>
     <string-array name="malacca_city">
         <item>Alor Gajah</item>
@@ -185,20 +198,44 @@
     </string-array>
     <color name="black">#FF000000</color>
     <color name="lightGrey">#f7f7f7</color>
+    <color name="link_default">#79AED6</color>
+    <color name="link_focused">#00FF00</color>
+    <color name="link_pressed">#FF0000</color>
+    <color name="textColor">#FF000000</color>
+    <color name="textColor2">#878787</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">CareerHunt</string>
+    <string name="change_profile_picture">Change profile picture</string>
+    <string name="company_nemail">Company\nEmail</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="faq">FAQ</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="job_listing">Job Listing</string>
+    <string name="languages">Languages</string>
+    <string name="logout">Logout</string>
     <style name="Base.Theme.CareerHunt" parent="Theme.Material3.DayNight.NoActionBar">
         
-        
+        <item name="colorPrimary">#98BFDD</item>
+
     </style>
     <style name="BottomSheetAnimation" parent="@android:style/Animation.Dialog">
         <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
         <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
     </style>
+    <style name="CustomEditTextStyle" parent="@style/Widget.Material3.AutoCompleteTextView.OutlinedBox">
+        <item name="android:textSize">18dp</item>
+    </style>
     <style name="Theme.CareerHunt" parent="Base.Theme.CareerHunt"/>
+    <style name="buttonStyle">
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textSize">17dp</item>
+    </style>
     <style name="circleImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+    <style name="imgButtonStyle">
+        <item name="android:background">#00FFFFFF</item>
     </style>
 </resources>
