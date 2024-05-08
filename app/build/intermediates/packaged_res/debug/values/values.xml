@@ -204,16 +204,57 @@
     <color name="textColor">#FF000000</color>
     <color name="textColor2">#878787</color>
     <color name="white">#FFFFFFFF</color>
+    <item name="btnCommentSent" type="id"/>
+    <item name="btnSent" type="id"/>
+    <string name="account_type">Account Type</string>
     <string name="app_name">CareerHunt</string>
+    <string name="applied">Applied</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="business">Business</string>
+    <string name="business_account">Business Account</string>
     <string name="change_profile_picture">Change profile picture</string>
+    <string name="company_address">Company Address</string>
+    <string name="company_details">Company Details</string>
+    <string name="company_email">Company Email</string>
+    <string name="company_naddress">Company\nAddress</string>
+    <string name="company_name">Company Name</string>
     <string name="company_nemail">Company\nEmail</string>
+    <string name="company_nname">Company\nName</string>
+    <string name="confirm_password">Confirm Password</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="email">Email</string>
     <string name="faq">FAQ</string>
+    <string name="female">Female</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="gcm_defaultSenderId" translatable="false">471100510849</string>
+    <string name="gender">Gender</string>
+    <string name="google_api_key" translatable="false">AIzaSyADW4fra3RLoB3St5cTCnN3dQ0FSORBDkk</string>
+    <string name="google_app_id" translatable="false">1:471100510849:android:b1a7d12cb9a857a9573380</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyADW4fra3RLoB3St5cTCnN3dQ0FSORBDkk</string>
+    <string name="google_storage_bucket" translatable="false">careerhunt-e6787.appspot.com</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="job_field">Job Field</string>
     <string name="job_listing">Job Listing</string>
     <string name="languages">Languages</string>
+    <string name="login">Login</string>
     <string name="logout">Logout</string>
+    <string name="male">Male</string>
+    <string name="name">Name</string>
+    <string name="new_password">New Password</string>
+    <string name="no_account_yet">No Account Yet?</string>
+    <string name="password">Password</string>
+    <string name="personal">Personal</string>
+    <string name="personal_account">Personal Account</string>
+    <string name="personal_details">Personal Details</string>
+    <string name="phone_no">Phone No.</string>
+    <string name="phone_number_eg_0123456789">Phone Number (eg.0123456789)</string>
+    <string name="project_id" translatable="false">careerhunt-e6787</string>
+    <string name="register">Register</string>
+    <string name="reset">Reset</string>
+    <string name="reset_your_current_password">Reset your current password</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="submit">Submit</string>
     <style name="Base.Theme.CareerHunt" parent="Theme.Material3.DayNight.NoActionBar">
         
         <item name="colorPrimary">#98BFDD</item>
