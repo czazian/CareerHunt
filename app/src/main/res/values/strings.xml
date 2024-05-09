@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">CareerHunt</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="category_prompt">Categories</string>
 
     <!-- User management part-->
     <string name="edit_profile">Edit Profile</string>
