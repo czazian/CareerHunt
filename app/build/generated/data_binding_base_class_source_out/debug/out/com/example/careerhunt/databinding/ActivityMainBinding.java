@@ -4,10 +4,10 @@ package com.example.careerhunt.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.FragmentContainerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.careerhunt.R;
@@ -24,13 +24,14 @@ public final class ActivityMainBinding implements ViewBinding {
   public final BottomNavigationView bottomNavigationView;
 
   @NonNull
-  public final FrameLayout frametLayout;
+  public final FragmentContainerView frameLayout;
 
   private ActivityMainBinding(@NonNull ConstraintLayout rootView,
-      @NonNull BottomNavigationView bottomNavigationView, @NonNull FrameLayout frametLayout) {
+      @NonNull BottomNavigationView bottomNavigationView,
+      @NonNull FragmentContainerView frameLayout) {
     this.rootView = rootView;
     this.bottomNavigationView = bottomNavigationView;
-    this.frametLayout = frametLayout;
+    this.frameLayout = frameLayout;
   }
 
   @Override
@@ -66,14 +67,14 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.frametLayout;
-      FrameLayout frametLayout = ViewBindings.findChildViewById(rootView, id);
-      if (frametLayout == null) {
+      id = R.id.frameLayout;
+      FragmentContainerView frameLayout = ViewBindings.findChildViewById(rootView, id);
+      if (frameLayout == null) {
         break missingId;
       }
 
       return new ActivityMainBinding((ConstraintLayout) rootView, bottomNavigationView,
-          frametLayout);
+          frameLayout);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

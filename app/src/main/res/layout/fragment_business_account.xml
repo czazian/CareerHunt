@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/BAFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00FFFFFF"
+    tools:context=".BusinessAccount">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/headerBAProfile"
+        android:layout_width="420dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:background="#138ef0"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:title="                      Business Profile"
+        app:titleTextColor="#FFFFFF" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvCompProfile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="2dp"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintBottom_toTopOf="@id/tvCompName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/profilePic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/profile_pic" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvCompName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="ABC Sdn Bhd"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tvCompEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvCompProfile" />
+
+    <TextView
+        android:id="@+id/tvCompEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="5dp"
+        android:text="ABCSdnBhd@gmail.com"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCompName" />
+
+    <Button
+        android:id="@+id/btnEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/edit_profile"
+        style="@style/buttonStyle"
+        android:textSize="17sp"
+        android:background="@drawable/custom_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCompEmail" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbInfo"
+        android:layout_width="420dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:background="#185787"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnEditProfile"
+        app:title="Information"
+        app:titleTextColor="#FFFFFF" />
+
+    <ImageButton
+        android:id="@+id/btnJobListing"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginTop="12dp"
+        style="@style/imgButtonStyle"
+        app:layout_constraintStart_toEndOf="@id/txtJobListing"
+        app:layout_constraintTop_toBottomOf="@+id/tbInfo"
+        app:srcCompat="@drawable/baseline_navigate_next_24" />
+
+    <TextView
+        android:id="@+id/txtJobListing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="265dp"
+        android:text="@string/job_listing"
+        android:textColor="@color/textColor"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbInfo"
+        app:drawableStartCompat="@drawable/baseline_list_24" />
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbPreferences"
+        android:layout_width="420dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:background="#185787"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtJobListing"
+        app:title="Preferences"
+        app:titleTextColor="#FFFFFF" />
+
+    <Switch
+        android:id="@+id/swMode"
+        android:layout_width="374dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="15dp"
+        android:drawableStart="@drawable/baseline_bedtime_24"
+        android:text="@string/dark_mode"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbPreferences" />
+
+    <TextView
+        android:id="@+id/txtLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="265dp"
+        android:text="@string/languages"
+        android:textColor="@color/textColor"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/swMode"
+        app:drawableStartCompat="@drawable/baseline_change_language" />
+
+    <Spinner
+        android:id="@+id/spLanguage"
+        style="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="10dp"
+        android:drawablePadding="12dp"
+        android:dropDownWidth="wrap_content"
+        android:entries="@array/language"
+        android:spinnerMode="dropdown"
+        app:layout_constraintStart_toEndOf="@id/txtLanguage"
+        app:layout_constraintTop_toBottomOf="@+id/swMode" />
+
+    <TextView
+        android:id="@+id/txtFAQ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="265dp"
+        android:text="@string/faq"
+        android:textColor="@color/textColor"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtLanguage"
+        app:drawableStartCompat="@drawable/baseline_assistant_24" />
+
+    <ImageButton
+        android:id="@+id/btnFAQ"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="262dp"
+        android:layout_marginTop="15dp"
+        style="@style/imgButtonStyle"
+        app:layout_constraintStart_toEndOf="@id/txtFAQ"
+        app:layout_constraintTop_toBottomOf="@+id/spLanguage"
+        app:srcCompat="@drawable/baseline_navigate_next_24" />
+
+    <TextView
+        android:id="@+id/txtLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="265dp"
+        android:text="@string/logout"
+        android:textColor="@color/textColor"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFAQ" />
+
+    <ImageButton
+        android:id="@+id/btnLogout"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="242dp"
+        android:layout_marginTop="15dp"
+        style="@style/imgButtonStyle"
+        app:layout_constraintStart_toEndOf="@id/txtLogout"
+        app:layout_constraintTop_toBottomOf="@+id/btnFAQ"
+        app:srcCompat="@drawable/baseline_logout_24" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

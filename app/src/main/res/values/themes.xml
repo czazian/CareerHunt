@@ -2,7 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.CareerHunt" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#98BFDD</item>
+
     </style>
 
     <style name="circleImageView" parent="">
@@ -11,4 +12,23 @@
     </style>
 
     <style name="Theme.CareerHunt" parent="Base.Theme.CareerHunt" />
+
+    <style name="BottomSheetAnimation" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
+
+    <style name="imgButtonStyle">
+        <item name="android:background">#00FFFFFF</item>
+    </style>
+
+    <style name="buttonStyle">
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textSize">17dp</item>
+    </style>
+
+    <style name="CustomEditTextStyle" parent="@style/Widget.Material3.AutoCompleteTextView.OutlinedBox">
+        <item name="android:textSize">18dp</item>
+    </style>
+
 </resources>

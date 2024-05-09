@@ -4,25 +4,128 @@ package com.example.careerhunt.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ScrollView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.example.careerhunt.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class FragmentJobDetailBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final ConstraintLayout rootView;
 
-  private FragmentJobDetailBinding(@NonNull FrameLayout rootView) {
+  @NonNull
+  public final Button btnApply;
+
+  @NonNull
+  public final ImageButton btnBack;
+
+  @NonNull
+  public final ImageButton btnSave;
+
+  @NonNull
+  public final ImageView comIcon;
+
+  @NonNull
+  public final TextView comName;
+
+  @NonNull
+  public final TextView descResult;
+
+  @NonNull
+  public final TextView descTitle;
+
+  @NonNull
+  public final ConstraintLayout detailBottom;
+
+  @NonNull
+  public final ConstraintLayout detailContainer;
+
+  @NonNull
+  public final ConstraintLayout detailMiddle;
+
+  @NonNull
+  public final ConstraintLayout detailTop;
+
+  @NonNull
+  public final TextView expectedSalary;
+
+  @NonNull
+  public final TextView jobCat;
+
+  @NonNull
+  public final TextView jobLoca;
+
+  @NonNull
+  public final TextView jobTi;
+
+  @NonNull
+  public final TextView jobTy;
+
+  @NonNull
+  public final TextView lblSalaryResult;
+
+  @NonNull
+  public final TextView lblpostDate;
+
+  @NonNull
+  public final View line;
+
+  @NonNull
+  public final TextView lvlPostDateResult;
+
+  @NonNull
+  public final ScrollView scrollView2;
+
+  @NonNull
+  public final TextView textView;
+
+  private FragmentJobDetailBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnApply,
+      @NonNull ImageButton btnBack, @NonNull ImageButton btnSave, @NonNull ImageView comIcon,
+      @NonNull TextView comName, @NonNull TextView descResult, @NonNull TextView descTitle,
+      @NonNull ConstraintLayout detailBottom, @NonNull ConstraintLayout detailContainer,
+      @NonNull ConstraintLayout detailMiddle, @NonNull ConstraintLayout detailTop,
+      @NonNull TextView expectedSalary, @NonNull TextView jobCat, @NonNull TextView jobLoca,
+      @NonNull TextView jobTi, @NonNull TextView jobTy, @NonNull TextView lblSalaryResult,
+      @NonNull TextView lblpostDate, @NonNull View line, @NonNull TextView lvlPostDateResult,
+      @NonNull ScrollView scrollView2, @NonNull TextView textView) {
     this.rootView = rootView;
+    this.btnApply = btnApply;
+    this.btnBack = btnBack;
+    this.btnSave = btnSave;
+    this.comIcon = comIcon;
+    this.comName = comName;
+    this.descResult = descResult;
+    this.descTitle = descTitle;
+    this.detailBottom = detailBottom;
+    this.detailContainer = detailContainer;
+    this.detailMiddle = detailMiddle;
+    this.detailTop = detailTop;
+    this.expectedSalary = expectedSalary;
+    this.jobCat = jobCat;
+    this.jobLoca = jobLoca;
+    this.jobTi = jobTi;
+    this.jobTy = jobTy;
+    this.lblSalaryResult = lblSalaryResult;
+    this.lblpostDate = lblpostDate;
+    this.line = line;
+    this.lvlPostDateResult = lvlPostDateResult;
+    this.scrollView2 = scrollView2;
+    this.textView = textView;
   }
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public ConstraintLayout getRoot() {
     return rootView;
   }
 
@@ -43,10 +146,144 @@ public final class FragmentJobDetailBinding implements ViewBinding {
 
   @NonNull
   public static FragmentJobDetailBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.btnApply;
+      Button btnApply = ViewBindings.findChildViewById(rootView, id);
+      if (btnApply == null) {
+        break missingId;
+      }
 
-    return new FragmentJobDetailBinding((FrameLayout) rootView);
+      id = R.id.btnBack;
+      ImageButton btnBack = ViewBindings.findChildViewById(rootView, id);
+      if (btnBack == null) {
+        break missingId;
+      }
+
+      id = R.id.btnSave;
+      ImageButton btnSave = ViewBindings.findChildViewById(rootView, id);
+      if (btnSave == null) {
+        break missingId;
+      }
+
+      id = R.id.comIcon;
+      ImageView comIcon = ViewBindings.findChildViewById(rootView, id);
+      if (comIcon == null) {
+        break missingId;
+      }
+
+      id = R.id.comName;
+      TextView comName = ViewBindings.findChildViewById(rootView, id);
+      if (comName == null) {
+        break missingId;
+      }
+
+      id = R.id.descResult;
+      TextView descResult = ViewBindings.findChildViewById(rootView, id);
+      if (descResult == null) {
+        break missingId;
+      }
+
+      id = R.id.descTitle;
+      TextView descTitle = ViewBindings.findChildViewById(rootView, id);
+      if (descTitle == null) {
+        break missingId;
+      }
+
+      id = R.id.detailBottom;
+      ConstraintLayout detailBottom = ViewBindings.findChildViewById(rootView, id);
+      if (detailBottom == null) {
+        break missingId;
+      }
+
+      ConstraintLayout detailContainer = (ConstraintLayout) rootView;
+
+      id = R.id.detailMiddle;
+      ConstraintLayout detailMiddle = ViewBindings.findChildViewById(rootView, id);
+      if (detailMiddle == null) {
+        break missingId;
+      }
+
+      id = R.id.detailTop;
+      ConstraintLayout detailTop = ViewBindings.findChildViewById(rootView, id);
+      if (detailTop == null) {
+        break missingId;
+      }
+
+      id = R.id.expectedSalary;
+      TextView expectedSalary = ViewBindings.findChildViewById(rootView, id);
+      if (expectedSalary == null) {
+        break missingId;
+      }
+
+      id = R.id.jobCat;
+      TextView jobCat = ViewBindings.findChildViewById(rootView, id);
+      if (jobCat == null) {
+        break missingId;
+      }
+
+      id = R.id.jobLoca;
+      TextView jobLoca = ViewBindings.findChildViewById(rootView, id);
+      if (jobLoca == null) {
+        break missingId;
+      }
+
+      id = R.id.jobTi;
+      TextView jobTi = ViewBindings.findChildViewById(rootView, id);
+      if (jobTi == null) {
+        break missingId;
+      }
+
+      id = R.id.jobTy;
+      TextView jobTy = ViewBindings.findChildViewById(rootView, id);
+      if (jobTy == null) {
+        break missingId;
+      }
+
+      id = R.id.lblSalaryResult;
+      TextView lblSalaryResult = ViewBindings.findChildViewById(rootView, id);
+      if (lblSalaryResult == null) {
+        break missingId;
+      }
+
+      id = R.id.lblpostDate;
+      TextView lblpostDate = ViewBindings.findChildViewById(rootView, id);
+      if (lblpostDate == null) {
+        break missingId;
+      }
+
+      id = R.id.line;
+      View line = ViewBindings.findChildViewById(rootView, id);
+      if (line == null) {
+        break missingId;
+      }
+
+      id = R.id.lvlPostDateResult;
+      TextView lvlPostDateResult = ViewBindings.findChildViewById(rootView, id);
+      if (lvlPostDateResult == null) {
+        break missingId;
+      }
+
+      id = R.id.scrollView2;
+      ScrollView scrollView2 = ViewBindings.findChildViewById(rootView, id);
+      if (scrollView2 == null) {
+        break missingId;
+      }
+
+      id = R.id.textView;
+      TextView textView = ViewBindings.findChildViewById(rootView, id);
+      if (textView == null) {
+        break missingId;
+      }
+
+      return new FragmentJobDetailBinding((ConstraintLayout) rootView, btnApply, btnBack, btnSave,
+          comIcon, comName, descResult, descTitle, detailBottom, detailContainer, detailMiddle,
+          detailTop, expectedSalary, jobCat, jobLoca, jobTi, jobTy, lblSalaryResult, lblpostDate,
+          line, lvlPostDateResult, scrollView2, textView);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

@@ -12,13 +12,13 @@
     <item
         android:id="@+id/interview"
         android:title="Interview"
-        android:icon="@drawable/baseline_edit_document_24"/>
+        android:icon="@drawable/baseline_business_center_24"/>
     <item
         android:id="@+id/alumni"
         android:title="Alumni"
         android:icon="@drawable/baseline_people_alt_24"/>
     <item
         android:id="@+id/setting"
-        android:title="Edit Profile"
-        android:icon="@drawable/baseline_construction_24"/>
+        android:title="Account"
+        android:icon="@drawable/baseline_manage_accounts_24"/>
 </menu>

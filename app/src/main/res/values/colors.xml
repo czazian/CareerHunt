@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="lightGrey">#f7f7f7</color>
+    <color name="link_default">#79AED6</color> <!-- Default color -->
+    <color name="link_pressed">#FF0000</color> <!-- Color when pressed -->
+    <color name="link_focused">#00FF00</color> <!-- Color when focused (hovered) -->
+    <color name="textColor">#FF000000</color>
+    <color name="textColor2">#878787</color>
 </resources>

@@ -1,16 +1,282 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="jobCategory">
+        <item>Accounting</item>
+        <item>Administrative</item>
+        <item>Office Support</item>
+        <item>Art and Design</item>
+        <item>Banking and Finance</item>
+        <item>Customer Service</item>
+        <item>Construction</item>
+        <item>Consulting</item>
+        <item>Education</item>
+        <item>Engineering</item>
+        <item>Farming and Animal</item>
+        <item>Healthcare</item>
+        <item>Human Resource</item>
+        <item>IT and Computing</item>
+        <item>Manufacturing</item>
+        <item>Marketing</item>
+        <item>Science</item>
+        <item>Retail</item>
+        <item>Sales</item>
+        <item>Insurance</item>
+        <item>Hospitality</item>
+    </string-array>
+    <string-array name="job_field">
+        <item>Information Technology</item>
+        <item>Computer Science</item>
+        <item>Broadcasting Media</item>
+        <item>Finance</item>
+        <item>Accounting</item>
+        <item>Human Resource</item>
+    </string-array>
+    <string-array name="johor_city">
+        <item>Batu Pahat</item>
+        <item>Jahor Bahru</item>
+        <item>Kluang</item>
+        <item>Kota Tinggi</item>
+        <item>Kulai</item>
+        <item>Mersing</item>
+        <item>Muar</item>
+        <item>Pontian Kechil</item>
+        <item>Segamat</item>
+        <item>Tangkak</item>
+    </string-array>
+    <string-array name="kedah_city">
+        <item>Baling</item>
+        <item>Serdang</item>
+        <item>Alor Setar</item>
+        <item>Sungai Petani</item>
+        <item>Jitra</item>
+        <item>Kulim</item>
+        <item>Kuah</item>
+        <item>Kuala Nerang</item>
+        <item>Pendang</item>
+        <item>Pokok Sena</item>
+        <item>Sik</item>
+        <item>Yan Besar</item>
+    </string-array>
+    <string-array name="kelantan_city">
+        <item>Bachok</item>
+        <item>Gua Musang</item>
+        <item>Jeli</item>
+        <item>Kota Bharu</item>
+        <item>Kuala Krai</item>
+        <item>Machang</item>
+        <item>Pasir Mas</item>
+        <item>Pasir Puteh</item>
+        <item>Tanah Merah</item>
+        <item>Tumpat</item>
+    </string-array>
+    <string-array name="kualaLumpur_city">
+        <item>Kepong</item>
+        <item>Batu</item>
+        <item>Wangsa Maju</item>
+        <item>Segambut</item>
+        <item>Setiawangsa</item>
+        <item>Titiwangsa</item>
+        <item>Bukit Bintang</item>
+        <item>Seputeh</item>
+        <item>Cheras</item>
+        <item>Bandar Tun Razak</item>
+        <item>Lembah Pantai</item>
+    </string-array>
+    <string-array name="language">
+        <item>English</item>
+        <item>Chinese</item>
+        <item>Malay</item>
+    </string-array>
+    <string-array name="malacca_city">
+        <item>Alor Gajah</item>
+        <item>Jasin</item>
+        <item>Malacca City</item>
+    </string-array>
+    <string-array name="nSembilan_city">
+        <item>Kuala Klawang</item>
+        <item>Bandar Seri Jempol</item>
+        <item>Kuala Pilah</item>
+        <item>Port Dickson</item>
+        <item>Rembau</item>
+        <item>Seremban</item>
+        <item>Tampin</item>
+    </string-array>
+    <string-array name="pahang_city">
+        <item>Bentong</item>
+        <item>Bandar Bera</item>
+        <item>Tanah Rata</item>
+        <item>Jerantut</item>
+        <item>Kuantan</item>
+        <item>Kuala Lipis</item>
+        <item>Maran</item>
+        <item>Pekan</item>
+        <item>Raub</item>
+        <item>Kuala Rompin</item>
+        <item>Temerloh</item>
+    </string-array>
+    <string-array name="penang_city">
+        <item>Bukit Mertajam</item>
+        <item>Kepala Batas</item>
+        <item>George Town</item>
+        <item>Sungai Jawi</item>
+        <item>Balik Pulau</item>
+    </string-array>
+    <string-array name="perak_city">
+        <item>Bagan Datuk</item>
+        <item>Tapah</item>
+        <item>Teluk Intan</item>
+        <item>Gerik</item>
+        <item>Kampar</item>
+        <item>Parit Buntar</item>
+        <item>Batu Gajah</item>
+        <item>Kuala Kangsar</item>
+        <item>Taiping</item>
+        <item>Seri Manjung</item>
+        <item>Tanjung Malim</item>
+        <item>Seri Iskandar</item>
+    </string-array>
+    <string-array name="perlis_city">
+        <item>Kangar</item>
+    </string-array>
+    <string-array name="sabah_city">
+        <item>Interior</item>
+        <item>Kudat</item>
+        <item>Sandakan</item>
+        <item>Tawau</item>
+        <item>West Coast</item>
+    </string-array>
+    <string-array name="sarawak_city">
+        <item>Betong</item>
+        <item>Bintulu</item>
+        <item>Kapit</item>
+        <item>Kuching</item>
+        <item>Limbang</item>
+        <item>Miri</item>
+        <item>Mukah</item>
+        <item>Samarahan</item>
+        <item>Sarikei</item>
+        <item>Serian</item>
+        <item>Sibu</item>
+        <item>Sri Aman</item>
+    </string-array>
+    <string-array name="selangor_city">
+        <item>Bandar Baru Selayang</item>
+        <item>Bandar Baru Bangi</item>
+        <item>Kuala Kubu Bharu</item>
+        <item>Klang</item>
+        <item>Teluk Datok</item>
+        <item>Kuala Selangor</item>
+        <item>Subang</item>
+        <item>Sabak</item>
+        <item>Salak Tinggi</item>
+    </string-array>
+    <string-array name="state">
+        <item>Kuala Lumpur</item>
+        <item>Johor</item>
+        <item>Kedah</item>
+        <item>Kelantan</item>
+        <item>Malacca</item>
+        <item>Negeri Sembilan</item>
+        <item>Pahang</item>
+        <item>Penang</item>
+        <item>Perak</item>
+        <item>Perlis</item>
+        <item>Sabah</item>
+        <item>Sarawak</item>
+        <item>Selangor</item>
+        <item>Terengganu</item>
+    </string-array>
+    <string-array name="terengganu_city">
+        <item>Kampung Raja</item>
+        <item>Kuala Dungun</item>
+        <item>Kuala Berang</item>
+        <item>Chukai</item>
+        <item>Kuala Nerus</item>
+        <item>Kuala Terengganu</item>
+        <item>Marang</item>
+        <item>Bandar Permaisuri</item>
+    </string-array>
     <color name="black">#FF000000</color>
+    <color name="lightGrey">#f7f7f7</color>
+    <color name="link_default">#79AED6</color>
+    <color name="link_focused">#00FF00</color>
+    <color name="link_pressed">#FF0000</color>
+    <color name="textColor">#FF000000</color>
+    <color name="textColor2">#878787</color>
     <color name="white">#FFFFFFFF</color>
+    <item name="btnCommentSent" type="id"/>
+    <item name="btnSent" type="id"/>
+    <string name="account_type">Account Type</string>
     <string name="app_name">CareerHunt</string>
+    <string name="applied">Applied</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="business">Business</string>
+    <string name="business_account">Business Account</string>
+    <string name="change_profile_picture">Change profile picture</string>
+    <string name="company_address">Company Address</string>
+    <string name="company_details">Company Details</string>
+    <string name="company_email">Company Email</string>
+    <string name="company_naddress">Company\nAddress</string>
+    <string name="company_name">Company Name</string>
+    <string name="company_nemail">Company\nEmail</string>
+    <string name="company_nname">Company\nName</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="email">Email</string>
+    <string name="faq">FAQ</string>
+    <string name="female">Female</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="gcm_defaultSenderId" translatable="false">471100510849</string>
+    <string name="gender">Gender</string>
+    <string name="google_api_key" translatable="false">AIzaSyADW4fra3RLoB3St5cTCnN3dQ0FSORBDkk</string>
+    <string name="google_app_id" translatable="false">1:471100510849:android:b1a7d12cb9a857a9573380</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyADW4fra3RLoB3St5cTCnN3dQ0FSORBDkk</string>
+    <string name="google_storage_bucket" translatable="false">careerhunt-e6787.appspot.com</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="job_field">Job Field</string>
+    <string name="job_listing">Job Listing</string>
+    <string name="languages">Languages</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="male">Male</string>
+    <string name="name">Name</string>
+    <string name="new_password">New Password</string>
+    <string name="no_account_yet">No Account Yet?</string>
+    <string name="password">Password</string>
+    <string name="personal">Personal</string>
+    <string name="personal_account">Personal Account</string>
+    <string name="personal_details">Personal Details</string>
+    <string name="phone_no">Phone No.</string>
+    <string name="phone_number_eg_0123456789">Phone Number (eg.0123456789)</string>
+    <string name="project_id" translatable="false">careerhunt-e6787</string>
+    <string name="register">Register</string>
+    <string name="reset">Reset</string>
+    <string name="reset_your_current_password">Reset your current password</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="submit">Submit</string>
     <style name="Base.Theme.CareerHunt" parent="Theme.Material3.DayNight.NoActionBar">
         
-        
+        <item name="colorPrimary">#98BFDD</item>
+
+    </style>
+    <style name="BottomSheetAnimation" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
+    <style name="CustomEditTextStyle" parent="@style/Widget.Material3.AutoCompleteTextView.OutlinedBox">
+        <item name="android:textSize">18dp</item>
     </style>
     <style name="Theme.CareerHunt" parent="Base.Theme.CareerHunt"/>
+    <style name="buttonStyle">
+        <item name="android:textColor">#FFFFFFFF</item>
+        <item name="android:textSize">17dp</item>
+    </style>
     <style name="circleImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+    <style name="imgButtonStyle">
+        <item name="android:background">#00FFFFFF</item>
     </style>
 </resources>
