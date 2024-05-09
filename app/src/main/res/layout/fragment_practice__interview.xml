@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".PracticeInterview">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topContainer"
+        android:layout_width="0dp"
+        android:layout_height="79dp"
+        android:background=" #138ef0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/lblTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:text="Interview Prep"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnSpeakerPhone"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/btnBackArrow"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.73" />
+
+        <ImageButton
+            android:id="@+id/btnSpeakerPhone"
+            android:layout_width="37dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/button_click"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_speaker_phone_24"
+            app:layout_constraintBottom_toBottomOf="@+id/btnMoreVert"
+            app:layout_constraintEnd_toStartOf="@+id/btnMoreVert"
+            app:layout_constraintTop_toTopOf="@+id/btnMoreVert"
+            app:layout_constraintVertical_bias="0.47"
+            app:tint="#FFFFFF" />
+
+        <ImageButton
+            android:id="@+id/btnBackArrow"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="316dp"
+            android:background="@drawable/button_click"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_arrow_back_24"
+            app:layout_constraintBottom_toBottomOf="@+id/btnMoreVert"
+            app:layout_constraintEnd_toStartOf="@+id/btnMoreVert"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnMoreVert"
+            app:layout_constraintVertical_bias="0.294"
+            app:tint="#FFFFFF" />
+
+        <Spinner
+            android:id="@+id/btnMoreVert"
+            android:layout_width="35dp"
+            android:layout_height="33dp"
+            android:layout_marginEnd="4dp"
+            android:adjustViewBounds="false"
+            android:background="@drawable/baseline_more_vert_24"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.586" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/LblPracticeInterview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Practice Interview"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/MiddleContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topContainer"
+        app:layout_constraintVertical_bias="0.466" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/MiddleContainer"
+        android:layout_width="388dp"
+        android:layout_height="183dp"
+        android:background="@drawable/rounded_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/topContainer"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="@+id/topContainer"
+        app:layout_constraintTop_toBottomOf="@+id/topContainer"
+        app:layout_constraintVertical_bias="0.132">
+
+        <TextView
+            android:id="@+id/QuestionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Can you please tell a bit yourself?"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/HorizonLine"
+            android:layout_width="375dp"
+            android:layout_height="3dp"
+            android:layout_marginEnd="4dp"
+            android:background="#D8D7D7"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="66dp" />
+
+        <TextView
+            android:id="@+id/noOfQuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="12dp"
+            android:text="1/2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btnKeyboard"
+            android:layout_width="46dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="52dp"
+            android:src="@drawable/keyboard_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/HorizonLine"
+            app:layout_constraintVertical_bias="0.9" />
+
+        <TextView
+            android:id="@+id/tvkeyboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="16dp"
+            android:text="Type your answer here"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnKeyboard" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/SecondMiddleContainer"
+        android:layout_width="388dp"
+        android:layout_height="183dp"
+        android:background="@drawable/rounded_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/topContainer"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="@+id/topContainer"
+        app:layout_constraintTop_toBottomOf="@+id/topContainer"
+        app:layout_constraintVertical_bias="0.569">
+
+        <TextView
+            android:id="@+id/SecondQuestionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Can you please tell a bit yourself?"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/SecondHorizonLine"
+            android:layout_width="375dp"
+            android:layout_height="3dp"
+            android:layout_marginEnd="4dp"
+            android:background="#D8D7D7"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="66dp" />
+
+        <TextView
+            android:id="@+id/SecondnoOfQuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="12dp"
+            android:text="2/2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/SecondbtnKeyboard"
+            android:layout_width="46dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="52dp"
+            android:src="@drawable/keyboard_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/SecondHorizonLine"
+            app:layout_constraintVertical_bias="0.9" />
+
+        <TextView
+            android:id="@+id/Secondtvkeyboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="16dp"
+            android:text="Type your answer here"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/SecondbtnKeyboard" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#2196F3"
+        android:text="End"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SecondMiddleContainer" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

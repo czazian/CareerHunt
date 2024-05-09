@@ -224,12 +224,21 @@
     <color name="textColor2">#878787</color>
     <color name="uploadResumeBtn">#138ef0</color>
     <color name="white">#FFFFFFFF</color>
+<<<<<<< HEAD
+=======
+    <item name="btnCommentSent" type="id"/>
+    <item name="btnSent" type="id"/>
+>>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
     <string name="account_type">Account Type</string>
     <string name="app_name">CareerHunt</string>
     <string name="applied">Applied</string>
     <string name="bookmark">Bookmark</string>
     <string name="business">Business</string>
     <string name="business_account">Business Account</string>
+<<<<<<< HEAD
+=======
+    <string name="category_prompt">Categories</string>
+>>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
     <string name="change_profile_picture">Change profile picture</string>
     <string name="company_address">Company Address</string>
     <string name="company_details">Company Details</string>
@@ -244,7 +253,10 @@
     <string name="email">Email</string>
     <string name="faq">FAQ</string>
     <string name="female">Female</string>
+<<<<<<< HEAD
     <string name="firebase_database_url" translatable="false">https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+=======
+>>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
     <string name="forget_password">Forget Password</string>
     <string name="gcm_defaultSenderId" translatable="false">471100510849</string>
     <string name="gender">Gender</string>

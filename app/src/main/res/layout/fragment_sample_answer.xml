@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".SampleAnswer">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topContainer"
+        android:layout_width="0dp"
+        android:layout_height="79dp"
+        android:background=" #138ef0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/lblTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:text="Interview Prep"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnSpeakerPhone"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/btnBackArrow"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.73" />
+
+        <ImageButton
+            android:id="@+id/btnSpeakerPhone"
+            android:layout_width="37dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/button_click"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_speaker_phone_24"
+            app:layout_constraintBottom_toBottomOf="@+id/btnMoreVert"
+            app:layout_constraintEnd_toStartOf="@+id/btnMoreVert"
+            app:layout_constraintTop_toTopOf="@+id/btnMoreVert"
+            app:layout_constraintVertical_bias="0.47"
+            app:tint="#FFFFFF" />
+
+        <ImageButton
+            android:id="@+id/btnBackArrow"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="316dp"
+            android:background="@drawable/button_click"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_arrow_back_24"
+            app:layout_constraintBottom_toBottomOf="@+id/btnMoreVert"
+            app:layout_constraintEnd_toStartOf="@+id/btnMoreVert"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnMoreVert"
+            app:layout_constraintVertical_bias="0.294"
+            app:tint="#FFFFFF" />
+
+        <Spinner
+            android:id="@+id/btnMoreVert"
+            android:layout_width="35dp"
+            android:layout_height="33dp"
+            android:layout_marginEnd="4dp"
+            android:adjustViewBounds="false"
+            android:background="@drawable/baseline_more_vert_24"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.586" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/MiddleContainer"
+        android:layout_width="365dp"
+        android:layout_height="502dp"
+        android:background="@drawable/rounded_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/topContainer"
+        app:layout_constraintHorizontal_bias="0.652"
+        app:layout_constraintStart_toStartOf="@+id/topContainer"
+        app:layout_constraintTop_toBottomOf="@+id/topContainer"
+        app:layout_constraintVertical_bias="0.54">
+
+        <TextView
+            android:id="@+id/QuestionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:text="Sample Answer 1"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/questionsDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Questions: Tell me about your self."
+            android:textColor="#808080"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.052"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/QuestionTitle" />
+
+        <View
+            android:id="@+id/HorizonLine"
+            android:layout_width="375dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="#D8D7D7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="@+id/questionsDisplay"
+            app:layout_constraintTop_toBottomOf="@+id/questionsDisplay" />
+
+        <TextView
+            android:id="@+id/displayAnswer"
+            android:layout_width="313dp"
+            android:layout_height="376dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:text="Sure, I'd be happy to. I'm a dedicated and enthusiastic professional with a strong background in Software Development. With 3 years of experience, I have honed my skills in development a mobile app. I am known for my ability to done the work on time. Outside of work, I enjoy to design the mobile app and UI. I am excited about the opportunity to have work with a Genting app project. I am confident that my combination of skills, experience, and enthusiasm make me a valuable asset to CTC company."
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/questionsDisplay" />
+
+        <ImageButton
+            android:id="@+id/nextArrorButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#7C7C7C"
+            android:rotationY="-180"
+            android:src="@drawable/baseline_arrow_back_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageButton
+            android:id="@+id/backArrorbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#7C7C7C"
+            android:src="@drawable/baseline_arrow_back_24"
+            app:layout_constraintBottom_toBottomOf="@+id/nextArrorButton"
+            app:layout_constraintTop_toTopOf="@+id/nextArrorButton"
+            tools:layout_editor_absoluteX="8dp" />
+
+        <TextView
+            android:id="@+id/lblBackArror"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginBottom="24dp"
+            android:text="Previous answer"
+            android:textColor="#959595"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/backArrorbutton" />
+
+        <TextView
+            android:id="@+id/lblNextArror"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="24dp"
+            android:text="Next answer"
+            android:textColor="#959595"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/nextArrorButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/LblSampleAnswers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sample Answers"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/MiddleContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topContainer"
+        app:layout_constraintVertical_bias="0.408" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
