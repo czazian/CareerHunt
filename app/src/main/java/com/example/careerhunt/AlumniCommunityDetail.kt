@@ -3,6 +3,7 @@ package com.example.careerhunt
 import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,21 +18,25 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.careerhunt.data.Alumni
+import com.example.careerhunt.data.PersonalTemp
 import com.example.careerhunt.dataAdapter.AlumniCommunityComment_adapter
 import com.example.careerhunt.dataAdapter.AlumniCommunity_adapter
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import org.w3c.dom.Text
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 import kotlin.math.absoluteValue
 
-
-/**
- * A simple [Fragment] subclass.
- * Use the [AlumniCommunityDetail.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AlumniCommunityDetail : Fragment() {
 
+    private var db : DatabaseReference = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").reference
+    private var dbRefAlumni : DatabaseReference = db.database.getReference("Alumni")
+    private var dbRefPersonal : DatabaseReference = db.database.getReference("Personal ")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -49,32 +54,33 @@ class AlumniCommunityDetail : Fragment() {
         val tvContent : TextView = view.findViewById(R.id.tvContent)
         val tvDate : TextView = view.findViewById(R.id.tvTime)
 
+        val postId : String? = arguments?.getString("postId")
+        Log.d("Post id is : ", postId.toString())
         //sent comment button
-        val btnCommentSent : ImageButton = view.findViewById(R.id.btnPost)
-
-        val postId = arguments?.getString("postId")
+        //val btnCommentSent : ImageButton = view.findViewById(R.id.btnCommentSent)
 
         //Post Upper detail load
         //id successfully past inside here
+        findAlumniById(postId.toString()){alumni ->
+            tvTitle.text   = alumni?.title
+            tvContent.text = alumni?.content
+            tvDate.text    = calDay(alumni?.date.toString())
 
-            //alumniCommunityViewModel.findById(postId!!.toInt()).observe(viewLifecycleOwner, Observer { alumniDetail ->
-            //    alumniDetail?.let{
-            //        tvUsername.text = it.id.toString()
-            //        tvSchool.text   = it.id.toString()
-           //         tvTitle.text   = it.title
-           //         tvContent.text   = it.content
-          //          tvDate.text   = calDay(it.posted_at)
-          //      }
+            findPersonalById(alumni?.personal_id.toString()){personal ->
+                tvUsername.text = personal?.name
+                tvSchool.text = personal?.graduatedFrom
+            }
+        }
 
-          //  })
+
 
         //Post bottom detail (comment) load
-        val adapter = AlumniCommunityComment_adapter()
-        val recyclerView: RecyclerView = view.findViewById(R.id.alumni_comment_recycle_view)
-        val tvComment : TextView =  view.findViewById(R.id.tvComment)
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.setHasFixedSize(true)
+        //val adapter = AlumniCommunityComment_adapter()
+        //val recyclerView: RecyclerView = view.findViewById(R.id.alumni_comment_recycle_view)
+        //val tvComment : TextView =  view.findViewById(R.id.tvComment)
+        //recyclerView.adapter = adapter
+        //recyclerView.layoutManager = LinearLayoutManager(context)
+        //recyclerView.setHasFixedSize(true)
         //alumniCommunityViewModel = ViewModelProvider(this).get(AlumniCommunityViewModel::class.java)
         //alumniCommunityViewModel.findCommentbyPostId(postId.toInt()).observe(viewLifecycleOwner, Observer {alumniCommunityCommentList->
          //   adapter.setData(alumniCommunityCommentList)
@@ -89,8 +95,8 @@ class AlumniCommunityDetail : Fragment() {
 
 
         //wait for whole database added first
-        btnCommentSent.setOnClickListener(){
-            var etComment   : EditText = view.findViewById(R.id.editText)
+        //btnCommentSent.setOnClickListener(){
+           // var etComment   : EditText = view.findViewById(R.id.editText)
 
             //val postId = arguments?.getString("postId")
 
@@ -103,7 +109,7 @@ class AlumniCommunityDetail : Fragment() {
             //make it empty after sent
             //etComment.setText("")
             //Toast.makeText(requireContext(), "Post successful:" + etComment.text.toString(), Toast.LENGTH_LONG).show()
-        }
+        //}
 
 
         // Inflate the layout for this fragment
@@ -133,21 +139,40 @@ class AlumniCommunityDetail : Fragment() {
         return result
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @return A new instance of fragment AlumniCommunityDetail.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(arge_1: String) =
-            AlumniCommunityDetail().apply {
-                arguments = Bundle().apply {
-                    putString("arge_1", arge_1)
+    private fun findAlumniById(id : String, callback: (Alumni?) -> Unit){
+        dbRefAlumni.child(id).addListenerForSingleValueEvent(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()) {
+                    Log.d("Snapshot = ", snapshot.getValue(Alumni::class.java).toString())
+                    val alumni : Alumni? = snapshot.getValue(Alumni::class.java)
+                    Log.d("Alumni :  = ", alumni?.title.toString())
+                    callback(alumni)
                 }
+
             }
+            override fun onCancelled(error: DatabaseError) {
+                //Toast.makeText(Context, "Error: $error", Toast.LENGTH_LONG).show()
+                callback(null)
+            }
+        })
     }
+
+    private fun findPersonalById(id : String, callback: (PersonalTemp?) -> Unit){
+        dbRefPersonal.child(id).addListenerForSingleValueEvent(object: ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()) {
+                    Log.d("Snapshot = ", snapshot.getValue(PersonalTemp::class.java).toString())
+                    val personal : PersonalTemp? = snapshot.getValue(PersonalTemp::class.java)
+                    Log.d("Personal :  = ", personal?.name.toString())
+                    callback(personal)
+                }
+
+            }
+            override fun onCancelled(error: DatabaseError) {
+                //Toast.makeText(Context, "Error: $error", Toast.LENGTH_LONG).show()
+                callback(null)
+            }
+        })
+    }
+
 }

@@ -21,12 +21,13 @@
         android:id="@+id/btnAddAlumniComm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="44dp"
+        android:backgroundTint="#138ef0"
+        app:srcCompat="@drawable/baseline_add_24_white"
+        app:tint="@color/white"
         app:fabSize="normal"
-        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@android:color/white" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

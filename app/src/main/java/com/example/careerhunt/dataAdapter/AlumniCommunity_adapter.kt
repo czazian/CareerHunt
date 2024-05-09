@@ -86,7 +86,8 @@ class AlumniCommunity_adapter() : RecyclerView.Adapter <AlumniCommunity_adapter.
         holder.itemView.findViewById<View>(R.id.constraintLayout1).setOnClickListener {
 
             val bundle = Bundle()
-            bundle.putString("postId", currentItem.title.toString())
+            bundle.putString("postId", currentItem.id)
+            Log.d("key is : ", currentItem.id)
 
             // Handle post item click
             val context = holder.itemView.context

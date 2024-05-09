@@ -212,6 +212,7 @@
     <string name="bookmark">Bookmark</string>
     <string name="business">Business</string>
     <string name="business_account">Business Account</string>
+    <string name="category_prompt">Categories</string>
     <string name="change_profile_picture">Change profile picture</string>
     <string name="company_address">Company Address</string>
     <string name="company_details">Company Details</string>

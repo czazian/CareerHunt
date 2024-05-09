@@ -184,11 +184,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
+            android:id="@+id/btnSentComment"
             android:layout_width="60dp"
             android:layout_height="40dp"
             android:background="@drawable/border"
             android:backgroundTint="#138EF0"
-            android:src="@drawable/baseline_bookmark_border_24"
+            android:src="@drawable/baseline_send_24"
             app:layout_constraintBottom_toBottomOf="@+id/editText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/editText"

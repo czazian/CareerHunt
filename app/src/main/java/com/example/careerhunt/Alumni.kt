@@ -81,6 +81,7 @@ class Alumni : Fragment(), AlumniCommunity_adapter.onLikeButtonClick {
                 if(snapshot.exists()) {
                     for (alumniSnap in snapshot.children) {
                         val alumni = alumniSnap.getValue(Alumni::class.java)
+                        alumni?.id = alumniSnap.key.toString()
                         alumniList.add(alumni!!)
                     }
                     val adapter = AlumniCommunity_adapter()
