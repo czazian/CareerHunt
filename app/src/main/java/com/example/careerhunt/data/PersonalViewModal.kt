@@ -16,13 +16,13 @@ class PersonalViewModal(application: Application) : AndroidViewModel(application
         repository = PersonalRepository(personalDAO)
     }
 
-    fun addPersonal(personal: Personal){
-        viewModelScope.launch (Dispatchers.IO ){
-            repository.addPersonal(personal)
-        }
-    }
+    //fun addPersonal(personal: Personal){
+    //    viewModelScope.launch (Dispatchers.IO ){
+    //        repository.addPersonal(personal)
+    //    }
+    //}
 
-    fun getPersonalById(id : Int) : LiveData<Personal> {
-        return repository.getPersonalById(id)
-    }
+   // fun getPersonalById(id : Int) : LiveData<Personal> {
+   //     return repository.getPersonalById(id)
+    //}
 }

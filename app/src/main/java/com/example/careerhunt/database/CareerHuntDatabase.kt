@@ -10,7 +10,7 @@ import com.example.careerhunt.data.*
 import java.time.Instant
 
 
-@Database(entities = [Job::class, Company::class, Apply_Job::class, Personal::class, Notification::class], version = 1, exportSchema = false)
+@Database(entities = [Job::class, Company::class, Apply_Job::class, Notification::class], version = 1, exportSchema = false)
 abstract class CareerHuntDatabase : RoomDatabase() {
     abstract fun jobDAO(): JobDAO
     abstract fun companyDAO(): CompanyDAO

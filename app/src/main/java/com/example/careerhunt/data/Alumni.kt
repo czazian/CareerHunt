@@ -1,3 +1,3 @@
 package com.example.careerhunt.data
 
-data class Alumni(val title : String, val content : String, val date : String, val personal_id : String)
+data class Alumni(var title : String = "", var content : String = "", var date : String = "", var personal_id : String = "")

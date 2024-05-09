@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.careerhunt.R
-import com.example.careerhunt.data.Alumni_community
 import com.example.careerhunt.data.Alumni_community_comment
 
 class AlumniCommunityComment_adapter() : RecyclerView.Adapter <AlumniCommunityComment_adapter.MyViewHolder>() {
@@ -36,8 +35,8 @@ class AlumniCommunityComment_adapter() : RecyclerView.Adapter <AlumniCommunityCo
     override fun onBindViewHolder(holder: AlumniCommunityComment_adapter.MyViewHolder, position: Int) {
         val currentItem = alumniCommunityCommentList[position]
 
-        holder.tvUsername.text = currentItem.personalID.toString()
-        holder.tvSchool.text = currentItem.personalID.toString()
+        holder.tvUsername.text = currentItem.personalId.toString()
+        holder.tvSchool.text = currentItem.personalId.toString()
         holder.tvComment.text = currentItem.comment
 
     }

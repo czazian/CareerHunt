@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_weight="1"
-        android:src="@drawable/baseline_add_box_24"
+        android:src="@drawable/baseline_favorite_border_24"
         android:backgroundTint="@color/white"/>
 
     <ImageButton android:id="@+id/btnComment"
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_weight="1"
-        android:src="@drawable/baseline_bookmark_border_24"
+        android:src="@drawable/baseline_chat_bubble_outline_24"
         android:backgroundTint="@color/white"/>
 
     <ImageButton android:id="@+id/btnShare"
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_weight="1"
-        android:src="@drawable/baseline_add_box_24"
+        android:src="@drawable/baseline_ios_share_24"
         android:backgroundTint="@color/white"/>
 
 </LinearLayout>

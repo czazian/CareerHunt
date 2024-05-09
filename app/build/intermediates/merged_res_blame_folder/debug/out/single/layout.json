@@ -28,10 +28,6 @@
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_user_profile.xml"
     },
     {
-        "merged": "com.example.careerhunt.app-mergeDebugResources-4:/layout/fragment_alumni_community_detail.xml",
-        "source": "com.example.careerhunt.app-main-7:/layout/fragment_alumni_community_detail.xml"
-    },
-    {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_edit_business_acc.xml",
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_edit_business_acc.xml"
     },
@@ -130,5 +126,9 @@
     {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\alumni_operation.xml",
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\alumni_operation.xml"
+    },
+    {
+        "merged": "com.example.careerhunt.app-mergeDebugResources-4:/layout/alumni_operation.xml",
+        "source": "com.example.careerhunt.app-main-7:/layout/alumni_operation.xml"
     }
 ]

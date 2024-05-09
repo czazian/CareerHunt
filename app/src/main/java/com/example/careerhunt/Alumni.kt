@@ -15,9 +15,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.careerhunt.data.Alumni
-import com.example.careerhunt.data.AlumniCommunityViewModel
-import com.example.careerhunt.data.Alumni_community
-import com.example.careerhunt.data.Alumni_community_like
 import com.example.careerhunt.dataAdapter.AlumniCommunity_adapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.DataSnapshot
@@ -30,9 +27,10 @@ import java.time.LocalDate
 
 class Alumni : Fragment(), AlumniCommunity_adapter.onLikeButtonClick {
 
-    private lateinit var alumniCommunityViewModal : AlumniCommunityViewModel
-    val database = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Alumni")
-
+    private lateinit var dbRefAlumni : DatabaseReference
+    private lateinit var dbRefPersonal : DatabaseReference
+    private lateinit var alumniList : ArrayList<Alumni>
+    private lateinit var recyclerView : RecyclerView
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -43,45 +41,15 @@ class Alumni : Fragment(), AlumniCommunity_adapter.onLikeButtonClick {
         //display fragment alumni
         val view = inflater.inflate(R.layout.fragment_alumni, container, false)
 
-        alumniCommunityViewModal = ViewModelProvider(this).get(AlumniCommunityViewModel::class.java)
-
-        //should be logined user id
-        //val alumni_like_list_personal : LiveData<List<Alumni_community_like>> = alumniCommunityViewModal.findLikeByPersonalId(1)
-
         // Assuming you are using Firebase Realtime Database
-        val databaseRef: DatabaseReference = FirebaseDatabase.getInstance().getReference("Alumni")
+        dbRefAlumni = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Alumni")
+        dbRefPersonal = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Personal")
+        recyclerView = view.findViewById(R.id.alumni_recycle_view)
+        alumniList = arrayListOf<Alumni>()
+        fetchData()
 
-        var dataList = arrayListOf<Alumni>()
-        database.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-
-                for (snapshot in dataSnapshot.children) {
-                    val id = snapshot.key ?: ""
-                    val title = snapshot.child(id).child("title").getValue(String::class.java) ?: ""
-                    val content = snapshot.child(id).child("content").getValue(String::class.java) ?: ""
-                    val personal_id = snapshot.child(id).child("personal_id").getValue(String::class.java) ?: ""
-
-                    val data = Alumni(title, content, "2034-5-8", personal_id)
-                    dataList.add(data)
-                }
-            }
-            
-            override fun onCancelled(databaseError: DatabaseError) {
-                Toast.makeText(requireContext(), "Failed to retrieve data", Toast.LENGTH_SHORT).show()
-            }
-        })
-
-        Toast.makeText(requireContext(), dataList.size, Toast.LENGTH_SHORT).show()
-        val adapter = AlumniCommunity_adapter(this)
-        val recyclerView: RecyclerView = view.findViewById(R.id.alumni_recycle_view)
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
-        alumniCommunityViewModal = ViewModelProvider(this).get(AlumniCommunityViewModel::class.java)
-        alumniCommunityViewModal.readAllData().observe(viewLifecycleOwner, Observer {alumniCommunityList->
-            adapter.setData(dataList)
-        })
-
 
         //when "+" button is click
         val btnAddAlumniComm : FloatingActionButton = view.findViewById(R.id.btnAddAlumniComm)
@@ -107,18 +75,21 @@ class Alumni : Fragment(), AlumniCommunity_adapter.onLikeButtonClick {
     }
 
     private fun fetchData(){
-        dbRef.addValueEventListener(object: ValueEventListener{
+        dbRefAlumni.addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                personList.clear()
+                alumniList.clear()
                 if(snapshot.exists()) {
-                    for (personSnap in snapshot.children) {
-                        val person = personSnap.getValue(Person::class.java)
-                        personList.add(person!!)
+                    for (alumniSnap in snapshot.children) {
+                        val alumni = alumniSnap.getValue(Alumni::class.java)
+                        alumniList.add(alumni!!)
                     }
+                    val adapter = AlumniCommunity_adapter()
+                    adapter.setData(alumniList)
+                    recyclerView.adapter = adapter
                 }
             }
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(applicationContext, "Error: $error", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), "Error: $error", Toast.LENGTH_LONG).show()
             }
         })
     }

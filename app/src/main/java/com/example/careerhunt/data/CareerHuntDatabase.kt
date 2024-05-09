@@ -7,11 +7,10 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
-@Database(entities = [Personal::class, Alumni_community::class, Alumni_community_comment::class, Alumni_community_like::class], version = 1, exportSchema = false)
+@Database(entities = [Company::class], version = 1, exportSchema = false)
 abstract class CareerHuntDatabase : RoomDatabase() {
 
     //dao
-    abstract fun alumniCommDao() : AlumniCommunityDAO
     abstract fun personalDao() : PersonalDAO
 
     companion object {

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,26 +24,27 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.careerhunt.AlumniCommunityDetail
 import com.example.careerhunt.R
 import com.example.careerhunt.data.Alumni
-import com.example.careerhunt.data.AlumniCommunityViewModel
-import com.example.careerhunt.data.Alumni_community_comment
-import com.example.careerhunt.data.Alumni_community_like
-import com.example.careerhunt.data.PersonalViewModal
+import com.example.careerhunt.data.PersonalTemp
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 import kotlin.math.absoluteValue
 
-class AlumniCommunity_adapter(private val listener: onLikeButtonClick) : RecyclerView.Adapter <AlumniCommunity_adapter.MyViewHolder>(){
+class AlumniCommunity_adapter() : RecyclerView.Adapter <AlumniCommunity_adapter.MyViewHolder>(){
 
     interface onLikeButtonClick {
         fun onLikeButtonClick(post: Alumni)
     }
 
-    private lateinit var alumniCommunityViewModal : AlumniCommunityViewModel
     private var alumniCommunityList = emptyList<Alumni>()
+    private var dbRefPersonal : DatabaseReference = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Personal")
 
     class MyViewHolder (itemView: View): RecyclerView.ViewHolder(itemView){
-
         val tvUsername : TextView = itemView.findViewById(R.id.tvUsername)
         val tcSchool : TextView = itemView.findViewById(R.id.tvSchool)
         val tvTitle : TextView = itemView.findViewById(R.id.tvTitle)
@@ -65,11 +67,15 @@ class AlumniCommunity_adapter(private val listener: onLikeButtonClick) : Recycle
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = alumniCommunityList[position]
 
-        holder.tvUsername.text = currentItem.personal_id.toString()
-        holder.tcSchool.text = currentItem.personal_id.toString()
+        findPersonalById(currentItem.personal_id){personal ->
+            holder.tvUsername.text = personal?.name
+            holder.tcSchool.text = personal?.graduatedFrom
+        }
+        //holder.tvUsername.text = currentItem.personal_id.toString()
+        //holder.tcSchool.text = currentItem.personal_id.toString()
         holder.tvTitle.text = currentItem.title.toString()
         holder.tvContent.text = currentItem.content.toString()
-        holder.tvTime.text = calDay(currentItem.date)
+        holder.tvTime.text = calDay(currentItem.date).toString()
 
         //change like button to 'red' color
         //if(alumniCommunityLikeList_personal)
@@ -98,7 +104,7 @@ class AlumniCommunity_adapter(private val listener: onLikeButtonClick) : Recycle
         //when like, comment and share button is click
         holder.itemView.findViewById<View>(R.id.btnLike).setOnClickListener {
             val post = currentItem
-            listener.onLikeButtonClick(post)
+            //listener.onLikeButtonClick(post)
         }
 
         holder.itemView.findViewById<View>(R.id.btnComment).setOnClickListener {
@@ -159,4 +165,27 @@ class AlumniCommunity_adapter(private val listener: onLikeButtonClick) : Recycle
         }
         return result
     }
+
+    private fun findPersonalById(id : String, callback: (PersonalTemp?) -> Unit){
+        dbRefPersonal.child(id).addListenerForSingleValueEvent(object: ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()) {
+                    Log.d("Snapshot = ", snapshot.getValue(PersonalTemp::class.java).toString())
+                    val personal : PersonalTemp? = snapshot.getValue(PersonalTemp::class.java)
+                    Log.d("Personal :  = ", personal?.name.toString())
+                    callback(personal)
+                }
+
+            }
+            override fun onCancelled(error: DatabaseError) {
+                //Toast.makeText(Context, "Error: $error", Toast.LENGTH_LONG).show()
+                callback(null)
+            }
+        })
+    }
+
+}
+
+private fun String?.addValueEventListener(valueEventListener: ValueEventListener) {
+
 }

@@ -12,11 +12,9 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
-import com.example.careerhunt.data.AlumniCommunityViewModel
-import com.example.careerhunt.data.Alumni_community
 import com.example.careerhunt.data.Personal
-import com.example.careerhunt.data.PersonalViewModal
 import com.google.firebase.Firebase
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.database
 import java.time.LocalDate
@@ -33,16 +31,15 @@ private const val ARG_PARAM2 = "param2"
  */
 class AlumniCommunityAdd : Fragment() {
 
-    private lateinit var alumniCommunityViewModal : AlumniCommunityViewModel
-    private lateinit var personalViewModel: PersonalViewModal
-    val database = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").reference
-
+    private lateinit var dbRef : DatabaseReference
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        dbRef = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Alumni")
+
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_alumni_community_add, container, false)
 
@@ -52,19 +49,9 @@ class AlumniCommunityAdd : Fragment() {
             val etTitle   : EditText = view.findViewById(R.id.etTitle)
             val etContent : EditText = view.findViewById(R.id.etContent)
 
-
-            //hardcoded create a records -> have to try 2nd time
-            //personalViewModel = ViewModelProvider(this).get(PersonalViewModal::class.java)
-            //val personal = Personal(0, "Personal01", "personal@gmail.com", "123", "UTAR", "", "0111-123456", "male", "College", "High")
-            //personalViewModel.addPersonal(personal)
-
-            alumniCommunityViewModal = ViewModelProvider(this).get(AlumniCommunityViewModel::class.java)
             //temp solution: should be personal ID of logined account of device
-            //val alumniComm = Alumni_community(0, etTitle.text.toString(), etContent.text.toString(), LocalDate.now().toString(), 1)
-            //alumniCommunityViewModal.addAlumniCommunity(alumniComm)
-
-            val alumni_post = com.example.careerhunt.data.Alumni(etTitle.text.toString(), etContent.text.toString(), "2034-5-3", "user1")
-            database.child("Alumni").push().setValue(alumni_post)
+            val alumni_post = com.example.careerhunt.data.Alumni(etTitle.text.toString(), etContent.text.toString(), LocalDate.now().toString(), "user1")
+            dbRef.push().setValue(alumni_post)
 
             Toast.makeText(requireContext(), "Post successful", Toast.LENGTH_LONG).show()
             val fragment = Alumni()

@@ -9,9 +9,9 @@ import androidx.room.Query
 @Dao
 interface PersonalDAO {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addPersonal(personal: Personal)
+    //@Insert(onConflict = OnConflictStrategy.IGNORE)
+    //suspend fun addPersonal(personal: Personal)
 
-    @Query("SELECT * FROM personal WHERE personalID = :id LIMIT 1")
-    fun getPersonalById(id: Int): LiveData<Personal>
+    //@Query("SELECT * FROM personal WHERE personalID = :id LIMIT 1")
+    //fun getPersonalById(id: Int): LiveData<Personal>
 }

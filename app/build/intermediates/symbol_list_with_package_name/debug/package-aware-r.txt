@@ -3088,6 +3088,7 @@ drawable baseline_construction_24
 drawable baseline_edit_document_24
 drawable baseline_email
 drawable baseline_email_focused
+drawable baseline_favorite_border_24
 drawable baseline_house_24
 drawable baseline_ios_share_24
 drawable baseline_job_field

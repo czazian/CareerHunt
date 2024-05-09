@@ -7,13 +7,8 @@ import java.sql.Blob
 
 @Entity(
     tableName = "Apply_Job",
-    primaryKeys = ["personalID", "jobID"],
+    primaryKeys = [ "jobID"],
     foreignKeys = [
-        ForeignKey(
-            entity = Personal::class,
-            parentColumns = ["personalID"],
-            childColumns = ["personalID"],
-        ),
         ForeignKey(
             entity = Job::class,
             parentColumns = ["jobID"],
@@ -22,8 +17,6 @@ import java.sql.Blob
     ]
 )
 data class Apply_Job(
-    @ColumnInfo(name = "personalID")
-    var personalID: String,
     @ColumnInfo(name = "jobID")
     var jobID: String,
     @ColumnInfo(name = "resume")

@@ -8,13 +8,6 @@ import java.sql.Blob
 
 @Entity(
     tableName = "Notification",
-    foreignKeys = [
-        ForeignKey(
-            entity = Personal::class,
-            parentColumns = ["personalID"],
-            childColumns = ["personalID"],
-        )
-    ]
 )
 data class Notification(
     @PrimaryKey(autoGenerate = true)
@@ -23,6 +16,5 @@ data class Notification(
     var notificationTitle: String,
     @ColumnInfo(name = "notificationContent")
     var notificationContent: String,
-    @ColumnInfo(name = "personalID")
-    var personalID: Int
+
 )

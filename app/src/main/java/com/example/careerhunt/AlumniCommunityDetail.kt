@@ -17,9 +17,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.careerhunt.data.AlumniCommunityViewModel
-import com.example.careerhunt.data.Alumni_community
-import com.example.careerhunt.data.Alumni_community_comment
 import com.example.careerhunt.dataAdapter.AlumniCommunityComment_adapter
 import com.example.careerhunt.dataAdapter.AlumniCommunity_adapter
 import org.w3c.dom.Text
@@ -55,23 +52,21 @@ class AlumniCommunityDetail : Fragment() {
         //sent comment button
         val btnCommentSent : ImageButton = view.findViewById(R.id.btnPost)
 
-        lateinit var alumniCommunityViewModel: AlumniCommunityViewModel
         val postId = arguments?.getString("postId")
 
         //Post Upper detail load
         //id successfully past inside here
-        alumniCommunityViewModel = ViewModelProvider(this).get(AlumniCommunityViewModel::class.java)
 
-            alumniCommunityViewModel.findById(postId!!.toInt()).observe(viewLifecycleOwner, Observer { alumniDetail ->
-                alumniDetail?.let{
-                    tvUsername.text = it.id.toString()
-                    tvSchool.text   = it.id.toString()
-                    tvTitle.text   = it.title
-                    tvContent.text   = it.content
-                    tvDate.text   = calDay(it.posted_at)
-                }
+            //alumniCommunityViewModel.findById(postId!!.toInt()).observe(viewLifecycleOwner, Observer { alumniDetail ->
+            //    alumniDetail?.let{
+            //        tvUsername.text = it.id.toString()
+            //        tvSchool.text   = it.id.toString()
+           //         tvTitle.text   = it.title
+           //         tvContent.text   = it.content
+          //          tvDate.text   = calDay(it.posted_at)
+          //      }
 
-            })
+          //  })
 
         //Post bottom detail (comment) load
         val adapter = AlumniCommunityComment_adapter()
@@ -80,36 +75,34 @@ class AlumniCommunityDetail : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
-        alumniCommunityViewModel = ViewModelProvider(this).get(AlumniCommunityViewModel::class.java)
-        alumniCommunityViewModel.findCommentbyPostId(postId.toInt()).observe(viewLifecycleOwner, Observer {alumniCommunityCommentList->
-            adapter.setData(alumniCommunityCommentList)
+        //alumniCommunityViewModel = ViewModelProvider(this).get(AlumniCommunityViewModel::class.java)
+        //alumniCommunityViewModel.findCommentbyPostId(postId.toInt()).observe(viewLifecycleOwner, Observer {alumniCommunityCommentList->
+         //   adapter.setData(alumniCommunityCommentList)
 
-            if(adapter.itemCount >= 1){
-                tvComment.text = adapter.itemCount.toString() + " Comment(s)"
-            }else{
-                tvComment.text = "No comment"
-            }
+         //   if(adapter.itemCount >= 1){
+        //        tvComment.text = adapter.itemCount.toString() + " Comment(s)"
+       //     }else{
+        //        tvComment.text = "No comment"
+        //    }
 
-        })
+       // })
 
 
         //wait for whole database added first
         btnCommentSent.setOnClickListener(){
             var etComment   : EditText = view.findViewById(R.id.editText)
 
-            lateinit var alumniCommunityViewModel: AlumniCommunityViewModel
-            val postId = arguments?.getString("postId")
-            alumniCommunityViewModel = ViewModelProvider(this).get(AlumniCommunityViewModel::class.java)
+            //val postId = arguments?.getString("postId")
 
-            val alumniCommComment = postId?.toInt()
-                ?.let { it1 -> Alumni_community_comment(0, etComment.text.toString(), 1, it1) }
-            if (alumniCommComment != null) {
-                alumniCommunityViewModel.addAlumniCommunityComment(alumniCommComment)
-            }
+            //val alumniCommComment = postId?.toInt()
+            //    ?.let { it1 -> Alumni_community_comment(0, etComment.text.toString(), 1, it1) }
+            //if (alumniCommComment != null) {
+            //    alumniCommunityViewModel.addAlumniCommunityComment(alumniCommComment)
+            //}
 
             //make it empty after sent
-            etComment.setText("")
-            Toast.makeText(requireContext(), "Post successful:" + etComment.text.toString(), Toast.LENGTH_LONG).show()
+            //etComment.setText("")
+            //Toast.makeText(requireContext(), "Post successful:" + etComment.text.toString(), Toast.LENGTH_LONG).show()
         }
 
 
