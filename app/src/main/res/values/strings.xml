@@ -46,6 +46,7 @@
     <string name="personal_account">Personal Account</string>
 
     <string-array name="state">
+        <item></item>
         <item>Kuala Lumpur</item>
         <item>Johor</item>
         <item>Kedah</item>
@@ -62,6 +63,7 @@
         <item>Terengganu</item>
     </string-array>
     <string-array name="johor_city">
+        <item></item>
         <item>Batu Pahat</item>
         <item>Jahor Bahru</item>
         <item>Kluang</item>
@@ -74,6 +76,7 @@
         <item>Tangkak</item>
     </string-array>
     <string-array name="kedah_city">
+        <item></item>
         <item>Baling</item>
         <item>Serdang</item>
         <item>Alor Setar</item>
@@ -88,6 +91,7 @@
         <item>Yan Besar</item>
     </string-array>
     <string-array name="kelantan_city">
+        <item></item>
         <item>Bachok</item>
         <item>Gua Musang</item>
         <item>Jeli</item>
@@ -100,11 +104,13 @@
         <item>Tumpat</item>
     </string-array>
     <string-array name="malacca_city">
+        <item></item>
         <item>Alor Gajah</item>
         <item>Jasin</item>
         <item>Malacca City</item>
     </string-array>
     <string-array name="nSembilan_city">
+        <item></item>
         <item>Kuala Klawang</item>
         <item>Bandar Seri Jempol</item>
         <item>Kuala Pilah</item>
@@ -114,6 +120,7 @@
         <item>Tampin</item>
     </string-array>
     <string-array name="pahang_city">
+        <item></item>
         <item>Bentong</item>
         <item>Bandar Bera</item>
         <item>Tanah Rata</item>
@@ -127,6 +134,7 @@
         <item>Temerloh</item>
     </string-array>
     <string-array name="penang_city">
+        <item></item>
         <item>Bukit Mertajam</item>
         <item>Kepala Batas</item>
         <item>George Town</item>
@@ -134,6 +142,7 @@
         <item>Balik Pulau</item>
     </string-array>
     <string-array name="perak_city">
+        <item></item>
         <item>Bagan Datuk</item>
         <item>Tapah</item>
         <item>Teluk Intan</item>
@@ -148,9 +157,11 @@
         <item>Seri Iskandar</item>
     </string-array>
     <string-array name="perlis_city">
+        <item></item>
         <item>Kangar</item>
     </string-array>
     <string-array name="sabah_city">
+        <item></item>
         <item>Interior</item>
         <item>Kudat</item>
         <item>Sandakan</item>
@@ -158,6 +169,7 @@
         <item>West Coast</item>
     </string-array>
     <string-array name="sarawak_city">
+        <item></item>
         <item>Betong</item>
         <item>Bintulu</item>
         <item>Kapit</item>
@@ -172,6 +184,7 @@
         <item>Sri Aman</item>
     </string-array>
     <string-array name="selangor_city">
+        <item></item>
         <item>Bandar Baru Selayang</item>
         <item>Bandar Baru Bangi</item>
         <item>Kuala Kubu Bharu</item>
@@ -183,6 +196,7 @@
         <item>Salak Tinggi</item>
     </string-array>
     <string-array name="terengganu_city">
+        <item></item>
         <item>Kampung Raja</item>
         <item>Kuala Dungun</item>
         <item>Kuala Berang</item>
@@ -193,6 +207,7 @@
         <item>Bandar Permaisuri</item>
     </string-array>
     <string-array name="kualaLumpur_city">
+        <item></item>
         <item>Kepong</item>
         <item>Batu</item>
         <item>Wangsa Maju</item>
@@ -206,6 +221,7 @@
         <item>Lembah Pantai</item>
     </string-array>
     <string-array name="jobCategory">
+        <item></item>
         <item>Accounting</item>
         <item>Administrative</item>
         <item>Office Support</item>
@@ -227,6 +243,10 @@
         <item>Sales</item>
         <item>Insurance</item>
         <item>Hospitality</item>
+    </string-array>
+
+    <string-array name="nothing">
+
     </string-array>
 
     <string-array name="job_field">

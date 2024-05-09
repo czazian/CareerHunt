@@ -5,14 +5,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.careerhunt.dao.CompanyDAO
-import com.example.careerhunt.dao.JobDAO
+
 import com.example.careerhunt.data.*
 import java.time.Instant
 
 
-@Database(entities = [Job::class, Company::class, Apply_Job::class, Personal::class, Notification::class], version = 1, exportSchema = false)
+@Database(entities = [Personal::class], version = 1, exportSchema = false)
 abstract class CareerHuntDatabase : RoomDatabase() {
-    abstract fun jobDAO(): JobDAO
+
     abstract fun companyDAO(): CompanyDAO
 
     companion object {

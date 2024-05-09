@@ -149,7 +149,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tfName" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/radioGroupPF"
         android:layout_width="297dp"
         android:layout_height="49dp"
         android:layout_gravity="center"

@@ -1,38 +1,337 @@
 package com.example.careerhunt
 
 import android.app.Dialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
-import android.widget.ImageButton
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.RadioGroup
+import android.widget.Spinner
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.careerhunt.data.Job
+import com.example.careerhunt.dataAdapter.JobListingAdapter
+import com.example.careerhunt.databinding.FragmentSearchJobBinding
+import com.example.careerhunt.interfaces.JobInterface
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.Query
+import com.google.firebase.database.ValueEventListener
+import kotlin.math.max
 
-class SearchJob : Fragment() {
+class SearchJob : Fragment(), JobInterface.RecyclerViewEvent {
+    private lateinit var binding: FragmentSearchJobBinding
+    private lateinit var dbRef: DatabaseReference
+    private lateinit var jobList: ArrayList<Job>
+    private lateinit var dialogToDisplay: View
+    private lateinit var dialog: Dialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_search_job, container, false)
+        binding = FragmentSearchJobBinding.inflate(layoutInflater, container, false)
 
-        val bottomSheet = view.findViewById<ImageButton>(R.id.btnFilter)
-        bottomSheet.setOnClickListener() {
-            showDialog();
+        //RecyclerView
+        binding.searchRecyclerView.setNestedScrollingEnabled(false);
+
+        binding.btnBack2.setOnClickListener() {
+            getActivity()?.onBackPressed();
         }
 
-        return view
+
+        //If from the Listing Page
+        dbRef = FirebaseDatabase.getInstance().getReference("Job")
+        jobList = arrayListOf()
+        val from = arguments?.getString("from")
+        if (from == "latest") {
+            val query = dbRef.orderByChild("jobPostedDate")
+            getLatestData(query, "latest", "")
+        } else if (from == "recommend") {
+            val query = dbRef.orderByChild("jobCategory")
+                .equalTo("IT and Computing") //Later need to change to user job category
+            getLatestData(query, "latest", "")
+        } else {
+            val query = dbRef.orderByKey()
+            getLatestData(query, "", "")
+        }
+
+
+        // Filtering
+        binding.btnFilter.setOnClickListener() {
+            Log.e("TAG", "btnFilter Clicked")
+
+
+            dialogToDisplay =
+                LayoutInflater.from(this.requireContext()).inflate(R.layout.bottom_sheet, null)
+            showDialog()
+
+            // Obtains input widgets
+            val categorySpinner = dialogToDisplay.findViewById<Spinner>(R.id.category)
+            val typeRadio = dialogToDisplay.findViewById<RadioGroup>(R.id.rdlGroup)
+            val locationState = dialogToDisplay.findViewById<Spinner>(R.id.spinnerState)
+            val locationCity = dialogToDisplay.findViewById<Spinner>(R.id.spinnerCity)
+            val salaryMin = dialogToDisplay.findViewById<TextView>(R.id.min)
+            val salaryMax = dialogToDisplay.findViewById<TextView>(R.id.max)
+
+            locationState?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+                }
+
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    Log.e("TAG", "onItemSelected Clicked")
+                    //Set City Spinner According to the State Selected
+                    val arrayCity: Array<String> = when (locationState.selectedItem.toString()) {
+                        "Johor" -> resources.getStringArray(R.array.johor_city)
+                        "Kedah" -> resources.getStringArray(R.array.kedah_city)
+                        "Kelantan" -> resources.getStringArray(R.array.kelantan_city)
+                        "Malacca" -> resources.getStringArray(R.array.malacca_city)
+                        "Negeri Sembilan" -> resources.getStringArray(R.array.nSembilan_city)
+                        "Pahang" -> resources.getStringArray(R.array.pahang_city)
+                        "Penang" -> resources.getStringArray(R.array.penang_city)
+                        "Perak" -> resources.getStringArray(R.array.perak_city)
+                        "Perlis" -> resources.getStringArray(R.array.perlis_city)
+                        "Sabah" -> resources.getStringArray(R.array.sabah_city)
+                        "Sarawak" -> resources.getStringArray(R.array.sarawak_city)
+                        "Selangor" -> resources.getStringArray(R.array.selangor_city)
+                        "Terengganu" -> resources.getStringArray(R.array.terengganu_city)
+                        "Kuala Lumpur" -> resources.getStringArray(R.array.kualaLumpur_city)
+                        else -> resources.getStringArray(R.array.nothing)
+                    }
+
+                    val adapter =
+                        ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, arrayCity)
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                    locationCity.adapter = adapter
+                    adapter.notifyDataSetChanged()
+                }
+
+            }
+
+            val applyFiltering = dialogToDisplay.findViewById<Button>(R.id.ApplyBtn)
+            applyFiltering.setOnClickListener() {
+                //Clear search box
+                binding.txtSearch.text.clear()
+
+                //Operations
+                Log.e("TAG", "Apply Button Clicked")
+                dialog.dismiss()
+                val listerner = this
+
+                val categorySpinnerValue: String? = categorySpinner.selectedItem.toString()
+                val jobTypeValue: String? = when (typeRadio.checkedRadioButtonId) {
+                    R.id.full -> "Full Time"
+                    R.id.part -> "Part Time"
+                    else -> ""
+                }
+                val locationStateValue: String?
+                val locationCityValue: String?
+                if(locationState.selectedItem == null){
+                    locationStateValue = ""
+                } else {
+                    locationStateValue = locationState.selectedItem.toString()
+                }
+                if(locationCity.selectedItem == null){
+                    locationCityValue= ""
+                } else {
+                    locationCityValue = locationCity.selectedItem.toString()
+                }
+                val salaryMinValue: Int? = salaryMin.text.toString().toIntOrNull()
+                val salaryMaxValue: Int? = salaryMax.text.toString().toIntOrNull()
+
+                dbRef.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        jobList.clear()
+
+                        if (snapshot.exists()) {
+
+                            for (jobSnapshot in snapshot.children) {
+                                val job = jobSnapshot.getValue(Job::class.java)
+
+                                if (job != null && meetsConditions(
+                                        job,
+                                        categorySpinnerValue,
+                                        jobTypeValue,
+                                        locationStateValue,
+                                        locationCityValue,
+                                        salaryMinValue,
+                                        salaryMaxValue
+                                    )
+                                ) {
+                                    jobList.add(job!!)
+                                }
+                            }
+
+                            val adapter = JobListingAdapter(listerner)
+                            adapter.setData(jobList)
+                            binding.searchRecyclerView.adapter = adapter
+                            binding.searchRecyclerView.layoutManager =
+                                LinearLayoutManager(requireContext())
+                            binding.searchRecyclerView.setHasFixedSize(true)
+                            adapter.notifyDataSetChanged()
+
+                            //Set number of results
+                            if (adapter.itemCount > 1) {
+                                binding.lblResultNum.text =
+                                    adapter.itemCount.toString() + " Results"
+                            } else {
+                                binding.lblResultNum.text =
+                                    adapter.itemCount.toString() + " Result"
+                            }
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        Toast.makeText(requireContext(), "Error: $error", Toast.LENGTH_LONG)
+                            .show()
+                    }
+                })
+            }
+        }
+
+
+        //Show result by searching
+        binding.searchBtn.setOnClickListener()
+        {
+            Toast.makeText(requireContext(), "RAN", Toast.LENGTH_LONG)
+            var searchKeyword: String = binding.txtSearch.text.toString()
+            val query = dbRef.orderByKey()
+            getLatestData(query, "search", searchKeyword)
+        }
+
+
+        return binding.root
+    }
+
+    fun meetsConditions(
+        job: Job,
+        jobCategoryValue: String?,
+        typeRadioValue: String?,
+        locationStateValue: String?,
+        locationCityValue: String?,
+        salaryMinValue: Int?,
+        salaryMaxValue: Int?
+    ): Boolean {
+        // Initialize a variable to track whether all conditions are met
+        var allConditionsMet = true
+
+        // Check each condition one by one
+        if (!jobCategoryValue.isNullOrEmpty()) {
+            allConditionsMet = allConditionsMet && (job.jobCategory == jobCategoryValue)
+        }
+        if (!typeRadioValue.isNullOrEmpty()) {
+            allConditionsMet = allConditionsMet && (job.jobType == typeRadioValue)
+        }
+        if (!locationStateValue.isNullOrEmpty()) {
+            allConditionsMet = allConditionsMet && (job.jobLocationState == locationStateValue)
+        }
+        if (!locationCityValue.isNullOrEmpty()) {
+            allConditionsMet = allConditionsMet && (job.jobLocationCity == locationCityValue)
+        }
+        if (salaryMinValue != null && salaryMaxValue != null) {
+            allConditionsMet = allConditionsMet && (job.jobSalary!! in salaryMinValue.toString().toDouble()..salaryMaxValue.toString().toDouble())
+        }
+
+        // Return true if all conditions are met, otherwise return false
+        return allConditionsMet
+    }
+
+    fun getLatestData(query: Query, from: String, searchKeyword: String) {
+        //Get the listener
+        val listerner = this
+
+        query.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                jobList.clear()
+                if (snapshot.exists()) {
+                    if (from == "latest") {
+                        for (jobSnapshot in snapshot.children.reversed()) {
+                            val job = jobSnapshot.getValue(Job::class.java)
+                            jobList.add(job!!)
+                        }
+                    } else if (from == "recommend") {
+
+                    } else if (from == "search") {
+                        for (jobSnapshot in snapshot.children) {
+                            val job = jobSnapshot.getValue(Job::class.java)
+                            if (job != null && job.jobName!!.contains(
+                                    searchKeyword,
+                                    ignoreCase = true
+                                )
+                            ) {
+                                jobList.add(job!!)
+                            }
+                        }
+                    } else {
+                        for (jobSnapshot in snapshot.children) {
+                            val job = jobSnapshot.getValue(Job::class.java)
+                            jobList.add(job!!)
+                        }
+                    }
+                    val adapter = JobListingAdapter(listerner)
+                    adapter.setData(jobList)
+                    binding.searchRecyclerView.adapter = adapter
+                    binding.searchRecyclerView.layoutManager =
+                        LinearLayoutManager(requireContext())
+                    binding.searchRecyclerView.setHasFixedSize(true)
+                    adapter.notifyDataSetChanged()
+
+                    //Set number of results
+                    if (adapter.itemCount > 1) {
+                        binding.lblResultNum.text = adapter.itemCount.toString() + " Results"
+                    } else {
+                        binding.lblResultNum.text = adapter.itemCount.toString() + " Result"
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(requireContext(), "Error: $error", Toast.LENGTH_LONG).show()
+            }
+        })
+
+    }
+
+    override fun onItemClick(position: Int) {
+        //Get the clicked object
+        val jobObj: Job = jobList[position]
+        val fragment = JobDetail()
+
+        //Add Result Object into Bundle
+        val bundle = Bundle()
+        bundle.putSerializable("job", jobObj)
+        fragment.arguments = bundle
+
+        val transaction = activity?.supportFragmentManager?.beginTransaction()
+        transaction?.replace(R.id.frameLayout, fragment)
+        transaction?.addToBackStack(null)
+        transaction?.commit()
     }
 
     fun showDialog() {
-        val dialog: Dialog = Dialog(requireContext())
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.bottom_sheet)
+        dialogToDisplay =
+            LayoutInflater.from(this.requireContext()).inflate(R.layout.bottom_sheet, null)
+        dialog = AlertDialog.Builder(this.requireContext(), R.style.CustomAlertDialog)
+            .setView(dialogToDisplay)
+            .create()
 
         dialog.show()
         dialog.window?.setLayout(

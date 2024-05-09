@@ -6,22 +6,27 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.careerhunt.data.Job
 import com.example.careerhunt.dataAdapter.JobListingAdapter
 import com.example.careerhunt.databinding.FragmentJobListingBinding
-import com.example.careerhunt.viewModel.CompanyViewModel
-import com.example.careerhunt.viewModel.JobViewModel
-import com.example.careerhunt.viewModel.JobRepository
+import com.example.careerhunt.interfaces.JobInterface
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
-class JobListing : Fragment(), JobViewModel.RecyclerViewEvent {
+class JobListing : Fragment(), JobInterface.RecyclerViewEvent {
 
     private lateinit var binding: FragmentJobListingBinding
-    private lateinit var jobViewModel : JobViewModel
-    private lateinit var companyViewModel : CompanyViewModel
+    private lateinit var dbRef: DatabaseReference
+    private lateinit var newJobList: ArrayList<Job>
+    private lateinit var recommendedJobList: ArrayList<Job>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,15 +37,10 @@ class JobListing : Fragment(), JobViewModel.RecyclerViewEvent {
 
 
         //Hardcoded company ID
-        val companyID = 1
-
+        //val companyID = 1
 
         binding.recommendedJobRecyclerView.setNestedScrollingEnabled(false);
         binding.newJobRecyclerView.setNestedScrollingEnabled(false);
-
-        //Get View Model
-        jobViewModel = ViewModelProvider(this).get(JobViewModel::class.java)
-        companyViewModel = ViewModelProvider(this).get(CompanyViewModel::class.java)
 
         //Go to add job
         binding.btnAddJob.setOnClickListener() {
@@ -51,31 +51,42 @@ class JobListing : Fragment(), JobViewModel.RecyclerViewEvent {
             transaction?.commit()
         }
 
-
-        //Display Recommended Job -> Need to pass in the viewModel and viewLifeCycleOwner in order to get data
-        val recommendedJobAdapter = JobListingAdapter(this, companyViewModel, viewLifecycleOwner)
-
-        binding.recommendedJobRecyclerView.adapter = recommendedJobAdapter
-        binding.recommendedJobRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.recommendedJobRecyclerView.setHasFixedSize(true)
-
-        jobViewModel.readRecommendedJob().observe(viewLifecycleOwner, Observer { jobList ->
-            recommendedJobAdapter.setData(jobList)
-        });
+        //Data Handling
+        fetchRecommendedJobData()
+        fetchNewJobData()
 
 
-        //Display New Job
-        //Use the Foreign Key (from Job) to retrieve records (from Company) -> Need to pass in the viewModel and viewLifeCycleOwner in order to get data
-        val newJobAdapter = JobListingAdapter(this, companyViewModel, viewLifecycleOwner)
+        //View more - all
+        binding.btnShowAllLatest.setOnClickListener(){
+            val fragment = SearchJob()
+            val bundle = Bundle()
+            bundle.putString("from", "latest")
+            fragment.arguments = bundle
 
-        binding.newJobRecyclerView.adapter = newJobAdapter
-        binding.newJobRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.newJobRecyclerView.setHasFixedSize(true)
+            val navigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+            navigationView.selectedItemId = R.id.explore
 
-        jobViewModel.readNewJob().observe(viewLifecycleOwner, Observer { jobList ->
-            newJobAdapter.setData(jobList)
-        });
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frameLayout, fragment)
+            transaction?.addToBackStack(null)
+            transaction?.commit()
+        }
 
+        //View more - recommended
+        binding.btnShowAllRecommended.setOnClickListener(){
+            val fragment = SearchJob()
+            val bundle = Bundle()
+            bundle.putString("from", "recommend")
+            fragment.arguments = bundle
+
+            val navigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+            navigationView.selectedItemId = R.id.explore
+
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frameLayout, fragment)
+            transaction?.addToBackStack(null)
+            transaction?.commit()
+        }
 
 
         //return view
@@ -83,22 +94,93 @@ class JobListing : Fragment(), JobViewModel.RecyclerViewEvent {
     }
 
 
-    //On each RecyclerView Item clicked - Perform actual action here
-    override fun onItemClick(position: Int) {
-        jobViewModel.readNewJob().observe(viewLifecycleOwner, Observer { jobList ->
+    private fun fetchNewJobData() {
+        //Get the listener
+        val listerner = this
 
-            val fragment = JobDetail()
+        dbRef = FirebaseDatabase.getInstance().getReference("Job")
+        val query = dbRef.orderByChild("jobPostedDate").limitToLast(5) //Make a filter on the result from firebase
 
-            val bundle = Bundle()
-            bundle.putString("jobID", jobList[position].jobID.toString())
-            fragment.arguments = bundle
+        newJobList = arrayListOf()
+        query.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                newJobList.clear()
+                if (snapshot.exists()) {
+                    for (jobSnapshot in snapshot.children.reversed()) {
+                        val job = jobSnapshot.getValue(Job::class.java)
+                        newJobList.add(job!!)
+                    }
+                    val adapter = JobListingAdapter(listerner)
+                    adapter.setData(newJobList)
+                    binding.newJobRecyclerView.adapter = adapter
+                    binding.newJobRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+                    binding.newJobRecyclerView.setHasFixedSize(true)
+                    adapter.notifyDataSetChanged()
+                }
+            }
 
-            val transaction = activity?.supportFragmentManager?.beginTransaction()
-            transaction?.replace(R.id.frameLayout, fragment)
-            transaction?.addToBackStack(null)
-            transaction?.commit()
-
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(requireContext(), "Error: $error", Toast.LENGTH_LONG).show()
+            }
         })
     }
+
+
+    private fun fetchRecommendedJobData() {
+
+        //Get the listener
+        val listerner = this
+
+
+
+
+
+        //Get All Job related to User Job
+        dbRef = FirebaseDatabase.getInstance().getReference("Job")
+        val query = dbRef.orderByChild("jobCategory").equalTo("IT and Computing").limitToLast(5) //Later need to change to user job category
+
+        recommendedJobList = arrayListOf()
+        query.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                recommendedJobList.clear()
+                if (snapshot.exists()) {
+                    for (jobSnapshot in snapshot.children.reversed()) {
+                        val job = jobSnapshot.getValue(Job::class.java)
+                        recommendedJobList.add(job!!)
+                    }
+                    val adapter = JobListingAdapter(listerner)
+                    adapter.setData(recommendedJobList)
+                    binding.recommendedJobRecyclerView.adapter = adapter
+                    binding.recommendedJobRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+                    binding.recommendedJobRecyclerView.setHasFixedSize(true)
+                    adapter.notifyDataSetChanged()
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(requireContext(), "Error: $error", Toast.LENGTH_LONG).show()
+            }
+        })
+    }
+
+
+    //On each RecyclerView Item clicked - Perform actual action here
+    override fun onItemClick(position: Int) {
+        //Get the clicked object
+        val jobObj: Job = newJobList[position]
+        val fragment = JobDetail()
+
+        //Add Result Object into Bundle
+        val bundle = Bundle()
+        bundle.putSerializable("job", jobObj)
+        fragment.arguments = bundle
+
+        val transaction = activity?.supportFragmentManager?.beginTransaction()
+        transaction?.replace(R.id.frameLayout, fragment)
+        transaction?.addToBackStack(null)
+        transaction?.commit()
+    }
+
+
 
 }

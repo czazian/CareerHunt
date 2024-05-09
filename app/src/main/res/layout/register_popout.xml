@@ -39,18 +39,22 @@
 </androidx.constraintlayout.widget.ConstraintLayout>-->
 <!-- dialog_register.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:elevation="1dp"
+    android:fadingEdgeLength="1dp"
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/txtRegPop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:text="Register for which type of account?"
         android:layout_marginBottom="25dp"
+        android:text="Register for which type of account?"
         android:textAlignment="center"
         android:textSize="25dp"
         android:textStyle="bold"
@@ -62,21 +66,21 @@
 
     <Button
         android:id="@+id/btnBusiness"
+        style="@style/buttonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/custom_button"
-        style="@style/buttonStyle"
-        android:textSize="18sp"
         android:layout_marginBottom="20dp"
-        android:text="@string/business_account" />
+        android:background="@drawable/custom_button"
+        android:text="@string/business_account"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/btnPersonal"
+        style="@style/buttonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:background="@drawable/custom_button"
-        style="@style/buttonStyle"
-        android:textSize="18sp"
-        android:text="@string/personal_account" />
+        android:text="@string/personal_account"
+        android:textSize="18sp" />
 </LinearLayout>

@@ -125,7 +125,7 @@
                     android:text="Type"
                     android:textSize="16dp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/radioGroup"
+                    app:layout_constraintEnd_toStartOf="@+id/radioGroupPF"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ddlCategory" />
 
@@ -139,7 +139,7 @@
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroupPF" />
 
                 <EditText
                     android:id="@+id/txtDescription"
@@ -175,7 +175,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:barrierDirection="left"
-                    app:constraint_referenced_ids="txtJobTitle,radioGroup,ddlCategory,txtSalary" />
+                    app:constraint_referenced_ids="txtJobTitle,radioGroupPF,ddlCategory,txtSalary" />
 
                 <EditText
                     android:id="@+id/txtJobTitle"
@@ -207,7 +207,7 @@
                     />
 
                 <RadioGroup
-                    android:id="@+id/radioGroup"
+                    android:id="@+id/radioGroupPF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"

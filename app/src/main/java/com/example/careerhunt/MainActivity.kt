@@ -1,14 +1,10 @@
 package com.example.careerhunt
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.ViewModelProvider
-import com.example.careerhunt.data.Company
+import androidx.appcompat.app.AppCompatActivity
 import com.example.careerhunt.databinding.ActivityMainBinding
-import com.example.careerhunt.viewModel.CompanyViewModel
-import com.example.careerhunt.viewModel.JobViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class MainActivity : AppCompatActivity() {
     private val fragmentManager = supportFragmentManager
@@ -18,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
 
         //TESTING - HARDCODED CREATION OF ONE COMPANY
@@ -92,6 +89,16 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             true
+        }
+    }
+
+
+    override fun onBackPressed() {
+        val bottomNavbar = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        if (bottomNavbar.selectedItemId !== R.id.home) {
+            bottomNavbar.selectedItemId = R.id.home
+        } else {
+            super.onBackPressed()
         }
     }
 }

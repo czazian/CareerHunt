@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.careerhunt.app-mergeDebugResources-55:/values-h550dp-port-v13/values-h550dp-port-v13.xml",
+            "outputFile": "com.example.careerhunt.app-mergeDebugResources-3:/values-h550dp-port-v13/values-h550dp-port-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-3\\2c0a85bd1ff0d29a9ef9c2fe37dfd35c\\transformed\\material-1.11.0\\res\\values-h550dp-port-v13\\values-h550dp-port-v13.xml",
+                    "source": "C:\\Users\\koyas\\.gradle\\caches\\transforms-3\\15de0d10a403bd5d35a0ff858dce3201\\transformed\\material-1.11.0\\res\\values-h550dp-port-v13\\values-h550dp-port-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

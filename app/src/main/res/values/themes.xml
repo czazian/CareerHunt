@@ -31,4 +31,9 @@
         <item name="android:textSize">18dp</item>
     </style>
 
+    <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/popup</item>
+    </style>
+
+
 </resources>

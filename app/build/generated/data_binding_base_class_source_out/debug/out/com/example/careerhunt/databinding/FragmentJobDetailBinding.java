@@ -89,6 +89,9 @@ public final class FragmentJobDetailBinding implements ViewBinding {
   @NonNull
   public final TextView textView;
 
+  @NonNull
+  public final ConstraintLayout uploadResume;
+
   private FragmentJobDetailBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnApply,
       @NonNull ImageButton btnBack, @NonNull ImageButton btnSave, @NonNull ImageView comIcon,
       @NonNull TextView comName, @NonNull TextView descResult, @NonNull TextView descTitle,
@@ -97,7 +100,8 @@ public final class FragmentJobDetailBinding implements ViewBinding {
       @NonNull TextView expectedSalary, @NonNull TextView jobCat, @NonNull TextView jobLoca,
       @NonNull TextView jobTi, @NonNull TextView jobTy, @NonNull TextView lblSalaryResult,
       @NonNull TextView lblpostDate, @NonNull View line, @NonNull TextView lvlPostDateResult,
-      @NonNull ScrollView scrollView2, @NonNull TextView textView) {
+      @NonNull ScrollView scrollView2, @NonNull TextView textView,
+      @NonNull ConstraintLayout uploadResume) {
     this.rootView = rootView;
     this.btnApply = btnApply;
     this.btnBack = btnBack;
@@ -121,6 +125,7 @@ public final class FragmentJobDetailBinding implements ViewBinding {
     this.lvlPostDateResult = lvlPostDateResult;
     this.scrollView2 = scrollView2;
     this.textView = textView;
+    this.uploadResume = uploadResume;
   }
 
   @Override
@@ -278,10 +283,16 @@ public final class FragmentJobDetailBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.uploadResume;
+      ConstraintLayout uploadResume = ViewBindings.findChildViewById(rootView, id);
+      if (uploadResume == null) {
+        break missingId;
+      }
+
       return new FragmentJobDetailBinding((ConstraintLayout) rootView, btnApply, btnBack, btnSave,
           comIcon, comName, descResult, descTitle, detailBottom, detailContainer, detailMiddle,
           detailTop, expectedSalary, jobCat, jobLoca, jobTi, jobTy, lblSalaryResult, lblpostDate,
-          line, lvlPostDateResult, scrollView2, textView);
+          line, lvlPostDateResult, scrollView2, textView, uploadResume);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

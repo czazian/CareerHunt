@@ -13,14 +13,16 @@ import androidx.lifecycle.ViewModelStoreOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.example.careerhunt.data.Job
 import com.example.careerhunt.R
-import com.example.careerhunt.viewModel.CompanyViewModel
-import com.example.careerhunt.viewModel.JobViewModel
+import com.example.careerhunt.interfaces.JobInterface
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 
 
 //Need to add private val listener: JobViewModel.RecyclerViewEvent - Click on different items in the recyclerview
-class JobListingAdapter (private val listener: JobViewModel.RecyclerViewEvent, private val companyViewModel: CompanyViewModel, private val lifecycleOwner: LifecycleOwner):  RecyclerView.Adapter <JobListingAdapter.JobListingViewHolder>() {
+class JobListingAdapter (private var listener: JobInterface.RecyclerViewEvent):  RecyclerView.Adapter <JobListingAdapter.JobListingViewHolder>() {
 
     private var jobList = emptyList<Job>()
+    private lateinit var storageRef : StorageReference
 
     inner class JobListingViewHolder (itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
         //Company Details
@@ -34,8 +36,6 @@ class JobListingAdapter (private val listener: JobViewModel.RecyclerViewEvent, p
         val lblLocation: TextView = itemView.findViewById(R.id.lblLocation)
 
 
-
-
         //RecyclerViewInterface Members - Click on different items in the recyclerview
         init {
             itemView.setOnClickListener(this)
@@ -46,15 +46,14 @@ class JobListingAdapter (private val listener: JobViewModel.RecyclerViewEvent, p
                 listener.onItemClick(position)
             }
         }
-
-
-
-
     }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobListingViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.job_viewholder, parent, false)
+
+        storageRef = FirebaseStorage.getInstance().getReference()
+
         return JobListingViewHolder(itemView)
     }
 
@@ -64,18 +63,28 @@ class JobListingAdapter (private val listener: JobViewModel.RecyclerViewEvent, p
 
     //Bind Data from Database to View
     override fun onBindViewHolder(holder: JobListingViewHolder, position: Int) {
+        //Get item clicked
         val currentItem = jobList[position]
+
+        //Check length of description and limit it
+        val words = currentItem.jobDescription.toString()
+        val wordsTrimmed = currentItem.jobDescription.toString().trim()
+        val numberOfWords = wordsTrimmed.split("\\s+".toRegex()).size
+
+        val first50Characters = words.substring(0, minOf(words.length, 50))
+
+        if(numberOfWords > 50){
+            holder.lblJobDescription.text = "$first50Characters..."
+        } else {
+            holder.lblJobDescription.text = words
+        }
+
+        //Bind value
+        //val ref = storageRef.child("imgProfile").child(currentItem.jobID.toString() + ".png")
         holder.lblJobName.text = currentItem.jobName
-        holder.lblJobDescription.text = currentItem.jobDescription
         holder.lblJobType.text = currentItem.jobType
-        holder.lblLocation.text = currentItem.jobLocation
+        holder.lblLocation.text = currentItem.jobLocationState + ", " + currentItem.jobLocationCity
 
-
-        //Use the Foreign Key (from Job) to retrieve records (from Company)
-        var companyID:Int = currentItem.companyID
-        companyViewModel.readCompany(companyID.toString().toInt()).observe(lifecycleOwner, Observer { aCompany ->
-            holder.lblCompanyName.text = aCompany.compName.toString()
-        })
     }
 
 
@@ -84,4 +93,6 @@ class JobListingAdapter (private val listener: JobViewModel.RecyclerViewEvent, p
         this.jobList = jobList
         notifyDataSetChanged()
     }
+
+
 }

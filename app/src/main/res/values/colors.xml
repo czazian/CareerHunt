@@ -8,4 +8,5 @@
     <color name="link_focused">#00FF00</color> <!-- Color when focused (hovered) -->
     <color name="textColor">#FF000000</color>
     <color name="textColor2">#878787</color>
+    <color name="uploadResumeBtn">#138ef0</color>
 </resources>
