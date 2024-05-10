@@ -3267,11 +3267,8 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
-<<<<<<< HEAD
-drawable popup
-=======
 drawable outline_favorite_24
->>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
+drawable popup
 drawable profile
 drawable profile_pic
 drawable profilepic
@@ -3450,23 +3447,17 @@ id btnRegister
 id btnResetPass
 id btnSave
 id btnSaveChanges
-<<<<<<< HEAD
 id btnSelectFile
-=======
 id btnSent
 id btnSentComment
->>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
 id btnShare
 id btnShowAllLatest
 id btnShowAllRecommended
 id btnSpeakerPhone
 id btnSubmit
-<<<<<<< HEAD
 id btnSubmitResume
-=======
 id btnView
 id button
->>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3576,6 +3567,7 @@ id endToStart
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
+id etComment
 id etContent
 id etTitle
 id exitUntilCollapsed
@@ -3957,14 +3949,9 @@ id spEduLevel
 id spLanguage
 id spacer
 id special_effects_controller_view_tag
-<<<<<<< HEAD
+id spinnerCat
 id spinnerCity
 id spinnerState
-=======
-id spinner
-id spinner2
-id spinnerCat
->>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
 id spline
 id split_action_bar
 id spnCity
@@ -4072,6 +4059,7 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id tvComment
+id tvCommentShow
 id tvCompEmail
 id tvCompName
 id tvContent
@@ -4493,10 +4481,7 @@ string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string faq
 string female
-<<<<<<< HEAD
 string firebase_database_url
-=======
->>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
 string forget_password
 string gcm_defaultSenderId
 string gender

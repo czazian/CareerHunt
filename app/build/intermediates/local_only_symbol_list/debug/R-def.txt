@@ -103,11 +103,8 @@ drawable keyboard_icon
 drawable link_hower
 drawable logo
 drawable male
-<<<<<<< HEAD
-drawable popup
-=======
 drawable outline_favorite_24
->>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
+drawable popup
 drawable profile
 drawable profile_pic
 drawable profilepic
@@ -181,24 +178,18 @@ id btnRegister
 id btnResetPass
 id btnSave
 id btnSaveChanges
-<<<<<<< HEAD
 id btnSelectFile
-=======
 id btnSent
 id btnSentComment
->>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
 id btnShare
 id btnShowAllLatest
 id btnShowAllRecommended
 id btnSpeakerPhone
 id btnSubmit
-<<<<<<< HEAD
 id btnSubmitResume
-id cancelUploadButton
-=======
 id btnView
 id button
->>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
+id cancelUploadButton
 id cardView
 id category
 id categoryCont
@@ -223,6 +214,7 @@ id detailMiddle
 id detailTop
 id displayAnswer
 id editText
+id etComment
 id etContent
 id etTitle
 id expandableListView
@@ -338,13 +330,9 @@ id profileImage
 id profilePic
 id profilepic
 id publishedJobFragment
-<<<<<<< HEAD
-id radioGroupPF
-=======
 id questionsCount
 id questionsDisplay
-id radioGroup
->>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
+id radioGroupPF
 id rbBusiness
 id rbEditFemale
 id rbEditMale
@@ -372,14 +360,9 @@ id setting
 id spEditJobField
 id spEduLevel
 id spLanguage
-<<<<<<< HEAD
+id spinnerCat
 id spinnerCity
 id spinnerState
-=======
-id spinner
-id spinner2
-id spinnerCat
->>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
 id spnCity
 id spnState
 id submitBtn
@@ -419,6 +402,7 @@ id titleUploadResume
 id top
 id topContainer
 id tvComment
+id tvCommentShow
 id tvCompEmail
 id tvCompName
 id tvContent
@@ -525,10 +509,7 @@ string applied
 string bookmark
 string business
 string business_account
-<<<<<<< HEAD
-=======
 string category_prompt
->>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
 string change_profile_picture
 string company_address
 string company_details
@@ -543,10 +524,7 @@ string edit_profile
 string email
 string faq
 string female
-<<<<<<< HEAD
 string firebase_database_url
-=======
->>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
 string forget_password
 string gcm_defaultSenderId
 string gender
