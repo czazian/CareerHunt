@@ -175,7 +175,7 @@
 
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/etComment"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:hint="Write comment here..."
