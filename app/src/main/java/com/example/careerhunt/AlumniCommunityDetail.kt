@@ -19,6 +19,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.careerhunt.data.Alumni
+import com.example.careerhunt.data.Alumni_community_comment
 import com.example.careerhunt.data.PersonalTemp
 import com.example.careerhunt.dataAdapter.AlumniCommunityComment_adapter
 import com.example.careerhunt.dataAdapter.AlumniCommunity_adapter
@@ -35,8 +36,12 @@ import kotlin.math.absoluteValue
 class AlumniCommunityDetail : Fragment() {
 
     private var db : DatabaseReference = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").reference
-    private var dbRefAlumni : DatabaseReference = db.database.getReference("Alumni")
-    private var dbRefPersonal : DatabaseReference = db.database.getReference("Personal ")
+    private var dbRefAlumni : DatabaseReference        = db.database.getReference("Alumni")
+    private var dbRefAlumniComment : DatabaseReference = db.database.getReference("Alumni_Comment ")
+    private var dbRefPersonal : DatabaseReference      = db.database.getReference("Personal ")
+    private lateinit var alumniCommentList : ArrayList<Alumni_community_comment>
+    private lateinit var recyclerView : RecyclerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -55,24 +60,36 @@ class AlumniCommunityDetail : Fragment() {
         val tvDate : TextView = view.findViewById(R.id.tvTime)
 
         val postId : String? = arguments?.getString("postId")
+        var personalId : String = ""
         Log.d("Post id is : ", postId.toString())
         //sent comment button
-        //val btnCommentSent : ImageButton = view.findViewById(R.id.btnCommentSent)
+        val btnCommentSent : ImageButton = view.findViewById(R.id.btnSentComment)
 
+        Log.d("halloebwekjfkwe", "dwrqwrqw")
         //Post Upper detail load
         //id successfully past inside here
         findAlumniById(postId.toString()){alumni ->
             tvTitle.text   = alumni?.title
             tvContent.text = alumni?.content
             tvDate.text    = calDay(alumni?.date.toString())
+            //Toast.makeText(context, alumni?.personal_id.toString(), Toast.LENGTH_LONG).show()
 
-            findPersonalById(alumni?.personal_id.toString()){personal ->
-                tvUsername.text = personal?.name
-                tvSchool.text = personal?.graduatedFrom
+            //something wrong here, this function  is not executing
+            //priority: low, check by later
+            findPersonalById(alumni?.personal_id.toString()){personalTemp ->
+                Log.d("Something wrong here: " , "jlafhkakfha")
+
+                tvUsername.text = personalTemp?.name
+                tvSchool.text = personalTemp?.graduatedFrom
             }
         }
 
+        recyclerView = view.findViewById(R.id.alumni_comment_recycle_view)
+        alumniCommentList = arrayListOf<Alumni_community_comment>()
+        fetchCommentDataByPostID(postId.toString())
 
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.setHasFixedSize(true)
 
         //Post bottom detail (comment) load
         //val adapter = AlumniCommunityComment_adapter()
@@ -95,21 +112,21 @@ class AlumniCommunityDetail : Fragment() {
 
 
         //wait for whole database added first
-        //btnCommentSent.setOnClickListener(){
-           // var etComment   : EditText = view.findViewById(R.id.editText)
+        btnCommentSent.setOnClickListener(){
+            var etComment : EditText = view.findViewById(R.id.etComment)
 
+            Log.d("button click", "here")
             //val postId = arguments?.getString("postId")
 
-            //val alumniCommComment = postId?.toInt()
-            //    ?.let { it1 -> Alumni_community_comment(0, etComment.text.toString(), 1, it1) }
-            //if (alumniCommComment != null) {
-            //    alumniCommunityViewModel.addAlumniCommunityComment(alumniCommComment)
-            //}
+            //push data into firebase
+            val senderId : String = "1"
+            val alumni_comment = Alumni_community_comment(etComment.text.toString(), postId.toString(), senderId)
+            dbRefAlumniComment.push().setValue(alumni_comment)
 
             //make it empty after sent
-            //etComment.setText("")
-            //Toast.makeText(requireContext(), "Post successful:" + etComment.text.toString(), Toast.LENGTH_LONG).show()
-        //}
+            etComment.setText("")
+            Toast.makeText(requireContext(), "Comment Sent", Toast.LENGTH_SHORT).show()
+        }
 
 
         // Inflate the layout for this fragment
@@ -143,15 +160,14 @@ class AlumniCommunityDetail : Fragment() {
         dbRefAlumni.child(id).addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()) {
-                    Log.d("Snapshot = ", snapshot.getValue(Alumni::class.java).toString())
+                    Log.d("Alumni = ", snapshot.getValue(Alumni::class.java).toString())
                     val alumni : Alumni? = snapshot.getValue(Alumni::class.java)
-                    Log.d("Alumni :  = ", alumni?.title.toString())
                     callback(alumni)
                 }
 
             }
             override fun onCancelled(error: DatabaseError) {
-                //Toast.makeText(Context, "Error: $error", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Error: $error", Toast.LENGTH_LONG).show()
                 callback(null)
             }
         })
@@ -161,16 +177,38 @@ class AlumniCommunityDetail : Fragment() {
         dbRefPersonal.child(id).addListenerForSingleValueEvent(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()) {
-                    Log.d("Snapshot = ", snapshot.getValue(PersonalTemp::class.java).toString())
                     val personal : PersonalTemp? = snapshot.getValue(PersonalTemp::class.java)
-                    Log.d("Personal :  = ", personal?.name.toString())
+                    Log.d("Personal findPersonal By id :  = ", personal?.name.toString())
+                    Log.d("findPersonalId is run" , "running")
                     callback(personal)
                 }
 
             }
             override fun onCancelled(error: DatabaseError) {
-                //Toast.makeText(Context, "Error: $error", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Error: $error", Toast.LENGTH_LONG).show()
                 callback(null)
+            }
+        })
+    }
+
+    private fun fetchCommentDataByPostID(postId : String){
+        dbRefAlumniComment.orderByChild("postId").equalTo(postId).addValueEventListener(object: ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                alumniCommentList.clear()
+                if(snapshot.exists()) {
+                    for (alumniCommentSnap in snapshot.children) {
+                        val alumni_comment = alumniCommentSnap.getValue(Alumni_community_comment::class.java)
+                        //so far no id in data class
+                        //alumni_comment?.id = alumniCommentSnap.key.toString()
+                        alumniCommentList.add(alumni_comment!!)
+                    }
+                    val adapter = AlumniCommunityComment_adapter()
+                    adapter.setData(alumniCommentList)
+                    recyclerView.adapter = adapter
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(requireContext(), "Error: $error", Toast.LENGTH_LONG).show()
             }
         })
     }

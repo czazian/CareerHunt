@@ -222,6 +222,7 @@ id detailMiddle
 id detailTop
 id displayAnswer
 id editText
+id etComment
 id etContent
 id etTitle
 id expandableListView
@@ -412,6 +413,7 @@ id topContainer
 id tvApplicEmail
 id tvApplicName
 id tvComment
+id tvCommentShow
 id tvCompEmail
 id tvCompName
 id tvContent

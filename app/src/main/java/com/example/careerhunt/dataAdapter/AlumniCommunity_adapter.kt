@@ -187,6 +187,3 @@ class AlumniCommunity_adapter() : RecyclerView.Adapter <AlumniCommunity_adapter.
 
 }
 
-private fun String?.addValueEventListener(valueEventListener: ValueEventListener) {
-
-}

@@ -60,14 +60,16 @@
         android:layout_marginStart="10dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/tvCommentShow"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:background="@drawable/border"
-            android:backgroundTint="@android:color/darker_gray"
-            android:padding="10dp"
-            android:text="halo my name is blablabla sidfjwjofjow testing 1233123123123"
+            android:backgroundTint="#138ef0"
+            android:padding="8dp"
+            android:text="halo my nablwdwefw wefwefwefwf wefwefw"
+            android:textColor="@color/white"
             android:textSize="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
