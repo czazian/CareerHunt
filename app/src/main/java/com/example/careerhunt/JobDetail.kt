@@ -3,6 +3,7 @@ package com.example.careerhunt
 
 import android.app.Activity.RESULT_OK
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
@@ -61,13 +62,13 @@ class JobDetail : Fragment() {
         binding = FragmentJobDetailBinding.inflate(layoutInflater, container, false)
 
         //Get UserID & UserType
-//        sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
-//        userId = sharedIDPreferences.getString("userid","") ?: ""
-//        sharedUserTypePreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
-//        userType = sharedUserTypePreferences.getString("userType","") ?: ""
+        sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
+        userId = sharedIDPreferences.getString("userid","") ?: ""
+        sharedUserTypePreferences = requireContext().getSharedPreferences("userType", Context.MODE_PRIVATE)
+        userType = sharedUserTypePreferences.getString("userType","") ?: ""
 
-        userType = "Personal"
-        userId = "1"
+//        userType = "Personal"
+//        userId = "1"
 
 
         checkBookmarkExist()

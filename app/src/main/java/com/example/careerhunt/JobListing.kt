@@ -1,5 +1,6 @@
 package com.example.careerhunt
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -57,19 +58,22 @@ class JobListing : Fragment(), JobInterface.RecyclerViewEvent,
         binding = FragmentJobListingBinding.inflate(layoutInflater, container, false)
 
         //Get UserID & UserType
-//        sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
-//        userId = sharedIDPreferences.getString("userid","") ?: ""
-//        sharedUserTypePreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
-//        userType = sharedUserTypePreferences.getString("userType","") ?: ""
+        sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
+        userId = sharedIDPreferences.getString("userid","") ?: ""
+        sharedUserTypePreferences = requireContext().getSharedPreferences("userType", Context.MODE_PRIVATE)
+        userType = sharedUserTypePreferences.getString("userType","") ?: ""
 
         //Hide the fragment first
         binding.recommendedContainer.visibility = View.INVISIBLE
         binding.newPostedContainer.visibility = View.INVISIBLE
 
 
+        Log.e("TAG", "User Type Preference = $userType")
+        Log.e("TAG", "User ID Preference = $userId")
+
         //Hardcoded ID and userType
-        userId = "1"
-        userType = "Personal"
+        //userId = "2"
+//        userType = "Personal"
 
         if (userType == "Personal") {
             getUserInfoBasedOnId()
@@ -87,6 +91,11 @@ class JobListing : Fragment(), JobInterface.RecyclerViewEvent,
         //Go to add job
         binding.btnAddJob.setOnClickListener() {
             val fragment = AddJob()
+
+            val bundle = Bundle()
+            bundle.putString("companyID", companyInfo.companyID.toString())
+            fragment.arguments = bundle
+
             val transaction = activity?.supportFragmentManager?.beginTransaction()
             transaction?.replace(R.id.frameLayout, fragment)
             transaction?.addToBackStack(null)
@@ -346,7 +355,7 @@ class JobListing : Fragment(), JobInterface.RecyclerViewEvent,
                             ref.downloadUrl
                                 .addOnCompleteListener {
                                     Glide.with(binding.profileImage)
-                                        .load(it.result.toString())
+                                         .load(it.result.toString())
                                         .into(binding.profileImage)
                                 }
                         }

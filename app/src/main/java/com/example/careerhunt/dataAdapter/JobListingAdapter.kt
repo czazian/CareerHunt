@@ -1,5 +1,6 @@
 package com.example.careerhunt.dataAdapter
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.drawable.Drawable
 import android.util.Log
@@ -87,13 +88,13 @@ class JobListingAdapter(
         storageRef = FirebaseStorage.getInstance().getReference()
 
         //Get UserID & UserType
-//        sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
-//        userId = sharedIDPreferences.getString("userid","") ?: ""
-//        sharedUserTypePreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
-//        userType = sharedUserTypePreferences.getString("userType","") ?: ""
+        sharedIDPreferences = parent.context.getSharedPreferences("userid", Context.MODE_PRIVATE)
+        userId = sharedIDPreferences.getString("userid","") ?: ""
+        sharedUserTypePreferences = parent.context.getSharedPreferences("userType", Context.MODE_PRIVATE)
+        userType = sharedUserTypePreferences.getString("userType","") ?: ""
 
-        userType = "Personal"
-        userId = "1"
+//        userType = "Personal"
+//        userId = "1"
 
         return JobListingViewHolder(itemView)
     }
@@ -106,9 +107,6 @@ class JobListingAdapter(
     override fun onBindViewHolder(holder: JobListingViewHolder, position: Int) {
         //Get item clicked
         val currentItem = jobList[position]
-
-        //Get comp info
-        getCompanyInfoByID(currentItem.companyID.toString())
 
         //Check length of description and limit it
         val words = currentItem.jobDescription.toString()
@@ -162,9 +160,11 @@ class JobListingAdapter(
                 holder.lblJobType.text = currentItem.jobType
                 holder.lblLocation.text = currentItem.jobLocationState + ", " + currentItem.jobLocationCity
 
-                //Through foreign key to find company info, then apply it
-                holder.lblCompanyName.text = companyInfo.compName
 
+
+                //Through foreign key to find company info, then apply it
+                //Get comp info
+                getCompanyInfoByID(currentItem.companyID.toString(), holder)
 
                 //Working with Bookmark display
                 checkBookmarkExist(currentItem.jobID.toString(), holder)
@@ -172,7 +172,7 @@ class JobListingAdapter(
             }
     }
 
-    private fun getCompanyInfoByID(cmpId: String) {
+    private fun getCompanyInfoByID(cmpId: String, holder: JobListingViewHolder) {
         dbRef = FirebaseDatabase.getInstance().getReference("Company")
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -181,6 +181,10 @@ class JobListingAdapter(
                         val userID = companySnapshot.key
                         if (userID.equals(cmpId)) {
                             companyInfo = companySnapshot.getValue(Company::class.java)!!
+
+                            val companyName = holder.itemView.findViewById<TextView>(R.id.lblCompanyName)
+                            companyName.text = companyInfo.compName
+                            break
                         }
                     }
                 }

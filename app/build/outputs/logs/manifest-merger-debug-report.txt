@@ -198,6 +198,22 @@ MERGED from [de.hdodenhof:circleimageview:3.1.0] C:\Users\koyas\.gradle\caches\t
 		ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:13:9-48
 	android:dataExtractionRules
 		ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:7:9-65
+activity#com.example.careerhunt.LoginContainer
+ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:16:9-24:20
+	android:exported
+		ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:18:13-36
+	android:name
+		ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:17:13-43
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:19:13-23:29
+action#android.intent.action.MAIN
+ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:20:17-69
+	android:name
+		ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:20:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:22:17-77
+	android:name
+		ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:22:27-74
 activity#com.example.careerhunt.MainActivity
 ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:26:9-36:20
 	android:windowSoftInputMode
@@ -206,16 +222,6 @@ ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:26:9
 		ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:28:13-36
 	android:name
 		ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:27:13-41
-intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:31:13-34:29
-action#android.intent.action.MAIN
-ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:32:17-69
-	android:name
-		ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:32:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:33:17-77
-	android:name
-		ADDED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml:33:27-74
 uses-sdk
 INJECTED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\GitHub\CareerHunt\CareerHunt\app\src\main\AndroidManifest.xml

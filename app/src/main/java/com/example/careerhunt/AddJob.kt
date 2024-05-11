@@ -42,8 +42,10 @@ class AddJob : Fragment() {
 
 
         //TESTING - HARDCODED COMPANY ID
-        var companyID: Int = 1
+        //var companyID: Int = 1
 
+        //Get company ID
+        val companyID = arguments?.getString("companyID")
 
 
         //Cancel Button
@@ -138,7 +140,7 @@ class AddJob : Fragment() {
                 //Create Object
                 val job = Job(
                     (lastID+1),
-                    companyID,
+                    companyID!!.toInt(),
                     jobCategory,
                     jobDesc,
                     jobLocationState,
@@ -167,12 +169,8 @@ class AddJob : Fragment() {
 
 
                 //Redirect back to job listing
-                val fragment = JobListing()
-                val transaction = activity?.supportFragmentManager?.beginTransaction()
-
-                transaction?.replace(R.id.frameLayout, fragment)
-                transaction?.addToBackStack(null)
-                transaction?.commit()
+                //Get to know previous fragment
+                getFragmentManager()?.popBackStackImmediate()
 
             } else {
                 var emptyMessage = ""
