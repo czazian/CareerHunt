@@ -58,7 +58,7 @@
             android:layout_height="30dp"
             android:background="@drawable/button_click"
             android:scaleType="centerCrop"
-            android:src="@drawable/baseline_bookmark_24"
+            android:src="@drawable/baseline_bookmark_border_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -86,7 +86,7 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/uniqlo"
+                android:src="@drawable/empty_img"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -167,6 +167,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/jobLoca" />
 
+            <Button
+                android:id="@+id/btnCheckLocation"
+                android:layout_width="0dp"
+                android:layout_height="40dip"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="30dp"
+                android:backgroundTint="#79CDF3"
+                android:elevation="20dp"
+                android:text="View Location"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/companyAddressResl"
+                app:layout_constraintTop_toBottomOf="@+id/companyAddressResl" />
+
             <TextView
                 android:id="@+id/expectedSalary"
                 android:layout_width="wrap_content"
@@ -204,7 +217,7 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/descResult"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lblpostDate" />
+                app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
             <TextView
                 android:id="@+id/descResult"
@@ -222,7 +235,8 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/descTitle"
-                app:lineHeight="25dp" />
+                app:lineHeight="25dp"
+                android:justificationMode="inter_word" />
 
             <TextView
                 android:id="@+id/lblpostDate"
@@ -287,6 +301,59 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/jobCat"
                 app:layout_constraintTop_toBottomOf="@+id/comName" />
+
+            <TextView
+                android:id="@+id/lblCompanyAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:text="Company Address : "
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/companyAddressResl"
+                app:layout_constraintEnd_toStartOf="@+id/companyAddressResl"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                android:justificationMode="inter_word"/>
+
+            <TextView
+                android:id="@+id/companyAddressResl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:text="TextView"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/lblCompanyAddress"
+                app:layout_constraintTop_toBottomOf="@+id/lvlPostDateResult" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:text="Company Phone No. : "
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/companyPhoneResl"
+                app:layout_constraintEnd_toStartOf="@+id/companyPhoneResl"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/companyPhoneResl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:text="TextView"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/textView14"
+                app:layout_constraintTop_toBottomOf="@+id/btnCheckLocation" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

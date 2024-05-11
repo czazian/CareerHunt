@@ -26,7 +26,7 @@
     <string name="company_details">Company Details</string>
     <string name="company_email">Company Email</string>
     <string name="password">Password</string>
-    <string name="phone_number_eg_0123456789">Phone Number (eg.0123456789)</string>
+    <string name="phone_number_eg_0123456789">Phone Number (eg.012-3456789)</string>
     <string name="company_address">Company Address</string>
     <string name="company_name">Company Name</string>
     <string name="submit">Submit</string>
@@ -45,6 +45,19 @@
     <string name="register">Register</string>
     <string name="business_account">Business Account</string>
     <string name="personal_account">Personal Account</string>
+    <string name="applicant_applied">Applicant Applied:</string>
+    <string name="job_applied">Job Applied:</string>
+    <string name="job_published">Job Published:</string>
+    <string name="view_resume">View Resume</string>
+    <string name="user_profile">User Profile</string>
+    <string name="information">Information</string>
+    <string name="preference">Preference</string>
+    <string name="frequently_asked_questions">Frequently Asked Questions</string>
+    <string name="register_account">Register Account</string>
+    <string name="view_applicant">View Applicant</string>
+    <string name="my_applied_job">My Applied Job</string>
+    <string name="published_job">Published Job</string>
+    <string name="setting_page">SETTING PAGE</string>
 
     <string-array name="state">
         <item></item>

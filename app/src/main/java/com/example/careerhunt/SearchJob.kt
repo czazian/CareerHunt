@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -22,20 +21,22 @@ import com.example.careerhunt.data.Job
 import com.example.careerhunt.dataAdapter.JobListingAdapter
 import com.example.careerhunt.databinding.FragmentSearchJobBinding
 import com.example.careerhunt.interfaces.JobInterface
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
 import com.google.firebase.database.ValueEventListener
-import kotlin.math.max
 
-class SearchJob : Fragment(), JobInterface.RecyclerViewEvent {
+class SearchJob : Fragment(), JobInterface.RecyclerViewEvent, JobInterface.ProcessCompletionListener {
     private lateinit var binding: FragmentSearchJobBinding
     private lateinit var dbRef: DatabaseReference
     private lateinit var jobList: ArrayList<Job>
     private lateinit var dialogToDisplay: View
     private lateinit var dialog: Dialog
+    private var totalImages: Int = 0
+    private var loadedImages: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,11 +45,28 @@ class SearchJob : Fragment(), JobInterface.RecyclerViewEvent {
         // Inflate the layout for this fragment
         binding = FragmentSearchJobBinding.inflate(layoutInflater, container, false)
 
+        //Hide all things until finish loaded other components
+        binding.itemCont.visibility = View.INVISIBLE
+
         //RecyclerView
         binding.searchRecyclerView.setNestedScrollingEnabled(false);
 
         binding.btnBack2.setOnClickListener() {
-            getActivity()?.onBackPressed();
+            val fragment = JobListing()
+
+            val navigationView =
+                requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+            navigationView.selectedItemId = R.id.home
+
+            //Back to previous page with animation
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frameLayout, fragment)
+            transaction?.setCustomAnimations(
+                R.anim.fade_out,  // Enter animation
+                R.anim.fade_in  // Exit animation
+            )
+            transaction?.addToBackStack(null)
+            transaction?.commit()
         }
 
 
@@ -56,21 +74,23 @@ class SearchJob : Fragment(), JobInterface.RecyclerViewEvent {
         dbRef = FirebaseDatabase.getInstance().getReference("Job")
         jobList = arrayListOf()
         val from = arguments?.getString("from")
+        val jobField = arguments?.getString("field")
         if (from == "latest") {
             val query = dbRef.orderByChild("jobPostedDate")
             getLatestData(query, "latest", "")
         } else if (from == "recommend") {
             val query = dbRef.orderByChild("jobCategory")
-                .equalTo("IT and Computing") //Later need to change to user job category
+                .equalTo(jobField) //Later need to change to user job category
             getLatestData(query, "latest", "")
         } else {
-            val query = dbRef.orderByKey()
+            val query = dbRef
             getLatestData(query, "", "")
         }
 
 
         // Filtering
         binding.btnFilter.setOnClickListener() {
+
             Log.e("TAG", "btnFilter Clicked")
 
 
@@ -128,6 +148,12 @@ class SearchJob : Fragment(), JobInterface.RecyclerViewEvent {
 
             val applyFiltering = dialogToDisplay.findViewById<Button>(R.id.ApplyBtn)
             applyFiltering.setOnClickListener() {
+
+
+                binding.progressIndicatorSearch.show()
+                binding.itemCont.visibility = View.INVISIBLE
+
+
                 //Clear search box
                 binding.txtSearch.text.clear()
 
@@ -180,13 +206,15 @@ class SearchJob : Fragment(), JobInterface.RecyclerViewEvent {
                                 }
                             }
 
-                            val adapter = JobListingAdapter(listerner)
+                            val adapter = JobListingAdapter(listerner, "recommend",  null, listerner)
                             adapter.setData(jobList)
                             binding.searchRecyclerView.adapter = adapter
                             binding.searchRecyclerView.layoutManager =
                                 LinearLayoutManager(requireContext())
                             binding.searchRecyclerView.setHasFixedSize(true)
                             adapter.notifyDataSetChanged()
+
+                            updateUIBasedOnDataCount()
 
                             //Set number of results
                             if (adapter.itemCount > 1) {
@@ -211,7 +239,9 @@ class SearchJob : Fragment(), JobInterface.RecyclerViewEvent {
         //Show result by searching
         binding.searchBtn.setOnClickListener()
         {
-            Toast.makeText(requireContext(), "RAN", Toast.LENGTH_LONG)
+            binding.progressIndicatorSearch.show()
+            binding.itemCont.visibility = View.INVISIBLE
+
             var searchKeyword: String = binding.txtSearch.text.toString()
             val query = dbRef.orderByKey()
             getLatestData(query, "search", searchKeyword)
@@ -219,6 +249,31 @@ class SearchJob : Fragment(), JobInterface.RecyclerViewEvent {
 
 
         return binding.root
+    }
+
+    fun imageLoaded() {
+
+        loadedImages++
+        Log.e("TAG", "On Image Loaded, as = $loadedImages")
+        if (loadedImages == totalImages) {
+            // All images are loaded
+            onAllProcessesCompleted()
+        }
+    }
+
+    private fun updateUIBasedOnDataCount() {
+        // Check if recommend job has records
+        loadedImages = 0
+        totalImages = 0
+        val count: Int = jobList.size
+
+        if(count == 0){
+            onAllProcessesCompleted()
+            Log.e("TAG", "Count totalImage : $totalImages")
+        } else {
+            totalImages = count
+            Log.e("TAG", "Count totalImage : $totalImages")
+        }
     }
 
     fun meetsConditions(
@@ -254,21 +309,26 @@ class SearchJob : Fragment(), JobInterface.RecyclerViewEvent {
         return allConditionsMet
     }
 
-    fun getLatestData(query: Query, from: String, searchKeyword: String) {
+    private fun getLatestData(query: Query, from: String, searchKeyword: String) {
         //Get the listener
-        val listerner = this
+        val listener = this
 
         query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 jobList.clear()
                 if (snapshot.exists()) {
                     if (from == "latest") {
+                        binding.txtSearch.text.clear()
                         for (jobSnapshot in snapshot.children.reversed()) {
                             val job = jobSnapshot.getValue(Job::class.java)
                             jobList.add(job!!)
                         }
                     } else if (from == "recommend") {
-
+                        binding.txtSearch.text.clear()
+                        for (jobSnapshot in snapshot.children) {
+                            val job = jobSnapshot.getValue(Job::class.java)
+                            jobList.add(job!!)
+                        }
                     } else if (from == "search") {
                         for (jobSnapshot in snapshot.children) {
                             val job = jobSnapshot.getValue(Job::class.java)
@@ -281,18 +341,20 @@ class SearchJob : Fragment(), JobInterface.RecyclerViewEvent {
                             }
                         }
                     } else {
+                        binding.txtSearch.text.clear()
                         for (jobSnapshot in snapshot.children) {
                             val job = jobSnapshot.getValue(Job::class.java)
                             jobList.add(job!!)
                         }
                     }
-                    val adapter = JobListingAdapter(listerner)
+                    val adapter = JobListingAdapter(listener, "", null, listener)
                     adapter.setData(jobList)
                     binding.searchRecyclerView.adapter = adapter
                     binding.searchRecyclerView.layoutManager =
                         LinearLayoutManager(requireContext())
-                    binding.searchRecyclerView.setHasFixedSize(true)
                     adapter.notifyDataSetChanged()
+
+                    updateUIBasedOnDataCount()
 
                     //Set number of results
                     if (adapter.itemCount > 1) {
@@ -310,7 +372,7 @@ class SearchJob : Fragment(), JobInterface.RecyclerViewEvent {
 
     }
 
-    override fun onItemClick(position: Int) {
+    override fun onItemClick(position: Int, recyclerViewSource: String) {
         //Get the clicked object
         val jobObj: Job = jobList[position]
         val fragment = JobDetail()
@@ -321,6 +383,10 @@ class SearchJob : Fragment(), JobInterface.RecyclerViewEvent {
         fragment.arguments = bundle
 
         val transaction = activity?.supportFragmentManager?.beginTransaction()
+        transaction?.setCustomAnimations(
+            R.anim.fade_in,
+            R.anim.fade_out,
+        )
         transaction?.replace(R.id.frameLayout, fragment)
         transaction?.addToBackStack(null)
         transaction?.commit()
@@ -342,4 +408,11 @@ class SearchJob : Fragment(), JobInterface.RecyclerViewEvent {
         dialog.window?.attributes?.windowAnimations = R.style.BottomSheetAnimation
         dialog.window?.setGravity(Gravity.BOTTOM)
     }
+
+    override fun onAllProcessesCompleted() {
+        Log.e("TAG", " SEARCH : onAllProcessesCompleted() Triggered")
+        binding.progressIndicatorSearch.hide()
+        binding.itemCont.visibility = View.VISIBLE
+    }
+
 }

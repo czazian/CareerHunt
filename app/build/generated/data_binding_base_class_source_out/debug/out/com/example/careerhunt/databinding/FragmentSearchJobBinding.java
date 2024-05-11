@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.careerhunt.R;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -38,6 +39,9 @@ public final class FragmentSearchJobBinding implements ViewBinding {
   public final TextView lblResultNum;
 
   @NonNull
+  public final CircularProgressIndicator progressIndicatorSearch;
+
+  @NonNull
   public final ConstraintLayout searchBox;
 
   @NonNull
@@ -55,15 +59,17 @@ public final class FragmentSearchJobBinding implements ViewBinding {
   private FragmentSearchJobBinding(@NonNull ConstraintLayout rootView,
       @NonNull ImageButton btnBack2, @NonNull ImageButton btnFilter,
       @NonNull ImageButton imageButton3, @NonNull ConstraintLayout itemCont,
-      @NonNull TextView lblResultNum, @NonNull ConstraintLayout searchBox,
-      @NonNull ImageButton searchBtn, @NonNull ConstraintLayout searchContainer,
-      @NonNull RecyclerView searchRecyclerView, @NonNull EditText txtSearch) {
+      @NonNull TextView lblResultNum, @NonNull CircularProgressIndicator progressIndicatorSearch,
+      @NonNull ConstraintLayout searchBox, @NonNull ImageButton searchBtn,
+      @NonNull ConstraintLayout searchContainer, @NonNull RecyclerView searchRecyclerView,
+      @NonNull EditText txtSearch) {
     this.rootView = rootView;
     this.btnBack2 = btnBack2;
     this.btnFilter = btnFilter;
     this.imageButton3 = imageButton3;
     this.itemCont = itemCont;
     this.lblResultNum = lblResultNum;
+    this.progressIndicatorSearch = progressIndicatorSearch;
     this.searchBox = searchBox;
     this.searchBtn = searchBtn;
     this.searchContainer = searchContainer;
@@ -128,6 +134,12 @@ public final class FragmentSearchJobBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.progressIndicatorSearch;
+      CircularProgressIndicator progressIndicatorSearch = ViewBindings.findChildViewById(rootView, id);
+      if (progressIndicatorSearch == null) {
+        break missingId;
+      }
+
       id = R.id.searchBox;
       ConstraintLayout searchBox = ViewBindings.findChildViewById(rootView, id);
       if (searchBox == null) {
@@ -155,8 +167,8 @@ public final class FragmentSearchJobBinding implements ViewBinding {
       }
 
       return new FragmentSearchJobBinding((ConstraintLayout) rootView, btnBack2, btnFilter,
-          imageButton3, itemCont, lblResultNum, searchBox, searchBtn, searchContainer,
-          searchRecyclerView, txtSearch);
+          imageButton3, itemCont, lblResultNum, progressIndicatorSearch, searchBox, searchBtn,
+          searchContainer, searchRecyclerView, txtSearch);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

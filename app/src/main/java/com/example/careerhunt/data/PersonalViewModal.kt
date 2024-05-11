@@ -9,11 +9,11 @@ import kotlinx.coroutines.launch
 
 class PersonalViewModal(application: Application) : AndroidViewModel(application) {
 
-    private val repository : PersonalRepository
+    //private val repository : PersonalRepository
 
     init {
-        val personalDAO = CareerHuntDatabase.getDatabse(application).personalDao()
-        repository = PersonalRepository(personalDAO)
+        //val personalDAO = CareerHuntDatabase.getDatabse(application).personalDao()
+        //repository = PersonalRepository(personalDAO)
     }
 
     //fun addPersonal(personal: Personal){

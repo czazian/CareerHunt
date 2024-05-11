@@ -9,23 +9,35 @@
     android:background="#00FFFFFF"
     tools:context=".BusinessAccount">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/headerBAProfile"
-        android:layout_width="420dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="5dp"
-        android:background="#138ef0"
-        android:minHeight="?attr/actionBarSize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:title="                      Business Profile"
-        app:titleTextColor="#FFFFFF" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detailTop"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:background="#138EF0"
+        android:padding="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="-16dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/user_profile"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvCompProfile"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="80dp"
         android:layout_marginBottom="2dp"
         app:cardCornerRadius="50dp"
         app:layout_constraintBottom_toTopOf="@id/tvCompName"
@@ -46,7 +58,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="ABC Sdn Bhd"
         android:textSize="23sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tvCompEmail"
@@ -60,7 +71,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="5dp"
-        android:text="ABCSdnBhd@gmail.com"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,19 +78,19 @@
 
     <Button
         android:id="@+id/btnEditProfile"
+        style="@style/buttonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="@string/edit_profile"
-        style="@style/buttonStyle"
-        android:textSize="17sp"
         android:background="@drawable/custom_button"
+        android:text="@string/edit_profile"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCompEmail" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tbInfo"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lbInfo"
         android:layout_width="420dp"
         android:layout_height="50dp"
         android:layout_marginTop="5dp"
@@ -91,17 +101,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnEditProfile"
         app:title="Information"
-        app:titleTextColor="#FFFFFF" />
+        app:titleTextColor="#FFFFFF">
+
+
+        <TextView
+            android:id="@+id/txtInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/information"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton
         android:id="@+id/btnJobListing"
+        style="@style/imgButtonStyle"
         android:layout_width="40dp"
         android:layout_height="30dp"
-        android:layout_marginStart="212dp"
         android:layout_marginTop="12dp"
-        style="@style/imgButtonStyle"
-        app:layout_constraintStart_toEndOf="@id/txtJobListing"
-        app:layout_constraintTop_toBottomOf="@+id/tbInfo"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbInfo"
         app:srcCompat="@drawable/baseline_navigate_next_24" />
 
     <TextView
@@ -114,12 +139,12 @@
         android:text="@string/job_listing"
         android:textColor="@color/textColor"
         android:textSize="18sp"
+        app:drawableStartCompat="@drawable/baseline_list_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tbInfo"
-        app:drawableStartCompat="@drawable/baseline_list_24" />
+        app:layout_constraintTop_toBottomOf="@+id/lbInfo" />
 
 
-    <androidx.appcompat.widget.Toolbar
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/tbPreferences"
         android:layout_width="420dp"
         android:layout_height="50dp"
@@ -130,7 +155,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtJobListing"
         app:title="Preferences"
-        app:titleTextColor="#FFFFFF" />
+        app:titleTextColor="#FFFFFF" >
+
+
+        <TextView
+            android:id="@+id/txtPreference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/preference"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <Switch
         android:id="@+id/swMode"
@@ -154,22 +195,22 @@
         android:text="@string/languages"
         android:textColor="@color/textColor"
         android:textSize="18sp"
+        app:drawableStartCompat="@drawable/baseline_change_language"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/swMode"
-        app:drawableStartCompat="@drawable/baseline_change_language" />
+        app:layout_constraintTop_toBottomOf="@+id/swMode" />
 
     <Spinner
         android:id="@+id/spLanguage"
         style="@style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar"
         android:layout_width="190dp"
         android:layout_height="40dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:drawablePadding="12dp"
         android:dropDownWidth="wrap_content"
         android:entries="@array/language"
         android:spinnerMode="dropdown"
-        app:layout_constraintStart_toEndOf="@id/txtLanguage"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/swMode" />
 
     <TextView
@@ -182,18 +223,18 @@
         android:text="@string/faq"
         android:textColor="@color/textColor"
         android:textSize="18sp"
+        app:drawableStartCompat="@drawable/baseline_assistant_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLanguage"
-        app:drawableStartCompat="@drawable/baseline_assistant_24" />
+        app:layout_constraintTop_toBottomOf="@+id/txtLanguage" />
 
     <ImageButton
         android:id="@+id/btnFAQ"
+        style="@style/imgButtonStyle"
         android:layout_width="40dp"
         android:layout_height="30dp"
-        android:layout_marginStart="262dp"
-        android:layout_marginTop="15dp"
-        style="@style/imgButtonStyle"
-        app:layout_constraintStart_toEndOf="@id/txtFAQ"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spLanguage"
         app:srcCompat="@drawable/baseline_navigate_next_24" />
 
@@ -212,12 +253,12 @@
 
     <ImageButton
         android:id="@+id/btnLogout"
+        style="@style/imgButtonStyle"
         android:layout_width="40dp"
         android:layout_height="30dp"
-        android:layout_marginStart="242dp"
-        android:layout_marginTop="15dp"
-        style="@style/imgButtonStyle"
-        app:layout_constraintStart_toEndOf="@id/txtLogout"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnFAQ"
         app:srcCompat="@drawable/baseline_logout_24" />
 

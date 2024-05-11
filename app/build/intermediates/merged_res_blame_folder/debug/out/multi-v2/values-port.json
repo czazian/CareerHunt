@@ -4,11 +4,7 @@
             "outputFile": "com.example.careerhunt.app-mergeDebugResources-3:/values-port/values-port.xml",
             "map": [
                 {
-<<<<<<< HEAD
                     "source": "C:\\Users\\koyas\\.gradle\\caches\\transforms-3\\c2e0b25c4b0e76b2675cee4fffba9d21\\transformed\\appcompat-1.6.1\\res\\values-port\\values-port.xml",
-=======
-                    "source": "C:\\Users\\leona\\.gradle\\caches\\transforms-3\\c2e0b25c4b0e76b2675cee4fffba9d21\\transformed\\appcompat-1.6.1\\res\\values-port\\values-port.xml",
->>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

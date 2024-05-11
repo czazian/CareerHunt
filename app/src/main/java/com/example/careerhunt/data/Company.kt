@@ -5,7 +5,17 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.sql.Blob
 
-@Entity(tableName= "company_table")
+
+data class Company(
+    var companyID : Int=0,
+    var compName:String="",
+    var email: String="",
+    var password:String="",
+    var compProfile:String="",
+    var compPhoneNum:String ="",
+    var compAddress : String="")
+
+/*@Entity(tableName= "company_table")
 data class Company(
     @PrimaryKey(autoGenerate = true)
     var companyID:Int=0,
@@ -21,4 +31,4 @@ data class Company(
     var compPhoneNum:String,
     @ColumnInfo(name = "compAddress")
     var compAddress:String
-)
+)*/

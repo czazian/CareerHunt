@@ -1,25 +1,49 @@
 package com.example.careerhunt
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import com.example.careerhunt.data.Company
+import com.example.careerhunt.data.Personal
 import com.example.careerhunt.databinding.FragmentBusinessAccountBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
 class BusinessAccount : Fragment() {
     private lateinit var binding: FragmentBusinessAccountBinding
+    private lateinit var sharedIDPreferences: SharedPreferences
+    private var database =
+        FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/")
+    private var myRef = database.reference
+    private var userId: String = ""
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = FragmentBusinessAccountBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        // Access SharedPreferences from MainActivity
+        sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
+        // Retrieve userId from SharedPreferences
+        userId = sharedIDPreferences.getString("userid","")?:""
+        retrieveCompRecord()
+
 
         binding.btnFAQ.setOnClickListener() {
             val fragmentManager = requireActivity().supportFragmentManager
@@ -49,6 +73,32 @@ class BusinessAccount : Fragment() {
             Toast.makeText(requireContext(), "View Published Job", Toast.LENGTH_SHORT).show()
         }
 
+        // For language change
+        binding.spLanguage.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            var userSelected = false // Flag to track user selection
+
+            // Inside the onItemSelected method of the spinner's OnItemSelectedListener
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                if (userSelected) {
+                    val language: String = parent.getItemAtPosition(position).toString()
+
+                    if (language == "Chinese") {
+                        // Set locale to Chinese
+                        //(requireActivity() as MainActivity).setLocale("ch")// based on the string value that created
+                    } else {
+                        // Set locale to English
+                        //(requireActivity() as MainActivity).setLocale("en")
+                    }
+                }
+                userSelected = true // Set flag to true after user selection
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                Toast.makeText(requireContext(), "No language selected", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
         binding.btnLogout.setOnClickListener() {
             val intent = Intent(requireContext(), LoginContainer::class.java)
 
@@ -76,5 +126,51 @@ class BusinessAccount : Fragment() {
         Toast.makeText(requireContext(), "Change Day Mode", Toast.LENGTH_SHORT).show()
     }
 
+    private fun retrieveCompRecord() {
+        val tvCompName: TextView = binding.tvCompName
+        val tvCompEmail: TextView = binding.tvCompEmail
+        val profileImg : ImageView = binding.profilePic
+
+
+        myRef.child("Company").child(userId.toString())
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) {
+                        val comp = snapshot.getValue(Company::class.java)
+                        if (comp != null) {
+                            Toast.makeText(
+                                requireContext(),
+                                "id real : " + comp.companyID,
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            tvCompName.text = comp.compName
+                            tvCompEmail.text = comp.email
+                            // Load profile image
+                            if(comp.compProfile!= ""){
+                                val profileImageUrl = comp.compProfile
+                                Glide.with(requireContext()).load(profileImageUrl).into(profileImg)
+                            }
+                        }
+                    } else {
+                        // if the user id not found in Firebase
+                        Toast.makeText(
+                            requireContext(),
+                            "User with ID $userId not found",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    // Handle error
+                    Toast.makeText(
+                        requireContext(),
+                        "Error: ${error.message}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            })
+    }
 
 }

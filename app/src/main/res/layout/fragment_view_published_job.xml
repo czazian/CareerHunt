@@ -8,105 +8,49 @@
     android:background="#00FFFFFF"
     tools:context=".ViewPublishedJob">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/headerPublishedJob"
-        android:layout_width="420dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="5dp"
-        android:background="#138ef0"
-        android:minHeight="?attr/actionBarSize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:title="                       Published Job"
-        app:titleTextColor="#FFFFFF" />
+    <!--<androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detailTop"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="#138EF0"
+        android:padding="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="-16dp">
 
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="13dp"
-        android:background="#138ef0"
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="#138ef0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_arrow_back_24" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/published_job"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPublishedJob"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_arrow_back_24" />
-
-
-    <TextView
-        android:id="@+id/appliedCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="32dp"
-        android:text="1 Job Published"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/headerPublishedJob" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="0dp"
-        android:layout_height="110dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="15dp"
-        android:background="@color/white"
-        app:cardCornerRadius="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerPublishedJob">
-
-        <TextView
-            android:id="@+id/txtJobTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="25dp"
-            android:text="Software Engineer"
-            android:textSize="23dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/txtCompName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="55dp"
-            android:text="Uniqlo Malaysia"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="18dp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:id="@+id/compLogo"
-            android:layout_width="65dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            app:srcCompat="@drawable/comp_logo" />
-
-        <TextView
-            android:id="@+id/lkApplicant"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="270dp"
-            android:layout_marginTop="85dp"
-            android:clickable="true"
-            android:focusable="false"
-            android:onClick="onViewApplicantClick"
-            android:text="View Applicant"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/btnClick"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-
-
-    </androidx.cardview.widget.CardView>
-
+        tools:listitem="@layout/view_published_holder"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,6 +27,8 @@ anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
 anim design_snackbar_in
 anim design_snackbar_out
+anim fade_in
+anim fade_out
 anim fragment_fast_out_extra_slow_in
 anim linear_indeterminate_line1_head_interpolator
 anim linear_indeterminate_line1_tail_interpolator
@@ -163,6 +165,7 @@ attr animateCircleAngleTo
 attr animateMenuItems
 attr animateNavigationIcon
 attr animateRelativeTo
+attr animationBackgroundColor
 attr animationMode
 attr appBarLayoutStyle
 attr applyMotionScene
@@ -597,6 +600,7 @@ attr fastScrollHorizontalThumbDrawable
 attr fastScrollHorizontalTrackDrawable
 attr fastScrollVerticalThumbDrawable
 attr fastScrollVerticalTrackDrawable
+attr finishPrimaryWithPlaceholder
 attr finishPrimaryWithSecondary
 attr finishSecondaryWithPrimary
 attr firstBaselineToTopHeight
@@ -1131,8 +1135,11 @@ attr spinBars
 attr spinnerDropDownItemStyle
 attr spinnerStyle
 attr splitLayoutDirection
-attr splitMinSmallestWidth
-attr splitMinWidth
+attr splitMaxAspectRatioInLandscape
+attr splitMaxAspectRatioInPortrait
+attr splitMinHeightDp
+attr splitMinSmallestWidthDp
+attr splitMinWidthDp
 attr splitRatio
 attr splitTrack
 attr springBoundary
@@ -1163,6 +1170,7 @@ attr state_with_icon
 attr statusBarBackground
 attr statusBarForeground
 attr statusBarScrim
+attr stickyPlaceholder
 attr strokeColor
 attr strokeWidth
 attr subMenuArrow
@@ -1213,6 +1221,7 @@ attr tabStyle
 attr tabTextAppearance
 attr tabTextColor
 attr tabUnboundedRipple
+attr tag
 attr targetId
 attr targetPackage
 attr telltales_tailColor
@@ -2187,6 +2196,8 @@ color textColor2
 color tooltip_background_dark
 color tooltip_background_light
 color uploadResumeBtn
+color vector_tint_color
+color vector_tint_theme_color
 color white
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
@@ -3164,11 +3175,14 @@ drawable custom_location_icon
 drawable custom_lock_icon
 drawable custom_name
 drawable custom_phone
+drawable default_company
+drawable default_profile
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable empty_img
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_arrow_back_black_24
@@ -3267,11 +3281,8 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
-<<<<<<< HEAD
-drawable popup
-=======
 drawable outline_favorite_24
->>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
+drawable popup
 drawable profile
 drawable profile_pic
 drawable profilepic
@@ -3282,7 +3293,6 @@ drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable uniqlo
 id ALT
-id ApplicantContainer
 id ApplyBtn
 id BAFragment
 id BOTTOM_END
@@ -3378,6 +3388,7 @@ id actions
 id activity_chooser_view_content
 id add
 id addJob
+id adjacent
 id adjust_height
 id adjust_width
 id alertTitle
@@ -3388,12 +3399,17 @@ id alumni
 id alumni_comment_recycle_view
 id alumni_recycle_view
 id always
+id alwaysAllow
+id alwaysDisallow
+id androidx_compose_ui_view_composition_context
 id androidx_window_activity_scope
 id animateToEnd
 id animateToStart
 id antiClockwise
 id anticipate
+id applicantContainer
 id applicantCount
+id appliedContainer
 id appliedCount
 id arc
 id arrowdown1
@@ -3415,6 +3431,7 @@ id blocking
 id bookmarkBtn
 id bottom
 id bottomNavigationView
+id bottomToTop
 id bounce
 id bounceBoth
 id bounceEnd
@@ -3430,7 +3447,7 @@ id btnBackArrow
 id btnBookmark
 id btnBusiness
 id btnCancel
-id btnClick
+id btnCheckLocation
 id btnComment
 id btnCommentSent
 id btnEditProfile
@@ -3450,23 +3467,17 @@ id btnRegister
 id btnResetPass
 id btnSave
 id btnSaveChanges
-<<<<<<< HEAD
 id btnSelectFile
-=======
 id btnSent
 id btnSentComment
->>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
 id btnShare
 id btnShowAllLatest
 id btnShowAllRecommended
 id btnSpeakerPhone
 id btnSubmit
-<<<<<<< HEAD
 id btnSubmitResume
-=======
 id btnView
 id button
->>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3501,12 +3512,16 @@ id comIcon
 id comName
 id commonQuestionsTitle
 id compLogo
+id companyAddressResl
+id companyPhoneResl
+id compose_view_saveable_id_tag
 id compress
 id confirm_button
 id constraint
 id constraintLayout1
 id constraintLayout2
 id constraintLayout3
+id consume_window_insets_tag
 id container
 id content
 id contentPanel
@@ -3612,22 +3627,17 @@ id full
 id fullscreen_header
 id ghost_view
 id ghost_view_holder
+id glide_custom_view_target_tag
 id gone
 id graph
 id graph_wrap
 id group_divider
 id grouping
 id groups
-id headerApplicant
-id headerBAProfile
-id headerEditBAProfile
 id headerFAQ
-id headerForgetPass
-id headerJobApplied
-id headerProfile
-id headerPublishedJob
 id header_title
 id hide_ime_id
+id hide_in_inspector_tag
 id hideable
 id home
 id homeAsUp
@@ -3666,9 +3676,11 @@ id included
 id indeterminate
 id info
 id inputContainer
+id inspection_slot_table_set
 id interview
 id invisible
 id inward
+id is_pooling_container_tag
 id italic
 id itemCont
 id itemContainer
@@ -3689,7 +3701,9 @@ id jumpToEnd
 id jumpToStart
 id labeled
 id layout
+id lbInfo
 id lblBackArror
+id lblCompanyAddress
 id lblCompanyName
 id lblDesc
 id lblJobTitle
@@ -3717,7 +3731,6 @@ id lineQs1
 id lineQs2
 id lineQs3
 id linear
-id listApplicant
 id listMode
 id list_item
 id lkApplicant
@@ -3802,12 +3815,14 @@ id navigation_bar_item_labels_group
 id navigation_bar_item_large_label_view
 id navigation_bar_item_small_label_view
 id navigation_header_container
+id nestedScrollView
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
 id newJobRecyclerView
 id newPostedContainer
 id nextArrorButton
+id noJobIndicator
 id noOfQuest
 id noScroll
 id noState
@@ -3863,6 +3878,7 @@ id pathRelative
 id peekHeight
 id percent
 id pin
+id pooling_container_listener_holder_tag
 id position
 id postLayout
 id post_button_box
@@ -3870,6 +3886,8 @@ id pressed
 id profileImage
 id profilePic
 id profilepic
+id progressIndicator
+id progressIndicatorSearch
 id progress_circular
 id progress_horizontal
 id publishedJobFragment
@@ -3896,6 +3914,7 @@ id report_drawn
 id reverseSawtooth
 id rgAccType
 id rgEditGender
+id rgGEnder
 id right
 id rightToLeft
 id right_icon
@@ -3903,6 +3922,9 @@ id right_side
 id rounded
 id row_index_key
 id rtl
+id rvApplicant
+id rvAppliedJob
+id rvPublishedJob
 id salaryRange
 id sampleAnswer
 id save_non_transition_alpha
@@ -3953,18 +3975,13 @@ id snap
 id snapMargins
 id south
 id spEditJobField
-id spEduLevel
+id spJobField
 id spLanguage
 id spacer
 id special_effects_controller_view_tag
-<<<<<<< HEAD
+id spinnerCat
 id spinnerCity
 id spinnerState
-=======
-id spinner
-id spinner2
-id spinnerCat
->>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
 id spline
 id split_action_bar
 id spnCity
@@ -4005,8 +4022,6 @@ id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
-id tbInfo
-id tbPreference
 id tbPreferences
 id text
 id text2
@@ -4019,6 +4034,7 @@ id textView
 id textView10
 id textView11
 id textView12
+id textView14
 id textView2
 id textView3
 id textView4
@@ -4045,7 +4061,7 @@ id tfEditCompAdd
 id tfEditCompEmail
 id tfEditCompName
 id tfEditCompPhone
-id tfEditEdit
+id tfEditEmail
 id tfEditName
 id tfEditPhone
 id tfEmail
@@ -4062,6 +4078,7 @@ id toggle
 id top
 id topContainer
 id topPanel
+id topToBottom
 id touch_outside
 id transitionToEnd
 id transitionToStart
@@ -4071,13 +4088,19 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvApplicEmail
+id tvApplicName
 id tvComment
 id tvCompEmail
 id tvCompName
 id tvContent
 id tvEmail
+id tvJobCategory
+id tvJobTitle
 id tvLikeNum
+id tvLocation
 id tvName
+id tvNum
 id tvSchool
 id tvTime
 id tvTitle
@@ -4086,12 +4109,8 @@ id tvkeyboard
 id txt1
 id txt2
 id txtAccType
-id txtApplicEmail
-id txtApplicName
 id txtApplied
 id txtBookmark
-id txtChangePic
-id txtCompName
 id txtDescription
 id txtEditCompAdd
 id txtEditCompEmail
@@ -4101,17 +4120,17 @@ id txtEditEmail
 id txtEditGender
 id txtEditName
 id txtEditPhone
-id txtEduLevel
 id txtFAQ
 id txtForgetPass
 id txtGender
+id txtInfo
 id txtJobField
 id txtJobListing
 id txtJobTitle
 id txtLanguage
-id txtLocation
 id txtLogout
 id txtNoAccount
+id txtPreference
 id txtQs3
 id txtRecommendedTitle
 id txtRegPop
@@ -4150,6 +4169,7 @@ id withinBounds
 id wrap
 id wrap_content
 id wrap_content_constrained
+id wrapped_composition_tag
 id writeCommentSection
 id x_left
 id x_right
@@ -4395,6 +4415,8 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 layout upload_resume
 layout view_applicant_holder
+layout view_applied_holder
+layout view_published_holder
 menu bottom_navigation
 mipmap ic_launcher
 mipmap ic_launcher_foreground
@@ -4433,6 +4455,7 @@ string account_type
 string androidx_startup
 string app_name
 string appbar_scrolling_view_behavior
+string applicant_applied
 string applied
 string bookmark
 string bottom_sheet_behavior
@@ -4456,6 +4479,8 @@ string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
 string clear_text_end_icon_content_description
+string close_drawer
+string close_sheet
 string common_google_play_services_enable_button
 string common_google_play_services_enable_text
 string common_google_play_services_enable_title
@@ -4483,7 +4508,10 @@ string company_nemail
 string company_nname
 string confirm_password
 string dark_mode
+string default_error_message
+string default_popup_window_title
 string dest_title
+string dropdown_menu
 string edit_profile
 string email
 string error_a11y_label
@@ -4493,11 +4521,9 @@ string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string faq
 string female
-<<<<<<< HEAD
 string firebase_database_url
-=======
->>>>>>> 762d4ad86aecfa2684b832ca2223ced83c5b0176
 string forget_password
+string frequently_asked_questions
 string gcm_defaultSenderId
 string gender
 string google_api_key
@@ -4507,9 +4533,14 @@ string google_storage_bucket
 string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
+string in_progress
+string indeterminate
+string information
 string item_view_role_description
+string job_applied
 string job_field
 string job_listing
+string job_published
 string languages
 string login
 string logout
@@ -4529,6 +4560,62 @@ string m3_sys_motion_easing_linear
 string m3_sys_motion_easing_standard
 string m3_sys_motion_easing_standard_accelerate
 string m3_sys_motion_easing_standard_decelerate
+string m3c_bottom_sheet_collapse_description
+string m3c_bottom_sheet_dismiss_description
+string m3c_bottom_sheet_drag_handle_description
+string m3c_bottom_sheet_expand_description
+string m3c_bottom_sheet_pane_title
+string m3c_date_input_headline
+string m3c_date_input_headline_description
+string m3c_date_input_invalid_for_pattern
+string m3c_date_input_invalid_not_allowed
+string m3c_date_input_invalid_year_range
+string m3c_date_input_label
+string m3c_date_input_no_input_description
+string m3c_date_input_title
+string m3c_date_picker_headline
+string m3c_date_picker_headline_description
+string m3c_date_picker_navigate_to_year_description
+string m3c_date_picker_no_selection_description
+string m3c_date_picker_scroll_to_earlier_years
+string m3c_date_picker_scroll_to_later_years
+string m3c_date_picker_switch_to_calendar_mode
+string m3c_date_picker_switch_to_day_selection
+string m3c_date_picker_switch_to_input_mode
+string m3c_date_picker_switch_to_next_month
+string m3c_date_picker_switch_to_previous_month
+string m3c_date_picker_switch_to_year_selection
+string m3c_date_picker_title
+string m3c_date_picker_today_description
+string m3c_date_picker_year_picker_pane_title
+string m3c_date_range_input_invalid_range_input
+string m3c_date_range_input_title
+string m3c_date_range_picker_day_in_range
+string m3c_date_range_picker_end_headline
+string m3c_date_range_picker_scroll_to_next_month
+string m3c_date_range_picker_scroll_to_previous_month
+string m3c_date_range_picker_start_headline
+string m3c_date_range_picker_title
+string m3c_dialog
+string m3c_dropdown_menu_collapsed
+string m3c_dropdown_menu_expanded
+string m3c_search_bar_search
+string m3c_snackbar_dismiss
+string m3c_suggestions_available
+string m3c_time_picker_am
+string m3c_time_picker_hour
+string m3c_time_picker_hour_24h_suffix
+string m3c_time_picker_hour_selection
+string m3c_time_picker_hour_suffix
+string m3c_time_picker_hour_text_field
+string m3c_time_picker_minute
+string m3c_time_picker_minute_selection
+string m3c_time_picker_minute_suffix
+string m3c_time_picker_minute_text_field
+string m3c_time_picker_period_toggle_description
+string m3c_time_picker_pm
+string m3c_tooltip_long_press_label
+string m3c_tooltip_pane_description
 string male
 string material_clock_display_divider
 string material_clock_toggle_content_description
@@ -4614,11 +4701,16 @@ string mtrl_switch_track_decoration_path
 string mtrl_switch_track_path
 string mtrl_timepicker_cancel
 string mtrl_timepicker_confirm
+string my_applied_job
 string name
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
+string navigation_menu
 string new_password
 string no_account_yet
+string not_selected
+string off
+string on
 string password
 string password_toggle_content_description
 string path_password_eye
@@ -4630,8 +4722,13 @@ string personal_account
 string personal_details
 string phone_no
 string phone_number_eg_0123456789
+string preference
 string project_id
+string published_job
+string range_end
+string range_start
 string register
+string register_account
 string reset
 string reset_your_current_password
 string save_changes
@@ -4639,10 +4736,20 @@ string search_menu_title
 string searchbar_scrolling_view_behavior
 string searchview_clear_text_content_description
 string searchview_navigation_content_description
+string selected
+string setting_page
 string side_sheet_accessibility_pane_title
 string side_sheet_behavior
 string status_bar_notification_info_overflow
 string submit
+string switch_role
+string tab
+string template_percent
+string tooltip_description
+string tooltip_label
+string user_profile
+string view_applicant
+string view_resume
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
@@ -4937,6 +5044,9 @@ style CardView_Dark
 style CardView_Light
 style CustomAlertDialog
 style CustomEditTextStyle
+style DialogWindowTheme
+style FloatingDialogTheme
+style FloatingDialogWindowTheme
 style MaterialAlertDialog_Material3
 style MaterialAlertDialog_Material3_Animation
 style MaterialAlertDialog_Material3_Body_Text
@@ -5780,7 +5890,7 @@ styleable ActionMode background backgroundSplit closeItemLayout height subtitleT
 styleable ActivityChooserView expandActivityOverflowButtonDrawable initialActivityCount
 styleable ActivityFilter activityAction activityName
 styleable ActivityNavigator android_name action data dataPattern targetPackage
-styleable ActivityRule alwaysExpand
+styleable ActivityRule alwaysExpand tag
 styleable AlertDialog android_layout buttonIconDimen buttonPanelSideLayout listItemLayout listLayout multiChoiceItemLayout showTitle singleChoiceItemLayout
 styleable AnimatedStateListDrawableCompat android_dither android_visible android_variablePadding android_constantSize android_enterFadeDuration android_exitFadeDuration
 styleable AnimatedStateListDrawableItem android_id android_drawable
@@ -5918,8 +6028,8 @@ styleable Snackbar snackbarButtonStyle snackbarStyle snackbarTextViewStyle
 styleable SnackbarLayout android_maxWidth actionTextColorAlpha animationMode backgroundOverlayColorAlpha backgroundTint backgroundTintMode elevation maxActionInlineWidth shapeAppearance shapeAppearanceOverlay
 styleable Spinner android_entries android_popupBackground android_prompt android_dropDownWidth popupTheme
 styleable SplitPairFilter primaryActivityName secondaryActivityAction secondaryActivityName
-styleable SplitPairRule clearTop finishPrimaryWithSecondary finishSecondaryWithPrimary splitLayoutDirection splitMinSmallestWidth splitMinWidth splitRatio
-styleable SplitPlaceholderRule placeholderActivityName splitLayoutDirection splitMinSmallestWidth splitMinWidth splitRatio
+styleable SplitPairRule animationBackgroundColor clearTop finishPrimaryWithSecondary finishSecondaryWithPrimary splitLayoutDirection splitMaxAspectRatioInLandscape splitMaxAspectRatioInPortrait splitMinHeightDp splitMinSmallestWidthDp splitMinWidthDp splitRatio tag
+styleable SplitPlaceholderRule animationBackgroundColor finishPrimaryWithPlaceholder placeholderActivityName splitLayoutDirection splitMaxAspectRatioInLandscape splitMaxAspectRatioInPortrait splitMinHeightDp splitMinSmallestWidthDp splitMinWidthDp splitRatio stickyPlaceholder tag
 styleable State android_id constraints
 styleable StateListDrawable android_dither android_visible android_variablePadding android_constantSize android_enterFadeDuration android_exitFadeDuration
 styleable StateListDrawableItem android_drawable

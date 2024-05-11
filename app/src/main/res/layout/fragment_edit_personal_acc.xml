@@ -4,48 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
-    android:background="#00FFFFFF"
     android:layout_height="match_parent"
+    android:background="#00FFFFFF"
     tools:context=".EditPersonalAcc">
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/headerEditBAProfile"
-        android:layout_width="420dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="5dp"
-        android:background="#138ef0"
-        android:minHeight="?attr/actionBarSize"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detailTop"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:layout_marginBottom="263dp"
+        android:background="#138EF0"
+        android:padding="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:title="                          Edit Profile"
-        app:titleTextColor="#FFFFFF" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="13dp"
-        android:background="#138ef0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_arrow_back_24" />
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:background="#138ef0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/baseline_arrow_back_24" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_profile"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="40dp"
         app:cardCornerRadius="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/txtChangePic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerEditBAProfile"
+        app:layout_constraintTop_toBottomOf="@id/detailTop"
         app:layout_editor_absoluteX="160dp">
-
 
         <ImageView
             android:id="@+id/profilePic"
@@ -55,6 +66,19 @@
             app:srcCompat="@drawable/profile_pic" />
 
     </androidx.cardview.widget.CardView>
+    <!--<Button
+        android:id="@+id/btnEditProfile"
+        style="@style/buttonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/custom_button"
+        android:text="@string/change_profile_picture"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />-->
 
     <TextView
         android:id="@+id/txtEditEmail"
@@ -69,36 +93,41 @@
         app:layout_constraintEnd_toStartOf="@id/txtEditName"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtChangePic" />
+        app:layout_constraintTop_toBottomOf="@id/cardView"
+        tools:layout_editor_absoluteY="256dp" />
 
     <EditText
-        android:id="@+id/tfEditEdit"
+        android:id="@+id/tfEditEmail"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginStart="90dp"
         android:background="@drawable/custom_input"
-        android:drawablePadding="12dp"
+        android:drawablePadding="30dp"
         android:ems="10"
-        android:inputType="textMultiLine"
+        android:inputType="textEmailAddress"
+        android:paddingStart="10dp"
         android:textColor="@color/black"
         android:textSize="17sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/txtEditEmail"
-        app:layout_constraintStart_toStartOf="@id/txtEditEmail" />
+        app:layout_constraintStart_toStartOf="@id/txtEditEmail"
+        app:layout_constraintTop_toBottomOf="@id/cardView" />
 
     <TextView
         android:id="@+id/txtEditName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="381dp"
         android:drawablePadding="10dp"
         android:text="@string/name"
         android:textColor="@android:color/darker_gray"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/txtEditName"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtChangePic" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEditEmail" />
 
     <EditText
         android:id="@+id/tfEditName"
@@ -108,23 +137,13 @@
         android:background="@drawable/custom_input"
         android:drawablePadding="12dp"
         android:ems="10"
-        android:inputType="textMultiLine"
+        android:inputType="text"
+        android:paddingStart="10dp"
         android:textColor="@color/black"
         android:textSize="17dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/txtEditName"
-        app:layout_constraintStart_toStartOf="@id/txtEditName" />
-
-    <TextView
-        android:id="@+id/txtChangePic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
-        android:text="@string/change_profile_picture"
-        android:textColor="#354FD3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerEditBAProfile" />
+        app:layout_constraintStart_toStartOf="@id/txtEditName"
+        app:layout_constraintTop_toBottomOf="@id/tfEditEmail" />
 
     <TextView
         android:id="@+id/txtEditPhone"
@@ -149,10 +168,12 @@
         android:drawablePadding="12dp"
         android:ems="10"
         android:inputType="phone"
+        android:paddingStart="10dp"
         android:textColor="@color/black"
         android:textSize="17sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/txtEditPhone"
-        app:layout_constraintStart_toStartOf="@id/txtEditPhone" />
+        app:layout_constraintStart_toStartOf="@id/txtEditPhone"
+        app:layout_constraintTop_toBottomOf="@id/tfEditName" />
 
     <TextView
         android:id="@+id/txtEditGender"
@@ -248,6 +269,7 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/txtJobField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@id/txtJobField" />
+        app:layout_constraintStart_toStartOf="@id/txtJobField"
+        app:layout_constraintTop_toBottomOf="@id/rgEditGender" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

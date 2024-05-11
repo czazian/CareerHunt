@@ -93,12 +93,4 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    override fun onBackPressed() {
-        val bottomNavbar = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        if (bottomNavbar.selectedItemId !== R.id.home) {
-            bottomNavbar.selectedItemId = R.id.home
-        } else {
-            super.onBackPressed()
-        }
-    }
 }

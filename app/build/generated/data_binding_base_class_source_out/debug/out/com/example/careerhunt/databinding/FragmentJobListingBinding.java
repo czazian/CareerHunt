@@ -10,11 +10,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.careerhunt.R;
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -48,16 +50,25 @@ public final class FragmentJobListingBinding implements ViewBinding {
   public final TextView lblWelcome;
 
   @NonNull
+  public final NestedScrollView nestedScrollView;
+
+  @NonNull
   public final RecyclerView newJobRecyclerView;
 
   @NonNull
   public final ConstraintLayout newPostedContainer;
 
   @NonNull
+  public final TextView noJobIndicator;
+
+  @NonNull
   public final ConstraintLayout overallContainer;
 
   @NonNull
   public final ShapeableImageView profileImage;
+
+  @NonNull
+  public final CircularProgressIndicator progressIndicator;
 
   @NonNull
   public final ConstraintLayout recommendedContainer;
@@ -76,8 +87,10 @@ public final class FragmentJobListingBinding implements ViewBinding {
       @NonNull Button btnShowAllLatest, @NonNull Button btnShowAllRecommended,
       @NonNull ConstraintLayout container, @NonNull TextView lblLatestTitle,
       @NonNull TextView lblUserName, @NonNull TextView lblWelcome,
-      @NonNull RecyclerView newJobRecyclerView, @NonNull ConstraintLayout newPostedContainer,
+      @NonNull NestedScrollView nestedScrollView, @NonNull RecyclerView newJobRecyclerView,
+      @NonNull ConstraintLayout newPostedContainer, @NonNull TextView noJobIndicator,
       @NonNull ConstraintLayout overallContainer, @NonNull ShapeableImageView profileImage,
+      @NonNull CircularProgressIndicator progressIndicator,
       @NonNull ConstraintLayout recommendedContainer,
       @NonNull RecyclerView recommendedJobRecyclerView, @NonNull ConstraintLayout topContainer,
       @NonNull TextView txtRecommendedTitle) {
@@ -90,10 +103,13 @@ public final class FragmentJobListingBinding implements ViewBinding {
     this.lblLatestTitle = lblLatestTitle;
     this.lblUserName = lblUserName;
     this.lblWelcome = lblWelcome;
+    this.nestedScrollView = nestedScrollView;
     this.newJobRecyclerView = newJobRecyclerView;
     this.newPostedContainer = newPostedContainer;
+    this.noJobIndicator = noJobIndicator;
     this.overallContainer = overallContainer;
     this.profileImage = profileImage;
+    this.progressIndicator = progressIndicator;
     this.recommendedContainer = recommendedContainer;
     this.recommendedJobRecyclerView = recommendedJobRecyclerView;
     this.topContainer = topContainer;
@@ -171,6 +187,12 @@ public final class FragmentJobListingBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.nestedScrollView;
+      NestedScrollView nestedScrollView = ViewBindings.findChildViewById(rootView, id);
+      if (nestedScrollView == null) {
+        break missingId;
+      }
+
       id = R.id.newJobRecyclerView;
       RecyclerView newJobRecyclerView = ViewBindings.findChildViewById(rootView, id);
       if (newJobRecyclerView == null) {
@@ -183,6 +205,12 @@ public final class FragmentJobListingBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.noJobIndicator;
+      TextView noJobIndicator = ViewBindings.findChildViewById(rootView, id);
+      if (noJobIndicator == null) {
+        break missingId;
+      }
+
       id = R.id.overallContainer;
       ConstraintLayout overallContainer = ViewBindings.findChildViewById(rootView, id);
       if (overallContainer == null) {
@@ -192,6 +220,12 @@ public final class FragmentJobListingBinding implements ViewBinding {
       id = R.id.profileImage;
       ShapeableImageView profileImage = ViewBindings.findChildViewById(rootView, id);
       if (profileImage == null) {
+        break missingId;
+      }
+
+      id = R.id.progressIndicator;
+      CircularProgressIndicator progressIndicator = ViewBindings.findChildViewById(rootView, id);
+      if (progressIndicator == null) {
         break missingId;
       }
 
@@ -221,8 +255,9 @@ public final class FragmentJobListingBinding implements ViewBinding {
 
       return new FragmentJobListingBinding((ConstraintLayout) rootView, btnAddJob, btnNotification,
           btnShowAllLatest, btnShowAllRecommended, container, lblLatestTitle, lblUserName,
-          lblWelcome, newJobRecyclerView, newPostedContainer, overallContainer, profileImage,
-          recommendedContainer, recommendedJobRecyclerView, topContainer, txtRecommendedTitle);
+          lblWelcome, nestedScrollView, newJobRecyclerView, newPostedContainer, noJobIndicator,
+          overallContainer, profileImage, progressIndicator, recommendedContainer,
+          recommendedJobRecyclerView, topContainer, txtRecommendedTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
