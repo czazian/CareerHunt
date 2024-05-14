@@ -158,13 +158,13 @@ class AddJob : Fragment() {
                             requireContext(),
                             "Job has inserted successfully!",
                             Toast.LENGTH_SHORT
-                        )
+                        ).show()
                     }.addOnFailureListener {
                         Toast.makeText(
                             requireContext(),
                             "Job has fail inserted!",
                             Toast.LENGTH_SHORT
-                        )
+                        ).show()
                     }
 
 
