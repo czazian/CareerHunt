@@ -89,6 +89,7 @@ animator nav_default_enter_anim
 animator nav_default_exit_anim
 animator nav_default_pop_enter_anim
 animator nav_default_pop_exit_anim
+array interview
 array jobCategory
 array job_field
 array johor_city
@@ -1446,6 +1447,7 @@ color bright_foreground_inverse_material_dark
 color bright_foreground_inverse_material_light
 color bright_foreground_material_dark
 color bright_foreground_material_light
+color buttonColorExpanded
 color button_material_dark
 color button_material_light
 color call_notification_answer_color
@@ -1465,6 +1467,8 @@ color common_google_signin_btn_text_light_disabled
 color common_google_signin_btn_text_light_focused
 color common_google_signin_btn_text_light_pressed
 color common_google_signin_btn_tint
+color defaultButtonColor
+color defaultTextColor
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -2193,6 +2197,7 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color textColor
 color textColor2
+color textColorExpanded
 color tooltip_background_dark
 color tooltip_background_light
 color uploadResumeBtn
@@ -3182,6 +3187,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable dropdown_item_bg
 drawable empty_img
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
@@ -3326,6 +3332,7 @@ id SecondQuestionTitle
 id SecondbtnKeyboard
 id SecondnoOfQuest
 id Secondtvkeyboard
+id SpinnerDropDown
 id TOP_END
 id TOP_START
 id accelerate
@@ -3451,6 +3458,7 @@ id btnCheckLocation
 id btnComment
 id btnCommentSent
 id btnEditProfile
+id btnEnd
 id btnFAQ
 id btnFilter
 id btnJobListing
@@ -3458,7 +3466,6 @@ id btnKeyboard
 id btnLike
 id btnLogin
 id btnLogout
-id btnMoreVert
 id btnNotification
 id btnPersonal
 id btnPost
@@ -3473,11 +3480,9 @@ id btnSentComment
 id btnShare
 id btnShowAllLatest
 id btnShowAllRecommended
-id btnSpeakerPhone
 id btnSubmit
 id btnSubmitResume
 id btnView
-id button
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3644,9 +3649,7 @@ id home
 id homeAsUp
 id honorRequest
 id horizontal_only
-id ib1
-id ib2
-id ib3
+id ibDragHandle
 id icon
 id icon_group
 id icon_only
@@ -3728,9 +3731,6 @@ id line
 id line1
 id line2
 id line3
-id lineQs1
-id lineQs2
-id lineQs3
 id linear
 id listMode
 id list_item
@@ -3865,7 +3865,6 @@ id outline
 id outward
 id overallContainer
 id overshoot
-id overviewLine
 id packed
 id parallax
 id parent
@@ -3894,6 +3893,7 @@ id progress_horizontal
 id publishedJobFragment
 id questionsCount
 id questionsDisplay
+id questionsRecyclerView
 id radio
 id radioGroupPF
 id ratio
@@ -4007,6 +4007,7 @@ id stretch
 id submenuarrow
 id submitBtn
 id submit_area
+id submitbtn
 id supportScrollUp
 id swMode
 id tabMode
@@ -4033,7 +4034,9 @@ id textStart
 id textTop
 id textView
 id textView10
+id textView10Content
 id textView11
+id textView11Content
 id textView12
 id textView14
 id textView2
@@ -4041,8 +4044,11 @@ id textView3
 id textView4
 id textView5
 id textView6
+id textView6Content
 id textView7
+id textView7Content
 id textView9
+id textView9Content
 id textWatcher
 id text_input_end_icon
 id text_input_error_icon
@@ -4097,6 +4103,7 @@ id tvCompEmail
 id tvCompName
 id tvContent
 id tvEmail
+id tvItemDropdown
 id tvJobCategory
 id tvJobTitle
 id tvLikeNum
@@ -4108,8 +4115,6 @@ id tvTime
 id tvTitle
 id tvUsername
 id tvkeyboard
-id txt1
-id txt2
 id txtAccType
 id txtApplied
 id txtBookmark
@@ -4133,7 +4138,7 @@ id txtLanguage
 id txtLogout
 id txtNoAccount
 id txtPreference
-id txtQs3
+id txtQuestion
 id txtRecommendedTitle
 id txtRegPop
 id txtRegister
@@ -4153,8 +4158,6 @@ id userProfileLayout
 id vertical_only
 id view
 id view2
-id view5
-id view6
 id view_offset_helper
 id view_transition
 id view_tree_lifecycle_owner
@@ -4341,6 +4344,8 @@ layout fragment_view_applied_job
 layout fragment_view_published_job
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout item_dropdown
+layout item_question
 layout job_viewholder
 layout layout_child
 layout layout_group

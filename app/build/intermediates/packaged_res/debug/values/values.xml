@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="interview">
+        <item>FAQ</item>
+        <item>Interview Tips</item>
+        <item>Practice Interview</item>
+    </string-array>
     <string-array name="jobCategory">
         <item/>
         <item>Accounting</item>
@@ -216,12 +221,16 @@
         <item>Bandar Permaisuri</item>
     </string-array>
     <color name="black">#FF000000</color>
+    <color name="buttonColorExpanded">#00BCD4</color>
+    <color name="defaultButtonColor">#000000</color>
+    <color name="defaultTextColor">#000000</color>
     <color name="lightGrey">#f7f7f7</color>
     <color name="link_default">#79AED6</color>
     <color name="link_focused">#00FF00</color>
     <color name="link_pressed">#FF0000</color>
     <color name="textColor">#FF000000</color>
     <color name="textColor2">#878787</color>
+    <color name="textColorExpanded">#00BCD4</color>
     <color name="uploadResumeBtn">#138ef0</color>
     <color name="white">#FFFFFFFF</color>
     <item name="btnCommentSent" type="id"/>

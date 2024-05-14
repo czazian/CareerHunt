@@ -4,6 +4,7 @@ anim fade_in
 anim fade_out
 anim slide_in_bottom
 anim slide_out_bottom
+array interview
 array jobCategory
 array job_field
 array johor_city
@@ -24,12 +25,16 @@ array selangor_city
 array state
 array terengganu_city
 color black
+color buttonColorExpanded
+color defaultButtonColor
+color defaultTextColor
 color lightGrey
 color link_default
 color link_focused
 color link_pressed
 color textColor
 color textColor2
+color textColorExpanded
 color uploadResumeBtn
 color white
 drawable applogo
@@ -101,6 +106,7 @@ drawable custom_name
 drawable custom_phone
 drawable default_company
 drawable default_profile
+drawable dropdown_item_bg
 drawable empty_img
 drawable ic_launcher_background
 drawable inputborder
@@ -138,6 +144,7 @@ id SecondQuestionTitle
 id SecondbtnKeyboard
 id SecondnoOfQuest
 id Secondtvkeyboard
+id SpinnerDropDown
 id action_jobListing_to_addJob
 id addJob
 id alumni
@@ -168,6 +175,7 @@ id btnCheckLocation
 id btnComment
 id btnCommentSent
 id btnEditProfile
+id btnEnd
 id btnFAQ
 id btnFilter
 id btnJobListing
@@ -175,7 +183,6 @@ id btnKeyboard
 id btnLike
 id btnLogin
 id btnLogout
-id btnMoreVert
 id btnNotification
 id btnPersonal
 id btnPost
@@ -190,11 +197,9 @@ id btnSentComment
 id btnShare
 id btnShowAllLatest
 id btnShowAllRecommended
-id btnSpeakerPhone
 id btnSubmit
 id btnSubmitResume
 id btnView
-id button
 id cancelUploadButton
 id cardView
 id category
@@ -239,9 +244,7 @@ id frameLayout9
 id full
 id headerFAQ
 id home
-id ib1
-id ib2
-id ib3
+id ibDragHandle
 id imageButton
 id imageButton10
 id imageButton11
@@ -298,9 +301,6 @@ id line
 id line1
 id line2
 id line3
-id lineQs1
-id lineQs2
-id lineQs3
 id lkApplicant
 id locationIcon
 id locationLayout
@@ -327,7 +327,6 @@ id notiTop
 id notificationCont
 id numOfNotification
 id overallContainer
-id overviewLine
 id part
 id post_button_box
 id profileImage
@@ -338,6 +337,7 @@ id progressIndicatorSearch
 id publishedJobFragment
 id questionsCount
 id questionsDisplay
+id questionsRecyclerView
 id radioGroupPF
 id rbBusiness
 id rbEditFemale
@@ -376,11 +376,14 @@ id spinnerState
 id spnCity
 id spnState
 id submitBtn
+id submitbtn
 id swMode
 id tbPreferences
 id textView
 id textView10
+id textView10Content
 id textView11
+id textView11Content
 id textView12
 id textView14
 id textView2
@@ -388,8 +391,11 @@ id textView3
 id textView4
 id textView5
 id textView6
+id textView6Content
 id textView7
+id textView7Content
 id textView9
+id textView9Content
 id tfCompAddr
 id tfCompEmail
 id tfCompName
@@ -418,6 +424,7 @@ id tvCompEmail
 id tvCompName
 id tvContent
 id tvEmail
+id tvItemDropdown
 id tvJobCategory
 id tvJobTitle
 id tvLikeNum
@@ -429,8 +436,6 @@ id tvTime
 id tvTitle
 id tvUsername
 id tvkeyboard
-id txt1
-id txt2
 id txtAccType
 id txtApplied
 id txtBookmark
@@ -454,7 +459,7 @@ id txtLanguage
 id txtLogout
 id txtNoAccount
 id txtPreference
-id txtQs3
+id txtQuestion
 id txtRecommendedTitle
 id txtRegPop
 id txtRegister
@@ -468,8 +473,6 @@ id userProfileContainer
 id userProfileLayout
 id view
 id view2
-id view5
-id view6
 id writeCommentSection
 layout activity_login_container
 layout activity_main
@@ -503,6 +506,8 @@ layout fragment_user_profile
 layout fragment_view_applicant
 layout fragment_view_applied_job
 layout fragment_view_published_job
+layout item_dropdown
+layout item_question
 layout job_viewholder
 layout layout_child
 layout layout_group
