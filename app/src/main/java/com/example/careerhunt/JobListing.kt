@@ -163,10 +163,6 @@ class JobListing : Fragment(), JobInterface.RecyclerViewEvent,
 
 
 
-        //Working on bookmark - Listing will only show the bookmark status, want to add should go to detail
-
-
-
         //return view
         return binding.root
     }
@@ -179,7 +175,6 @@ class JobListing : Fragment(), JobInterface.RecyclerViewEvent,
         dbRef = FirebaseDatabase.getInstance().getReference("Job")
         val query = dbRef.orderByChild("jobPostedDate")
             .limitToLast(5) //Make a filter on the result from firebase
-
         newJobList = arrayListOf()
         query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

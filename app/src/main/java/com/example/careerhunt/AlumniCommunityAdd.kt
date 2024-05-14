@@ -50,7 +50,7 @@ class AlumniCommunityAdd : Fragment() {
             val etContent : EditText = view.findViewById(R.id.etContent)
 
             //temp solution: should be personal ID of logined account of device
-            val alumni_post = com.example.careerhunt.data.Alumni(etTitle.text.toString(), etContent.text.toString(), LocalDate.now().toString(), "user1")
+            val alumni_post = com.example.careerhunt.data.Alumni("", etTitle.text.toString(), etContent.text.toString(), LocalDate.now().toString(), "1", arrayListOf())
             dbRef.push().setValue(alumni_post)
 
             Toast.makeText(requireContext(), "Post successful", Toast.LENGTH_LONG).show()

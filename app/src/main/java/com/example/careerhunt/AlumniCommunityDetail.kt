@@ -1,6 +1,7 @@
 package com.example.careerhunt
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +14,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -38,7 +40,6 @@ class AlumniCommunityDetail : Fragment() {
     private var db : DatabaseReference = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").reference
     private var dbRefAlumni : DatabaseReference        = db.database.getReference("Alumni")
     private var dbRefAlumniComment : DatabaseReference = db.database.getReference("Alumni_Comment ")
-    private var dbRefPersonal : DatabaseReference      = db.database.getReference("Personal ")
     private lateinit var alumniCommentList : ArrayList<Alumni_community_comment>
     private lateinit var recyclerView : RecyclerView
 
@@ -58,31 +59,61 @@ class AlumniCommunityDetail : Fragment() {
         val tvTitle : TextView = view.findViewById(R.id.tvTitle)
         val tvContent : TextView = view.findViewById(R.id.tvContent)
         val tvDate : TextView = view.findViewById(R.id.tvTime)
+        val tvLikeNum : TextView = view.findViewById(R.id.tvLikeNum)
+        val btnLike : ImageButton = view.findViewById(R.id.btnLike)
+
+        //modify this
+        val currentLoginPersonalId = "1"
 
         val postId : String? = arguments?.getString("postId")
-        var personalId : String = ""
+
         Log.d("Post id is : ", postId.toString())
         //sent comment button
         val btnCommentSent : ImageButton = view.findViewById(R.id.btnSentComment)
-
-        Log.d("halloebwekjfkwe", "dwrqwrqw")
+        val btnBack : ImageButton = view.findViewById(R.id.imgBtnBack)
         //Post Upper detail load
         //id successfully past inside here
-        findAlumniById(postId.toString()){alumni ->
-            tvTitle.text   = alumni?.title
-            tvContent.text = alumni?.content
-            tvDate.text    = calDay(alumni?.date.toString())
-            //Toast.makeText(context, alumni?.personal_id.toString(), Toast.LENGTH_LONG).show()
+        dbRefAlumni.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                findAlumniById(postId.toString()){alumni ->
 
-            //something wrong here, this function  is not executing
-            //priority: low, check by later
-            findPersonalById(alumni?.personal_id.toString()){personalTemp ->
-                Log.d("Something wrong here: " , "jlafhkakfha")
+                    tvUsername.text = arguments?.getString("username")
+                    tvSchool.text = arguments?.getString("school")
+                    tvTitle.text   = alumni?.title
+                    tvContent.text = alumni?.content
+                    tvDate.text    = calDay(alumni?.date.toString())
+                    tvLikeNum.text = alumni?.personal_liked?.size.toString()
 
-                tvUsername.text = personalTemp?.name
-                tvSchool.text = personalTemp?.graduatedFrom
+                    if(alumni?.personal_liked?.contains(currentLoginPersonalId) == true){
+                        val color = Color.parseColor("#FF0000")
+                        btnLike.setColorFilter(color)
+                    }
+
+                    btnLike.setOnClickListener(){
+                        //determine it is like or unlike
+                        if(alumni?.personal_liked?.contains(currentLoginPersonalId) == true){
+                            //unlike
+                            alumni.personal_liked.remove(currentLoginPersonalId)
+                            val color = Color.parseColor("#000000")
+                            btnLike.setColorFilter(color)
+                        }
+                        else{
+                            //like
+                            val color = Color.parseColor("#FF0000")
+                            btnLike.setColorFilter(color)
+                            alumni!!.personal_liked.add(currentLoginPersonalId)
+                            Toast.makeText(requireContext(), "Thank you for your like", Toast.LENGTH_SHORT).show()
+                        }
+                        dbRefAlumni.child(postId.toString()).child("personal_liked").setValue(alumni?.personal_liked)
+
+                    }
+                }
             }
-        }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("cancel latest reflect : ", "cancelled")
+            }
+        })
 
         recyclerView = view.findViewById(R.id.alumni_comment_recycle_view)
         alumniCommentList = arrayListOf<Alumni_community_comment>()
@@ -128,6 +159,15 @@ class AlumniCommunityDetail : Fragment() {
             Toast.makeText(requireContext(), "Comment Sent", Toast.LENGTH_SHORT).show()
         }
 
+        btnBack.setOnClickListener(){
+            val fragment = com.example.careerhunt.Alumni()
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
+            transaction?.replace(R.id.frameLayout, fragment)
+            transaction?.addToBackStack(null)
+            transaction?.commit()
+        }
+
 
         // Inflate the layout for this fragment
         return view
@@ -163,24 +203,6 @@ class AlumniCommunityDetail : Fragment() {
                     Log.d("Alumni = ", snapshot.getValue(Alumni::class.java).toString())
                     val alumni : Alumni? = snapshot.getValue(Alumni::class.java)
                     callback(alumni)
-                }
-
-            }
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(context, "Error: $error", Toast.LENGTH_LONG).show()
-                callback(null)
-            }
-        })
-    }
-
-    private fun findPersonalById(id : String, callback: (PersonalTemp?) -> Unit){
-        dbRefPersonal.child(id).addListenerForSingleValueEvent(object: ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()) {
-                    val personal : PersonalTemp? = snapshot.getValue(PersonalTemp::class.java)
-                    Log.d("Personal findPersonal By id :  = ", personal?.name.toString())
-                    Log.d("findPersonalId is run" , "running")
-                    callback(personal)
                 }
 
             }
