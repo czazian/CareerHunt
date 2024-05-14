@@ -20,76 +20,60 @@
             android:id="@+id/lblTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="70dp"
+            android:layout_marginStart="72dp"
             android:text="Interview Prep"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnSpeakerPhone"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/btnBackArrow"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.73" />
-
-        <ImageButton
-            android:id="@+id/btnSpeakerPhone"
-            android:layout_width="37dp"
-            android:layout_height="35dp"
-            android:layout_marginEnd="4dp"
-            android:background="@drawable/button_click"
-            android:padding="5dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/baseline_speaker_phone_24"
-            app:layout_constraintBottom_toBottomOf="@+id/btnMoreVert"
-            app:layout_constraintEnd_toStartOf="@+id/btnMoreVert"
-            app:layout_constraintTop_toTopOf="@+id/btnMoreVert"
-            app:layout_constraintVertical_bias="0.47"
-            app:tint="#FFFFFF" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/btnBackArrow"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginEnd="316dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/button_click"
             android:padding="5dp"
             android:scaleType="centerCrop"
             android:src="@drawable/baseline_arrow_back_24"
-            app:layout_constraintBottom_toBottomOf="@+id/btnMoreVert"
-            app:layout_constraintEnd_toStartOf="@+id/btnMoreVert"
+            app:layout_constraintBottom_toBottomOf="@+id/SpinnerDropDown"
+            app:layout_constraintEnd_toStartOf="@+id/SpinnerDropDown"
+            app:layout_constraintHorizontal_bias="0.051"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/btnMoreVert"
-            app:layout_constraintVertical_bias="0.294"
+            app:layout_constraintTop_toTopOf="@+id/SpinnerDropDown"
             app:tint="#FFFFFF" />
 
         <Spinner
-            android:id="@+id/btnMoreVert"
+            android:id="@+id/SpinnerDropDown"
             android:layout_width="35dp"
             android:layout_height="33dp"
-            android:layout_marginEnd="4dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
             android:adjustViewBounds="false"
             android:background="@drawable/baseline_more_vert_24"
+            android:entries="@array/interview"
             android:padding="5dp"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.586" />
+            app:layout_constraintVertical_bias="0.133" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/MiddleContainer"
-        android:layout_width="365dp"
-        android:layout_height="502dp"
+        android:layout_width="349dp"
+        android:layout_height="412dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="12dp"
         android:background="@drawable/rounded_shape"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/topContainer"
-        app:layout_constraintHorizontal_bias="0.652"
-        app:layout_constraintStart_toStartOf="@+id/topContainer"
-        app:layout_constraintTop_toBottomOf="@+id/topContainer"
-        app:layout_constraintVertical_bias="0.54">
+        app:layout_constraintEnd_toEndOf="@+id/LblSampleAnswers"
+        app:layout_constraintStart_toStartOf="@+id/LblSampleAnswers"
+        app:layout_constraintTop_toBottomOf="@+id/LblSampleAnswers">
 
         <TextView
             android:id="@+id/QuestionTitle"
@@ -130,12 +114,14 @@
 
         <TextView
             android:id="@+id/displayAnswer"
-            android:layout_width="313dp"
-            android:layout_height="376dp"
+            android:layout_width="316dp"
+            android:layout_height="250dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
             android:text="Sure, I'd be happy to. I'm a dedicated and enthusiastic professional with a strong background in Software Development. With 3 years of experience, I have honed my skills in development a mobile app. I am known for my ability to done the work on time. Outside of work, I enjoy to design the mobile app and UI. I am excited about the opportunity to have work with a Genting app project. I am confident that my combination of skills, experience, and enthusiasm make me a valuable asset to CTC company."
             android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/questionsDisplay" />
 
@@ -155,11 +141,13 @@
             android:id="@+id/backArrorbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             android:backgroundTint="#7C7C7C"
             android:src="@drawable/baseline_arrow_back_24"
             app:layout_constraintBottom_toBottomOf="@+id/nextArrorButton"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/nextArrorButton"
-            tools:layout_editor_absoluteX="8dp" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/lblBackArror"
@@ -189,13 +177,12 @@
         android:id="@+id/LblSampleAnswers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
         android:text="Sample Answers"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/MiddleContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/topContainer"
-        app:layout_constraintVertical_bias="0.408" />
+        app:layout_constraintTop_toBottomOf="@+id/topContainer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

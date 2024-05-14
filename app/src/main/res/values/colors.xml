@@ -9,4 +9,10 @@
     <color name="textColor">#FF000000</color>
     <color name="textColor2">#878787</color>
     <color name="uploadResumeBtn">#138ef0</color>
+
+    <!-- InterviewPrep -->
+    <color name="textColorExpanded">#00BCD4</color> <!-- Expanded text color -->
+    <color name="buttonColorExpanded">#00BCD4</color> <!-- Expanded button color -->
+    <color name="defaultTextColor">#000000</color> <!-- Default text color -->
+    <color name="defaultButtonColor">#000000</color> <!-- Default button color -->
 </resources>
