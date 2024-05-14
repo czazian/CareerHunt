@@ -1,3 +1,20 @@
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+#Tue May 14 17:05:09 MYT 2024
+base.0=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.10=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+base.2=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
+base.3=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\11\\classes.dex
+base.4=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
+base.5=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\2\\classes.dex
+base.6=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
+base.7=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\6\\classes.dex
+base.8=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\8\\classes.dex
+base.9=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\9\\classes.dex
+=======
+>>>>>>> Stashed changes
 #Sun May 12 04:06:10 SGT 2024
 base.0=C\:\\GitHub\\CareerHunt\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\GitHub\\CareerHunt\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
@@ -10,6 +27,10 @@ base.6=C\:\\GitHub\\CareerHunt\\CareerHunt\\app\\build\\intermediates\\dex\\debu
 base.7=C\:\\GitHub\\CareerHunt\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
 base.8=C\:\\GitHub\\CareerHunt\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\8\\classes.dex
 base.9=C\:\\GitHub\\CareerHunt\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\9\\classes.dex
+<<<<<<< Updated upstream
+=======
+>>>>>>> a934c8a6e593269e62eb1dca17c8ea320d5c2605
+>>>>>>> Stashed changes
 path.0=classes.dex
 path.1=0/classes.dex
 path.10=classes3.dex

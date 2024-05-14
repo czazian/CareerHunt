@@ -43,6 +43,10 @@ class AlumniCommunity_adapter() : RecyclerView.Adapter <AlumniCommunity_adapter.
 
     private var alumniCommunityList = emptyList<Alumni>()
     private var dbRefPersonal : DatabaseReference = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Personal")
+    private var dbRefAlumni : DatabaseReference = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Alumni")
+
+    //modify this
+    private val currentLoginPersonalId = "1"
 
     class MyViewHolder (itemView: View): RecyclerView.ViewHolder(itemView){
         val tvUsername : TextView = itemView.findViewById(R.id.tvUsername)
@@ -67,26 +71,31 @@ class AlumniCommunity_adapter() : RecyclerView.Adapter <AlumniCommunity_adapter.
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = alumniCommunityList[position]
 
+        var username : String = ""
+        var school : String = ""
         findPersonalById(currentItem.personal_id){personal ->
             holder.tvUsername.text = personal?.name
             holder.tcSchool.text = personal?.graduatedFrom
+            username = personal?.name.toString()
+            school = personal?.graduatedFrom.toString()
         }
         //holder.tvUsername.text = currentItem.personal_id.toString()
         //holder.tcSchool.text = currentItem.personal_id.toString()
         holder.tvTitle.text = currentItem.title.toString()
         holder.tvContent.text = currentItem.content.toString()
         holder.tvTime.text = calDay(currentItem.date).toString()
-
-        //change like button to 'red' color
-        //if(alumniCommunityLikeList_personal)
-        val color = Color.parseColor("#FF0000")
-        holder.btnLike.setColorFilter(color)
+        if(currentItem.personal_liked.contains(currentLoginPersonalId)){
+            val color = Color.parseColor("#FF0000")
+            holder.btnLike.setColorFilter(color)
+        }
 
         //when a list is clicked, go to its detail page
         holder.itemView.findViewById<View>(R.id.constraintLayout1).setOnClickListener {
 
             val bundle = Bundle()
             bundle.putString("postId", currentItem.id)
+            bundle.putString("username", username)
+            bundle.putString("school", school)
             Log.d("key is : ", currentItem.id)
 
             // Handle post item click
@@ -102,12 +111,29 @@ class AlumniCommunity_adapter() : RecyclerView.Adapter <AlumniCommunity_adapter.
                 .commit()
         }
 
-        //when like, comment and share button is click
+        //when like button is click
         holder.itemView.findViewById<View>(R.id.btnLike).setOnClickListener {
-            val post = currentItem
-            //listener.onLikeButtonClick(post)
+
+            Log.d("Like is click : ", "postID : " + currentItem.id)
+            Log.d("Like by personal : ",  currentItem.personal_liked.toString())
+            //determine it is like or unlike
+            if(currentItem.personal_liked.contains(currentLoginPersonalId)){
+                //unlike
+                currentItem.personal_liked.remove(currentLoginPersonalId)
+                val color = Color.parseColor("#000000")
+                holder.btnLike.setColorFilter(color)
+            }
+            else{
+                //like
+                currentItem.personal_liked.add(currentLoginPersonalId)
+                val color = Color.parseColor("#FF0000")
+                holder.btnLike.setColorFilter(color)
+            }
+            dbRefAlumni.child(currentItem.id).child("personal_liked").setValue(currentItem.personal_liked)
+
         }
 
+        //when comment button is click
         holder.itemView.findViewById<View>(R.id.btnComment).setOnClickListener {
             val bundle = Bundle()
             bundle.putString("postId", currentItem.title.toString())
@@ -125,6 +151,8 @@ class AlumniCommunity_adapter() : RecyclerView.Adapter <AlumniCommunity_adapter.
                 .commit()
 
         }
+
+        //when share button is click
         holder.itemView.findViewById<View>(R.id.btnShare).setOnClickListener {
             var data = "haha"
             val intent = Intent(Intent.ACTION_SEND)

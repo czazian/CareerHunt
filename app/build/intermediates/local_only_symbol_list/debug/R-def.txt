@@ -205,8 +205,17 @@ id comIcon
 id comName
 id commonQuestionsTitle
 id compLogo
+<<<<<<< Updated upstream
 id companyAddressResl
 id companyPhoneResl
+=======
+<<<<<<< HEAD
+id constraintLayout
+=======
+id companyAddressResl
+id companyPhoneResl
+>>>>>>> a934c8a6e593269e62eb1dca17c8ea320d5c2605
+>>>>>>> Stashed changes
 id constraintLayout1
 id constraintLayout2
 id constraintLayout3
@@ -257,6 +266,7 @@ id imageView2
 id imageView3
 id imageView4
 id imageView5
+id imgBtnBack
 id imgCompany
 id imgLogo
 id imgViewProfile
