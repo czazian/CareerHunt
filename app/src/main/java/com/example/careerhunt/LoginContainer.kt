@@ -1,6 +1,7 @@
 package com.example.careerhunt
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
@@ -12,23 +13,51 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.careerhunt.databinding.ActivityLoginContainerBinding
+import com.example.careerhunt.interfaces.LocaleChangeListener
+import com.example.careerhunt.session.loginSession
 import java.util.Locale
+
+//this is the correct and latest one
 
 class LoginContainer : AppCompatActivity() {
     private val fragmentManager = supportFragmentManager
     private lateinit var binding: ActivityLoginContainerBinding
     private lateinit var sharedPreferences: SharedPreferences
-    private lateinit var sharedStatusPreferences: SharedPreferences
+    lateinit var sharedIDPreferences: SharedPreferences
+    lateinit var sharedUserTypePreferences: SharedPreferences
+    lateinit var sharedStatusPreference: SharedPreferences
+    lateinit var sharedLogoutPreferences: SharedPreferences
+    private var userId: String = ""
+    private var userType: String = ""
+    private var isFirstLogin: Boolean = true // false = aldy logged in
+    private var logoutStatus: Boolean = false // false means not yet logged out
 
-
+    override fun onResume() {
+        super.onResume()
+        // Check login status and navigate to main activity if logged in
+        // If the user havent login and the havent logut
+        if (!isFirstLogin && userId.isNotEmpty() && logoutStatus) {
+           navigateToMainActivity()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginContainerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Retrieve dark mode state from SharedPreferences
+        // Initialize SharedPreferences
+        sharedIDPreferences = getSharedPreferences("userid", Context.MODE_PRIVATE)
+        sharedUserTypePreferences = getSharedPreferences("userType", Context.MODE_PRIVATE)
+        sharedLogoutPreferences = getSharedPreferences("logoutStatus", Context.MODE_PRIVATE)
+        sharedStatusPreference = getSharedPreferences("isFirstTime", Context.MODE_PRIVATE)
         sharedPreferences = getSharedPreferences("Mode", Context.MODE_PRIVATE)
+
+        // Retrieve SharedPreferences value
+        isFirstLogin = sharedStatusPreference.getBoolean("isFirstTime", true)
+        logoutStatus = sharedLogoutPreferences.getBoolean("logoutStatus", false)
+        userId = sharedIDPreferences.getString("userid", "") ?: ""
+        userType = sharedUserTypePreferences.getString("userType", "") ?: ""
         val isDarkMode = sharedPreferences.getBoolean("night", false)
 
         // Apply dark mode if enabled
@@ -38,59 +67,26 @@ class LoginContainer : AppCompatActivity() {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
 
-        //Set initial fragment
-        if (savedInstanceState == null) {
+
+        if (!isFirstLogin && userId.isNotEmpty() && logoutStatus) {
+            Toast.makeText(this, "laoding to main activity", Toast.LENGTH_SHORT).show()
+            navigateToMainActivity()
+
+        }else{
             val transaction = fragmentManager.beginTransaction()
             val initialFragment = LoginScreen()
             transaction.replace(binding.loginFrameLayout.id, initialFragment)
             transaction.addToBackStack(null)
             transaction.commit()
         }
-
-        /*
-        // Check if the user is already logged in
-        if (isLoggedIn()) {
-            // Navigate to MainActivity
-            navigateToMainActivity()
-        } else {
-            // Display the login fragment
-            val transaction = fragmentManager.beginTransaction()
-            val initialFragment = LoginScreen()
-            transaction.replace(binding.loginFrameLayout.id, initialFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }*/
-
     }
 
 
-
-/*
-// Function to save login status
-private fun saveLoginStatus(isLoggedIn: Boolean) {
-    val loginStatus = sharedStatusPreferences.putBoolean("isLoggedIn", isLoggedIn)
-}
-
-// Function to check login status
-private fun isLoggedIn(): Boolean {
-    return sharedPreferences.getBoolean("isLoggedIn", false)
-}
-
-// Function to navigate to MainActivity
-private fun navigateToMainActivity() {
-    // Retrieve user ID and type
-    val userId = sharedPreferences.getString("userid", "")
-    val userType = sharedPreferences.getString("userType", "")
-
-    // Start MainActivity with user ID and type
-    val intent = Intent(this, MainActivity::class.java).apply {
-        putExtra("user_id", userId)
-        putExtra("user_type", userType)
+    private fun navigateToMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
-    startActivity(intent)
-    finish() // Finish the current activity to prevent user from returning to it using back button
-}
- */
 
     // After click the Register Account Hyperlink
     fun onRegAccClicked(view: View) {
@@ -141,14 +137,25 @@ private fun navigateToMainActivity() {
         Toast.makeText(this, "Reset your Password", Toast.LENGTH_SHORT).show()
     }
 
-    /*
+/*
+    //for changing the language of entire app
     fun setLocale(language: String) {
         val locale = Locale(language)
         Locale.setDefault(locale)
-        val config = Configuration(resources.configuration)
-        config.setLocale(locale)
-        resources.updateConfiguration(config, resources.displayMetrics)
-        // Optionally, you can restart the activity to apply changes immediately
-        // restartActivity()
+
+        val resources = resources
+        val configuration = resources.configuration
+        configuration.setLocale(locale)
+        resources.updateConfiguration(configuration, resources.displayMetrics)
+
+        restartActivity()
+    }
+
+    fun restartActivity() {
+
+        val intent = intent
+        finish()
+        startActivity(intent)
     }*/
 }
+

@@ -1,6 +1,8 @@
 package com.example.careerhunt
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,9 +12,11 @@ import androidx.fragment.app.Fragment
 import com.example.careerhunt.databinding.FragmentLoginScreenBinding
 import com.example.careerhunt.data.Company
 import com.example.careerhunt.data.Personal
+import com.example.careerhunt.session.loginSession
 import com.google.android.gms.tasks.Task
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.security.MessageDigest
@@ -21,13 +25,10 @@ import java.security.NoSuchAlgorithmException
 
 class LoginScreen : Fragment() {
     private lateinit var binding: FragmentLoginScreenBinding
-
-    //private lateinit var database: DatabaseReference
-    private var database =
-        FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/")
-
-    private var myRef = database.reference
-
+    private lateinit var myRef: DatabaseReference
+    lateinit var sharedStatusPreference: SharedPreferences
+    lateinit var sharedIDPreferences: SharedPreferences
+    lateinit var sharedUserTypePreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +39,9 @@ class LoginScreen : Fragment() {
         binding = FragmentLoginScreenBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        sharedStatusPreference = requireContext().getSharedPreferences("isFirstTime", Context.MODE_PRIVATE)
+        sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
+        sharedUserTypePreferences = requireContext().getSharedPreferences("userType", Context.MODE_PRIVATE)
         //Database connection
         // database = FirebaseDatabase.getInstance().getReference("Personal")
 
@@ -51,20 +55,7 @@ class LoginScreen : Fragment() {
                 else -> ""
             }
 
-            /*if(userType == "Company"){
-                performCompLogin(loginEmail, loginPasswd, userType)
-            }else{
-                performPersonalLogin(loginEmail, loginPasswd, userType)
-            }*/
-
             performLogin(loginEmail, loginPasswd, userType)
-
-
-            /*if(validateUser(loginEmail,loginPasswd)){
-                navigateToMainActivity(userType)
-            }else{
-                Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
-            }*/
 
         }
         return view
@@ -72,17 +63,8 @@ class LoginScreen : Fragment() {
     }
 
 
-    /* // return true if the entered email and password correct
-     private fun validateUser(email: String, passwd: String): Boolean {
-         return email == "123456" && passwd == "123456"
-     }*/
-
-    private fun navigateToMainActivity(userType: String, userId:String?) {
+    private fun navigateToMainActivity() {
         val intent = Intent(requireActivity(), MainActivity::class.java)
-        // passing the account type to MainActivity
-
-        intent.putExtra("user_type", userType)
-        intent.putExtra("user_id",userId.toString())
 
         startActivity(intent)
         requireActivity().finish() // this is to prevent user return back to login page
@@ -93,8 +75,10 @@ class LoginScreen : Fragment() {
         // Determine which node to query based on the selected user type
         val accType = if (userType == "Personal") "Personal" else "Company"
 
+        myRef = FirebaseDatabase.getInstance().getReference(accType)
+
         // Query the database for the user with the specified email and password
-        myRef.child(accType).orderByChild("email").equalTo(email)
+        myRef.orderByChild("email").equalTo(email)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
@@ -111,19 +95,19 @@ class LoginScreen : Fragment() {
 
                                     //compare both encrypted password
                                     if (hashedPassword == hashedEnteredPassword) {
-                                        // Passwords match, proceed with login
+                                        val userId = userSnapshot.key // Get the unique ID
+
+                                        sharedStatusPreference.edit().putBoolean("isFirstTime", false).apply()
+                                        sharedIDPreferences.edit().putString("userid",userSnapshot.key).apply()
+                                        sharedUserTypePreferences.edit().putString("userType",userType).apply()
+
                                         Toast.makeText(
                                             requireContext(),
                                             "Login Successfully",
                                             Toast.LENGTH_SHORT
                                         ).show()
-                                        val userId = userSnapshot.key // Get the unique ID
-                                        Toast.makeText(
-                                            requireContext(),
-                                            "ID: " + userId.toString(),
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                        navigateToMainActivity(userType, userId.toString())
+
+                                        navigateToMainActivity()
                                         return
                                     }
 
@@ -140,19 +124,17 @@ class LoginScreen : Fragment() {
 
                                     //compare both encrypted password
                                     if (hashedPassword == hashedEnteredPassword) {
-                                        // Passwords match, proceed with login
+
+                                        sharedStatusPreference.edit().putBoolean("isFirstTime", false).apply()
+                                        sharedIDPreferences.edit().putString("userid",userSnapshot.key).apply()
+                                        sharedUserTypePreferences.edit().putString("userType",userType).apply()
+
                                         Toast.makeText(
                                             requireContext(),
                                             "Login Successfully",
                                             Toast.LENGTH_SHORT
                                         ).show()
-                                        val userId = userSnapshot.key // Get the unique ID
-                                        Toast.makeText(
-                                            requireContext(),
-                                            "ID: " + userId.toString(),
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                        navigateToMainActivity(userType, userId.toString())
+                                        navigateToMainActivity()
                                         return
                                     }
                                 }
