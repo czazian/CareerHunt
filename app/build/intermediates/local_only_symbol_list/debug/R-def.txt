@@ -55,13 +55,17 @@ drawable baseline_business_center_24
 drawable baseline_business_focused
 drawable baseline_cancel_24
 drawable baseline_change_language
+drawable baseline_chat_bubble_24_blue
 drawable baseline_chat_bubble_outline_24
 drawable baseline_construction_24
+drawable baseline_data_exploration_24
+drawable baseline_data_exploration_24_green
 drawable baseline_drag_handle_24
 drawable baseline_drag_handle_242
 drawable baseline_edit_document_24
 drawable baseline_email
 drawable baseline_email_focused
+drawable baseline_favorite_24_red
 drawable baseline_favorite_border_24
 drawable baseline_house_24
 drawable baseline_ios_share_24
@@ -82,6 +86,7 @@ drawable baseline_people_alt_24
 drawable baseline_phone
 drawable baseline_phone_focused
 drawable baseline_recommend_24
+drawable baseline_remove_red_eye_24
 drawable baseline_search_24
 drawable baseline_send_24
 drawable baseline_speaker_phone_24
@@ -150,6 +155,7 @@ id addJob
 id alumni
 id alumni_comment_recycle_view
 id alumni_recycle_view
+id alumni_your_post_recycle_view
 id applicantContainer
 id applicantCount
 id appliedContainer
@@ -173,7 +179,6 @@ id btnBusiness
 id btnCancel
 id btnCheckLocation
 id btnComment
-id btnCommentSent
 id btnEditProfile
 id btnEnd
 id btnFAQ
@@ -192,7 +197,6 @@ id btnResetPass
 id btnSave
 id btnSaveChanges
 id btnSelectFile
-id btnSent
 id btnSentComment
 id btnShare
 id btnShowAllLatest
@@ -212,6 +216,7 @@ id commonQuestionsTitle
 id compLogo
 id companyAddressResl
 id companyPhoneResl
+id constraintLayout
 id constraintLayout1
 id constraintLayout2
 id constraintLayout3
@@ -260,6 +265,11 @@ id imageView2
 id imageView3
 id imageView4
 id imageView5
+id imageViewCR
+id imageViewLikw
+id imageViewView
+id imgBtnBack
+id imgBtnMyPost
 id imgCompany
 id imgLogo
 id imgViewProfile
@@ -394,6 +404,7 @@ id textView6
 id textView6Content
 id textView7
 id textView7Content
+id textView8
 id textView9
 id textView9Content
 id tfCompAddr
@@ -431,10 +442,13 @@ id tvLikeNum
 id tvLocation
 id tvName
 id tvNum
+id tvPostId
 id tvSchool
 id tvTime
 id tvTitle
 id tvUsername
+id tvViewCRNum
+id tvViewNum
 id tvkeyboard
 id txtAccType
 id txtApplied
@@ -478,12 +492,14 @@ layout activity_login_container
 layout activity_main
 layout alumni_comment_list
 layout alumni_list_item
+layout alumni_list_item_your_post
 layout alumni_operation
 layout bottom_sheet
 layout fragment_add_job
 layout fragment_alumni
 layout fragment_alumni_community_add
 layout fragment_alumni_community_detail
+layout fragment_alumni_community_your_post
 layout fragment_business_account
 layout fragment_edit_business_acc
 layout fragment_edit_personal_acc

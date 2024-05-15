@@ -32,6 +32,7 @@ private const val ARG_PARAM2 = "param2"
 class AlumniCommunityAdd : Fragment() {
 
     private lateinit var dbRef : DatabaseReference
+    private val currentLoginUserId : String = "1"
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -50,7 +51,7 @@ class AlumniCommunityAdd : Fragment() {
             val etContent : EditText = view.findViewById(R.id.etContent)
 
             //temp solution: should be personal ID of logined account of device
-            val alumni_post = com.example.careerhunt.data.Alumni("", etTitle.text.toString(), etContent.text.toString(), LocalDate.now().toString(), "1", arrayListOf())
+            val alumni_post = com.example.careerhunt.data.Alumni("", etTitle.text.toString(), etContent.text.toString(), LocalDate.now().toString(), currentLoginUserId, arrayListOf(), arrayListOf())
             dbRef.push().setValue(alumni_post)
 
             Toast.makeText(requireContext(), "Post successful", Toast.LENGTH_LONG).show()

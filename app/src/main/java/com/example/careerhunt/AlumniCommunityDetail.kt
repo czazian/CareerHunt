@@ -62,6 +62,7 @@ class AlumniCommunityDetail : Fragment() {
         val tvLikeNum : TextView = view.findViewById(R.id.tvLikeNum)
         val btnLike : ImageButton = view.findViewById(R.id.btnLike)
 
+        val tvComment : TextView = view.findViewById(R.id.tvComment)
         //modify this
         val currentLoginPersonalId = "1"
 
@@ -89,6 +90,7 @@ class AlumniCommunityDetail : Fragment() {
                         btnLike.setColorFilter(color)
                     }
 
+                    //when like button is click
                     btnLike.setOnClickListener(){
                         //determine it is like or unlike
                         if(alumni?.personal_liked?.contains(currentLoginPersonalId) == true){
@@ -122,26 +124,6 @@ class AlumniCommunityDetail : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
 
-        //Post bottom detail (comment) load
-        //val adapter = AlumniCommunityComment_adapter()
-        //val recyclerView: RecyclerView = view.findViewById(R.id.alumni_comment_recycle_view)
-        //val tvComment : TextView =  view.findViewById(R.id.tvComment)
-        //recyclerView.adapter = adapter
-        //recyclerView.layoutManager = LinearLayoutManager(context)
-        //recyclerView.setHasFixedSize(true)
-        //alumniCommunityViewModel = ViewModelProvider(this).get(AlumniCommunityViewModel::class.java)
-        //alumniCommunityViewModel.findCommentbyPostId(postId.toInt()).observe(viewLifecycleOwner, Observer {alumniCommunityCommentList->
-         //   adapter.setData(alumniCommunityCommentList)
-
-         //   if(adapter.itemCount >= 1){
-        //        tvComment.text = adapter.itemCount.toString() + " Comment(s)"
-       //     }else{
-        //        tvComment.text = "No comment"
-        //    }
-
-       // })
-
-
         //wait for whole database added first
         btnCommentSent.setOnClickListener(){
             var etComment : EditText = view.findViewById(R.id.etComment)
@@ -150,8 +132,7 @@ class AlumniCommunityDetail : Fragment() {
             //val postId = arguments?.getString("postId")
 
             //push data into firebase
-            val senderId : String = "1"
-            val alumni_comment = Alumni_community_comment(etComment.text.toString(), postId.toString(), senderId)
+            val alumni_comment = Alumni_community_comment(etComment.text.toString(), postId.toString(), currentLoginPersonalId)
             dbRefAlumniComment.push().setValue(alumni_comment)
 
             //make it empty after sent
@@ -214,6 +195,7 @@ class AlumniCommunityDetail : Fragment() {
     }
 
     private fun fetchCommentDataByPostID(postId : String){
+
         dbRefAlumniComment.orderByChild("postId").equalTo(postId).addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 alumniCommentList.clear()
@@ -227,12 +209,14 @@ class AlumniCommunityDetail : Fragment() {
                     val adapter = AlumniCommunityComment_adapter()
                     adapter.setData(alumniCommentList)
                     recyclerView.adapter = adapter
+
                 }
             }
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(requireContext(), "Error: $error", Toast.LENGTH_LONG).show()
             }
         })
+
     }
 
 }

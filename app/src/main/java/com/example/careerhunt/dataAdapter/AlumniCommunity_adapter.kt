@@ -98,6 +98,13 @@ class AlumniCommunity_adapter() : RecyclerView.Adapter <AlumniCommunity_adapter.
             bundle.putString("school", school)
             Log.d("key is : ", currentItem.id)
 
+            //add personal if first time view the detail of a post
+            if(!currentItem.personal_view.contains(currentLoginPersonalId)){
+                //add
+                currentItem.personal_view.add(currentLoginPersonalId)
+                dbRefAlumni.child(currentItem.id).child("personal_view").setValue(currentItem.personal_view)
+            }
+
             // Handle post item click
             val context = holder.itemView.context
 
