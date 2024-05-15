@@ -1,9 +1,12 @@
 package com.example.careerhunt
 
+import android.app.Activity.RESULT_OK
 import android.app.AlertDialog
-import android.app.Dialog
 import android.content.DialogInterface
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,26 +14,30 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.careerhunt.data.Job
-import com.example.careerhunt.dataAdapter.JobListingAdapter
 import com.example.careerhunt.databinding.FragmentAddJobBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 import java.util.TimeZone
 
+
 class AddJob : Fragment() {
 
     private lateinit var binding: FragmentAddJobBinding
     private var lastID: Long = 0
-    private lateinit var dbRef : DatabaseReference
+    private lateinit var dbRef: DatabaseReference
+    private lateinit var storageRef: StorageReference
+    private var jobID: String? = ""
+    private var listOfUrl: ArrayList<Uri> = arrayListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,8 +48,7 @@ class AddJob : Fragment() {
             .inflate(layoutInflater, container, false)
 
 
-        //TESTING - HARDCODED COMPANY ID
-        //var companyID: Int = 1
+        storageRef = FirebaseStorage.getInstance().getReference()
 
         //Get company ID
         val companyID = arguments?.getString("companyID")
@@ -56,6 +62,16 @@ class AddJob : Fragment() {
             transaction?.replace(R.id.frameLayout, fragment)
             transaction?.addToBackStack(null)
             transaction?.commit()
+        }
+
+
+        //Handle image selection
+        binding.btnSelectImage.setOnClickListener() {
+            val intent = Intent()
+            intent.setType("image/*")
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+            intent.setAction(Intent.ACTION_GET_CONTENT)
+            startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1)
         }
 
 
@@ -100,12 +116,13 @@ class AddJob : Fragment() {
 
         //Get Count of Column -> For Last ID
         dbRef = FirebaseDatabase.getInstance().getReference("Job")
-        dbRef.addValueEventListener(object: ValueEventListener {
+        dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()) {
+                if (snapshot.exists()) {
                     lastID = snapshot.childrenCount
                 }
             }
+
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(requireContext(), "Error: $error", Toast.LENGTH_LONG).show()
             }
@@ -115,10 +132,10 @@ class AddJob : Fragment() {
         //Insert
         binding.submitBtn.setOnClickListener() {
             //Get all input values
-            val jobName = binding.txtJobTitle.text.toString()
-            val jobLocationState = binding.spnState.selectedItem.toString()
-            val jobLocationCity = binding.spnCity.selectedItem.toString()
-            val jobCategory = binding.ddlCategory.selectedItem.toString()
+            val jobName = binding.txtJobTitle?.text.toString()
+            val jobLocationState = binding.spnState.selectedItem?.toString()
+            val jobLocationCity = binding.spnCity.selectedItem?.toString()
+            val jobCategory = binding.ddlCategory.selectedItem?.toString()
 
             val jobType: String = when (binding.radioGroupPF.checkedRadioButtonId) {
                 R.id.rbFull -> "Full Time"
@@ -137,9 +154,13 @@ class AddJob : Fragment() {
 
             if (!jobName.isNullOrEmpty() && !jobType.isNullOrEmpty() && jobSalary != 0.0 && !jobDesc.isNullOrEmpty() && !jobCategory.isNullOrEmpty() && !jobLocationCity.isNullOrEmpty() && !jobLocationState.isNullOrEmpty()) {
 
+                val database = FirebaseDatabase.getInstance()
+                jobID = database.getReference("generateKey").push().key
+
+                //Real Insert
                 //Create Object
                 val job = Job(
-                    (lastID+1),
+                    jobID,
                     companyID!!.toInt(),
                     jobCategory,
                     jobDesc,
@@ -152,7 +173,7 @@ class AddJob : Fragment() {
                 )
 
                 //Insert into Firebase with Last ID + 1
-                dbRef.child((lastID+1).toString()).setValue(job)
+                dbRef.child(jobID.toString()).setValue(job)
                     .addOnSuccessListener {
                         Toast.makeText(
                             requireContext(),
@@ -168,31 +189,55 @@ class AddJob : Fragment() {
                     }
 
 
+                //Handle image insertion
+                if(listOfUrl != null) {
+                    val count:Int = listOfUrl.count()
+                    for (i in 0 until count) {
+                        val uri = listOfUrl[i]
+                        insertImages(uri, i)
+                    }
+                }
+
+
+
                 //Redirect back to job listing
-                //Get to know previous fragment
-                getFragmentManager()?.popBackStackImmediate()
+                val fragment = JobListing()
+
+                val navigationView =
+                    requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+                navigationView.selectedItemId = R.id.home
+
+                //Back to previous page with animation
+                val transaction = activity?.supportFragmentManager?.beginTransaction()
+                transaction?.replace(R.id.frameLayout, fragment)
+                transaction?.setCustomAnimations(
+                    R.anim.fade_out,  // Enter animation
+                    R.anim.fade_in  // Exit animation
+                )
+                transaction?.addToBackStack(null)
+                transaction?.commit()
 
             } else {
                 var emptyMessage = ""
-                if(jobName.isNullOrEmpty()) {
+                if (jobName.isNullOrEmpty()) {
                     emptyMessage += "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tName"
                 }
-                if(jobType.isNullOrEmpty()) {
+                if (jobType.isNullOrEmpty()) {
                     emptyMessage += "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tJob Type"
                 }
-                if(jobSalary == 0.0) {
+                if (jobSalary == 0.0) {
                     emptyMessage += "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tJob Salary"
                 }
-                if(jobDesc.isNullOrEmpty()){
+                if (jobDesc.isNullOrEmpty()) {
                     emptyMessage += "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tJob Description"
                 }
-                if(jobCategory.isNullOrEmpty()){
+                if (jobCategory.isNullOrEmpty()) {
                     emptyMessage += "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tJob Category"
                 }
-                if(jobLocationState.isNullOrEmpty()){
+                if (jobLocationState.isNullOrEmpty()) {
                     emptyMessage += "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tState"
                 }
-                if(jobLocationCity.isNullOrEmpty()){
+                if (jobLocationCity.isNullOrEmpty()) {
                     emptyMessage += "\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tCity"
                 }
 
@@ -208,9 +253,40 @@ class AddJob : Fragment() {
                 alert.setTitle("Missing Input")
                 alert.show()
             }
-
         }
 
         return binding.root
     }
+
+
+    private fun insertImages(uri: Uri?, index: Int){
+        //Can later use "-" to get jobID & number of image
+        val ref = storageRef.child("compImage/$jobID|$index")
+
+        //Insert file into firebase storage
+        ref.putFile(uri!!)
+            .addOnCompleteListener {
+            Log.e("IMG INSERT", "Image Inserted with uri = $uri")
+        }
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
+            if (data.clipData != null) {
+                // Multiple items selected
+                val count = data.clipData!!.itemCount
+                for (i in 0 until count) {
+                    val uri = data.clipData!!.getItemAt(i).uri
+
+                    listOfUrl.add(uri!!)
+                    Log.e("Inserted", "Inserted Multiple Image = ${uri.toString()}")
+                }
+            }
+        }
+    }
+
 }

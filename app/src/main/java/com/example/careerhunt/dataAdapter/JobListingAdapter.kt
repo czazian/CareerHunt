@@ -30,6 +30,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import kotlinx.coroutines.NonDisposableHandle.parent
 
 
 //Need to add private val listener: JobViewModel.RecyclerViewEvent - Click on different items in the recyclerview
@@ -92,6 +93,7 @@ class JobListingAdapter(
         userId = sharedIDPreferences.getString("userid","") ?: ""
         sharedUserTypePreferences = parent.context.getSharedPreferences("userType", Context.MODE_PRIVATE)
         userType = sharedUserTypePreferences.getString("userType","") ?: ""
+        Log.e("TAG","User Type from onCreateViewHolder $userType")
 
 //        userType = "Personal"
 //        userId = "1"
@@ -108,18 +110,19 @@ class JobListingAdapter(
         //Get item clicked
         val currentItem = jobList[position]
 
+        //If it is company account disable the bookmark
+        Log.e("TAG","User Type from onBindViewHolder $userType")
+        if(userType == "Company") {
+            val bookmarkIcon = holder.itemView.findViewById<ImageButton>(R.id.bookmarkBtn)
+            bookmarkIcon.visibility = View.INVISIBLE
+        }
+
         //Check length of description and limit it
         val words = currentItem.jobDescription.toString()
         val wordsTrimmed = currentItem.jobDescription.toString().trim()
-        val numberOfWords = wordsTrimmed.split("\\s+".toRegex()).size
 
-        val first50Characters = words.substring(0, minOf(words.length, 50))
-
-        if (numberOfWords > 50) {
-            holder.lblJobDescription.text = "$first50Characters..."
-        } else {
-            holder.lblJobDescription.text = words
-        }
+        val upToNCharacters: String = words.substring(0, Math.min(wordsTrimmed.length, 50))
+        holder.lblJobDescription.text = "$upToNCharacters..."
 
         //Get image - company/user
         val ref = storageRef.child("compProfile").child(currentItem.companyID.toString() + ".png")
@@ -173,6 +176,7 @@ class JobListingAdapter(
     }
 
     private fun getCompanyInfoByID(cmpId: String, holder: JobListingViewHolder) {
+
         dbRef = FirebaseDatabase.getInstance().getReference("Company")
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -211,16 +215,13 @@ class JobListingAdapter(
                         val bookmarkID = bmSnapshot.key
                         jobId = bmSnapshot.child("jobID").value.toString()
                         userID = bmSnapshot.child("userID").value.toString()
-                        type = bmSnapshot.child("userType").value.toString()
                         Log.e("Bookmark STATUS (jobId)=", jobId)
                         Log.e("Current STATUS (jobId)=", jobID)
                         Log.e("Bookmark STATUS (userID)=", userID)
                         Log.e("Current STATUS (userID)=", userId)
-                        Log.e("Bookmark STATUS (type)=", type)
-                        Log.e("Current STATUS (type)=", userType)
 
 
-                        if (userID == userId && jobID.toString() == jobId && type == userType) {
+                        if (userID == userId && jobID.toString() == jobId) {
                             Log.e("Bookmark STATUS =", "Bookmark is exist with ID <$bookmarkID>")
 
                             val bookmarkIcon = holder.itemView.findViewById<ImageButton>(R.id.bookmarkBtn)

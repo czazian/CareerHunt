@@ -5,7 +5,7 @@ import android.os.Parcelable
 import java.io.Serializable
 
 data class Job(
-    var jobID: Long? = 0,
+    var jobID: String? = "",
     val companyID: Int? = 0,
     var jobCategory: String? = "",
     var jobDescription: String? = "",
