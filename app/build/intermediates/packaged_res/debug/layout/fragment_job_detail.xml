@@ -11,7 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/uploadResume"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/detailTop"
@@ -173,9 +173,10 @@
                 android:layout_height="40dip"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="30dp"
-                android:backgroundTint="#79CDF3"
+                android:backgroundTint="#99CDF6"
                 android:elevation="20dp"
                 android:text="View Location"
+                android:textColor="#3791F3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/companyAddressResl"
                 app:layout_constraintTop_toBottomOf="@+id/companyAddressResl" />
@@ -217,7 +218,9 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/descResult"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                app:layout_constraintTop_toBottomOf="@+id/textView14"
+                app:layout_constraintVertical_bias="0.00999999"
+                app:layout_constraintVertical_chainStyle="packed" />
 
             <TextView
                 android:id="@+id/descResult"
@@ -226,6 +229,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="30dp"
+                android:justificationMode="inter_word"
                 android:maxLines="100"
                 android:text="Join Our Team as a Software Engineer at UNIQLO! Are you passionate about technology and innovation? Do you thrive in a dynamic, fast-paced environment where your ideas can shape the future? If so, UNIQLO invites you to join our team as a Software Engineer and be a part of our mission to create unique and exceptional experiences for our customers worldwide. Responsibilities:  Collaborate with cross-functional teams to design, develop, and deploy innovative software solutions that enhance the UNIQLO customer experience across various digital platforms. Participate in the full software development lifecycle, from requirements gathering and analysis to design, implementation, testing, and maintenance. Contribute to the architecture and technical design of scalable, reliable, and secure software systems. Write clean, efficient, and well-documented code following best practices and industry standards. Stay updated on emerging technologies and trends in software development, and proactively propose and implement new ideas to drive continuous improvement."
                 android:textAlignment="gravity"
@@ -235,8 +239,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/descTitle"
-                app:lineHeight="25dp"
-                android:justificationMode="inter_word" />
+                app:lineHeight="25dp" />
 
             <TextView
                 android:id="@+id/lblpostDate"
@@ -304,18 +307,18 @@
 
             <TextView
                 android:id="@+id/lblCompanyAddress"
-                android:layout_width="wrap_content"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:text="Company Address : "
+                android:justificationMode="inter_word"
+                android:text="Company Office/Headquarter :"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBaseline_toBaselineOf="@+id/companyAddressResl"
                 app:layout_constraintEnd_toStartOf="@+id/companyAddressResl"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                android:justificationMode="inter_word"/>
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/companyAddressResl"
@@ -355,6 +358,63 @@
                 app:layout_constraintStart_toEndOf="@+id/textView14"
                 app:layout_constraintTop_toBottomOf="@+id/btnCheckLocation" />
 
+            <View
+                android:id="@+id/line2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:background="#CDCDCD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/descResult"
+                tools:ignore="NotSibling" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="15dp"
+                android:text="Photos"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line2" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/carousel_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="20dp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                app:layoutManager="com.google.android.material.carousel.CarouselLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/noPhtLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView13">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
@@ -381,6 +441,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

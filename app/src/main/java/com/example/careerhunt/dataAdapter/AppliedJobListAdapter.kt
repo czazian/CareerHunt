@@ -69,7 +69,7 @@ class AppliedJobListAdapter() : RecyclerView.Adapter<AppliedJobListAdapter.MyVie
     }
 
     // Retrieve Job data
-    private fun fetchJobData(jobId: Long?, callback: (Job?, Company?) -> Unit) {
+    private fun fetchJobData(jobId: String?, callback: (Job?, Company?) -> Unit) {
         myRef = FirebaseDatabase.getInstance().getReference("Job").child(jobId.toString())
 
 

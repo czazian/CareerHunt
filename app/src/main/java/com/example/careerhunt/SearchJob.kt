@@ -378,7 +378,7 @@ class SearchJob : Fragment(), JobInterface.RecyclerViewEvent, JobInterface.Proce
 
     }
 
-     fun onItemClick(position: Int, recyclerViewSource: String) {
+     override fun onItemClick(position: Int, recyclerViewSource: String) {
         //Get the clicked object
         val jobObj: Job = jobList[position]
         val fragment = JobDetail()
@@ -421,8 +421,6 @@ class SearchJob : Fragment(), JobInterface.RecyclerViewEvent, JobInterface.Proce
         binding.itemCont.visibility = View.VISIBLE
     }
 
-    override fun onItemClick(position: Int) {
-        TODO("Not yet implemented")
-    }
+
 
 }

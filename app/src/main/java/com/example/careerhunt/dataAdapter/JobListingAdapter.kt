@@ -76,7 +76,7 @@ class JobListingAdapter(
         override fun onClick(v: View?) {
             val position = adapterPosition
             if (position != RecyclerView.NO_POSITION) {
-                listener.onItemClick(position)
+                listener.onItemClick(position, recyclerViewSource)
             }
         }
     }

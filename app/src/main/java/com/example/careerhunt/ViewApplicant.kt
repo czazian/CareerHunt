@@ -15,7 +15,7 @@ import com.example.careerhunt.data.Apply_Job
 import com.example.careerhunt.data.Job
 import com.example.careerhunt.data.Personal
 import com.example.careerhunt.dataAdapter.ViewApplicantAdapter
-import com.example.careerhunt.interfaces.JobInterface
+import com.example.careerhunt.interfaces.UserInterface
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
-class ViewApplicant : Fragment() ,JobInterface.RecyclerViewEvent {
+class ViewApplicant : Fragment(), UserInterface.RecyclerViewEvent {
 
     private var job: Job? = null
     private lateinit var myRef: DatabaseReference
@@ -182,10 +182,6 @@ class ViewApplicant : Fragment() ,JobInterface.RecyclerViewEvent {
                 Log.e(TAG, "Error downloading PDF", exception)
                 Toast.makeText(requireContext(), "Error downloading PDF", Toast.LENGTH_SHORT).show()
             }*/
-    }
-
-    fun onItemClick(position: Int, recyclerViewSource: String) {
-        TODO("Not yet implemented")
     }
 
     /*private fun openPDF(downloadUrl: String) {

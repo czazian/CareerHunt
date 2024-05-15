@@ -166,7 +166,12 @@ id arrowdown1
 id arrowdown2
 id arrowdown3
 id backArrorbutton
+id bookMarkRecyclerView
+id bookmarkBack
 id bookmarkBtn
+id bookmarkContainer
+id bookmarkItems
+id bookmarkTop
 id bottomNavigationView
 id btnAccept
 id btnAddAlumniComm
@@ -201,6 +206,7 @@ id btnResetPass
 id btnSave
 id btnSaveChanges
 id btnSelectFile
+id btnSelectImage
 id btnSentComment
 id btnShare
 id btnShowAllLatest
@@ -212,6 +218,9 @@ id btnViewApplicant
 id btnViewResume
 id cancelUploadButton
 id cardView
+id carousel_image_view
+id carousel_item_container
+id carousel_recycler_view
 id category
 id categoryCont
 id chatBox
@@ -337,6 +346,7 @@ id newPostedContainer
 id nextArrorButton
 id noJobIndicator
 id noOfQuest
+id noPhtLayout
 id notiDate
 id notiDate2
 id notiImg
@@ -372,6 +382,7 @@ id recommendedContainer
 id recommendedJobRecyclerView
 id regBAFrag
 id registerFrag
+id relativeIndicator
 id rgAccType
 id rgEditGender
 id rgGEnder
@@ -407,7 +418,9 @@ id textView10Content
 id textView11
 id textView11Content
 id textView12
+id textView13
 id textView14
+id textView15
 id textView2
 id textView3
 id textView4
@@ -520,6 +533,7 @@ layout fragment_alumni_community_add
 layout fragment_alumni_community_detail
 layout fragment_alumni_community_your_post
 layout fragment_applicant_details
+layout fragment_bookmark
 layout fragment_business_account
 layout fragment_edit_business_acc
 layout fragment_edit_personal_acc
@@ -543,6 +557,7 @@ layout fragment_user_profile
 layout fragment_view_applicant
 layout fragment_view_applied_job
 layout fragment_view_published_job
+layout image_list_view
 layout item_dropdown
 layout item_question
 layout job_viewholder
@@ -619,6 +634,7 @@ string reset_your_current_password
 string save_changes
 string setting_page
 string submit
+string sure
 string user_profile
 string view_applicant
 string view_resume

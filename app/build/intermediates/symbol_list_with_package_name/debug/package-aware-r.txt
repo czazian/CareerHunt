@@ -3443,7 +3443,12 @@ id beginOnFirstDraw
 id beginning
 id bestChoice
 id blocking
+id bookMarkRecyclerView
+id bookmarkBack
 id bookmarkBtn
+id bookmarkContainer
+id bookmarkItems
+id bookmarkTop
 id bottom
 id bottomNavigationView
 id bottomToTop
@@ -3484,6 +3489,7 @@ id btnResetPass
 id btnSave
 id btnSaveChanges
 id btnSelectFile
+id btnSelectImage
 id btnSentComment
 id btnShare
 id btnShowAllLatest
@@ -3500,6 +3506,9 @@ id cancelUploadButton
 id cancel_action
 id cancel_button
 id cardView
+id carousel_image_view
+id carousel_item_container
+id carousel_recycler_view
 id carryVelocity
 id category
 id categoryCont
@@ -3522,6 +3531,7 @@ id clip_vertical
 id clock
 id clockwise
 id closest
+id coil_request_manager
 id collapseActionView
 id comIcon
 id comName
@@ -3845,6 +3855,7 @@ id newPostedContainer
 id nextArrorButton
 id noJobIndicator
 id noOfQuest
+id noPhtLayout
 id noScroll
 id noState
 id none
@@ -3931,6 +3942,7 @@ id recommendedJobRecyclerView
 id rectangles
 id regBAFrag
 id registerFrag
+id relativeIndicator
 id report_drawn
 id reverseSawtooth
 id rgAccType
@@ -4060,7 +4072,9 @@ id textView10Content
 id textView11
 id textView11Content
 id textView12
+id textView13
 id textView14
+id textView15
 id textView2
 id textView3
 id textView4
@@ -4356,6 +4370,7 @@ layout fragment_alumni_community_add
 layout fragment_alumni_community_detail
 layout fragment_alumni_community_your_post
 layout fragment_applicant_details
+layout fragment_bookmark
 layout fragment_business_account
 layout fragment_edit_business_acc
 layout fragment_edit_personal_acc
@@ -4379,6 +4394,7 @@ layout fragment_user_profile
 layout fragment_view_applicant
 layout fragment_view_applied_job
 layout fragment_view_published_job
+layout image_list_view
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_dropdown
@@ -4786,6 +4802,7 @@ string side_sheet_accessibility_pane_title
 string side_sheet_behavior
 string status_bar_notification_info_overflow
 string submit
+string sure
 string switch_role
 string tab
 string template_percent
