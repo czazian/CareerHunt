@@ -19,20 +19,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgCompany"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/uniqlo"
+            app:layout_constraintBottom_toBottomOf="@+id/lblCompanyName"
             app:layout_constraintEnd_toStartOf="@+id/lblJobTitle"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/lblJobTitle"
+            app:layout_constraintVertical_bias="0.0"
+            app:shapeAppearanceOverlay="@style/circleImageView" />
 
         <TextView
             android:id="@+id/lblJobTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginBottom="2dp"
@@ -80,10 +84,10 @@
             android:id="@+id/lblDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:text="We are seeking a highly skilled and motivated Software Engineer to join our dynamic team. The  ..."
             android:textColor="#919191"
-            app:layout_constraintTop_toBottomOf="@+id/bookmarkBtn"
+            app:layout_constraintTop_toBottomOf="@+id/lblCompanyName"
             app:lineHeight="20dp"
             tools:layout_editor_absoluteX="17dp" />
 

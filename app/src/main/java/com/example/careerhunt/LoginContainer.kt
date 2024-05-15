@@ -146,7 +146,11 @@ private fun navigateToMainActivity() {
         val locale = Locale(language)
         Locale.setDefault(locale)
         val config = Configuration(resources.configuration)
-        config.setLocale(locale)
+        config.
+
+
+
+        (locale)
         resources.updateConfiguration(config, resources.displayMetrics)
         // Optionally, you can restart the activity to apply changes immediately
         // restartActivity()

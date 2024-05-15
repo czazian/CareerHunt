@@ -1,5 +1,7 @@
 package com.example.careerhunt
 
+import android.app.AlertDialog
+import android.content.ContentValues
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -8,132 +10,118 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.careerhunt.data.Apply_Job
+import com.example.careerhunt.data.Job
 import com.example.careerhunt.data.Personal
 import com.example.careerhunt.dataAdapter.AppliedJobListAdapter
 import com.example.careerhunt.databinding.FragmentViewAppliedJobBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.Query
 import com.google.firebase.database.ValueEventListener
 
 class ViewAppliedJob : Fragment() {
-    private lateinit var binding: FragmentViewAppliedJobBinding
-    private lateinit var appliedJobListAdapter: AppliedJobListAdapter
     private lateinit var recyclerView: RecyclerView
     private lateinit var sharedIDPreferences: SharedPreferences
+    private lateinit var appliedJobList: ArrayList<Apply_Job>
+    private lateinit var myRef: DatabaseReference
 
-    private var database =
-        FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/")
-
-    private var myRef = database.reference
     private var userId: String = ""
+    private lateinit var tvTotalCount: TextView
+    private var totalAppliedJobs: Int = 0
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentViewAppliedJobBinding.inflate(inflater, container, false)
+
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_view_applied_job, container, false)
+
         // Access SharedPreferences from MainActivity
         sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
         // Retrieve userId from SharedPreferences
-        userId = sharedIDPreferences.getString("userid", "") ?: ""
+        userId = sharedIDPreferences.getString("userid","") ?: ""
 
-        recyclerView = binding.rvAppliedJob
-        recyclerView.layoutManager = LinearLayoutManager(requireActivity())
-        appliedJobListAdapter = AppliedJobListAdapter()
-        recyclerView.adapter = appliedJobListAdapter
+        // Initialize RecycleView
+        recyclerView = view.findViewById(R.id.rvAppliedJob)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext()) // Set layout manager here
+        recyclerView.setHasFixedSize(true)
+
+
+        // Fetch data from Firebase
         fetchAppliedJobData()
-        return binding.root
+
+        view.findViewById<ImageButton>(R.id.btnBack).setOnClickListener() {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
+
+        tvTotalCount = view.findViewById(R.id.tvTotalCount)
+
+
+        return view
     }
 
     private fun fetchAppliedJobData() {
-        Toast.makeText(requireContext(), "fetchData", Toast.LENGTH_SHORT).show()
-        Toast.makeText(requireContext(), "fetchDID: " + userId, Toast.LENGTH_SHORT).show()
+        // Firebase connection
+        myRef = FirebaseDatabase.getInstance().getReference("Apply_Job")
+        appliedJobList = arrayListOf()
 
-        val appliedJobRef = FirebaseDatabase.getInstance().getReference("Apply_Job")
-            .orderByChild("personalID").equalTo("1")
+            val query = myRef.orderByChild("personalID").equalTo(userId.toDouble())
 
-        appliedJobRef.addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                Toast.makeText(requireContext(), "onDataChange", Toast.LENGTH_SHORT).show()
+        query.addValueEventListener(object: ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                Log.d("TAG", "onDataChange")
 
-                val applyJobList = mutableListOf<Apply_Job>()
-                for (snapshot in dataSnapshot.children) {
-                    val applyJob = snapshot.getValue(Apply_Job::class.java)
-                    applyJob?.let { applyJobList.add(it) }
+                appliedJobList.clear()
+                Log.d("TAG", snapshot.children.toString())
+                if(snapshot.exists()) {
+                    Log.d("TAG", "SNAPSHOT EXIST")
+                    for (appliedSnap in snapshot.children) {
+
+                        Log.d(ContentValues.TAG, "RetrieveValue")
+
+                        val appliedJob = appliedSnap.getValue(Apply_Job::class.java)
+                        appliedJobList.add(appliedJob!!)
+                    }
+                    val adapter = AppliedJobListAdapter()
+                    adapter.setData(appliedJobList)
+                    recyclerView.adapter = adapter
+                    // get the total number of data (applied job num)
+                    totalAppliedJobs = appliedJobList.size
+                    tvTotalCount.text = totalAppliedJobs.toString()
+                    adapter.notifyDataSetChanged()
+
+                }else{
+                    showErrorDialog()
+                    tvTotalCount.text = "0"
                 }
-                appliedJobListAdapter.setData(applyJobList)
             }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                Log.e("Firebase", "Error fetching applied jobs: ${databaseError.message}")
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(requireContext(), "Error: $error", Toast.LENGTH_LONG).show()
             }
         })
+    }
+
+    private fun showErrorDialog(){
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Error")
+            .setMessage("No Record(s) Found")
+            .setPositiveButton("OK") { dialog, _ ->
+                dialog.dismiss()
+            }
+        builder.show()
     }
 }
 
 
-/* private fun fetchAppliedJobData() {
-     Toast.makeText(requireContext(), "fetchData", Toast.LENGTH_SHORT).show()
-                val appliedJobRef = FirebaseDatabase.getInstance().getReference("Apply_Job")
-                    .orderByChild("personalID").equalTo(userId)
-                appliedJobRef.addListenerForSingleValueEvent(object : ValueEventListener {
-                    override fun onDataChange(dataSnapshot: DataSnapshot) {
-                        Toast.makeText(requireContext(), "onDataChange", Toast.LENGTH_SHORT).show()
-
-                        val applyJobList = mutableListOf<Apply_Job>()
-                        for (snapshot in dataSnapshot.children) {
-                            val applyJob = snapshot.getValue(Apply_Job::class.java)
-                            applyJob?.let { applyJobList.add(it) }
-                        }
-                        appliedJobListAdapter.setData(applyJobList)
-                    }
-                    override fun onCancelled(databaseError: DatabaseError) {
-                        Toast.makeText(requireContext(), "Error: " + databaseError, Toast.LENGTH_SHORT).show()
-                    }
-                })
-            }
-
-     try {
-         // Check if userId is not null before converting it to Int
-         val id: Int = userId?.toIntOrNull()
-             ?: 0 // Default value is 0 if userId is null or not convertible to Int
-         Toast.makeText(requireContext(), "Converting", Toast.LENGTH_SHORT).show()
-
-         Toast.makeText(requireContext(), "uIDConvert: $id", Toast.LENGTH_SHORT).show()
-
-         val appliedJobRef = FirebaseDatabase.getInstance().getReference("Apply_Job")
-         appliedJobRef.addListenerForSingleValueEvent(object : ValueEventListener {
-             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                 Toast.makeText(requireContext(), "onDataChange", Toast.LENGTH_SHORT).show()
-                 val applyJobList = mutableListOf<Apply_Job>()
-                 for (snapshot in dataSnapshot.children) {
-                     val applyJob = snapshot.getValue(Apply_Job::class.java)
-                     applyJob?.let {
-                         // Compare with applicantID after converting userId to Int
-                         if (it.personalID == id) {
-                             applyJobList.add(it)
-                         }
-                     }
-                 }
-                 appliedJobListAdapter.setData(applyJobList)
-             }
-
-             override fun onCancelled(databaseError: DatabaseError) {
-                 // Handle error
-             }
-         })
-     } catch (e: Exception) {
-         // Handle exception
-         Toast.makeText(requireContext(), "Error: ${e.message}", Toast.LENGTH_SHORT).show()
-     }
-
-
-
- }*/

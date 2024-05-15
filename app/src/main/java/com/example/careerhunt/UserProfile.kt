@@ -3,7 +3,6 @@ package com.example.careerhunt
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,7 +20,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import java.util.Locale
 
 class UserProfile : Fragment() {
     private lateinit var binding: FragmentUserProfileBinding
@@ -36,6 +34,14 @@ class UserProfile : Fragment() {
 
     private var myRef = database.reference
     private var userId: String = ""
+    private var isLanguageSelectionByUser = false
+
+
+    private fun saveLoginStatus(isLoggedIn: Boolean) {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("isLoggedIn", isLoggedIn)
+        editor.apply()
+    }
 
 
     override fun onCreateView(
@@ -60,10 +66,12 @@ class UserProfile : Fragment() {
         val languageArray = resources.getStringArray(R.array.language)
         val languageIndex = languageArray.indexOf(savedLanguage)
         if (languageIndex != -1) {
-            binding.spLanguage.setSelection(languageIndex) // Set the selected language in the spinner
+            // Set the selected language in the spinner
+            binding.spLanguage.setSelection(languageIndex)
         }
 
 
+        // Navigate to FAQ Fragment
         binding.btnFAQ.setOnClickListener() {
             val fragmentManager = requireActivity().supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
@@ -73,6 +81,7 @@ class UserProfile : Fragment() {
             fragmentTransaction.commit()
         }
 
+        // NAvigate to Edit Profile FRagment
         binding.btnEditProfile.setOnClickListener() {
             val fragmentManager = requireActivity().supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
@@ -83,6 +92,7 @@ class UserProfile : Fragment() {
             fragmentTransaction.commit()
         }
 
+        // NAvigate to Applied Job Fragment
         binding.btnApplied.setOnClickListener() {
             val fragmentManager = requireActivity().supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
@@ -108,27 +118,25 @@ class UserProfile : Fragment() {
 
         // For language change
         binding.spLanguage.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            var userSelected = false // Flag to track user selection
-
             // Inside the onItemSelected method of the spinner's OnItemSelectedListener
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                if (userSelected) {
+                // Check if the language selection is made by the user
+                if (isLanguageSelectionByUser) {
                     val language: String = parent.getItemAtPosition(position).toString()
 
                     if (language == "Chinese") {
                         // Set locale to Chinese
-
-                        //(requireActivity() as MainActivity).setLocale("ch")// based on the string value that created
+                        (requireActivity() as MainActivity).setLocale("ch")
                     } else {
                         // Set locale to English
-                       // (requireActivity() as MainActivity).setLocale("en")
+                        (requireActivity() as MainActivity).setLocale("en")
                     }
 
                     // Save selected language preference
                     sharedLangPreferences.edit().putString("language", language).apply()
-
                 }
-                userSelected = true // Set flag to true after user selection
+                // Reset the flag after user selection
+                isLanguageSelectionByUser = false
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -137,12 +145,14 @@ class UserProfile : Fragment() {
         }
 
 
-
+        // Logout
         binding.btnLogout.setOnClickListener() {
             val intent = Intent(requireContext(), LoginContainer::class.java)
 
+            intent.putExtra("logout", true)
+
             startActivity(intent)
-            requireActivity().finish() // this is to prevent user return back to profile page
+            requireActivity().finish() // this is to prevent user return back to login page
         }
 
         //For dark mode
@@ -165,6 +175,18 @@ class UserProfile : Fragment() {
 
             }
         }
+
+
+        //Working with BookMark
+        binding.btnBookmark.setOnClickListener(){
+            val fragment = BookmarkListing()
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frameLayout, fragment)
+            transaction?.addToBackStack(null)
+            transaction?.commit()
+        }
+
+
         return view
     }
 
@@ -188,7 +210,6 @@ class UserProfile : Fragment() {
     }
 
     private fun retrieveUserRecord() {
-        Toast.makeText(requireContext(), "Userid : " + userId, Toast.LENGTH_SHORT).show()
         val tvName: TextView = binding.tvName
         val tvEmail: TextView = binding.tvEmail
         val profileImg : ImageView = binding.profilePic
@@ -200,11 +221,11 @@ class UserProfile : Fragment() {
                     if (snapshot.exists()) {
                         val user = snapshot.getValue(Personal::class.java)
                         if (user != null) {
-                            Toast.makeText(
-                                requireContext(),
-                                "id real : " + userId.toString(),
-                                Toast.LENGTH_SHORT
-                            ).show()
+//                            Toast.makeText(
+//                                requireContext(),
+//                                "id real : " + userId.toString(),
+//                                Toast.LENGTH_SHORT
+//                            ).show()
 
                             tvName.text = user.name
                             tvEmail.text = user.email

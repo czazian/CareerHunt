@@ -49,19 +49,20 @@ class JobListing : Fragment(), JobInterface.RecyclerViewEvent,
     private var totalImages: Int = 0
     private var loadedImages: Int = 0
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
+        userId = sharedIDPreferences.getString("userid","") ?: ""
+        sharedUserTypePreferences = requireContext().getSharedPreferences("userType", Context.MODE_PRIVATE)
+        userType = sharedUserTypePreferences.getString("userType","") ?: ""
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentJobListingBinding.inflate(layoutInflater, container, false)
-
-        //Get UserID & UserType
-        sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
-        userId = sharedIDPreferences.getString("userid","") ?: ""
-        sharedUserTypePreferences = requireContext().getSharedPreferences("userType", Context.MODE_PRIVATE)
-        userType = sharedUserTypePreferences.getString("userType","") ?: ""
+        binding = FragmentJobListingBinding.inflate(layoutInflater, container, false)        //Get UserID & UserType
 
         //Hide the fragment first
         binding.recommendedContainer.visibility = View.INVISIBLE
@@ -72,8 +73,8 @@ class JobListing : Fragment(), JobInterface.RecyclerViewEvent,
         Log.e("TAG", "User ID Preference = $userId")
 
         //Hardcoded ID and userType
-        //userId = "2"
-//        userType = "Personal"
+//        userId = "2"
+//        userType = "Company"
 
         if (userType == "Personal") {
             getUserInfoBasedOnId()
@@ -169,6 +170,7 @@ class JobListing : Fragment(), JobInterface.RecyclerViewEvent,
 
 
     private fun fetchNewJobData() {
+
         //Get the listener
         val listener = this
 
@@ -286,6 +288,12 @@ class JobListing : Fragment(), JobInterface.RecyclerViewEvent,
 
 
     private fun getUserInfoBasedOnId() {
+        sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
+        userId = sharedIDPreferences.getString("userid","") ?: ""
+        sharedUserTypePreferences = requireContext().getSharedPreferences("userType", Context.MODE_PRIVATE)
+        userType = sharedUserTypePreferences.getString("userType","") ?: ""
+
+
         val listener = this
         dbRef = FirebaseDatabase.getInstance().getReference("Personal")
         dbRef.addValueEventListener(object : ValueEventListener {
@@ -304,7 +312,15 @@ class JobListing : Fragment(), JobInterface.RecyclerViewEvent,
                             fetchNewJobData()
 
                             //Retrieve the user profile and update username
-                            binding.lblUserName.text = userInfo.name
+                            //Check length of username and make it smaller if too long
+                            val words = userInfo.name
+                            val wordsTrimmed = userInfo.name.trim()
+
+                            if(wordsTrimmed.length > 12) {
+                                binding.lblUserName.setTextSize(10.toString().toFloat())
+                            }
+
+                            binding.lblUserName.text = words
 
                             //Get image user
                             storageRef = FirebaseStorage.getInstance().getReference()
@@ -328,6 +344,7 @@ class JobListing : Fragment(), JobInterface.RecyclerViewEvent,
     }
 
     private fun getCompanyInfoByID() {
+
         val listener = this
         dbRef = FirebaseDatabase.getInstance().getReference("Company")
         dbRef.addValueEventListener(object : ValueEventListener {
@@ -342,7 +359,15 @@ class JobListing : Fragment(), JobInterface.RecyclerViewEvent,
                             fetchNewJobData()
 
                             //Retrieve the user profile and update username
-                            binding.lblUserName.text = companyInfo.compName
+                            //Check length of username and make it smaller if too long
+                            val words = companyInfo.compName
+                            val wordsTrimmed = companyInfo.compName.trim()
+
+                            if(wordsTrimmed.length > 12) {
+                                binding.lblUserName.setTextSize(17.toString().toFloat())
+                            }
+
+                            binding.lblUserName.text = words
 
                             //Get image company
                             storageRef = FirebaseStorage.getInstance().getReference()

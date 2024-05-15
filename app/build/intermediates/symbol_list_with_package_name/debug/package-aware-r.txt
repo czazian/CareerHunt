@@ -89,6 +89,7 @@ animator nav_default_enter_anim
 animator nav_default_exit_anim
 animator nav_default_pop_enter_anim
 animator nav_default_pop_exit_anim
+array interview
 array jobCategory
 array job_field
 array johor_city
@@ -1446,6 +1447,7 @@ color bright_foreground_inverse_material_dark
 color bright_foreground_inverse_material_light
 color bright_foreground_material_dark
 color bright_foreground_material_light
+color buttonColorExpanded
 color button_material_dark
 color button_material_light
 color call_notification_answer_color
@@ -1465,6 +1467,8 @@ color common_google_signin_btn_text_light_disabled
 color common_google_signin_btn_text_light_focused
 color common_google_signin_btn_text_light_pressed
 color common_google_signin_btn_tint
+color defaultButtonColor
+color defaultTextColor
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -2193,6 +2197,7 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color textColor
 color textColor2
+color textColorExpanded
 color tooltip_background_dark
 color tooltip_background_light
 color uploadResumeBtn
@@ -3106,6 +3111,7 @@ drawable baseline_drag_handle_242
 drawable baseline_edit_document_24
 drawable baseline_email
 drawable baseline_email_focused
+drawable baseline_favorite_24_red
 drawable baseline_favorite_border_24
 drawable baseline_house_24
 drawable baseline_ios_share_24
@@ -3182,6 +3188,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable dropdown_item_bg
 drawable empty_img
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
@@ -3326,6 +3333,7 @@ id SecondQuestionTitle
 id SecondbtnKeyboard
 id SecondnoOfQuest
 id Secondtvkeyboard
+id SpinnerDropDown
 id TOP_END
 id TOP_START
 id accelerate
@@ -3428,7 +3436,12 @@ id beginOnFirstDraw
 id beginning
 id bestChoice
 id blocking
+id bookMarkRecyclerView
+id bookmarkBack
 id bookmarkBtn
+id bookmarkContainer
+id bookmarkItems
+id bookmarkTop
 id bottom
 id bottomNavigationView
 id bottomToTop
@@ -3451,6 +3464,7 @@ id btnCheckLocation
 id btnComment
 id btnCommentSent
 id btnEditProfile
+id btnEnd
 id btnFAQ
 id btnFilter
 id btnJobListing
@@ -3458,7 +3472,6 @@ id btnKeyboard
 id btnLike
 id btnLogin
 id btnLogout
-id btnMoreVert
 id btnNotification
 id btnPersonal
 id btnPost
@@ -3468,16 +3481,17 @@ id btnResetPass
 id btnSave
 id btnSaveChanges
 id btnSelectFile
+id btnSelectImage
 id btnSent
 id btnSentComment
 id btnShare
 id btnShowAllLatest
 id btnShowAllRecommended
-id btnSpeakerPhone
 id btnSubmit
 id btnSubmitResume
 id btnView
-id button
+id btnViewApplicant
+id btnViewResume
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3485,6 +3499,9 @@ id cancelUploadButton
 id cancel_action
 id cancel_button
 id cardView
+id carousel_image_view
+id carousel_item_container
+id carousel_recycler_view
 id carryVelocity
 id category
 id categoryCont
@@ -3507,6 +3524,7 @@ id clip_vertical
 id clock
 id clockwise
 id closest
+id coil_request_manager
 id collapseActionView
 id comIcon
 id comName
@@ -3636,8 +3654,8 @@ id graph_wrap
 id group_divider
 id grouping
 id groups
-id headerFAQ
 id header_title
+id hello
 id hide_ime_id
 id hide_in_inspector_tag
 id hideable
@@ -3645,9 +3663,7 @@ id home
 id homeAsUp
 id honorRequest
 id horizontal_only
-id ib1
-id ib2
-id ib3
+id ibDragHandle
 id icon
 id icon_group
 id icon_only
@@ -3714,6 +3730,7 @@ id lblLatestTitle
 id lblLocation
 id lblMainTitle
 id lblNextArror
+id lblPostDateResult
 id lblResultNum
 id lblSalaryResult
 id lblTitle
@@ -3730,13 +3747,9 @@ id line
 id line1
 id line2
 id line3
-id lineQs1
-id lineQs2
-id lineQs3
 id linear
 id listMode
 id list_item
-id lkApplicant
 id locale
 id locationIcon
 id locationLayout
@@ -3827,6 +3840,7 @@ id newPostedContainer
 id nextArrorButton
 id noJobIndicator
 id noOfQuest
+id noPhtLayout
 id noScroll
 id noState
 id none
@@ -3867,7 +3881,6 @@ id outline
 id outward
 id overallContainer
 id overshoot
-id overviewLine
 id packed
 id parallax
 id parent
@@ -3888,7 +3901,6 @@ id post_button_box
 id pressed
 id profileImage
 id profilePic
-id profilepic
 id progressIndicator
 id progressIndicatorSearch
 id progress_circular
@@ -3896,6 +3908,7 @@ id progress_horizontal
 id publishedJobFragment
 id questionsCount
 id questionsDisplay
+id questionsRecyclerView
 id radio
 id radioGroupPF
 id ratio
@@ -3913,6 +3926,7 @@ id recommendedJobRecyclerView
 id rectangles
 id regBAFrag
 id registerFrag
+id relativeIndicator
 id report_drawn
 id reverseSawtooth
 id rgAccType
@@ -3928,6 +3942,8 @@ id rtl
 id rvApplicant
 id rvAppliedJob
 id rvPublishedJob
+id sad
+id salary
 id salaryRange
 id sampleAnswer
 id save_non_transition_alpha
@@ -4011,6 +4027,7 @@ id submitBtn
 id submit_area
 id supportScrollUp
 id swMode
+id tVJobCat
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -4035,16 +4052,24 @@ id textStart
 id textTop
 id textView
 id textView10
+id textView10Content
 id textView11
+id textView11Content
 id textView12
+id textView13
 id textView14
+id textView15
 id textView2
 id textView3
 id textView4
 id textView5
 id textView6
+id textView6Content
 id textView7
+id textView7Content
+id textView8
 id textView9
+id textView9Content
 id textWatcher
 id text_input_end_icon
 id text_input_error_icon
@@ -4099,7 +4124,9 @@ id tvCompEmail
 id tvCompName
 id tvContent
 id tvEmail
+id tvItemDropdown
 id tvJobCategory
+id tvJobName
 id tvJobTitle
 id tvLikeNum
 id tvLocation
@@ -4108,10 +4135,9 @@ id tvNum
 id tvSchool
 id tvTime
 id tvTitle
+id tvTotalCount
 id tvUsername
 id tvkeyboard
-id txt1
-id txt2
 id txtAccType
 id txtApplied
 id txtBookmark
@@ -4135,7 +4161,7 @@ id txtLanguage
 id txtLogout
 id txtNoAccount
 id txtPreference
-id txtQs3
+id txtQuestion
 id txtRecommendedTitle
 id txtRegPop
 id txtRegister
@@ -4155,8 +4181,6 @@ id userProfileLayout
 id vertical_only
 id view
 id view2
-id view5
-id view6
 id view_offset_helper
 id view_transition
 id view_tree_lifecycle_owner
@@ -4295,6 +4319,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_login_container
 layout activity_main
+layout activity_view_resume
 layout alumni_comment_list
 layout alumni_list_item
 layout alumni_operation
@@ -4319,6 +4344,7 @@ layout fragment_add_job
 layout fragment_alumni
 layout fragment_alumni_community_add
 layout fragment_alumni_community_detail
+layout fragment_bookmark
 layout fragment_business_account
 layout fragment_edit_business_acc
 layout fragment_edit_personal_acc
@@ -4332,6 +4358,7 @@ layout fragment_login_screen
 layout fragment_notification
 layout fragment_practice__interview
 layout fragment_practice_result
+layout fragment_published_job_details
 layout fragment_register_account
 layout fragment_register_business
 layout fragment_sample_answer
@@ -4341,8 +4368,11 @@ layout fragment_user_profile
 layout fragment_view_applicant
 layout fragment_view_applied_job
 layout fragment_view_published_job
+layout image_list_view
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout item_dropdown
+layout item_question
 layout job_viewholder
 layout layout_child
 layout layout_group
@@ -4746,6 +4776,7 @@ string side_sheet_accessibility_pane_title
 string side_sheet_behavior
 string status_bar_notification_info_overflow
 string submit
+string sure
 string switch_role
 string tab
 string template_percent

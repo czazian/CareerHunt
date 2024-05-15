@@ -140,7 +140,7 @@ class EditBusinessAcc : Fragment() {
 
         // store the changes into firebase
         if (errMsg.isEmpty()) {
-            val ref = storageRef.child("imgProfile/" + userId + ".png")
+            val ref = storageRef.child("compProfile/" + userId + ".png")
 
             ref.putFile(galleryUri)
                 .addOnSuccessListener {

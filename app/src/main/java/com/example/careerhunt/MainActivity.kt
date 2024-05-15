@@ -1,32 +1,44 @@
 package com.example.careerhunt
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.careerhunt.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.util.Locale
 
 
 class MainActivity : AppCompatActivity() {
     private val fragmentManager = supportFragmentManager
     private lateinit var binding: ActivityMainBinding
+    lateinit var sharedIDPreferences: SharedPreferences
+    lateinit var sharedUserTypePreferences: SharedPreferences
+    lateinit var sharedLangPreferences: SharedPreferences
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        sharedIDPreferences = getSharedPreferences("userid", Context.MODE_PRIVATE)
+        sharedUserTypePreferences = getSharedPreferences("userType", Context.MODE_PRIVATE)
 
 
-        //TESTING - HARDCODED CREATION OF ONE COMPANY
-//        var companyViewModel: CompanyViewModel
-//        companyViewModel = ViewModelProvider(this).get(CompanyViewModel::class.java)
-//        val byteArray = byteArrayOf(65, 66, 67, 68, 69)
-//        val company = Company(0, "company@gmail.com", "Uniqlo", "123", byteArray, "01234567890", "Hello World Street 4, Jalan 19/99.")
-//        companyViewModel.addCompany(company)
+        // retrieve the value from LoginPage.kt
+        val userType = intent.getStringExtra("user_type")
+        val userid = intent.getStringExtra("user_id")
+        sharedIDPreferences.edit().putString("userid", userid.toString()).apply()
+        Log.e(":", "USER ID FROM MAIN ACTIVITY : $userid.toString()")
+        sharedUserTypePreferences.edit().putString("userType", userType.toString()).apply()
+
 
 
         //Set initial fragment
         if (savedInstanceState == null) {
+
             val transaction = fragmentManager.beginTransaction()
             val initialFragment = JobListing()
             transaction.replace(binding.frameLayout.id, initialFragment)
@@ -73,23 +85,43 @@ class MainActivity : AppCompatActivity() {
                     // After a successful login, show the frameLayout and hide the businessProfileLayout
                     val transaction = fragmentManager.beginTransaction()
 
-
-                    // retrieve the value from LoginPage.kt
-                    val userType = intent.getStringExtra("user_type")
-
-                    if (userType == "Business") {
+                    if (userType == "Company") {
                         val fragment = BusinessAccount()
+
                         transaction.replace(binding.frameLayout.id, fragment)
                     } else if (userType == "Personal") {
                         val fragment = UserProfile()
+
                         transaction.replace(binding.frameLayout.id, fragment)
                     }
                     transaction.addToBackStack(null)
                     transaction.commit()
+
                 }
             }
             true
         }
+    }
+
+
+    //for changing the language of entire app
+    fun setLocale(language: String) {
+        val locale = Locale(language)
+        Locale.setDefault(locale)
+
+        val resources = resources
+        val configuration = resources.configuration
+        configuration.setLocale(locale)
+        resources.updateConfiguration(configuration, resources.displayMetrics)
+
+        restartActivity()
+    }
+
+    fun restartActivity() {
+
+        val intent = intent
+        finish()
+        startActivity(intent)
     }
 
 

@@ -301,6 +301,12 @@ class SearchJob : Fragment(), JobInterface.RecyclerViewEvent, JobInterface.Proce
         if (!locationCityValue.isNullOrEmpty()) {
             allConditionsMet = allConditionsMet && (job.jobLocationCity == locationCityValue)
         }
+        if (salaryMinValue != null && salaryMaxValue == null){
+            allConditionsMet = allConditionsMet && (job.jobSalary!! >= salaryMinValue.toString().toDouble())
+        }
+        if (salaryMinValue == null && salaryMaxValue != null){
+            allConditionsMet = allConditionsMet && (job.jobSalary!! <= salaryMaxValue.toString().toDouble())
+        }
         if (salaryMinValue != null && salaryMaxValue != null) {
             allConditionsMet = allConditionsMet && (job.jobSalary!! in salaryMinValue.toString().toDouble()..salaryMaxValue.toString().toDouble())
         }
