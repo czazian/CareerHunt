@@ -43,7 +43,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imgViewProfile"
+        android:id="@+id/imgViewProfilePostDetail"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="30dp"
@@ -62,8 +62,8 @@
         android:layout_marginStart="10dp"
         android:text="Ali"
         android:textSize="28sp"
-        app:layout_constraintStart_toEndOf="@+id/imgViewProfile"
-        app:layout_constraintTop_toTopOf="@+id/imgViewProfile" />
+        app:layout_constraintStart_toEndOf="@+id/imgViewProfilePostDetail"
+        app:layout_constraintTop_toTopOf="@+id/imgViewProfilePostDetail" />
 
     <TextView
         android:id="@+id/tvSchool"
@@ -72,7 +72,7 @@
         android:layout_marginBottom="2dp"
         android:text="TARUMT"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imgViewProfile"
+        app:layout_constraintBottom_toBottomOf="@+id/imgViewProfilePostDetail"
         app:layout_constraintStart_toStartOf="@+id/tvUsername" />
 
     <TextView
@@ -94,7 +94,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:paddingHorizontal="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/imgViewProfile">
+        app:layout_constraintTop_toBottomOf="@+id/imgViewProfilePostDetail">
 
         <TextView
             android:id="@+id/tvTitle"
@@ -225,10 +225,11 @@
             android:background="@drawable/border"
             android:backgroundTint="#138EF0"
             android:src="@drawable/baseline_send_24"
-            app:layout_constraintBottom_toBottomOf="@+id/editText"
+            app:layout_constraintBottom_toBottomOf="@+id/etComment"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/editText"
-            app:layout_constraintTop_toTopOf="@+id/editText" />
+            app:layout_constraintStart_toEndOf="@+id/etComment"
+            app:layout_constraintTop_toTopOf="@+id/etComment"
+            app:tint="@color/white"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

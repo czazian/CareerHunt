@@ -6,14 +6,13 @@ import android.content.SharedPreferences
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import com.example.careerhunt.data.Company
 import com.example.careerhunt.databinding.ActivityMainBinding
-import com.example.careerhunt.session.loginSession
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
@@ -53,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         language =
             sharedLangPreferences.getString("language", "") ?: "" // Default language is English
 
+        Log.d("current login id: ", userId)
 
         //TESTING - HARDCODED CREATION OF ONE COMPANY
 //        var companyViewModel: CompanyViewModel
@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.interview -> {
                     val transaction = fragmentManager.beginTransaction()
-                    val fragment = JobDetail()
+                    val fragment = InterviewPrep()
                     transaction.replace(binding.frameLayout.id, fragment)
                     transaction.addToBackStack(null)
                     transaction.commit()
@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.alumni -> {
                     val transaction = fragmentManager.beginTransaction()
-                    val fragment = Setting()
+                    val fragment = Alumni()
                     transaction.replace(binding.frameLayout.id, fragment)
                     transaction.addToBackStack(null)
                     transaction.commit()
@@ -110,13 +110,15 @@ class MainActivity : AppCompatActivity() {
                     // After a successful login, show the frameLayout and hide the businessProfileLayout
                     val transaction = fragmentManager.beginTransaction()
 
-                    if (userType == "Company") {
-                        val fragment = BusinessAccount()
 
+                    // retrieve the value from LoginPage.kt
+                    val userType = intent.getStringExtra("user_type")
+
+                    if (userType == "Business") {
+                        val fragment = BusinessAccount()
                         transaction.replace(binding.frameLayout.id, fragment)
                     } else if (userType == "Personal") {
                         val fragment = UserProfile()
-
                         transaction.replace(binding.frameLayout.id, fragment)
                     }
                     transaction.addToBackStack(null)

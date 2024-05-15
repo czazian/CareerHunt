@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -21,15 +22,18 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.careerhunt.AlumniCommunityDetail
 import com.example.careerhunt.R
 import com.example.careerhunt.data.Alumni
-import com.example.careerhunt.data.PersonalTemp
+import com.example.careerhunt.data.Personal
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
@@ -47,6 +51,7 @@ class AlumniCommunity_adapter(private val context: Context) : RecyclerView.Adapt
 
     private val sharedIDPreferences = context.getSharedPreferences("userid", Context.MODE_PRIVATE)
     private val currentLoginPersonalId : String = sharedIDPreferences.getString("userid", "") ?: ""
+    private lateinit var storageRef: StorageReference
 
     class MyViewHolder (itemView: View): RecyclerView.ViewHolder(itemView){
         val tvUsername : TextView = itemView.findViewById(R.id.tvUsername)
@@ -55,6 +60,7 @@ class AlumniCommunity_adapter(private val context: Context) : RecyclerView.Adapt
         val tvContent : TextView = itemView.findViewById(R.id.tvContent)
         val tvTime : TextView = itemView.findViewById(R.id.tvTime)
         val btnLike : ImageButton = itemView.findViewById(R.id.btnLike)
+        val imgProfile : ImageView = itemView.findViewById(R.id.imgViewProfile)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -71,13 +77,34 @@ class AlumniCommunity_adapter(private val context: Context) : RecyclerView.Adapt
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = alumniCommunityList[position]
 
+        var userId : String = ""
         var username : String = ""
         var school : String = ""
         findPersonalById(currentItem.personal_id){personal ->
+
             holder.tvUsername.text = personal?.name
             holder.tcSchool.text = personal?.graduatedFrom
+            userId = personal?.personalID.toString()
             username = personal?.name.toString()
             school = personal?.graduatedFrom.toString()
+
+            //Get image user
+            storageRef = FirebaseStorage.getInstance().getReference()
+            val ref = storageRef.child("imgProfile").child(personal?.personalID.toString() + ".png")
+
+            //do not downloadUrl img that does not exists
+            ref.metadata.addOnSuccessListener { metadata ->
+                ref.downloadUrl
+                    .addOnCompleteListener {
+                        Glide.with(holder.imgProfile).load(it.result.toString()).into(holder.imgProfile)
+                    }.addOnFailureListener{
+                        Log.d("Image profile fail download", "ERROR")
+                    }
+            }.addOnFailureListener { exception ->
+                // File does not exist or some other error occurred
+                Log.e("Image Profile does not exists", "File does not exist: ${exception.message}")
+            }
+
         }
         //holder.tvUsername.text = currentItem.personal_id.toString()
         //holder.tcSchool.text = currentItem.personal_id.toString()
@@ -94,6 +121,7 @@ class AlumniCommunity_adapter(private val context: Context) : RecyclerView.Adapt
 
             val bundle = Bundle()
             bundle.putString("postId", currentItem.id)
+            bundle.putString("userId", userId)
             bundle.putString("username", username)
             bundle.putString("school", school)
             Log.d("key is : ", currentItem.id)
@@ -202,12 +230,12 @@ class AlumniCommunity_adapter(private val context: Context) : RecyclerView.Adapt
         return result
     }
 
-    private fun findPersonalById(id : String, callback: (PersonalTemp?) -> Unit){
+    private fun findPersonalById(id : String, callback: (Personal?) -> Unit){
         dbRefPersonal.child(id).addListenerForSingleValueEvent(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()) {
-                    Log.d("Snapshot = ", snapshot.getValue(PersonalTemp::class.java).toString())
-                    val personal : PersonalTemp? = snapshot.getValue(PersonalTemp::class.java)
+                    Log.d("Snapshot = ", snapshot.getValue(Personal::class.java).toString())
+                    val personal : Personal? = snapshot.getValue(Personal::class.java)
                     Log.d("Personal :  = ", personal?.name.toString())
                     callback(personal)
                 }

@@ -3488,6 +3488,7 @@ int id btnShowAllRecommended 0x7f0900b6
 int id btnSubmit 0x7f0900b7
 int id btnSubmitResume 0x7f0900b8
 int id btnView 0x7f0900b9
+int id btnViewApplicant 0x7f090382
 int id btnViewResume 0x7f0900ba
 int id buttonPanel 0x7f0900bb
 int id cache_measures 0x7f0900bc
@@ -3593,7 +3594,6 @@ int id easeInOut 0x7f09011f
 int id easeOut 0x7f090120
 int id east 0x7f090121
 int id edge 0x7f090122
-int id editText 0x7f090123
 int id edit_query 0x7f090124
 int id edit_text_id 0x7f090125
 int id elastic 0x7f090126
@@ -3687,6 +3687,7 @@ int id imgBtnMyPost 0x7f09017d
 int id imgCompany 0x7f09017e
 int id imgLogo 0x7f09017f
 int id imgViewProfile 0x7f090180
+int id imgViewProfilePostDetail 0x7f090387
 int id immediateStop 0x7f090181
 int id included 0x7f090182
 int id indeterminate 0x7f090183
@@ -3727,6 +3728,7 @@ int id lblLatestTitle 0x7f0901a5
 int id lblLocation 0x7f0901a6
 int id lblMainTitle 0x7f0901a7
 int id lblNextArror 0x7f0901a8
+int id lblPostDateResult 0x7f090383
 int id lblResultNum 0x7f0901a9
 int id lblSalaryResult 0x7f0901aa
 int id lblTitle 0x7f0901ab
@@ -3938,6 +3940,7 @@ int id rtl 0x7f090278
 int id rvApplicant 0x7f090279
 int id rvAppliedJob 0x7f09027a
 int id rvPublishedJob 0x7f09027b
+int id salary 0x7f090384
 int id salaryRange 0x7f09027c
 int id sampleAnswer 0x7f09027d
 int id save_non_transition_alpha 0x7f09027e
@@ -4022,6 +4025,7 @@ int id submit_area 0x7f0902cc
 int id submitbtn 0x7f0902cd
 int id supportScrollUp 0x7f0902ce
 int id swMode 0x7f0902cf
+int id tVJobCat 0x7f090385
 int id tabMode 0x7f0902d0
 int id tag_accessibility_actions 0x7f0902d1
 int id tag_accessibility_clickable_spans 0x7f0902d2
@@ -4122,6 +4126,7 @@ int id tvContent 0x7f090330
 int id tvEmail 0x7f090331
 int id tvItemDropdown 0x7f090332
 int id tvJobCategory 0x7f090333
+int id tvJobName 0x7f090386
 int id tvJobTitle 0x7f090334
 int id tvLikeNum 0x7f090335
 int id tvLocation 0x7f090336
@@ -4358,6 +4363,7 @@ int layout fragment_login_screen 0x7f0c0042
 int layout fragment_notification 0x7f0c0043
 int layout fragment_practice__interview 0x7f0c0044
 int layout fragment_practice_result 0x7f0c0045
+int layout fragment_published_job_details 0x7f0c00a1
 int layout fragment_register_account 0x7f0c0046
 int layout fragment_register_business 0x7f0c0047
 int layout fragment_sample_answer 0x7f0c0048

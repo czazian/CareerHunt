@@ -2,6 +2,7 @@ package com.example.careerhunt
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -12,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -21,9 +23,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.careerhunt.data.Alumni
 import com.example.careerhunt.data.Alumni_community_comment
-import com.example.careerhunt.data.PersonalTemp
 import com.example.careerhunt.dataAdapter.AlumniCommunityComment_adapter
 import com.example.careerhunt.dataAdapter.AlumniCommunity_adapter
 import com.google.firebase.database.DataSnapshot
@@ -31,6 +33,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import org.w3c.dom.Text
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
@@ -43,9 +47,9 @@ class AlumniCommunityDetail : Fragment() {
     private var dbRefAlumniComment : DatabaseReference = db.database.getReference("Alumni_Comment ")
     private lateinit var alumniCommentList : ArrayList<Alumni_community_comment>
     private lateinit var recyclerView : RecyclerView
+    private lateinit var storageRef: StorageReference
 
-    private val sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
-    private val currentLoginPersonalId : String = sharedIDPreferences.getString("userid", "") ?: ""
+    private lateinit var sharedIDPreferences : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,9 +61,13 @@ class AlumniCommunityDetail : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
+        val currentLoginPersonalId : String = sharedIDPreferences.getString("userid", "") ?: ""
+
         val view = inflater.inflate(R.layout.fragment_alumni_community_detail, container, false)
         val tvUsername : TextView = view.findViewById(R.id.tvUsername)
         val tvSchool : TextView = view.findViewById(R.id.tvSchool)
+        val imgProfile : ImageView = view.findViewById(R.id.imgViewProfilePostDetail)
         val tvTitle : TextView = view.findViewById(R.id.tvTitle)
         val tvContent : TextView = view.findViewById(R.id.tvContent)
         val tvDate : TextView = view.findViewById(R.id.tvTime)
@@ -70,7 +78,6 @@ class AlumniCommunityDetail : Fragment() {
 
         val postId : String? = arguments?.getString("postId")
 
-        Log.d("Post id is : ", postId.toString())
         //sent comment button
         val btnCommentSent : ImageButton = view.findViewById(R.id.btnSentComment)
         val btnBack : ImageButton = view.findViewById(R.id.imgBtnBack)
@@ -86,6 +93,22 @@ class AlumniCommunityDetail : Fragment() {
                     tvContent.text = alumni?.content
                     tvDate.text    = calDay(alumni?.date.toString())
                     tvLikeNum.text = alumni?.personal_liked?.size.toString()
+
+                    storageRef = FirebaseStorage.getInstance().getReference()
+                    val ref = storageRef.child("imgProfile").child(arguments?.getString("userId") + ".png")
+
+                    //do not downloadUrl img that does not exists
+                    ref.metadata.addOnSuccessListener { metadata ->
+                        ref.downloadUrl
+                            .addOnCompleteListener {
+                                Glide.with(imgProfile).load(it.result.toString()).into(imgProfile)
+                            }.addOnFailureListener{
+                                Log.d("Image profile fail download", "ERROR")
+                            }
+                    }.addOnFailureListener { exception ->
+                        // File does not exist or some other error occurred
+                        Log.e("Image Profile does not exists", "File does not exist: ${exception.message}")
+                    }
 
                     if(alumni?.personal_liked?.contains(currentLoginPersonalId) == true){
                         val color = Color.parseColor("#FF0000")

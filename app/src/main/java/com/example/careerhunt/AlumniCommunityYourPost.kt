@@ -1,6 +1,7 @@
 package com.example.careerhunt
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -25,8 +26,8 @@ class AlumniCommunityYourPost : Fragment() {
     private lateinit var alumniList : ArrayList<Alumni>
     private lateinit var recyclerView : RecyclerView
 
-    private val sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
-    private val currentLoginPersonalId : String = sharedIDPreferences.getString("userid", "") ?: ""
+    private lateinit var sharedIDPreferences : SharedPreferences
+    private lateinit var currentLoginPersonalId : String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +36,9 @@ class AlumniCommunityYourPost : Fragment() {
         val view = inflater.inflate(R.layout.fragment_alumni_community_your_post, container, false)
         val imgBtnBack : ImageButton = view.findViewById(R.id.imgBtnBack)
         dbRefAlumni = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Alumni")
+
+        sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
+        currentLoginPersonalId = sharedIDPreferences.getString("userid", "") ?: ""
 
         recyclerView = view.findViewById(R.id.alumni_your_post_recycle_view)
         alumniList = arrayListOf<Alumni>()

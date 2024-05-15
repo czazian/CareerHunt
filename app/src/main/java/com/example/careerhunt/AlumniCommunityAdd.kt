@@ -1,6 +1,7 @@
 package com.example.careerhunt
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -23,8 +24,7 @@ import java.time.LocalDate
 class AlumniCommunityAdd : Fragment() {
 
     private lateinit var dbRef : DatabaseReference
-    private val sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
-    private val currentLoginUserId : String = sharedIDPreferences.getString("userid", "") ?: ""
+    private lateinit var sharedIDPreferences : SharedPreferences
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
@@ -32,6 +32,9 @@ class AlumniCommunityAdd : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         dbRef = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Alumni")
+
+        sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
+        val currentLoginPersonalId : String = sharedIDPreferences.getString("userid", "") ?: ""
 
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_alumni_community_add, container, false)
@@ -43,7 +46,7 @@ class AlumniCommunityAdd : Fragment() {
             val etContent : EditText = view.findViewById(R.id.etContent)
 
             //temp solution: should be personal ID of logined account of device
-            val alumni_post = com.example.careerhunt.data.Alumni("", etTitle.text.toString(), etContent.text.toString(), LocalDate.now().toString(), currentLoginUserId, arrayListOf(), arrayListOf())
+            val alumni_post = com.example.careerhunt.data.Alumni("", etTitle.text.toString(), etContent.text.toString(), LocalDate.now().toString(), currentLoginPersonalId, arrayListOf(), arrayListOf())
             dbRef.push().setValue(alumni_post)
 
             Toast.makeText(requireContext(), "Post successful", Toast.LENGTH_LONG).show()

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
@@ -55,6 +56,15 @@ class Alumni : Fragment(), AlumniCommunity_adapter.onLikeButtonClick {
         val btnAddAlumniComm : FloatingActionButton = view.findViewById(R.id.btnAddAlumniComm)
         btnAddAlumniComm.setOnClickListener(){
             val fragment = AlumniCommunityAdd()
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frameLayout, fragment)
+            transaction?.addToBackStack(null)
+            transaction?.commit()
+        }
+
+        val imgBtnYourPost : ImageButton = view.findViewById(R.id.imgBtnMyPost)
+        imgBtnYourPost.setOnClickListener(){
+            val fragment = AlumniCommunityYourPost()
             val transaction = activity?.supportFragmentManager?.beginTransaction()
             transaction?.replace(R.id.frameLayout, fragment)
             transaction?.addToBackStack(null)

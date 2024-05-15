@@ -3489,6 +3489,7 @@ id btnShowAllRecommended
 id btnSubmit
 id btnSubmitResume
 id btnView
+id btnViewApplicant
 id btnViewResume
 id buttonPanel
 id cache_measures
@@ -3594,7 +3595,6 @@ id easeInOut
 id easeOut
 id east
 id edge
-id editText
 id edit_query
 id edit_text_id
 id elastic
@@ -3688,6 +3688,7 @@ id imgBtnMyPost
 id imgCompany
 id imgLogo
 id imgViewProfile
+id imgViewProfilePostDetail
 id immediateStop
 id included
 id indeterminate
@@ -3728,6 +3729,7 @@ id lblLatestTitle
 id lblLocation
 id lblMainTitle
 id lblNextArror
+id lblPostDateResult
 id lblResultNum
 id lblSalaryResult
 id lblTitle
@@ -3939,6 +3941,7 @@ id rtl
 id rvApplicant
 id rvAppliedJob
 id rvPublishedJob
+id salary
 id salaryRange
 id sampleAnswer
 id save_non_transition_alpha
@@ -4023,6 +4026,7 @@ id submit_area
 id submitbtn
 id supportScrollUp
 id swMode
+id tVJobCat
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -4123,6 +4127,7 @@ id tvContent
 id tvEmail
 id tvItemDropdown
 id tvJobCategory
+id tvJobName
 id tvJobTitle
 id tvLikeNum
 id tvLocation
@@ -4359,6 +4364,7 @@ layout fragment_login_screen
 layout fragment_notification
 layout fragment_practice__interview
 layout fragment_practice_result
+layout fragment_published_job_details
 layout fragment_register_account
 layout fragment_register_business
 layout fragment_sample_answer

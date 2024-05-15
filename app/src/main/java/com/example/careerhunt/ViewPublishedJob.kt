@@ -103,18 +103,18 @@ class ViewPublishedJob : Fragment() , UserInterface.RecyclerViewEvent{
 // click on each RecycleView Item
     override fun onItemClick(position: Int) {
         //Get the clicked object
-        val jobObj: Job = publishedJobList[position]
-        val fragment = publishedJob_details()
+        //val jobObj: Job = publishedJobList[position]
+        //val fragment = publishedJob_details()
 
         //Add Result Object into Bundle
-        val bundle = Bundle()
-        bundle.putSerializable("job", jobObj)
-        fragment.arguments = bundle
+        //val bundle = Bundle()
+        //bundle.putSerializable("job", jobObj)
+        //fragment.arguments = bundle
 
-        val transaction = activity?.supportFragmentManager?.beginTransaction()
-        transaction?.replace(R.id.frameLayout, fragment)
-        transaction?.addToBackStack(null)
-        transaction?.commit()
+        //val transaction = activity?.supportFragmentManager?.beginTransaction()
+        //transaction?.replace(R.id.frameLayout, fragment)
+        //transaction?.addToBackStack(null)
+        //transaction?.commit()
     }
 
     private fun showErrorDialog(){

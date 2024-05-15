@@ -13,9 +13,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.careerhunt.databinding.ActivityLoginContainerBinding
-import com.example.careerhunt.interfaces.LocaleChangeListener
-import com.example.careerhunt.session.loginSession
-import java.util.Locale
 
 //this is the correct and latest one
 

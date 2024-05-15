@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.careerhunt.AlumniCommunityDetail
 import com.example.careerhunt.R
 import com.example.careerhunt.data.Alumni
-import com.example.careerhunt.data.PersonalTemp
+import com.example.careerhunt.data.Personal
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -73,6 +73,7 @@ class AlumniCommunityYourPost_adapter(private val context: android.content.Conte
             val bundle = Bundle()
             bundle.putString("postId", currentItem.id)
             findPersonalById(currentItem.personal_id){personal ->
+                bundle.putString("userId", personal!!.personalID.toString())
                 bundle.putString("username", personal!!.name)
                 bundle.putString("school", personal.graduatedFrom)
             }
@@ -125,12 +126,12 @@ class AlumniCommunityYourPost_adapter(private val context: android.content.Conte
     }
 
 
-    private fun findPersonalById(id : String, callback: (PersonalTemp?) -> Unit){
+    private fun findPersonalById(id : String, callback: (Personal?) -> Unit){
         dbRefPersonal.child(id).addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()) {
-                    Log.d("Snapshot = ", snapshot.getValue(PersonalTemp::class.java).toString())
-                    val personal : PersonalTemp? = snapshot.getValue(PersonalTemp::class.java)
+                    Log.d("Snapshot = ", snapshot.getValue(Personal::class.java).toString())
+                    val personal : Personal? = snapshot.getValue(Personal::class.java)
                     Log.d("Personal :  = ", personal?.name.toString())
                     callback(personal)
                 }

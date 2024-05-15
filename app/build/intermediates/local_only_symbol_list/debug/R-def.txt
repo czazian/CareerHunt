@@ -206,6 +206,7 @@ id btnShowAllRecommended
 id btnSubmit
 id btnSubmitResume
 id btnView
+id btnViewApplicant
 id btnViewResume
 id cancelUploadButton
 id cardView
@@ -234,7 +235,6 @@ id detailContainer
 id detailMiddle
 id detailTop
 id displayAnswer
-id editText
 id etComment
 id etContent
 id etTitle
@@ -276,6 +276,7 @@ id imgBtnMyPost
 id imgCompany
 id imgLogo
 id imgViewProfile
+id imgViewProfilePostDetail
 id inputContainer
 id interview
 id itemCont
@@ -302,6 +303,7 @@ id lblLatestTitle
 id lblLocation
 id lblMainTitle
 id lblNextArror
+id lblPostDateResult
 id lblResultNum
 id lblSalaryResult
 id lblTitle
@@ -371,6 +373,7 @@ id rgGEnder
 id rvApplicant
 id rvAppliedJob
 id rvPublishedJob
+id salary
 id salaryRange
 id sampleAnswer
 id scrollView2
@@ -391,6 +394,7 @@ id spnState
 id submitBtn
 id submitbtn
 id swMode
+id tVJobCat
 id tbPreferences
 id textView
 id textView10
@@ -444,6 +448,7 @@ id tvContent
 id tvEmail
 id tvItemDropdown
 id tvJobCategory
+id tvJobName
 id tvJobTitle
 id tvLikeNum
 id tvLocation
@@ -523,6 +528,7 @@ layout fragment_login_screen
 layout fragment_notification
 layout fragment_practice__interview
 layout fragment_practice_result
+layout fragment_published_job_details
 layout fragment_register_account
 layout fragment_register_business
 layout fragment_sample_answer
