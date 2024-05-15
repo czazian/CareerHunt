@@ -18,6 +18,7 @@ import com.example.careerhunt.AlumniCommunityDetail
 import com.example.careerhunt.R
 import com.example.careerhunt.data.Alumni
 import com.example.careerhunt.data.Personal
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -33,11 +34,13 @@ class AlumniCommunityYourPost_adapter(private val context: android.content.Conte
     private var alumniCommunityList = emptyList<Alumni>()
     private var dbRefPersonal : DatabaseReference = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Personal")
     private var dbRefAlumni : DatabaseReference = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Alumni")
+    private var dbRefAlumniComment : DatabaseReference = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Alumni_Comment")
     private val sharedIDPreferences = context.getSharedPreferences("userid", android.content.Context.MODE_PRIVATE)
     private val currentLoginPersonalId : String = sharedIDPreferences.getString("userid", "") ?: ""
 
     class MyViewHolder (itemView: View): RecyclerView.ViewHolder(itemView){
         val tvPostId : TextView = itemView.findViewById(R.id.tvPostId)
+        val imgBtnDel : ImageButton = itemView.findViewById(R.id.imgBtnDelete)
         val tvTime : TextView = itemView.findViewById(R.id.tvTime)
         val tvTitle : TextView = itemView.findViewById(R.id.tvTitle)
         val tvContent : TextView = itemView.findViewById(R.id.tvContent)
@@ -66,6 +69,44 @@ class AlumniCommunityYourPost_adapter(private val context: android.content.Conte
         holder.tvView.text = currentItem.personal_view.size.toString()
         holder.tvCR.text = calCR(currentItem.personal_liked.size, currentItem.personal_view.size).toString() + "%"
 
+        holder.imgBtnDel.setOnClickListener(){
+
+            MaterialAlertDialogBuilder(context)
+                .setTitle("Are you sure to delete this post?")
+                .setMessage("Deleted post never to be recovered")
+                .setPositiveButton("Delete") { dialog, _ ->
+                    // Do something when positive button is clicked
+                    //delete the clicked post
+                    dbRefAlumni.child(currentItem.id).removeValue()
+
+                    //delete the comment
+                    dbRefAlumniComment.addListenerForSingleValueEvent(object : ValueEventListener {
+                        override fun onDataChange(dataSnapshot: DataSnapshot) {
+                            for (snapshot in dataSnapshot.children) {
+                                val postComment = snapshot.child("postId").getValue(String::class.java)
+                                if (postComment == currentItem.id) {
+                                    snapshot.ref.removeValue().addOnSuccessListener {
+                                        Log.d("Firebase", "Record removed successfully")
+                                    }.addOnFailureListener { exception ->
+                                        Log.e("Firebase", "Failed to remove record: ${exception.message}")
+                                    }
+                                }
+                            }
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            TODO("Not yet implemented")
+                        }
+                    })
+                    dialog.dismiss()
+                }
+                .setNegativeButton("Cancel") { dialog, _ ->
+                    // Do something when negative button is clicked
+                    dialog.dismiss()
+                }
+                .show()
+
+        }
 
         //when a list is clicked, go to its detail page
         holder.itemView.findViewById<View>(R.id.constraintLayout1).setOnClickListener {

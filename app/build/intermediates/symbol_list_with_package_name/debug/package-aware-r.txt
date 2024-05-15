@@ -3109,6 +3109,8 @@ drawable baseline_chat_bubble_outline_24
 drawable baseline_construction_24
 drawable baseline_data_exploration_24
 drawable baseline_data_exploration_24_green
+drawable baseline_delete_24
+drawable baseline_delete_24_red
 drawable baseline_drag_handle_24
 drawable baseline_drag_handle_242
 drawable baseline_edit_document_24
@@ -3606,7 +3608,9 @@ id enterAlways
 id enterAlwaysCollapsed
 id etComment
 id etContent
+id etContentLayout
 id etTitle
+id etTitleLayout
 id exitUntilCollapsed
 id expand_activities_button
 id expandableListView
@@ -3684,6 +3688,7 @@ id imageViewCR
 id imageViewLikw
 id imageViewView
 id imgBtnBack
+id imgBtnDelete
 id imgBtnMyPost
 id imgCompany
 id imgLogo

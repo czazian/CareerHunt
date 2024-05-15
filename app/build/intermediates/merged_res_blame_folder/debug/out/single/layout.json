@@ -8,12 +8,12 @@
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_alumni.xml"
     },
     {
-        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_view_published_job.xml",
-        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_view_published_job.xml"
-    },
-    {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_interview_prep.xml",
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_interview_prep.xml"
+    },
+    {
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_view_published_job.xml",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_view_published_job.xml"
     },
     {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_faq.xml",
@@ -24,12 +24,12 @@
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\view_applicant_holder.xml"
     },
     {
-        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_forget_password.xml",
-        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_forget_password.xml"
-    },
-    {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_view_applicant.xml",
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_view_applicant.xml"
+    },
+    {
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_forget_password.xml",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_forget_password.xml"
     },
     {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\view_applied_holder.xml",
@@ -40,16 +40,16 @@
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_user_profile.xml"
     },
     {
-        "merged": "com.example.careerhunt.app-mergeDebugResources-4:/layout/fragment_alumni_community_detail.xml",
-        "source": "com.example.careerhunt.app-main-7:/layout/fragment_alumni_community_detail.xml"
-    },
-    {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_published_job_details.xml",
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_published_job_details.xml"
     },
     {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_edit_business_acc.xml",
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_edit_business_acc.xml"
+    },
+    {
+        "merged": "com.example.careerhunt.app-mergeDebugResources-4:/layout/fragment_alumni_community_add.xml",
+        "source": "com.example.careerhunt.app-main-7:/layout/fragment_alumni_community_add.xml"
     },
     {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\item_dropdown.xml",
@@ -108,12 +108,12 @@
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\layout_child.xml"
     },
     {
-        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\item_question.xml",
-        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\item_question.xml"
-    },
-    {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_alumni_community_your_post.xml",
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_alumni_community_your_post.xml"
+    },
+    {
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\item_question.xml",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\item_question.xml"
     },
     {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_setting.xml",
@@ -164,16 +164,16 @@
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\upload_resume.xml"
     },
     {
-        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_business_account.xml",
-        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_business_account.xml"
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\alumni_operation.xml",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\alumni_operation.xml"
     },
     {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_job_listing.xml",
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_job_listing.xml"
     },
     {
-        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\alumni_operation.xml",
-        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\alumni_operation.xml"
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_business_account.xml",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_business_account.xml"
     },
     {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\alumni_list_item_your_post.xml",

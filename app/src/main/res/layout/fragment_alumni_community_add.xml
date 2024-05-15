@@ -28,6 +28,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageButton
+            android:id="@+id/imgBtnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:background="#138ef0"
+            android:src="@drawable/baseline_arrow_back_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -37,36 +49,56 @@
             app:layout_constraintTop_toBottomOf="@+id/lblMainTitle"
             android:padding="15dp">
 
-            <EditText
-                android:id="@+id/etTitle"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etTitleLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Write title here..."
+                android:hint="Start writting title here..."
+                app:helperTextEnabled="true"
+                app:helperText="Words"
+                app:counterEnabled="true"
+                app:counterMaxLength="50"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:singleLine="true"
-                android:maxLength="50" />
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <View
                 android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@android:color/darker_gray"
-                app:layout_constraintBottom_toTopOf="@+id/etContent"
+                app:layout_constraintBottom_toTopOf="@+id/etContentLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/etTitleLayout" />
 
-            <EditText
-                android:id="@+id/etContent"
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContentLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:hint="Write content here..."
+                android:hint="Write something for today..."
+                android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etTitle" />
+                app:layout_constraintTop_toBottomOf="@id/etTitleLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top|start"
+                    android:inputType="textMultiLine"
+                    android:lines="20" />
+            </com.google.android.material.textfield.TextInputLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

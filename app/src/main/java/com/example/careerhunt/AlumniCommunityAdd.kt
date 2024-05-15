@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.FragmentTransaction
@@ -44,14 +45,23 @@ class AlumniCommunityAdd : Fragment() {
         btnPost.setOnClickListener(){
             val etTitle   : EditText = view.findViewById(R.id.etTitle)
             val etContent : EditText = view.findViewById(R.id.etContent)
+            val imgBtnBack : ImageButton = view.findViewById(R.id.imgBtnBack)
+
+            val fragment = Alumni()
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+
+            imgBtnBack.setOnClickListener(){
+                transaction?.replace(R.id.frameLayout, fragment)
+                transaction?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
+                transaction?.addToBackStack(null)
+                transaction?.commit()
+            }
 
             //temp solution: should be personal ID of logined account of device
             val alumni_post = com.example.careerhunt.data.Alumni("", etTitle.text.toString(), etContent.text.toString(), LocalDate.now().toString(), currentLoginPersonalId, arrayListOf(), arrayListOf())
             dbRef.push().setValue(alumni_post)
 
             Toast.makeText(requireContext(), "Post successful", Toast.LENGTH_LONG).show()
-            val fragment = Alumni()
-            val transaction = activity?.supportFragmentManager?.beginTransaction()
             transaction?.replace(R.id.frameLayout, fragment)
             transaction?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
             transaction?.addToBackStack(null)

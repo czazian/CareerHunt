@@ -3108,6 +3108,8 @@ int drawable baseline_chat_bubble_outline_24 0x7f08008c
 int drawable baseline_construction_24 0x7f08008d
 int drawable baseline_data_exploration_24 0x7f08008e
 int drawable baseline_data_exploration_24_green 0x7f08008f
+int drawable baseline_delete_24 0x7f080152
+int drawable baseline_delete_24_red 0x7f080153
 int drawable baseline_drag_handle_24 0x7f080090
 int drawable baseline_drag_handle_242 0x7f080091
 int drawable baseline_edit_document_24 0x7f080092
@@ -3605,7 +3607,9 @@ int id enterAlways 0x7f09012b
 int id enterAlwaysCollapsed 0x7f09012c
 int id etComment 0x7f09012d
 int id etContent 0x7f09012e
+int id etContentLayout 0x7f090389
 int id etTitle 0x7f09012f
+int id etTitleLayout 0x7f09038a
 int id exitUntilCollapsed 0x7f090130
 int id expand_activities_button 0x7f090131
 int id expandableListView 0x7f090132
@@ -3683,6 +3687,7 @@ int id imageViewCR 0x7f090179
 int id imageViewLikw 0x7f09017a
 int id imageViewView 0x7f09017b
 int id imgBtnBack 0x7f09017c
+int id imgBtnDelete 0x7f090388
 int id imgBtnMyPost 0x7f09017d
 int id imgCompany 0x7f09017e
 int id imgLogo 0x7f09017f

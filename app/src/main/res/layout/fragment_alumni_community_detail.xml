@@ -243,7 +243,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/alumni_comment_recycle_view"
-        android:layout_width="409dp"
+        android:layout_width="0dp"
         android:layout_height="232dp"
         app:layout_constraintBottom_toTopOf="@+id/writeCommentSection"
         app:layout_constraintEnd_toEndOf="parent"

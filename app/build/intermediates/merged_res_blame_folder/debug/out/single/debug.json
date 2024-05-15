@@ -28,12 +28,12 @@
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_location_pin_24.xml"
     },
     {
-        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_remove_red_eye_24.xml.flat",
-        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_remove_red_eye_24.xml"
-    },
-    {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_chat_bubble_24_blue.xml.flat",
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_chat_bubble_24_blue.xml"
+    },
+    {
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_remove_red_eye_24.xml.flat",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_remove_red_eye_24.xml"
     },
     {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_item_dropdown.xml.flat",
@@ -200,6 +200,10 @@
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\applogo.png"
     },
     {
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_delete_24_red.xml.flat",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_delete_24_red.xml"
+    },
+    {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\anim_slide_in_bottom.xml.flat",
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\anim\\slide_in_bottom.xml"
     },
@@ -244,12 +248,16 @@
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\item_question.xml"
     },
     {
-        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_fragment_alumni_community_add.xml.flat",
-        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_alumni_community_add.xml"
+        "merged": "com.example.careerhunt.app-merged_res-5:/layout_fragment_alumni_community_add.xml.flat",
+        "source": "com.example.careerhunt.app-main-7:/layout/fragment_alumni_community_add.xml"
     },
     {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_bedtime_24.xml.flat",
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_bedtime_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_fragment_alumni_community_add.xml.flat",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_alumni_community_add.xml"
     },
     {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable-night_baseline_assistant_24.xml.flat",
@@ -258,6 +266,10 @@
     {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\mipmap-hdpi_ic_launcher_foreground.webp.flat",
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\mipmap-hdpi\\ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_delete_24.xml.flat",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_delete_24.xml"
     },
     {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_fragment_notification.xml.flat",
@@ -480,10 +492,6 @@
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_recommend_24.xml"
     },
     {
-        "merged": "com.example.careerhunt.app-merged_res-5:/layout_fragment_alumni_community_detail.xml.flat",
-        "source": "com.example.careerhunt.app-main-7:/layout/fragment_alumni_community_detail.xml"
-    },
-    {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
@@ -620,12 +628,12 @@
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_drag_handle_242.xml"
     },
     {
-        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_button_ripple_effect.xml.flat",
-        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\button_ripple_effect.xml"
-    },
-    {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_alumni_list_item_your_post.xml.flat",
         "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\alumni_list_item_your_post.xml"
+    },
+    {
+        "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_button_ripple_effect.xml.flat",
+        "source": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\button_ripple_effect.xml"
     },
     {
         "merged": "C:\\Users\\leona\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_fragment_job_listing.xml.flat",
