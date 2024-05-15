@@ -372,7 +372,7 @@ class SearchJob : Fragment(), JobInterface.RecyclerViewEvent, JobInterface.Proce
 
     }
 
-    override fun onItemClick(position: Int, recyclerViewSource: String) {
+     fun onItemClick(position: Int, recyclerViewSource: String) {
         //Get the clicked object
         val jobObj: Job = jobList[position]
         val fragment = JobDetail()
@@ -413,6 +413,10 @@ class SearchJob : Fragment(), JobInterface.RecyclerViewEvent, JobInterface.Proce
         Log.e("TAG", " SEARCH : onAllProcessesCompleted() Triggered")
         binding.progressIndicatorSearch.hide()
         binding.itemCont.visibility = View.VISIBLE
+    }
+
+    override fun onItemClick(position: Int) {
+        TODO("Not yet implemented")
     }
 
 }

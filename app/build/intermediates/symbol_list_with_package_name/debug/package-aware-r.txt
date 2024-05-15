@@ -3449,6 +3449,7 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btnAccept
 id btnAddAlumniComm
 id btnAddJob
 id btnApplied
@@ -3476,6 +3477,7 @@ id btnPersonal
 id btnPost
 id btnPractice
 id btnRegister
+id btnReject
 id btnResetPass
 id btnSave
 id btnSaveChanges
@@ -3487,6 +3489,7 @@ id btnShowAllRecommended
 id btnSubmit
 id btnSubmitResume
 id btnView
+id btnViewResume
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -4106,6 +4109,10 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvApplEmail
+id tvApplGender
+id tvApplName
+id tvApplPhone
 id tvApplicEmail
 id tvApplicName
 id tvComment
@@ -4130,6 +4137,8 @@ id tvViewCRNum
 id tvViewNum
 id tvkeyboard
 id txtAccType
+id txtApplGender
+id txtApplPhone
 id txtApplied
 id txtBookmark
 id txtDescription
@@ -4336,6 +4345,7 @@ layout fragment_alumni
 layout fragment_alumni_community_add
 layout fragment_alumni_community_detail
 layout fragment_alumni_community_your_post
+layout fragment_applicant_details
 layout fragment_business_account
 layout fragment_edit_business_acc
 layout fragment_edit_personal_acc

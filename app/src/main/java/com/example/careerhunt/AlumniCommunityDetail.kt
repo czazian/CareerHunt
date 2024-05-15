@@ -1,6 +1,7 @@
 package com.example.careerhunt
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -43,6 +44,9 @@ class AlumniCommunityDetail : Fragment() {
     private lateinit var alumniCommentList : ArrayList<Alumni_community_comment>
     private lateinit var recyclerView : RecyclerView
 
+    private val sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
+    private val currentLoginPersonalId : String = sharedIDPreferences.getString("userid", "") ?: ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -63,8 +67,6 @@ class AlumniCommunityDetail : Fragment() {
         val btnLike : ImageButton = view.findViewById(R.id.btnLike)
 
         val tvComment : TextView = view.findViewById(R.id.tvComment)
-        //modify this
-        val currentLoginPersonalId = "1"
 
         val postId : String? = arguments?.getString("postId")
 

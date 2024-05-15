@@ -84,7 +84,7 @@ class Alumni : Fragment(), AlumniCommunity_adapter.onLikeButtonClick {
                         alumni?.id = alumniSnap.key.toString()
                         alumniList.add(alumni!!)
                     }
-                    val adapter = AlumniCommunity_adapter()
+                    val adapter = AlumniCommunity_adapter(requireContext())
                     adapter.setData(alumniList)
                     recyclerView.adapter = adapter
                 }

@@ -36,6 +36,10 @@
         "source": "com.example.careerhunt.app-main-7:/layout/fragment_practice_result.xml"
     },
     {
+        "merged": "com.example.careerhunt.app-mergeDebugResources-4:/layout/fragment_applicant_details.xml",
+        "source": "com.example.careerhunt.app-main-7:/layout/fragment_applicant_details.xml"
+    },
+    {
         "merged": "com.example.careerhunt.app-mergeDebugResources-4:/layout/fragment_alumni_community_add.xml",
         "source": "com.example.careerhunt.app-main-7:/layout/fragment_alumni_community_add.xml"
     },

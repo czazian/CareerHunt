@@ -35,7 +35,7 @@ import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 import kotlin.math.absoluteValue
 
-class AlumniCommunity_adapter() : RecyclerView.Adapter <AlumniCommunity_adapter.MyViewHolder>(){
+class AlumniCommunity_adapter(private val context: Context) : RecyclerView.Adapter <AlumniCommunity_adapter.MyViewHolder>(){
 
     interface onLikeButtonClick {
         fun onLikeButtonClick(post: Alumni)
@@ -45,8 +45,8 @@ class AlumniCommunity_adapter() : RecyclerView.Adapter <AlumniCommunity_adapter.
     private var dbRefPersonal : DatabaseReference = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Personal")
     private var dbRefAlumni : DatabaseReference = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Alumni")
 
-    //modify this
-    private val currentLoginPersonalId = "1"
+    private val sharedIDPreferences = context.getSharedPreferences("userid", Context.MODE_PRIVATE)
+    private val currentLoginPersonalId : String = sharedIDPreferences.getString("userid", "") ?: ""
 
     class MyViewHolder (itemView: View): RecyclerView.ViewHolder(itemView){
         val tvUsername : TextView = itemView.findViewById(R.id.tvUsername)

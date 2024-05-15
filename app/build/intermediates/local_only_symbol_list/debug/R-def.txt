@@ -166,6 +166,7 @@ id arrowdown3
 id backArrorbutton
 id bookmarkBtn
 id bottomNavigationView
+id btnAccept
 id btnAddAlumniComm
 id btnAddJob
 id btnApplied
@@ -193,6 +194,7 @@ id btnPersonal
 id btnPost
 id btnPractice
 id btnRegister
+id btnReject
 id btnResetPass
 id btnSave
 id btnSaveChanges
@@ -204,6 +206,7 @@ id btnShowAllRecommended
 id btnSubmit
 id btnSubmitResume
 id btnView
+id btnViewResume
 id cancelUploadButton
 id cardView
 id category
@@ -427,6 +430,10 @@ id tfPhone
 id titleUploadResume
 id top
 id topContainer
+id tvApplEmail
+id tvApplGender
+id tvApplName
+id tvApplPhone
 id tvApplicEmail
 id tvApplicName
 id tvComment
@@ -451,6 +458,8 @@ id tvViewCRNum
 id tvViewNum
 id tvkeyboard
 id txtAccType
+id txtApplGender
+id txtApplPhone
 id txtApplied
 id txtBookmark
 id txtDescription
@@ -500,6 +509,7 @@ layout fragment_alumni
 layout fragment_alumni_community_add
 layout fragment_alumni_community_detail
 layout fragment_alumni_community_your_post
+layout fragment_applicant_details
 layout fragment_business_account
 layout fragment_edit_business_acc
 layout fragment_edit_personal_acc

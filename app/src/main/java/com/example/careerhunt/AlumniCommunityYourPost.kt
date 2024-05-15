@@ -1,5 +1,6 @@
 package com.example.careerhunt
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,8 +24,9 @@ class AlumniCommunityYourPost : Fragment() {
     private lateinit var dbRefAlumni : DatabaseReference
     private lateinit var alumniList : ArrayList<Alumni>
     private lateinit var recyclerView : RecyclerView
-    //modify this
-    private val currentLoginPersonalId = "1"
+
+    private val sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
+    private val currentLoginPersonalId : String = sharedIDPreferences.getString("userid", "") ?: ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -68,7 +70,7 @@ class AlumniCommunityYourPost : Fragment() {
                             alumniList.add(alumni!!)
                         }
                     }
-                    val adapter = AlumniCommunityYourPost_adapter()
+                    val adapter = AlumniCommunityYourPost_adapter(requireContext())
                     adapter.setData(alumniList)
                     recyclerView.adapter = adapter
                 }

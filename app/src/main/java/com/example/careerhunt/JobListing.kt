@@ -258,7 +258,7 @@ class JobListing : Fragment(), JobInterface.RecyclerViewEvent,
 
 
     //On each RecyclerView Item clicked - Perform actual action here
-    override fun onItemClick(position: Int, recyclerViewSource: String) {
+    fun onItemClick(position: Int, recyclerViewSource: String) {
         //Get the clicked object
         val jobObj: Job
         if (recyclerViewSource == "recommend") {
@@ -393,7 +393,9 @@ class JobListing : Fragment(), JobInterface.RecyclerViewEvent,
         binding.newPostedContainer.visibility = View.VISIBLE
     }
 
-
+    override fun onItemClick(position: Int) {
+        TODO("Not yet implemented")
+    }
 
 
 }

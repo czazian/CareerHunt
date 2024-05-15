@@ -648,6 +648,10 @@
         "source": "com.example.careerhunt.app-main-7:/layout/item_question.xml"
     },
     {
+        "merged": "com.example.careerhunt.app-merged_res-5:/layout_fragment_applicant_details.xml.flat",
+        "source": "com.example.careerhunt.app-main-7:/layout/fragment_applicant_details.xml"
+    },
+    {
         "merged": "com.example.careerhunt.app-merged_res-5:/drawable_baseline_business_center_24.xml.flat",
         "source": "com.example.careerhunt.app-main-7:/drawable/baseline_business_center_24.xml"
     },

@@ -1,5 +1,6 @@
 package com.example.careerhunt
 
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -19,20 +20,11 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.database
 import java.time.LocalDate
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [AlumniCommunityAdd.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AlumniCommunityAdd : Fragment() {
 
     private lateinit var dbRef : DatabaseReference
-    private val currentLoginUserId : String = "1"
+    private val sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
+    private val currentLoginUserId : String = sharedIDPreferences.getString("userid", "") ?: ""
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(

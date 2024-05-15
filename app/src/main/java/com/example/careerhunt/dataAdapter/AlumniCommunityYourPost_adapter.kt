@@ -28,12 +28,13 @@ import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 import kotlin.math.absoluteValue
 
-class AlumniCommunityYourPost_adapter() : RecyclerView.Adapter <AlumniCommunityYourPost_adapter.MyViewHolder>() {
+class AlumniCommunityYourPost_adapter(private val context: android.content.Context) : RecyclerView.Adapter <AlumniCommunityYourPost_adapter.MyViewHolder>() {
 
     private var alumniCommunityList = emptyList<Alumni>()
     private var dbRefPersonal : DatabaseReference = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Personal")
     private var dbRefAlumni : DatabaseReference = FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Alumni")
-    private val currentLoginPersonalId = "1"
+    private val sharedIDPreferences = context.getSharedPreferences("userid", android.content.Context.MODE_PRIVATE)
+    private val currentLoginPersonalId : String = sharedIDPreferences.getString("userid", "") ?: ""
 
     class MyViewHolder (itemView: View): RecyclerView.ViewHolder(itemView){
         val tvPostId : TextView = itemView.findViewById(R.id.tvPostId)

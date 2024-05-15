@@ -1,30 +1,20 @@
 package com.example.careerhunt
 
 import android.app.AlertDialog
-import android.content.ActivityNotFoundException
-import android.content.ContentValues
-import android.content.ContentValues.TAG
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.careerhunt.data.Apply_Job
 import com.example.careerhunt.data.Job
 import com.example.careerhunt.data.Personal
-import com.example.careerhunt.dataAdapter.AppliedJobListAdapter
 import com.example.careerhunt.dataAdapter.ViewApplicantAdapter
-import com.example.careerhunt.databinding.FragmentViewApplicantBinding
 import com.example.careerhunt.interfaces.JobInterface
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -75,7 +65,7 @@ class ViewApplicant : Fragment() ,JobInterface.RecyclerViewEvent {
             requireActivity().onBackPressed()
         }
 
-        tvTotalCount = view.findViewById(R.id.tvTotalCount)
+        //tvTotalCount = view.findViewById(R.id.tvTotalCount)
 
 
         return view
@@ -111,7 +101,7 @@ class ViewApplicant : Fragment() ,JobInterface.RecyclerViewEvent {
         })
     }
 
-    private fun fetchPersonalDetails(personalID: Int?) {
+    private fun fetchPersonalDetails(personalID: Long?) {
         val listerner = this
 
         val personalRef = FirebaseDatabase.getInstance().getReference().child("Personal")
@@ -174,7 +164,7 @@ class ViewApplicant : Fragment() ,JobInterface.RecyclerViewEvent {
 
         //Add Result Object into Bundle
         val bundle = Bundle()
-        bundle.putSerializable("applicant", applicantObj)
+        //bundle.putSerializable("applicant", applicantObj)
         fragment.arguments = bundle
 
         val transaction = activity?.supportFragmentManager?.beginTransaction()
@@ -192,6 +182,10 @@ class ViewApplicant : Fragment() ,JobInterface.RecyclerViewEvent {
                 Log.e(TAG, "Error downloading PDF", exception)
                 Toast.makeText(requireContext(), "Error downloading PDF", Toast.LENGTH_SHORT).show()
             }*/
+    }
+
+    fun onItemClick(position: Int, recyclerViewSource: String) {
+        TODO("Not yet implemented")
     }
 
     /*private fun openPDF(downloadUrl: String) {
