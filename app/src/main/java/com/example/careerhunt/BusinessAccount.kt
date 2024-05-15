@@ -19,6 +19,7 @@ import com.example.careerhunt.data.Personal
 import com.example.careerhunt.databinding.FragmentBusinessAccountBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
@@ -26,9 +27,16 @@ import com.google.firebase.database.ValueEventListener
 class BusinessAccount : Fragment() {
     private lateinit var binding: FragmentBusinessAccountBinding
     private lateinit var sharedIDPreferences: SharedPreferences
-    private var database =
-        FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/")
-    private var myRef = database.reference
+    private lateinit var myRef: DatabaseReference
+    lateinit var sharedUserTypePreferences: SharedPreferences
+    lateinit var sharedStatusPreference: SharedPreferences
+    lateinit var sharedLogoutPreferences: SharedPreferences
+
+
+    //private var database =
+        //FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/")
+
+    //private var myRef = database.reference
     private var userId: String = ""
 
     override fun onCreateView(
@@ -44,6 +52,9 @@ class BusinessAccount : Fragment() {
         userId = sharedIDPreferences.getString("userid","")?:""
         retrieveCompRecord()
 
+        sharedLogoutPreferences = requireContext().getSharedPreferences("logoutStatus", Context.MODE_PRIVATE)
+        sharedUserTypePreferences = requireContext().getSharedPreferences("userType", Context.MODE_PRIVATE)
+        sharedStatusPreference = requireContext().getSharedPreferences("isFirstTime", Context.MODE_PRIVATE)
 
         binding.btnFAQ.setOnClickListener() {
             val fragmentManager = requireActivity().supportFragmentManager
@@ -84,10 +95,10 @@ class BusinessAccount : Fragment() {
 
                     if (language == "Chinese") {
                         // Set locale to Chinese
-                        //(requireActivity() as MainActivity).setLocale("ch")// based on the string value that created
+                        (requireActivity() as MainActivity).setLocale()// based on the string value that created
                     } else {
                         // Set locale to English
-                        //(requireActivity() as MainActivity).setLocale("en")
+                        (requireActivity() as MainActivity).setLocale()
                     }
                 }
                 userSelected = true // Set flag to true after user selection
@@ -98,13 +109,18 @@ class BusinessAccount : Fragment() {
             }
         }
 
-
+        // Logout
         binding.btnLogout.setOnClickListener() {
             val intent = Intent(requireContext(), LoginContainer::class.java)
+            sharedIDPreferences.edit().clear().apply()
+            sharedUserTypePreferences.edit().clear().apply()
+            sharedStatusPreference.edit().putBoolean("isFirstTime",true).apply()
 
+            sharedLogoutPreferences.edit().putBoolean("logoutStatus",true).apply()
             startActivity(intent)
-            requireActivity().finish() // this is to prevent user return back to profile page
+            requireActivity().finish() // this is to prevent user return back to login page
         }
+
         binding.swMode.setOnCheckedChangeListener() { buttonView, isChecked ->
             // isChecked will be true if the switch is turned on, false otherwise
             if (isChecked) {
@@ -131,19 +147,14 @@ class BusinessAccount : Fragment() {
         val tvCompEmail: TextView = binding.tvCompEmail
         val profileImg : ImageView = binding.profilePic
 
+        myRef = FirebaseDatabase.getInstance().getReference("Company")
 
-        myRef.child("Company").child(userId.toString())
+        myRef.child(userId)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
                         val comp = snapshot.getValue(Company::class.java)
                         if (comp != null) {
-                            Toast.makeText(
-                                requireContext(),
-                                "id real : " + comp.companyID,
-                                Toast.LENGTH_SHORT
-                            ).show()
-
                             tvCompName.text = comp.compName
                             tvCompEmail.text = comp.email
                             // Load profile image
@@ -153,7 +164,6 @@ class BusinessAccount : Fragment() {
                             }
                         }
                     } else {
-                        // if the user id not found in Firebase
                         Toast.makeText(
                             requireContext(),
                             "User with ID $userId not found",
@@ -163,7 +173,6 @@ class BusinessAccount : Fragment() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    // Handle error
                     Toast.makeText(
                         requireContext(),
                         "Error: ${error.message}",
