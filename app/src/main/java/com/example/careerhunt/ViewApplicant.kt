@@ -1,20 +1,31 @@
 package com.example.careerhunt
 
 import android.app.AlertDialog
+import android.content.ActivityNotFoundException
+import android.content.ContentValues
+import android.content.ContentValues.TAG
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.careerhunt.data.Apply_Job
 import com.example.careerhunt.data.Job
 import com.example.careerhunt.data.Personal
+import com.example.careerhunt.dataAdapter.AppliedJobListAdapter
 import com.example.careerhunt.dataAdapter.ViewApplicantAdapter
+import com.example.careerhunt.databinding.FragmentViewApplicantBinding
+import com.example.careerhunt.interfaces.JobInterface
 import com.example.careerhunt.interfaces.UserInterface
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -24,7 +35,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
-class ViewApplicant : Fragment(), UserInterface.RecyclerViewEvent {
+class ViewApplicant : Fragment() ,UserInterface.RecyclerViewEvent {
 
     private var job: Job? = null
     private lateinit var myRef: DatabaseReference
@@ -65,7 +76,7 @@ class ViewApplicant : Fragment(), UserInterface.RecyclerViewEvent {
             requireActivity().onBackPressed()
         }
 
-        //tvTotalCount = view.findViewById(R.id.tvTotalCount)
+        tvTotalCount = view.findViewById(R.id.tvTotalCount)
 
 
         return view
@@ -75,7 +86,7 @@ class ViewApplicant : Fragment(), UserInterface.RecyclerViewEvent {
    private fun fetchApplicants() {
         val applyJobRef = myRef.child("Apply_Job")
 
-        val query = applyJobRef.orderByChild("jobID").equalTo(job?.jobID.toString().toDouble())
+        val query = applyJobRef.orderByChild("jobID").equalTo(job?.jobID.toString())
 
         query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -101,7 +112,7 @@ class ViewApplicant : Fragment(), UserInterface.RecyclerViewEvent {
         })
     }
 
-    private fun fetchPersonalDetails(personalID: Long?) {
+    private fun fetchPersonalDetails(personalID: String?) {
         val listerner = this
 
         val personalRef = FirebaseDatabase.getInstance().getReference().child("Personal")
@@ -164,7 +175,7 @@ class ViewApplicant : Fragment(), UserInterface.RecyclerViewEvent {
 
         //Add Result Object into Bundle
         val bundle = Bundle()
-        //bundle.putSerializable("applicant", applicantObj)
+        bundle.putSerializable("applicant", applicantObj)
         fragment.arguments = bundle
 
         val transaction = activity?.supportFragmentManager?.beginTransaction()
@@ -172,28 +183,5 @@ class ViewApplicant : Fragment(), UserInterface.RecyclerViewEvent {
         transaction?.addToBackStack(null)
         transaction?.commit()
 
-       /* val ref = storageRef.child("Resume").child(clickedPersonal.personalID.toString() + ".pdf")
-        ref.downloadUrl
-            .addOnSuccessListener { uri ->
-                openPDF(uri.toString())
-            }
-            .addOnFailureListener { exception ->
-                // Handle any errors that may occur during the download
-                Log.e(TAG, "Error downloading PDF", exception)
-                Toast.makeText(requireContext(), "Error downloading PDF", Toast.LENGTH_SHORT).show()
-            }*/
     }
-
-    /*private fun openPDF(downloadUrl: String) {
-        val uri = Uri.parse(downloadUrl)
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.setDataAndType(uri, "application/pdf") // Changed MIME type to application/pdf
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
-
-        try {
-            startActivity(intent)
-        } catch (e: ActivityNotFoundException) {
-            Toast.makeText(requireContext(), "No PDF viewer installed", Toast.LENGTH_SHORT).show()
-        }
-    }*/
 }

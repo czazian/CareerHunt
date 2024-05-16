@@ -74,7 +74,7 @@ class EditPersonalAcc : Fragment() {
     }
 
     private fun retrieveUserRecord(){
-        val tfEmail : TextView = binding.tfEditEmail
+        val tfEmail : TextView = binding.tvEditEmail
         val tfEditName : TextView = binding.tfEditName
         val tfEditPhone : TextView = binding.tfEditPhone
         val rgGender : RadioGroup = binding.rgEditGender
@@ -141,7 +141,7 @@ class EditPersonalAcc : Fragment() {
     }
 
     private fun saveChanges(){
-        val email : String = binding.tfEditEmail.text.toString()
+
         val name : String = binding.tfEditName.text.toString()
         val phoneNum: String = binding.tfEditPhone.text.toString()
         val rgGender : RadioGroup = binding.rgEditGender
@@ -154,68 +154,77 @@ class EditPersonalAcc : Fragment() {
         val spEditJobField : Spinner = binding.spEditJobField
         val jobField : String = spEditJobField.selectedItem.toString()
 
-        val errMsg = fieldValidation(name, email, gender, jobField,phoneNum)
+        val errMsg = fieldValidation(name,gender, jobField,phoneNum)
 
+        // Check if a new profile picture is selected
+        val isNewProfilePictureSelected = ::galleryUri.isInitialized
 
-        // store the changes into firebase
+        // Store the changes into Firebase
         if (errMsg.isEmpty()) {
-            val ref = storageRef.child("imgProfile/" + userId + ".png")
+            val updates = hashMapOf<String, Any>(
+                "name" to name,
+                "phoneNum" to phoneNum,
+                "gender" to gender,
+                "jobField" to jobField
+            )
 
-            ref.putFile(galleryUri)
-                .addOnSuccessListener {
-                    ref.downloadUrl.addOnSuccessListener { uri ->
-                        val profileImageUrl = uri.toString()
-                // Create a map to include all the field that need to update
-                val updates = hashMapOf<String, Any>(
-                    "email" to email,
-                    "name" to name,
-                    "phoneNum" to phoneNum,
-                    "gender" to gender,
-                    "jobField" to jobField,
-                    "profileImg" to profileImageUrl
-                )
+            if (isNewProfilePictureSelected) {
+                // If a new profile picture is selected, proceed with uploading it
+                val ref = storageRef.child("imgProfile/" + userId + ".png")
 
-                myRef.child("Personal").child(userId.toString()).updateChildren(updates)
+                ref.putFile(galleryUri)
                     .addOnSuccessListener {
-                        Toast.makeText(requireContext(), "Update Completed", Toast.LENGTH_SHORT)
-                            .show()
-                        val fragmentManager = requireActivity().supportFragmentManager
-                        val fragmentTransaction = fragmentManager.beginTransaction()
-                        val newFragment = UserProfile()
-                        fragmentTransaction.replace(R.id.frameLayout, newFragment)
-                        fragmentTransaction.addToBackStack(null)
-                        fragmentTransaction.commit()
+                        ref.downloadUrl.addOnSuccessListener { uri ->
+                            val profileImageUrl = uri.toString()
+                            updates["profileImg"] = profileImageUrl
+
+                            updateProfile(updates)
+                        }
                     }
                     .addOnFailureListener { e ->
-                        Toast.makeText(requireContext(), "Fail to Update: ${e.message}", Toast.LENGTH_SHORT)
-                            .show()
+                        Toast.makeText(requireContext(), "Fail to Update Profile Picture: ${e.message}", Toast.LENGTH_SHORT).show()
                     }
-                    }
-                }
-                .addOnFailureListener { e ->
-                    Toast.makeText(requireContext(), "Fail to Update: ${e.message}", Toast.LENGTH_SHORT).show()
-                }
+            } else {
+                // If no new profile picture is selected, update other fields using the existing profile image
+                updateProfile(updates)
+            }
         } else {
             // If any invalid input
             val builder = AlertDialog.Builder(requireContext())
-            builder.setTitle("Registration Failed")
+            builder.setTitle("Update Failed")
                 .setMessage(errMsg.toString())
                 .setPositiveButton("OK") { dialog, _ ->
                     Toast.makeText(
                         requireContext(),
-                        "Please follow the instruction",
+                        "Please follow the instructions",
                         Toast.LENGTH_LONG
                     )
                         .show()
                 }
             builder.show()
         }
+    }
 
+    private fun updateProfile(updates: HashMap<String, Any>) {
+        myRef.child("Personal").child(userId.toString()).updateChildren(updates)
+            .addOnSuccessListener {
+                Toast.makeText(requireContext(), "Update Completed", Toast.LENGTH_SHORT)
+                    .show()
+                val fragmentManager = requireActivity().supportFragmentManager
+                val fragmentTransaction = fragmentManager.beginTransaction()
+                val newFragment = UserProfile()
+                fragmentTransaction.replace(R.id.frameLayout, newFragment)
+                fragmentTransaction.addToBackStack(null)
+                fragmentTransaction.commit()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(requireContext(), "Fail to Update: ${e.message}", Toast.LENGTH_SHORT)
+                    .show()
+            }
     }
 
     fun fieldValidation(
         name: String,
-        email: String,
         gender: String,
         jobField: String,
         phoneNum : String
@@ -225,12 +234,6 @@ class EditPersonalAcc : Fragment() {
         // Perform field validation
         if (name.isEmpty()) {
             errorMessage += "*Name cannot be empty.\n"
-        }
-
-        if (email.isEmpty()) {
-            errorMessage += "*Email cannot be empty.\n"
-        } else if (!isValidEmail(email)) {
-            errorMessage += "*Invalid email format.\n"
         }
 
 
@@ -250,12 +253,6 @@ class EditPersonalAcc : Fragment() {
         }
 
         return errorMessage
-    }
-
-    // Function to validate email format
-    fun isValidEmail(email: String): Boolean {
-        val emailRegex = Regex("^[A-Za-z](.*)([@]{1})(.{1,})(\\.)(.{1,})")
-        return emailRegex.matches(email)
     }
 
     fun isValidPhoneNum(phone: String): Boolean {

@@ -30,7 +30,7 @@ public final class FragmentSearchJobBinding implements ViewBinding {
   public final ImageButton btnFilter;
 
   @NonNull
-  public final ImageButton imageButton3;
+  public final ImageButton imgBtnRedo;
 
   @NonNull
   public final ConstraintLayout itemCont;
@@ -58,7 +58,7 @@ public final class FragmentSearchJobBinding implements ViewBinding {
 
   private FragmentSearchJobBinding(@NonNull ConstraintLayout rootView,
       @NonNull ImageButton btnBack2, @NonNull ImageButton btnFilter,
-      @NonNull ImageButton imageButton3, @NonNull ConstraintLayout itemCont,
+      @NonNull ImageButton imgBtnRedo, @NonNull ConstraintLayout itemCont,
       @NonNull TextView lblResultNum, @NonNull CircularProgressIndicator progressIndicatorSearch,
       @NonNull ConstraintLayout searchBox, @NonNull ImageButton searchBtn,
       @NonNull ConstraintLayout searchContainer, @NonNull RecyclerView searchRecyclerView,
@@ -66,7 +66,7 @@ public final class FragmentSearchJobBinding implements ViewBinding {
     this.rootView = rootView;
     this.btnBack2 = btnBack2;
     this.btnFilter = btnFilter;
-    this.imageButton3 = imageButton3;
+    this.imgBtnRedo = imgBtnRedo;
     this.itemCont = itemCont;
     this.lblResultNum = lblResultNum;
     this.progressIndicatorSearch = progressIndicatorSearch;
@@ -116,9 +116,9 @@ public final class FragmentSearchJobBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.imageButton3;
-      ImageButton imageButton3 = ViewBindings.findChildViewById(rootView, id);
-      if (imageButton3 == null) {
+      id = R.id.imgBtnRedo;
+      ImageButton imgBtnRedo = ViewBindings.findChildViewById(rootView, id);
+      if (imgBtnRedo == null) {
         break missingId;
       }
 
@@ -167,7 +167,7 @@ public final class FragmentSearchJobBinding implements ViewBinding {
       }
 
       return new FragmentSearchJobBinding((ConstraintLayout) rootView, btnBack2, btnFilter,
-          imageButton3, itemCont, lblResultNum, progressIndicatorSearch, searchBox, searchBtn,
+          imgBtnRedo, itemCont, lblResultNum, progressIndicatorSearch, searchBox, searchBtn,
           searchContainer, searchRecyclerView, txtSearch);
     }
     String missingId = rootView.getResources().getResourceName(id);

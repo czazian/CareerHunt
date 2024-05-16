@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import com.example.careerhunt.data.Job
@@ -39,6 +40,7 @@ class Applicant_details : Fragment() {
         val btnViewResume : Button = view.findViewById(R.id.btnViewResume)
         val btnAccept : Button = view.findViewById(R.id.btnAccept)
         val btnReject : Button = view.findViewById(R.id.btnReject)
+        val btnBack : ImageButton = view.findViewById(R.id.btnBack)
 
 
         tvApplName.text = applicant?.name.toString()
@@ -79,9 +81,9 @@ class Applicant_details : Fragment() {
             startActivity(intent)
         }
 
-
-
-
+        btnBack.setOnClickListener() {
+            requireActivity().onBackPressed()
+        }
 
         return view
     }

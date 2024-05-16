@@ -18,7 +18,7 @@
         tools:layout_editor_absoluteX="-16dp">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/QuestionAns"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/user_profile"
@@ -204,30 +204,6 @@
         app:layout_constraintTop_toBottomOf="@+id/spLanguage"
         app:srcCompat="@drawable/baseline_navigate_next_24" />
 
-    <ImageButton
-        android:id="@+id/btnLogout"
-        style="@style/imgButtonStyle"
-        android:layout_width="40dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnFAQ"
-        app:srcCompat="@drawable/baseline_logout_24" />
-
-    <TextView
-        android:id="@+id/txtLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="265dp"
-        android:text="@string/logout"
-        android:textColor="@color/textColor"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtFAQ" />
-
     <TextView
         android:id="@+id/txtLanguage"
         android:layout_width="wrap_content"
@@ -290,5 +266,20 @@
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/profile_pic" />
     </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center|center_vertical"
+            android:background="@drawable/custom_button"
+            android:layout_marginTop="20dp"
+            android:text="@string/logout"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/txtFAQ" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -89,6 +89,7 @@ animator nav_default_enter_anim
 animator nav_default_exit_anim
 animator nav_default_pop_enter_anim
 animator nav_default_pop_exit_anim
+array InterviewCat
 array interview
 array jobCategory
 array job_field
@@ -3316,6 +3317,8 @@ id FAQlist
 id FUNCTION
 id ForgetPassFrag
 id HorizonLine
+id HorizonLine1
+id HorizonLine2
 id LblCongrats
 id LblFAQ
 id LblPracticeInterview
@@ -3326,6 +3329,7 @@ id META
 id MiddleContainer
 id NO_DEBUG
 id OverviewTitle
+id QuestionAns
 id QuestionTitle
 id SHIFT
 id SHOW_ALL
@@ -3333,12 +3337,7 @@ id SHOW_PATH
 id SHOW_PROGRESS
 id SYM
 id SampleAnswerTitle
-id SecondHorizonLine
 id SecondMiddleContainer
-id SecondQuestionTitle
-id SecondbtnKeyboard
-id SecondnoOfQuest
-id Secondtvkeyboard
 id SpinnerDropDown
 id TOP_END
 id TOP_START
@@ -3479,7 +3478,6 @@ id btnKeyboard
 id btnLike
 id btnLogin
 id btnLogout
-id btnNotification
 id btnPersonal
 id btnPost
 id btnPractice
@@ -3535,7 +3533,6 @@ id coil_request_manager
 id collapseActionView
 id comIcon
 id comName
-id commonQuestionsTitle
 id compLogo
 id companyAddressResl
 id companyPhoneResl
@@ -3682,10 +3679,6 @@ id image
 id imageButton
 id imageButton10
 id imageButton11
-id imageButton3
-id imageButton4
-id imageButton5
-id imageButton6
 id imageButton7
 id imageButton8
 id imageButton9
@@ -3694,12 +3687,18 @@ id imageView2
 id imageView3
 id imageView4
 id imageView5
+<<<<<<< HEAD
+id imgBtnBack
+id imgBtnCopy
+id imgBtnRedo
+=======
 id imageViewCR
 id imageViewLikw
 id imageViewView
 id imgBtnBack
 id imgBtnDelete
 id imgBtnMyPost
+>>>>>>> ffb2dcd07b2be69450b462da96e690c709cf159a
 id imgCompany
 id imgLogo
 id imgViewProfile
@@ -3764,7 +3763,6 @@ id line3
 id linear
 id listMode
 id list_item
-id lkApplicant
 id locale
 id locationIcon
 id locationLayout
@@ -3913,10 +3911,10 @@ id pooling_container_listener_holder_tag
 id position
 id postLayout
 id post_button_box
+id practiceSpnCat
 id pressed
 id profileImage
 id profilePic
-id profilepic
 id progressIndicator
 id progressIndicatorSearch
 id progress_circular
@@ -3940,6 +3938,8 @@ id rdlGroup
 id recommendedContainer
 id recommendedJobRecyclerView
 id rectangles
+id recyclerViewPracticeQuestions
+id recyclerViewResults
 id regBAFrag
 id registerFrag
 id relativeIndicator
@@ -3973,6 +3973,7 @@ id scrollView
 id scrollView2
 id scrollView3
 id scrollable
+id scrollableContent
 id searchBox
 id searchBtn
 id searchContainer
@@ -4066,7 +4067,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
-id textView
 id textView10
 id textView10Content
 id textView11
@@ -4076,7 +4076,6 @@ id textView13
 id textView14
 id textView15
 id textView2
-id textView3
 id textView4
 id textView5
 id textView6
@@ -4116,6 +4115,7 @@ id tfPhone
 id time
 id title
 id titleDividerNoCustom
+id titleQuestion
 id titleUploadResume
 id title_template
 id toggle
@@ -4143,6 +4143,7 @@ id tvCommentShow
 id tvCompEmail
 id tvCompName
 id tvContent
+id tvCopy
 id tvEmail
 id tvItemDropdown
 id tvJobCategory
@@ -4152,14 +4153,23 @@ id tvLikeNum
 id tvLocation
 id tvName
 id tvNum
+<<<<<<< HEAD
+id tvPersonal
+id tvRedo
+=======
 id tvPostId
+>>>>>>> ffb2dcd07b2be69450b462da96e690c709cf159a
 id tvSchool
 id tvTime
 id tvTitle
+id tvTotalCount
 id tvUsername
+<<<<<<< HEAD
+=======
 id tvViewCRNum
 id tvViewNum
 id tvkeyboard
+>>>>>>> ffb2dcd07b2be69450b462da96e690c709cf159a
 id txtAccType
 id txtApplGender
 id txtApplPhone
@@ -4204,7 +4214,6 @@ id userProfileContainer
 id userProfileLayout
 id vertical_only
 id view
-id view2
 id view_offset_helper
 id view_transition
 id view_tree_lifecycle_owner
@@ -4382,7 +4391,7 @@ layout fragment_job_detail
 layout fragment_job_listing
 layout fragment_login_screen
 layout fragment_notification
-layout fragment_practice__interview
+layout fragment_practice_interview
 layout fragment_practice_result
 layout fragment_published_job_details
 layout fragment_register_account
@@ -4468,6 +4477,8 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout practice_question
+layout practice_result
 layout register_popout
 layout select_dialog_item_material
 layout select_dialog_multichoice_material

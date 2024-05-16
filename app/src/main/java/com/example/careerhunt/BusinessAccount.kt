@@ -27,16 +27,12 @@ import com.google.firebase.database.ValueEventListener
 class BusinessAccount : Fragment() {
     private lateinit var binding: FragmentBusinessAccountBinding
     private lateinit var sharedIDPreferences: SharedPreferences
+    private lateinit var sharedPreferences: SharedPreferences
     private lateinit var myRef: DatabaseReference
     lateinit var sharedUserTypePreferences: SharedPreferences
     lateinit var sharedStatusPreference: SharedPreferences
     lateinit var sharedLogoutPreferences: SharedPreferences
 
-
-    //private var database =
-        //FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/")
-
-    //private var myRef = database.reference
     private var userId: String = ""
 
     override fun onCreateView(
@@ -115,18 +111,31 @@ class BusinessAccount : Fragment() {
             sharedIDPreferences.edit().clear().apply()
             sharedUserTypePreferences.edit().clear().apply()
             sharedStatusPreference.edit().putBoolean("isFirstTime",true).apply()
+            sharedPreferences.edit().putBoolean("night",false).apply()
 
             sharedLogoutPreferences.edit().putBoolean("logoutStatus",true).apply()
             startActivity(intent)
             requireActivity().finish() // this is to prevent user return back to login page
         }
 
+        //For dark mode
+        sharedPreferences = requireContext().getSharedPreferences("Mode", Context.MODE_PRIVATE)
+        val nightMode = sharedPreferences.getBoolean("night", false) // false = day mode
+
+        // means it is true = make it become night mode
+        if (nightMode) {
+            binding.swMode.isChecked = true
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+
         binding.swMode.setOnCheckedChangeListener() { buttonView, isChecked ->
             // isChecked will be true if the switch is turned on, false otherwise
             if (isChecked) {
                 changeDarkMode()
+
             } else {
                 changeDayMode()
+
             }
         }
         return view
@@ -135,11 +144,20 @@ class BusinessAccount : Fragment() {
     private fun changeDarkMode() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         Toast.makeText(requireContext(), "Change Dark Mode", Toast.LENGTH_SHORT).show()
+        saveDarkModeState(true) // Save dark mode state
+
     }
 
     private fun changeDayMode() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         Toast.makeText(requireContext(), "Change Day Mode", Toast.LENGTH_SHORT).show()
+        saveDarkModeState(false) // Save dark mode state
+    }
+
+    private fun saveDarkModeState(isDarkMode: Boolean) {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("night", isDarkMode)
+        editor.apply()
     }
 
     private fun retrieveCompRecord() {

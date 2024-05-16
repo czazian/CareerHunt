@@ -33,6 +33,7 @@ class InterviewPrep : Fragment(), QuestionClickCallback {
     private lateinit var binding: FragmentInterviewPrepBinding
     private lateinit var dbRef: DatabaseReference
     private lateinit var dbRefAnswers: DatabaseReference
+    private var selectedFaq: Interview_FAQ? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,11 +52,10 @@ class InterviewPrep : Fragment(), QuestionClickCallback {
         dbRefAnswers = FirebaseDatabase.getInstance().getReference("Answer_FAQ")
 
         binding.submitbtn.setOnClickListener {
-            val overviewQuest = "1 Overview example"
-            val interviewQuest = "1 How do you handle stress?"
-            val faqCat = "Common Question"
-            val answerText = "1 I handle stress by..."
-
+            val overviewQuest = "2 account test"
+            val interviewQuest = "2 testing account"
+            val faqCat = "Accounting"
+            val answerText = "2 account........."
             if (overviewQuest.isNotEmpty() && interviewQuest.isNotEmpty() && answerText.isNotEmpty()) {
                 addFAQtoFirebase(overviewQuest, interviewQuest, faqCat, answerText)
             } else {
@@ -106,6 +106,10 @@ class InterviewPrep : Fragment(), QuestionClickCallback {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val faqs = snapshot.children.mapNotNull { it.getValue(Interview_FAQ::class.java) }
                 (binding.questionsRecyclerView.adapter as QuestionsAdapter).updateData(faqs)
+                // Update the questions count to display the total number of questions initially
+                binding.questionsCount.text = "${faqs.size} questions"
+                // Set the title to "All Questions" when all FAQs are loaded
+                binding.titleQuestion.text = "All Questions"
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -117,13 +121,27 @@ class InterviewPrep : Fragment(), QuestionClickCallback {
     private fun showCategoryDropdown() {
         val categories = listOf(
             "Common Question",
-            "Business Analyst",
-            "Investment Banking",
-            "Marketing Manager",
-            "Project Manager",
-            "Sales Development",
-            "Software Engineer",
-            "Software Developer"
+            "Accounting",
+            "Administrative",
+            "Office Support",
+            "Art and Design",
+            "Banking and Finance",
+            "Customer Service",
+            "Construction",
+            "Consulting",
+            "Education",
+            "Engineering",
+            "Farming and Animal",
+            "Healthcare",
+            "Human Resource",
+            "IT and Computing",
+            "Manufacturing",
+            "Marketing",
+            "Science",
+            "Retail",
+            "Sales",
+            "Insurance",
+            "Hospitality"
         )
 
         val listView = ListView(context).apply {
@@ -131,24 +149,22 @@ class InterviewPrep : Fragment(), QuestionClickCallback {
             setOnItemClickListener { _, _, position, _ ->
                 val selectedCategory = categories[position]
                 binding.spinnerCat.text = selectedCategory
+                binding.titleQuestion.text = selectedCategory  // Update the titleQuestion TextView
                 filterFAQsByCategory(selectedCategory)
             }
         }
 
-        // Calculate popup height dynamically based on the number of items
-        val popupHeight = if (categories.size > 7) 700 else WindowManager.LayoutParams.WRAP_CONTENT // Adjust this value based on your needs
+        // Configure the popup window
+        val popupHeight = if (categories.size > 7) 700 else WindowManager.LayoutParams.WRAP_CONTENT
         val popupWindow = PopupWindow(context).apply {
             contentView = listView
-            width = binding.spinnerCat.width  // Ensure the width matches the button
-            height = popupHeight  // Use the dynamically calculated height or maximum allowed height
-            isFocusable = true  // Allows it to gain focus, necessary for handling item clicks
-            elevation = 10.0f  // Provides a shadow under the popup window
-
-            // Set a rounded background drawable if required
+            width = binding.spinnerCat.width
+            height = popupHeight
+            isFocusable = true
+            elevation = 10.0f
             setBackgroundDrawable(resources.getDrawable(R.drawable.dropdown_item_bg, null))
         }
 
-        // Show the popup directly below the spinnerCat button
         popupWindow.showAsDropDown(binding.spinnerCat, 0, 0)
     }
 
@@ -158,6 +174,8 @@ class InterviewPrep : Fragment(), QuestionClickCallback {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val faqs = snapshot.children.mapNotNull { it.getValue(Interview_FAQ::class.java) }
                     (binding.questionsRecyclerView.adapter as QuestionsAdapter).updateData(faqs)
+                    // Update questions count based on the size of the filtered list
+                    binding.questionsCount.text = "${faqs.size} questions"
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -168,26 +186,25 @@ class InterviewPrep : Fragment(), QuestionClickCallback {
 
     override fun onQuestionClicked(faq: Interview_FAQ) {
         binding.descriptionQuestion.text = faq.overviewQuest
-        binding.SecondMiddleContainer.visibility = View.VISIBLE
+        selectedFaq = faq
+        fetchAnswer(faq.faqId) { answer ->
+            binding.sampleAnswer.text = answer
+            binding.SecondMiddleContainer.visibility = View.VISIBLE
+        }
     }
 
     private fun fetchAnswer(faqId: String, callback: (String) -> Unit) {
         dbRefAnswers.orderByChild("faqId").equalTo(faqId).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val answer = snapshot.children.firstOrNull()?.getValue(Answer_FAQ::class.java)?.answer ?: "No answer available"
-                callback(answer)
-            }
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(context, "Failed to fetch answer: ${error.message}", Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
-    private fun fetchAnswer(faqId: String) {
-        dbRefAnswers.orderByChild("faqId").equalTo(faqId).addListenerForSingleValueEvent(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val answer = if (snapshot.exists()) snapshot.children.first().getValue(Answer_FAQ::class.java)?.answer
-                else "No answer available"
-                binding.sampleAnswer.text = answer
+                if (snapshot.exists()) {
+                    val answer = snapshot.children.firstOrNull()?.getValue(Answer_FAQ::class.java)?.answer ?: "No answer available"
+                    callback(answer)
+                    binding.btnView.visibility = View.VISIBLE
+                } else {
+                    // No answers available, hide the button
+                    binding.btnView.visibility = View.GONE
+                    callback("No answer available")
+                }
             }
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(context, "Failed to fetch answer: ${error.message}", Toast.LENGTH_SHORT).show()
@@ -218,10 +235,15 @@ class InterviewPrep : Fragment(), QuestionClickCallback {
 
     private fun setupButtonListeners() {
         binding.btnView.setOnClickListener {
-            replaceFragment(SampleAnswer())
+            selectedFaq?.let { faq ->
+                openSampleAnswerFragment(faq)
+            } ?: Toast.makeText(context, "No question selected", Toast.LENGTH_SHORT).show()
         }
+    }
 
-        binding.spinnerCat.setOnClickListener { showCategoryDropdown() }
+    private fun openSampleAnswerFragment(faq: Interview_FAQ) {
+        val fragment = SampleAnswer.newInstance(faq.faqId)
+        replaceFragment(fragment)
     }
     private fun replaceFragment(fragment: Fragment) {
         parentFragmentManager.commit {

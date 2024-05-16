@@ -23,6 +23,7 @@ import com.example.careerhunt.data.Personal
 import com.example.careerhunt.databinding.FragmentEditBusinessAccBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
@@ -32,17 +33,14 @@ import org.w3c.dom.Text
 
 
 class EditBusinessAcc : Fragment() {
-   private lateinit var binding : FragmentEditBusinessAccBinding
-    private lateinit var profilePicImageView: CircleImageView
-    private var database =
-        FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/")
+    private lateinit var binding: FragmentEditBusinessAccBinding
+    private lateinit var myRef: DatabaseReference
 
-    private var myRef = database.reference
-    private lateinit var storageRef : StorageReference
-    private lateinit var galleryUri : Uri
+    private lateinit var storageRef: StorageReference
+    private lateinit var galleryUri: Uri
     private lateinit var sharedIDPreferences: SharedPreferences
     private var userId: String = ""
-    private lateinit var img : ImageView
+    private lateinit var img: ImageView
 
 
     override fun onCreateView(
@@ -55,7 +53,7 @@ class EditBusinessAcc : Fragment() {
         // Access SharedPreferences from MainActivity
         sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
         // Retrieve userId from SharedPreferences
-        userId = sharedIDPreferences.getString("userid","")?:""
+        userId = sharedIDPreferences.getString("userid", "") ?: ""
         retrieveCompRecord()
 
         storageRef = FirebaseStorage.getInstance().getReference()
@@ -68,12 +66,12 @@ class EditBusinessAcc : Fragment() {
             requireActivity().onBackPressed()
         }
 
-        binding.btnSaveChanges.setOnClickListener(){
+        binding.btnSaveChanges.setOnClickListener() {
             //Saving and update the user records
             saveChanges()
         }
 
-        binding.profilePic.setOnClickListener(){
+        binding.profilePic.setOnClickListener() {
             galleryLauncher.launch("image/*")
         }
 
@@ -82,15 +80,17 @@ class EditBusinessAcc : Fragment() {
     }
 
 
+    private fun retrieveCompRecord() {
+        val tfEditCompEmail: TextView = binding.tvEditCompEmail
+        val tfEditCompName: TextView = binding.tfEditCompName
+        val tfEditCompPhone: TextView = binding.tfEditCompPhone
+        val tfEditCompAdd: TextView = binding.tfEditCompAdd
+        val profileImg: ImageView = binding.profilePic
 
-    private fun retrieveCompRecord(){
-        val tfEditCompEmail : TextView = binding.tfEditCompEmail
-        val tfEditCompName : TextView = binding.tfEditCompName
-        val tfEditCompPhone : TextView = binding.tfEditCompPhone
-        val tfEditCompAdd : TextView = binding.tfEditCompAdd
-        val profileImg : ImageView = binding.profilePic
 
-        myRef.child("Company").child(userId.toString())
+        myRef = FirebaseDatabase.getInstance().getReference("Company")
+
+        myRef.child(userId.toString())
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
@@ -103,9 +103,9 @@ class EditBusinessAcc : Fragment() {
                             tfEditCompAdd.text = comp.compAddress
 
                             // Load profile image
-                            if(comp.compProfile!= ""){
-                            val profileImageUrl = comp.compProfile
-                             Glide.with(requireContext()).load(profileImageUrl).into(profileImg)
+                            if (comp.compProfile != "") {
+                                val profileImageUrl = comp.compProfile
+                                Glide.with(requireContext()).load(profileImageUrl).into(profileImg)
                             }
                         }
                     } else {
@@ -129,74 +129,87 @@ class EditBusinessAcc : Fragment() {
             })
     }
 
-    private fun saveChanges(){
-        val email : String = binding.tfEditCompEmail.text.toString()
-        val name : String = binding.tfEditCompName.text.toString()
+    private fun saveChanges() {
+        val email: String = binding.tvEditCompEmail.text.toString()
+        val name: String = binding.tfEditCompName.text.toString()
         val phoneNum: String = binding.tfEditCompPhone.text.toString()
-        val address : String = binding.tfEditCompAdd.text.toString()
+        val address: String = binding.tfEditCompAdd.text.toString()
 
-        val errMsg = fieldValidation(name, email, address,phoneNum)
+        val errMsg = fieldValidation(name, email, address, phoneNum)
+        myRef = FirebaseDatabase.getInstance().getReference("Company")
 
+
+        // Check if a new profile picture is selected
+        val isNewProfilePictureSelected = ::galleryUri.isInitialized
 
         // store the changes into firebase
         if (errMsg.isEmpty()) {
-            val ref = storageRef.child("imgProfile/" + userId + ".png")
+            val updates = hashMapOf<String, Any>(
+                "compName" to name,
+                "compPhoneNum" to phoneNum,
+                "compAddress" to address,
+            )
+            if (isNewProfilePictureSelected) {
+                // If a new profile picture is selected, proceed with uploading it
+                val ref = storageRef.child("compProfile/" + userId + ".png")
 
-            ref.putFile(galleryUri)
-                .addOnSuccessListener {
-                    ref.downloadUrl.addOnSuccessListener { uri ->
-                        val profileImageUrl = uri.toString()
+                ref.putFile(galleryUri)
+                    .addOnSuccessListener {
+                        ref.downloadUrl.addOnSuccessListener { uri ->
+                            val profileImageUrl = uri.toString()
+                            updates["profileImg"] = profileImageUrl
 
-                        val updates = hashMapOf<String, Any>(
-                            "email" to email,
-                            "compName" to name,
-                            "compPhoneNum" to phoneNum,
-                            "compAddress" to address,
-                            "compProfile" to profileImageUrl
-                        )
-
-                        myRef.child("Company").child(userId).updateChildren(updates)
-                            .addOnSuccessListener {
-                                Toast.makeText(requireContext(), "Update Completed", Toast.LENGTH_SHORT).show()
-                                val fragmentManager = requireActivity().supportFragmentManager
-                                val fragmentTransaction = fragmentManager.beginTransaction()
-                                val newFragment = BusinessAccount()
-                                fragmentTransaction.replace(R.id.frameLayout, newFragment)
-                                fragmentTransaction.addToBackStack(null)
-                                fragmentTransaction.commit()
-                            }
-                            .addOnFailureListener { e ->
-                                Toast.makeText(requireContext(), "Fail to Update: ${e.message}", Toast.LENGTH_SHORT)
-                                    .show()
-                            }
+                            updateProfile(updates)
+                        }
                     }
-                }
-                .addOnFailureListener { e ->
-                    Toast.makeText(requireContext(), "Fail to Update: ${e.message}", Toast.LENGTH_SHORT).show()
-                }
+                    .addOnFailureListener { e ->
+                        Toast.makeText(requireContext(), "Fail to Update Profile Picture: ${e.message}", Toast.LENGTH_SHORT).show()
+                    }
+            } else {
+                // If no new profile picture is selected, update other fields using the existing profile image
+                updateProfile(updates)
+            }
         } else {
             // If any invalid input
             val builder = AlertDialog.Builder(requireContext())
             builder.setTitle("Registration Failed")
                 .setMessage(errMsg.toString())
                 .setPositiveButton("OK") { dialog, _ ->
-                    Toast.makeText(
-                        requireContext(),
-                        "Please follow the instruction",
-                        Toast.LENGTH_LONG
-                    )
-                        .show()
+                    dialog.dismiss()
                 }
             builder.show()
         }
 
     }
 
+private fun updateProfile(updates: HashMap<String, Any>) {
+    myRef.child(userId.toString()).updateChildren(updates)
+        .addOnSuccessListener {
+            Toast.makeText(
+                requireContext(),
+                "Update Completed",
+                Toast.LENGTH_SHORT
+            ).show()
+            val fragmentManager =
+                requireActivity().supportFragmentManager
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            val newFragment = BusinessAccount()
+            fragmentTransaction.replace(R.id.frameLayout, newFragment)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+        }
+        .addOnFailureListener { e ->
+            Toast.makeText(requireContext(), "Fail to Update: ${e.message}", Toast.LENGTH_SHORT)
+                .show()
+        }
+}
+
+
     fun fieldValidation(
         name: String,
         email: String,
         address: String,
-        phoneNum:String
+        phoneNum: String
     ): String {
         var errorMessage = ""
 
@@ -211,14 +224,13 @@ class EditBusinessAcc : Fragment() {
             errorMessage += "*Invalid email format.\n"
         }
 
-
         if (address.isEmpty()) {
             errorMessage += "*Address cannot be empty.\n"
         }
 
-        if(phoneNum.isEmpty()){
+        if (phoneNum.isEmpty()) {
             errorMessage += "*Phone Number cannot be empty.\n"
-        }else if(!isValidPhoneNum(phoneNum)){
+        } else if (!isValidPhoneNum(phoneNum)) {
             errorMessage += "*Invalid phone number format.\n"
         }
 
@@ -231,6 +243,7 @@ class EditBusinessAcc : Fragment() {
         return emailRegex.matches(email)
     }
 
+
     fun isValidPhoneNum(phone: String): Boolean {
         val phoneRegex = Regex("^\\d{3}-\\d{7}\$")
         return phoneRegex.matches(phone)
@@ -239,65 +252,12 @@ class EditBusinessAcc : Fragment() {
 
     private val galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) {
         galleryUri = it!!
-        try{
+        try {
             img.setImageURI(galleryUri)
-        }catch(e:Exception){
+        } catch (e: Exception) {
             e.printStackTrace()
         }
 
     }
-
-   /* private fun checkPermissionsAndOpenImagePicker() {
-        if (ContextCompat.checkSelfPermission(
-                requireActivity(),
-                Manifest.permission.READ_EXTERNAL_STORAGE
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                requireActivity(),
-                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
-                PERMISSION_REQUEST_CODE
-            )
-        } else {
-            openImagePicker()
-        }
-    }
-
-    private fun openImagePicker() {
-        TedImagePicker.with(this)
-            .start { uri ->
-                // Handle the selected image URI
-                uri?.let { updateProfilePicture(it) }
-            }
-    }
-
-    private fun updateProfilePicture(imageUri: Uri) {
-        // Update the profile picture ImageView with the selected image
-        profilePicImageView.setImageURI(imageUri)
-        // You can also save the URI or the image itself to use it later
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == PERMISSION_REQUEST_CODE) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                openImagePicker()
-            } else {
-                Toast.makeText(
-                    requireActivity(),
-                    "Permission denied. Cannot access storage.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }
-    }
-
-    companion object {
-        private const val PERMISSION_REQUEST_CODE = 100
-    }*/
 
 }

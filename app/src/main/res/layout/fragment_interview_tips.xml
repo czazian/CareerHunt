@@ -67,8 +67,10 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/topContainer"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topContainer">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -79,12 +81,10 @@
                 android:layout_width="354dp"
                 android:layout_height="56dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginTop="32dp"
                 android:text="Tips for before, during, and after an interview"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -93,10 +93,10 @@
                 android:layout_width="371dp"
                 android:layout_height="63dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 android:text="Tips for answering specific types of questions"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -127,15 +127,17 @@
 
             <TextView
                 android:id="@+id/textView9Content"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:visibility="gone"
-                android:text="1. Describe a time when you faced a significant challenge at work.\n2. How do you handle stress and pressure?\n3. Give an example of a goal you reached and how you achieved it."
+                android:text="1. Describe a time when you faced a significant challenge at work: In your response, describe the context of the challenge, your specific role in the situation, the actions you took to overcome the challenge, and the results of your efforts. Highlight skills such as problem-solving, teamwork, and resilience that were crucial in managing the situation.
+\n2. How do you handle stress and pressure: Explain the strategies you employ to manage stress effectively, such as prioritization of tasks, use of relaxation techniques, or seeking supportive feedback from peers. Your answer should convey your ability to maintain productivity and composure under pressure.
+\n3. Give an example of a goal you reached and how you achieved it: Discuss the process of setting the goal, your approach to tackling the challenges along the way, the strategies you used to stay on track, and the outcome. Emphasize your determination, strategic planning, and the ability to adapt to changing circumstances."
                 android:textColor="#A7AEAF"
-                android:textSize="10sp"
+                android:textSize="12sp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.144"
                 app:layout_constraintStart_toStartOf="parent"
@@ -179,15 +181,17 @@
 
             <TextView
                 android:id="@+id/textView10Content"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:visibility="gone"
-                android:text="1. Explain how you would debug a critical issue in production.\n2. Describe a technical project you worked on and your role in it.\n3. What programming languages are you most comfortable with and why?"
+                android:text="1. Explain how you would debug a critical issue in production: Detail a step-by-step approach to identifying and resolving production issues, including how you isolate the problem, test potential fixes, and implement solutions to prevent future occurrences. Emphasize your analytical skills and ability to work under pressure.
+\n2. Describe a technical project you worked on and your role in it: Provide insights into a specific project where you played a critical role. Describe the project's objectives, your responsibilities, the technologies you utilized, and the impact of the project’s success. Highlight your technical skills and collaborative efforts.
+\n3. What programming languages are you most comfortable with and why: Share your experience with different programming languages, focusing on those you are most skilled in. Discuss the types of projects you have completed using these languages and explain why you prefer them, emphasizing both practical and strategic reasons."
                 android:textColor="#A7AEAF"
-                android:textSize="10sp"
+                android:textSize="12sp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.236"
                 app:layout_constraintStart_toStartOf="parent"
@@ -221,16 +225,18 @@
 
             <TextView
                 android:id="@+id/textView11Content"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="50dp"
-                android:visibility="gone"
-                android:text="1. Tell me about your previous work experience.\n2. Why did you leave your last job?\n3. What is your educational background?"
+                android:text="1. Tell me about your previous work experience: Summarize your relevant job experiences, focusing on the roles you have held, key responsibilities, and significant achievements. This overview should provide a clear picture of your career progression and the skills you have developed.
+\n2. Why did you leave your last job: Address this question positively, focusing on the pursuit of new challenges, the desire for career growth, or changes in life circumstances that motivated your decision to seek new opportunities.
+\n3. What is your educational background: Detail your educational qualifications, including the degrees you have obtained, the institutions you attended, and any particularly relevant courses or projects. Highlight how your education has prepared you for the role you are applying for."
                 android:textColor="#A7AEAF"
-                android:textSize="10sp"
+                android:textSize="12sp"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.076"
@@ -261,15 +267,15 @@
 
             <TextView
                 android:id="@+id/textView6Content"
-                android:layout_width="356dp"
-                android:layout_height="42dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:visibility="gone"
                 android:text="1. Be confident and maintain good posture.\n2. Listen carefully and answer questions thoughtfully.\n3. Ask your own questions to show your interest in the role."
                 android:textColor="#A7AEAF"
-                android:textSize="10sp"
+                android:textSize="12sp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -287,15 +293,15 @@
 
             <TextView
                 android:id="@+id/textView7Content"
-                android:layout_width="352dp"
-                android:layout_height="44dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:visibility="gone"
                 android:text="1. Send a thank-you email within 24 hours.\n2. Reflect on what went well and what could be improved.\n3. Follow up if you haven't heard back within the expected time frame."
                 android:textColor="#A7AEAF"
-                android:textSize="10sp"
+                android:textSize="12sp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -324,22 +330,18 @@
 
             <TextView
                 android:id="@+id/textView12"
-                android:layout_width="358dp"
-                android:layout_height="117dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:visibility="gone"
                 android:text="1. Research the company: Understand its mission, values, products/services, and recent news.
 \n2. Review the job description: Familiarize yourself with the required skills and responsibilities.
 \n3. Practice common interview questions: Prepare concise, compelling answers.
-\n4. Dress appropriately: Choose professional attire that aligns with the company culture.
-\n5. Arrive early: Aim to arrive 10-15 minutes before the scheduled time.
-\n6. Bring necessary documents: Copies of your resume, portfolio, and any other relevant materials.
-\n7. Stay positive and confident: Believe in yourself and your abilities.
-\n8. Relax and breathe: Take deep breaths to calm nerves before entering the interview room."
+\n4. Dress appropriately: Choose professional attire that aligns with the company culture."
                 android:textColor="#A7AEAF"
-                android:textSize="10sp"
+                android:textSize="12sp"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />

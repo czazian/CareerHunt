@@ -4,12 +4,12 @@
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable-night\\baseline_job_field.xml"
     },
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_logout_24.xml.flat",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_logout_24.xml"
-    },
-    {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_people_alt_24.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_people_alt_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_logout_24.xml.flat",
+        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_logout_24.xml"
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_speaker_phone_24.xml.flat",
@@ -20,6 +20,18 @@
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\activity_main.xml"
     },
     {
+<<<<<<< HEAD
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-84:\\drawable_custom_location_icon.xml.flat",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\drawable\\custom_location_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-84:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-84:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\mipmap-xhdpi\\ic_launcher.webp"
+=======
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_bookmark_24.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_bookmark_24.xml"
     },
@@ -30,30 +42,45 @@
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_popup.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\popup.xml"
+>>>>>>> ffb2dcd07b2be69450b462da96e690c709cf159a
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_data_exploration_24_green.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_data_exploration_24_green.xml"
     },
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_location_on_24.xml.flat",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_location_on_24.xml"
+        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_layout_group.xml.flat",
+        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\layout_group.xml"
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\menu_bottom_navigation.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\menu\\bottom_navigation.xml"
     },
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_layout_group.xml.flat",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\layout_group.xml"
+<<<<<<< HEAD
+        "merged": "com.example.careerhunt.app-merged_res-84:/layout_fragment_interview_tips.xml.flat",
+        "source": "com.example.careerhunt.app-main-86:/layout/fragment_interview_tips.xml"
+=======
+        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_location_on_24.xml.flat",
+        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_location_on_24.xml"
+>>>>>>> ffb2dcd07b2be69450b462da96e690c709cf159a
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\mipmap-xxxhdpi\\ic_launcher_foreground.webp"
     },
     {
+<<<<<<< HEAD
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-84:\\layout_fragment_setting.xml.flat",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\layout\\fragment_setting.xml"
+    },
+    {
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-84:\\drawable_custom_name.xml.flat",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\drawable\\custom_name.xml"
+=======
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_fragment_register_business.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_register_business.xml"
+>>>>>>> ffb2dcd07b2be69450b462da96e690c709cf159a
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\mipmap-hdpi_ic_launcher_round.webp.flat",
@@ -124,12 +151,17 @@
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\profilepic.png"
     },
     {
+<<<<<<< HEAD
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-84:\\layout_fragment_notification.xml.flat",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\layout\\fragment_notification.xml"
+=======
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable-night_baseline_list_24.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable-night\\baseline_list_24.xml"
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_manage_accounts_24.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_manage_accounts_24.xml"
+>>>>>>> ffb2dcd07b2be69450b462da96e690c709cf159a
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_fragment_alumni_community_detail.xml.flat",
@@ -276,8 +308,17 @@
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\empty_img.png"
     },
     {
+<<<<<<< HEAD
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-84:\\drawable_baseline_favorite_24_red.xml.flat",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\drawable\\baseline_favorite_24_red.xml"
+    },
+    {
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-84:\\drawable-night_baseline_applied.xml.flat",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\drawable-night\\baseline_applied.xml"
+=======
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_fragment_forget_password.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_forget_password.xml"
+>>>>>>> ffb2dcd07b2be69450b462da96e690c709cf159a
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_lock.xml.flat",
@@ -400,8 +441,17 @@
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_location_pin_24.xml"
     },
     {
+<<<<<<< HEAD
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-84:\\layout_practice_result.xml.flat",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\layout\\practice_result.xml"
+    },
+    {
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-84:\\drawable_baseline_arrow_circle_right_24.xml.flat",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\drawable\\baseline_arrow_circle_right_24.xml"
+=======
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_location_24.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_location_24.xml"
+>>>>>>> ffb2dcd07b2be69450b462da96e690c709cf159a
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_arrow_down.png.flat",
@@ -432,6 +482,18 @@
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
+<<<<<<< HEAD
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-84:\\layout_fragment_practice_result.xml.flat",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\layout\\fragment_practice_result.xml"
+    },
+    {
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-84:\\layout_fragment_faq.xml.flat",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\layout\\fragment_faq.xml"
+    },
+    {
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-84:\\drawable_baseline_cancel_24.xml.flat",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\drawable\\baseline_cancel_24.xml"
+=======
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
@@ -442,6 +504,7 @@
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_alumni_list_item.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\alumni_list_item.xml"
+>>>>>>> ffb2dcd07b2be69450b462da96e690c709cf159a
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_item_question.xml.flat",
@@ -490,10 +553,6 @@
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\anim_fade_in.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\anim\\fade_in.xml"
-    },
-    {
-        "merged": "com.example.careerhunt.app-merged_res-5:/layout_job_viewholder.xml.flat",
-        "source": "com.example.careerhunt.app-main-7:/layout/job_viewholder.xml"
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_phone.xml.flat",
@@ -608,16 +667,34 @@
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\item_dropdown.xml"
     },
     {
+<<<<<<< HEAD
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-84:\\layout_practice_question.xml.flat",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\layout\\practice_question.xml"
+    },
+    {
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-84:\\drawable_baseline_change_language.xml.flat",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\drawable\\baseline_change_language.xml"
+=======
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_view_applied_holder.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\view_applied_holder.xml"
+>>>>>>> ffb2dcd07b2be69450b462da96e690c709cf159a
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_fragment_applicant_details.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_applicant_details.xml"
     },
     {
+<<<<<<< HEAD
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-84:\\layout_fragment_practice_interview.xml.flat",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\layout\\fragment_practice_interview.xml"
+    },
+    {
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-84:\\anim_fade_out.xml.flat",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\anim\\fade_out.xml"
+=======
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_ic_launcher_background.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\ic_launcher_background.xml"
+>>>>>>> ffb2dcd07b2be69450b462da96e690c709cf159a
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_search_24.xml.flat",
@@ -682,6 +759,10 @@
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_link_hower.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\link_hower.xml"
+    },
+    {
+        "merged": "com.example.careerhunt.app-merged_res-5:/layout_fragment_applicant_details.xml.flat",
+        "source": "com.example.careerhunt.app-main-7:/layout/fragment_applicant_details.xml"
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_view_published_holder.xml.flat",
