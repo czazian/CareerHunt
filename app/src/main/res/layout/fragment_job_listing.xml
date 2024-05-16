@@ -8,23 +8,7 @@
     android:background="#00E1E1E1"
     tools:context=".JobListing">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_centerInParent="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/nestedScrollView">
-
-        <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:id="@+id/progressIndicator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:indeterminate="true" />
-    </RelativeLayout>
-
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,7 +21,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/recommendedContainer"
                 android:layout_width="match_parent"
@@ -46,25 +29,8 @@
                 android:paddingTop="20dp"
                 android:paddingEnd="20dp"
                 android:paddingRight="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="NotSibling">
-
-                <TextView
-                    android:id="@+id/noJobIndicator"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/border"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="No job related to your field."
-                    android:textSize="18sp"
-                    android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recommendedJobRecyclerView" />
+                app:layout_constraintTop_toBottomOf="@id/topContainer"
+                tools:layout_editor_absoluteX="0dp">
 
                 <TextView
                     android:id="@+id/txtRecommendedTitle"
@@ -102,7 +68,6 @@
                     android:orientation="vertical"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnShowAllRecommended"
                     app:layout_constraintVertical_bias="0.0"
@@ -117,9 +82,8 @@
                 android:paddingLeft="20dp"
                 android:paddingTop="20dp"
                 android:paddingEnd="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recommendedContainer">
+                app:layout_constraintTop_toBottomOf="@+id/recommendedContainer"
+                tools:layout_editor_absoluteX="16dp">
 
                 <Button
                     android:id="@+id/btnShowAllLatest"
@@ -169,7 +133,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/topContainer"
         android:layout_width="0dp"
-        android:layout_height="85dp"
+        android:layout_height="79dp"
         android:background=" #138ef0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -180,10 +144,11 @@
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_marginStart="20dp"
-            android:src="@drawable/empty_img"
+            android:src="@drawable/profile"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.49"
             app:shapeAppearanceOverlay="@style/circleImageView" />
 
         <TextView
@@ -204,16 +169,14 @@
 
         <TextView
             android:id="@+id/lblUserName"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="20dp"
             android:text="Koyasu_An"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnAddJob"
             app:layout_constraintStart_toEndOf="@+id/profileImage"
             app:layout_constraintTop_toBottomOf="@+id/lblWelcome" />
 
@@ -226,10 +189,10 @@
             android:padding="5dp"
             android:scaleType="centerCrop"
             android:src="@drawable/baseline_add_box_24"
+            app:tint="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="@+id/btnNotification"
             app:layout_constraintEnd_toStartOf="@+id/btnNotification"
-            app:layout_constraintTop_toTopOf="@+id/btnNotification"
-            app:tint="#FFFFFF" />
+            app:layout_constraintTop_toTopOf="@+id/btnNotification" />
 
         <ImageButton
             android:id="@+id/btnNotification"
@@ -241,10 +204,10 @@
             android:padding="5dp"
             android:scaleType="centerCrop"
             android:src="@drawable/baseline_notifications_none_24"
+            app:tint="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="#FFFFFF" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
