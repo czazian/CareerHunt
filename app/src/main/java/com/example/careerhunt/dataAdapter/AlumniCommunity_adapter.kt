@@ -189,7 +189,15 @@ class AlumniCommunity_adapter(private val context: Context) : RecyclerView.Adapt
 
         //when share button is click
         holder.itemView.findViewById<View>(R.id.btnShare).setOnClickListener {
-            var data = "haha"
+            var data =  """
+            ALumni Post by ${username},
+            
+            Title: ${currentItem.title}
+            Content: ${currentItem.content}
+            
+            From CarrerHunt
+            """
+
             val intent = Intent(Intent.ACTION_SEND)
             intent.type = "text/plain"
             intent.putExtra(Intent.EXTRA_TEXT, data)

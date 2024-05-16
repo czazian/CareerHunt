@@ -2,6 +2,7 @@ package com.example.careerhunt
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.media.Image
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
