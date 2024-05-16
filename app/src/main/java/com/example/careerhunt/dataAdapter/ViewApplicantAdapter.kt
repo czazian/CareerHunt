@@ -1,21 +1,32 @@
 package com.example.careerhunt.dataAdapter
 
+
+import android.content.ActivityNotFoundException
+import android.content.ContentValues.TAG
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.careerhunt.R
-import com.example.careerhunt.ViewApplicant
 import com.example.careerhunt.data.Personal
+import com.example.careerhunt.interfaces.JobInterface
+import com.example.careerhunt.interfaces.UserInterface
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
 
-class ViewApplicantAdapter(private var listener: ViewApplicant
-) : RecyclerView.Adapter<ViewApplicantAdapter.ViewApplicantHolder>() {
+class ViewApplicantAdapter(private var listener: UserInterface.RecyclerViewEvent) : RecyclerView.Adapter<ViewApplicantAdapter.ViewApplicantHolder>() {
 
     private var personalList = emptyList<Personal>()
     private lateinit var storageRef: StorageReference
