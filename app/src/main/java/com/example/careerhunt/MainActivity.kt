@@ -7,12 +7,7 @@ import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.ViewModelProvider
-import com.example.careerhunt.data.Company
 import com.example.careerhunt.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
@@ -23,7 +18,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var sharedStatusPreference: SharedPreferences
     lateinit var sharedLogoutPreferences: SharedPreferences
     lateinit var sharedLangPreferences: SharedPreferences
-
 
     private var userId: String = ""
     private var userType: String = ""
@@ -99,7 +93,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.alumni -> {
                     val transaction = fragmentManager.beginTransaction()
-                    val fragment = Alumni()
+                    val fragment = Setting()
                     transaction.replace(binding.frameLayout.id, fragment)
                     transaction.addToBackStack(null)
                     transaction.commit()

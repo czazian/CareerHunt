@@ -30,7 +30,7 @@ class faq : Fragment() {
         expandableListView = binding.expandableListView
 
         val q1: MutableList<String> = ArrayList()
-        q1.add("Lorem Ipsum is simply dummy text of the printing and typesetting industry. ")
+        q1.add("You can search the job field that you wish you apply for, click Apply and fill in your details. ")
 
         val q2: MutableList<String> = ArrayList()
         q2.add("Lorem Ipsum is simply dummy text of the printing and typesetting industry. ")

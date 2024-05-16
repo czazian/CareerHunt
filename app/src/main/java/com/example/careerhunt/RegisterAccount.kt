@@ -1,8 +1,10 @@
 package com.example.careerhunt
 
 import android.app.AlertDialog
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,8 +24,6 @@ import java.security.NoSuchAlgorithmException
 
 class RegisterAccount : Fragment() {
     private lateinit var binding: FragmentRegisterAccountBinding
-
-    //private lateinit var database: DatabaseReference
     private var database =
         FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/")
 
@@ -36,9 +36,6 @@ class RegisterAccount : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentRegisterAccountBinding.inflate(inflater, container, false)
         val view = binding.root
-
-        //Database connection
-        //database =FirebaseDatabase.getInstance().getReference("Personal")// refer to the tree Person
 
         binding.btnBack.setOnClickListener() {
             requireActivity().onBackPressed()
@@ -64,51 +61,63 @@ class RegisterAccount : Fragment() {
                     // Get the count of children nodes
                     val count = snapshot.childrenCount.toInt()
 
-                    // Now you can use the count value as needed, such as for assigning a new personalID
-                    // For example:
                     val personalID = count + 1 // Increment count for the new entry
 
-                    Toast.makeText(requireContext(),"personalID: " + personalID,Toast.LENGTH_SHORT).show()
-
                     if (errMsg.isEmpty()) {
-                        val hashedPassword = hashPassword(password)
+                        // Check if email is unique
+                        checkUniqueEmail(email) { isUnique ->
+                            if (isUnique) {
+                                val hashedPassword = hashPassword(password)
 
-                        val personal = Personal(
-                                personalID,
-                                name.toString(),
-                                email.toString(),
-                                hashedPassword,
-                                "",
-                                "",
-                                phoneNum,
-                                gender.toString(),
-                                jobField.toString()
-                            )
+                                val personal = Personal(
+                                    personalID,
+                                    name.toString(),
+                                    email.toString(),
+                                    hashedPassword,
+                                    "",
+                                    "",
+                                    phoneNum,
+                                    gender.toString(),
+                                    jobField.toString()
+                                )
 
-                            // Push the data to Firebase
-                            myRef.child("Personal").child(personalID.toString())
-                                .setValue(personal)
-                                .addOnCompleteListener {
-                                    Toast.makeText(
-                                        requireContext(),
-                                        "Information Recorded",
-                                        Toast.LENGTH_LONG
-                                    ).show()
-                                    Toast.makeText(
-                                        requireContext(),
-                                        "Register Successfully",
-                                        Toast.LENGTH_SHORT
-                                    )
-                                        .show()
-                                    backToLogin()
-                                }
-                                .addOnFailureListener {
-                                    Toast.makeText(
-                                        requireContext(),
-                                        "Error ${it.toString()}",
-                                        Toast.LENGTH_LONG
-                                    ).show()
-                                }
+                                // Push the data to Firebase
+                                myRef.child("Personal").child(personalID.toString())
+                                    .setValue(personal)
+                                    .addOnCompleteListener {
+                                        assignDefaultProfileImage(personalID)
+
+                                        Toast.makeText(
+                                            requireContext(),
+                                            "Information Recorded",
+                                            Toast.LENGTH_LONG
+                                        ).show()
+                                        Toast.makeText(
+                                            requireContext(),
+                                            "Register Successfully",
+                                            Toast.LENGTH_SHORT
+                                        )
+                                            .show()
+                                        backToLogin()
+                                    }
+                                    .addOnFailureListener {
+                                        Toast.makeText(
+                                            requireContext(),
+                                            "Error ${it.toString()}",
+                                            Toast.LENGTH_LONG
+                                        ).show()
+                                    }
+                            } else {
+                                // Email already exists, show error message
+                                val builder = AlertDialog.Builder(requireContext())
+                                builder.setTitle("Registration Failed")
+                                    .setMessage("*Email already exists. Please enter a different email address")
+                                    .setPositiveButton("OK") { dialog, _ ->
+                                        dialog.dismiss()
+                                    }
+                                builder.show()
+                            }
+                        }
 
                     } else {
                         // If any invalid input
@@ -116,12 +125,7 @@ class RegisterAccount : Fragment() {
                         builder.setTitle("Registration Failed")
                             .setMessage(errMsg.toString())
                             .setPositiveButton("OK") { dialog, _ ->
-                                Toast.makeText(
-                                    requireContext(),
-                                    "Please follow the instruction",
-                                    Toast.LENGTH_LONG
-                                )
-                                    .show()
+                                dialog.dismiss()
                             }
                         builder.show()
                     }
@@ -139,13 +143,7 @@ class RegisterAccount : Fragment() {
     }
 
     private fun backToLogin() {
-        Toast.makeText(requireContext(), "back to login", Toast.LENGTH_SHORT).show()
         requireActivity().onBackPressed()
-
-        /*val intent = Intent(requireContext(), LoginContainer::class.java)
-        startActivity(intent)
-        requireActivity().finish() // this is to finish the hosting activity
-         */
     }
 
     fun fieldValidation(
@@ -197,12 +195,25 @@ class RegisterAccount : Fragment() {
         return emailRegex.matches(email)
     }
 
-    /* fun isUniqueEmail(email:String): Task<DataSnapshot> {
-         String uniqueEmail = database.child("Personal").child("Email").get()
-         if(uniqueEmail == email)
+    private fun checkUniqueEmail(email: String, callback: (Boolean) -> Unit) {
+        // Reference to the "Personal" node in Firebase database
+        val personalRef = myRef.child("Personal")
 
+        // Query to check if the email already exists
+        personalRef.orderByChild("email").equalTo(email)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    // If a user with the given email already exists
+                    val isUnique = snapshot.childrenCount == 0L
+                    callback(isUnique)
+                }
 
-     }*/
+                override fun onCancelled(error: DatabaseError) {
+                    // Handle error
+                    callback(false)
+                }
+            })
+    }
 
     fun isValidPhoneNum(phone: String): Boolean {
         val phoneRegex = Regex("^\\d{3}-\\d{7}\$")
@@ -218,6 +229,24 @@ class RegisterAccount : Fragment() {
         } catch (ex: NoSuchAlgorithmException) {
             ""// if error on converting to hash
         }
+    }
+
+    // every personal that reguster will be assigned with a default profile pic
+    private fun assignDefaultProfileImage(personalID:Int) {
+        // Get the default profile image path from Firebase Storage
+        val defaultProfileImagePath = "gs://careerhunt-e6787.appspot.com/imgProfile/default_profile.png"
+
+        // Update the user's profileImg field with the default profile image path
+        myRef.child("Personal").child(personalID.toString()).child("profileImg")
+            .setValue(defaultProfileImagePath)
+            .addOnSuccessListener {
+                // Profile image path assigned successfully
+                Log.d(TAG, "Default profile image path assigned successfully")
+            }
+            .addOnFailureListener { e ->
+                // Error assigning default profile image path
+                Log.e(TAG, "Error assigning default profile image path: ${e.message}")
+            }
     }
 
 

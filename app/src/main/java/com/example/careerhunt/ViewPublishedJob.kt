@@ -20,6 +20,7 @@ import com.example.careerhunt.dataAdapter.PublishedJobListAdapter
 import com.example.careerhunt.databinding.FragmentViewPublishedJobBinding
 import com.example.careerhunt.interfaces.JobInterface
 import com.example.careerhunt.interfaces.UserInterface
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -103,28 +104,28 @@ class ViewPublishedJob : Fragment() , UserInterface.RecyclerViewEvent{
 // click on each RecycleView Item
     override fun onItemClick(position: Int) {
         //Get the clicked object
-        //val jobObj: Job = publishedJobList[position]
-        //val fragment = publishedJob_details()
+        val jobObj: Job = publishedJobList[position]
+        val fragment = publishedJob_details()
 
         //Add Result Object into Bundle
-        //val bundle = Bundle()
-        //bundle.putSerializable("job", jobObj)
-        //fragment.arguments = bundle
+        val bundle = Bundle()
+        bundle.putSerializable("job", jobObj)
+        fragment.arguments = bundle
 
-        //val transaction = activity?.supportFragmentManager?.beginTransaction()
-        //transaction?.replace(R.id.frameLayout, fragment)
-        //transaction?.addToBackStack(null)
-        //transaction?.commit()
+        val transaction = activity?.supportFragmentManager?.beginTransaction()
+        transaction?.replace(R.id.frameLayout, fragment)
+        transaction?.addToBackStack(null)
+        transaction?.commit()
     }
 
     private fun showErrorDialog(){
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Error")
+        MaterialAlertDialogBuilder(requireContext())
+       .setTitle("Error")
             .setMessage("No Record(s) Found")
-            .setPositiveButton("OK") { dialog, _ ->
+            .setPositiveButton("OK") {  dialog, which ->
                 dialog.dismiss()
             }
-        builder.show()
+        .show()
     }
 
 }

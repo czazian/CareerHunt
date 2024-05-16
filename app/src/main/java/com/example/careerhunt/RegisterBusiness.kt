@@ -21,8 +21,6 @@ import java.security.NoSuchAlgorithmException
 
 class RegisterBusiness : Fragment() {
     private lateinit var binding: FragmentRegisterBusinessBinding
-
-    //private lateinit var database: DatabaseReference
     private var database =
         FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/")
     private var myRef = database.reference
@@ -35,9 +33,6 @@ class RegisterBusiness : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentRegisterBusinessBinding.inflate(inflater, container, false)
         val view = binding.root
-
-        //Database connection
-        //database =FirebaseDatabase.getInstance().getReference("Company")
 
         binding.btnBack.setOnClickListener() {
             requireActivity().onBackPressed()
@@ -61,41 +56,58 @@ class RegisterBusiness : Fragment() {
                     val companyID = count + 1 // Increment count for the new entry
 
                     if (errMsg.isEmpty()) {
-                        val hashedPassword = hashPassword(password)
+                        // Check if email is unique
+                        checkUniqueEmail(email) { isUnique ->
+                            if (isUnique) {
+                                val hashedPassword = hashPassword(password)
 
-                        val company = Company(
-                                companyID,
-                                name.toString(),
-                                email.toString(),
-                                hashedPassword,
-                                "",
-                                phoneNum,
-                                compAdd.toString(),
-                            )
-                            // Push the reservation data to Firebase
-                            myRef.child("Company").child(companyID.toString())
-                                .setValue(company)
-                                .addOnCompleteListener {
-                                    Toast.makeText(
-                                        requireContext(),
-                                        "Information Recorded",
-                                        Toast.LENGTH_LONG
-                                    ).show()
-                                    Toast.makeText(
-                                        requireContext(),
-                                        "Register Successfully",
-                                        Toast.LENGTH_SHORT
-                                    )
-                                        .show()
-                                    backToLogin()
-                                }
-                                .addOnFailureListener {
-                                    Toast.makeText(
-                                        requireContext(),
-                                        "Error ${it.toString()}",
-                                        Toast.LENGTH_LONG
-                                    ).show()
-                                }
+                                val company = Company(
+                                    companyID,
+                                    name.toString(),
+                                    email.toString(),
+                                    hashedPassword,
+                                    "",
+                                    phoneNum,
+                                    compAdd.toString(),
+                                )
+                                // Push the reservation data to Firebase
+                                myRef.child("Company").child(companyID.toString())
+                                    .setValue(company)
+                                    .addOnCompleteListener {
+                                        Toast.makeText(
+                                            requireContext(),
+                                            "Information Recorded",
+                                            Toast.LENGTH_LONG
+                                        ).show()
+                                        Toast.makeText(
+                                            requireContext(),
+                                            "Register Successfully",
+                                            Toast.LENGTH_SHORT
+                                        )
+                                            .show()
+                                        backToLogin()
+                                    }
+                                    .addOnFailureListener {
+                                        Toast.makeText(
+                                            requireContext(),
+                                            "Error ${it.toString()}",
+                                            Toast.LENGTH_LONG
+                                        ).show()
+                                    }
+
+                            } else {
+                                // Email already exists, show error message
+                                val builder = AlertDialog.Builder(requireContext())
+                                builder.setTitle("Registration Failed")
+                                    .setMessage("*Email already exists. Please enter a different email address")
+                                    .setPositiveButton("OK") { dialog, _ ->
+                                        dialog.dismiss()
+                                    }
+                                builder.show()
+                            }
+                        }
+
+
 
                     } else {
 
@@ -103,12 +115,7 @@ class RegisterBusiness : Fragment() {
                         builder.setTitle("Registration Failed")
                             .setMessage(errMsg.toString())
                             .setPositiveButton("OK") { dialog, _ ->
-                                Toast.makeText(
-                                    requireContext(),
-                                    "Please follow the instruction",
-                                    Toast.LENGTH_LONG
-                                )
-                                    .show()
+                                dialog.dismiss()
                             }
                         builder.show()
                     }
@@ -126,10 +133,6 @@ class RegisterBusiness : Fragment() {
 
     private fun backToLogin() {
         requireActivity().onBackPressed()
-
-        /* val intent = Intent(requireContext(), LoginScreen::class.java)
-         startActivity(intent)
-         requireActivity().finish() // this is to finish the hosting activity*/
     }
 
     // Function to validate email format
@@ -179,6 +182,26 @@ class RegisterBusiness : Fragment() {
     fun isValidPhoneNum(phone: String): Boolean {
         val phoneRegex = Regex("^\\d{3}-\\d{7}\$")
         return phoneRegex.matches(phone)
+    }
+
+    private fun checkUniqueEmail(email: String, callback: (Boolean) -> Unit) {
+        // Reference to the "Personal" node in Firebase database
+        val compRef = myRef.child("Company")
+
+        // Query to check if the email already exists
+        compRef.orderByChild("email").equalTo(email)
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    // If a user with the given email already exists
+                    val isUnique = snapshot.childrenCount == 0L
+                    callback(isUnique)
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    // Handle error
+                    callback(false)
+                }
+            })
     }
 
     // encrypt the password
