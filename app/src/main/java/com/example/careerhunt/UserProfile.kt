@@ -20,7 +20,6 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.careerhunt.data.Personal
 import com.example.careerhunt.databinding.FragmentUserProfileBinding
-import com.example.careerhunt.interfaces.LocaleChangeListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference

@@ -3458,6 +3458,7 @@ id bounceStart
 id btnAccept
 id btnAddAlumniComm
 id btnAddJob
+id btnAddNow
 id btnApplied
 id btnApply
 id btnBack
@@ -3659,7 +3660,6 @@ id graph_wrap
 id group_divider
 id grouping
 id groups
-id headerFAQ
 id header_title
 id hide_ime_id
 id hide_in_inspector_tag
@@ -3687,18 +3687,14 @@ id imageView2
 id imageView3
 id imageView4
 id imageView5
-<<<<<<< HEAD
-id imgBtnBack
-id imgBtnCopy
-id imgBtnRedo
-=======
 id imageViewCR
 id imageViewLikw
 id imageViewView
 id imgBtnBack
+id imgBtnCopy
 id imgBtnDelete
 id imgBtnMyPost
->>>>>>> ffb2dcd07b2be69450b462da96e690c709cf159a
+id imgBtnRedo
 id imgCompany
 id imgLogo
 id imgViewProfile
@@ -3854,6 +3850,7 @@ id nextArrorButton
 id noJobIndicator
 id noOfQuest
 id noPhtLayout
+id noRecordBox
 id noScroll
 id noState
 id none
@@ -4067,6 +4064,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textView
 id textView10
 id textView10Content
 id textView11
@@ -4075,7 +4073,9 @@ id textView12
 id textView13
 id textView14
 id textView15
+id textView16
 id textView2
+id textView3
 id textView4
 id textView5
 id textView6
@@ -4101,10 +4101,8 @@ id tfCompName
 id tfCompPhone
 id tfConfirmPass
 id tfEditCompAdd
-id tfEditCompEmail
 id tfEditCompName
 id tfEditCompPhone
-id tfEditEmail
 id tfEditName
 id tfEditPhone
 id tfEmail
@@ -4144,6 +4142,8 @@ id tvCompEmail
 id tvCompName
 id tvContent
 id tvCopy
+id tvEditCompEmail
+id tvEditEmail
 id tvEmail
 id tvItemDropdown
 id tvJobCategory
@@ -4153,23 +4153,16 @@ id tvLikeNum
 id tvLocation
 id tvName
 id tvNum
-<<<<<<< HEAD
 id tvPersonal
-id tvRedo
-=======
 id tvPostId
->>>>>>> ffb2dcd07b2be69450b462da96e690c709cf159a
+id tvRedo
 id tvSchool
 id tvTime
 id tvTitle
 id tvTotalCount
 id tvUsername
-<<<<<<< HEAD
-=======
 id tvViewCRNum
 id tvViewNum
-id tvkeyboard
->>>>>>> ffb2dcd07b2be69450b462da96e690c709cf159a
 id txtAccType
 id txtApplGender
 id txtApplPhone
@@ -4192,7 +4185,6 @@ id txtJobField
 id txtJobListing
 id txtJobTitle
 id txtLanguage
-id txtLogout
 id txtNoAccount
 id txtPreference
 id txtQuestion
@@ -4522,6 +4514,7 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string accept
 string account_type
 string androidx_startup
 string app_name
@@ -4800,6 +4793,7 @@ string range_end
 string range_start
 string register
 string register_account
+string reject
 string reset
 string reset_your_current_password
 string save_changes

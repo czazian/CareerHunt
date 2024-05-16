@@ -98,7 +98,7 @@ class ViewApplicant : Fragment() ,UserInterface.RecyclerViewEvent {
                     for (applicantSnap in snapshot.children) {
                         val applyJob = applicantSnap.getValue(Apply_Job::class.java)
                         // get the personalID from Apply_Job // so can know which person has applied for the job
-                        fetchPersonalDetails(applyJob?.personalID)
+                        fetchPersonalDetails(applyJob?.personalID.toString())
                     }
                 } else {
                     showErrorDialog()

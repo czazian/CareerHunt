@@ -90,7 +90,8 @@
     <string name="my_applied_job">My Applied Job</string>
     <string name="published_job">Published Job</string>
     <string name="setting_page">SETTING PAGE</string>
-
+    <string name="reject">Reject</string>
+    <string name="accept">Accept</string>
     <string name="sure">Sure</string>
 
     <string-array name="state">

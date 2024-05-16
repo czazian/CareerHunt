@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="Ali"
-        android:textSize="28sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/imgViewProfile"
         app:layout_constraintTop_toTopOf="@+id/imgViewProfile" />
 

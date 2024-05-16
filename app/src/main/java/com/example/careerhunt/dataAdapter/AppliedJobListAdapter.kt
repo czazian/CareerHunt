@@ -52,7 +52,7 @@ class AppliedJobListAdapter() : RecyclerView.Adapter<AppliedJobListAdapter.MyVie
         val currentItem = appliedJobList[position]
         // Fetch job data based on jobID from the Apply_Job
 
-        fetchJobData(currentItem.jobID) { job,company ->
+        fetchJobData(currentItem.jobID.toString()) { job,company ->
             if (job != null && appliedJobList.getOrNull(position)?.jobID == job.jobID) {
                 holder.tvJobTitle.text = job.jobName
                 holder.tvLocation.text = job.jobLocationCity

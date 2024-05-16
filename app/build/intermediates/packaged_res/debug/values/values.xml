@@ -257,6 +257,7 @@
     <color name="textColorExpanded">#00BCD4</color>
     <color name="uploadResumeBtn">#138ef0</color>
     <color name="white">#FFFFFFFF</color>
+    <string name="accept">Accept</string>
     <string name="account_type">Account Type</string>
     <string name="app_name">CareerHunt</string>
     <string name="applicant_applied">Applicant Applied:</string>
@@ -313,6 +314,7 @@
     <string name="published_job">Published Job</string>
     <string name="register">Register</string>
     <string name="register_account">Register Account</string>
+    <string name="reject">Reject</string>
     <string name="reset">Reset</string>
     <string name="reset_your_current_password">Reset your current password</string>
     <string name="save_changes">Save Changes</string>
