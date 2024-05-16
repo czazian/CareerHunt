@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import com.example.careerhunt.databinding.FragmentLoginScreenBinding
 import com.example.careerhunt.data.Company
 import com.example.careerhunt.data.Personal
-import com.example.careerhunt.session.loginSession
 import com.google.android.gms.tasks.Task
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError

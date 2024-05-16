@@ -12,7 +12,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import com.example.careerhunt.data.Company
 import com.example.careerhunt.databinding.ActivityMainBinding
-import com.example.careerhunt.session.loginSession
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.Locale
 
@@ -100,7 +99,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.alumni -> {
                     val transaction = fragmentManager.beginTransaction()
-                    val fragment = Setting()
+                    val fragment = Alumni()
                     transaction.replace(binding.frameLayout.id, fragment)
                     transaction.addToBackStack(null)
                     transaction.commit()
