@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.Toast
@@ -52,6 +53,16 @@ class SampleAnswer : Fragment() {
             loadAnswersForQuestion(it)
         }
 
+        binding.btnBackArrow.setOnClickListener {
+            activity?.supportFragmentManager?.run {
+                if (backStackEntryCount > 0) {
+                    popBackStack()
+                } else {
+                    // Handle the case where there's no fragment in the stack
+                    activity?.finish()  // or any other handling
+                }
+            }
+        }
         setupNavigationButtons()
         setupSpinner()
 
@@ -139,16 +150,14 @@ class SampleAnswer : Fragment() {
 
     private fun setupSpinner() {
         val items = resources.getStringArray(R.array.interview)
+        binding.SpinnerDropDown.adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, items)
 
+        // Initial setup without preventing the first selection from navigating
         binding.SpinnerDropDown.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 if (isSpinnerInitialized) {
                     val selectedItem = parent.getItemAtPosition(position).toString()
-                    when (selectedItem) {
-                        items[0] -> replaceFragment(InterviewPrep()) // Navigate to InterviewPrep
-                        items[1] -> replaceFragment(InterviewTips())
-                        items[2] -> replaceFragment(PracticeInterview())
-                    }
+                    navigateToSelectedFragment(selectedItem)
                 } else {
                     isSpinnerInitialized = true
                 }
@@ -158,15 +167,17 @@ class SampleAnswer : Fragment() {
         }
     }
 
+    private fun navigateToSelectedFragment(selectedItem: String) {
+        when (selectedItem) {
+            "Interview Preparation" -> replaceFragment(InterviewPrep())
+            "Interview Tips" -> replaceFragment(InterviewTips())
+            "Practice Interview" -> replaceFragment(PracticeInterview())
+        }
+    }
+
     override fun onResume() {
         super.onResume()
-        // Reset spinner selection to trigger onItemSelected
-        binding.SpinnerDropDown.run {
-            setSelection(0) // Set to a different position temporarily
-            setSelection(1) // Set to a different position temporarily
-            setSelection(2) // Set back to the intended position
-        }
-        isSpinnerInitialized = false
+        // Avoid spinner reselection here unless absolutely necessary
     }
 
     private fun replaceFragment(fragment: Fragment) {

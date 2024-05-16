@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.careerhunt.app-mergeDebugResources-3:/values-v17/values-v17.xml",
+            "outputFile": "com.example.careerhunt.app-mergeDebugResources-83:/values-v17/values-v17.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\leona\\.gradle\\caches\\transforms-3\\c2e0b25c4b0e76b2675cee4fffba9d21\\transformed\\appcompat-1.6.1\\res\\values-v17\\values-v17.xml",
+                    "source": "C:\\Users\\kahya\\.gradle\\caches\\transforms-3\\c2e0b25c4b0e76b2675cee4fffba9d21\\transformed\\appcompat-1.6.1\\res\\values-v17\\values-v17.xml",
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,25,29,33,37,40,43,46,50,53,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

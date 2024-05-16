@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.careerhunt.app-mergeDebugResources-3:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+            "outputFile": "com.example.careerhunt.app-mergeDebugResources-83:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\leona\\.gradle\\caches\\transforms-3\\15de0d10a403bd5d35a0ff858dce3201\\transformed\\material-1.11.0\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
+                    "source": "C:\\Users\\kahya\\.gradle\\caches\\transforms-3\\15de0d10a403bd5d35a0ff858dce3201\\transformed\\material-1.11.0\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

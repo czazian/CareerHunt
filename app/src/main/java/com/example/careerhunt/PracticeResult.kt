@@ -1,6 +1,8 @@
 package com.example.careerhunt
 
 import android.app.AlertDialog
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.FragmentManager
@@ -25,6 +28,8 @@ class PracticeResult : Fragment() {
     private var isSpinnerInitialized = false
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: PracticeResultsAdapter
+    private lateinit var sharedIDPreferences: SharedPreferences
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +37,18 @@ class PracticeResult : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_practice_result, container, false)
-
+        sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
+        val btnBackArrow: ImageButton = view.findViewById(R.id.btnBackArrow)
+        btnBackArrow.setOnClickListener {
+            activity?.supportFragmentManager?.run {
+                if (backStackEntryCount > 0) {
+                    popBackStack()
+                } else {
+                    // Handle the case where there's no fragment in the stack
+                    activity?.finish()  // or any other handling
+                }
+            }
+        }
         val spinner: Spinner = view.findViewById(R.id.SpinnerDropDown)
         val items = resources.getStringArray(R.array.interview)
 
@@ -68,7 +84,7 @@ class PracticeResult : Fragment() {
 
         setupRecyclerView(view)
         setupPracticeButton(view)
-        loadUserResults(getCurrentUserId())
+        loadUserResults(getCurrentUserId().toInt())
 
         return view
     }
@@ -103,7 +119,7 @@ class PracticeResult : Fragment() {
             .addOnSuccessListener {
                 Toast.makeText(context, "Answer updated successfully!", Toast.LENGTH_SHORT).show()
                 // Refresh data after successful update
-                loadUserResults(getCurrentUserId())
+                loadUserResults(getCurrentUserId().toInt())
             }
             .addOnFailureListener {
                 Toast.makeText(context, "Failed to update answer: ${it.message}", Toast.LENGTH_SHORT).show()
@@ -161,15 +177,14 @@ class PracticeResult : Fragment() {
                 Toast.makeText(context, "Error loading answers: ${it.message}", Toast.LENGTH_SHORT).show()
             }
     }
-    private fun getCurrentUserId(): Int {
-        // Implement logic to retrieve the current user's ID, perhaps using FirebaseAuth
-        return 1 // Placeholder value
+    private fun getCurrentUserId(): String {
+        // Retrieve userId from SharedPreferences
+        return sharedIDPreferences.getString("userid", "") ?: ""
     }
 
 
     override fun onResume() {
         super.onResume()
-        loadUserResults(getCurrentUserId())
         // Reset spinner selection to trigger onItemSelected
         val spinner: Spinner? = view?.findViewById(R.id.SpinnerDropDown)
         spinner?.setSelection(0) // Set to a different position temporarily

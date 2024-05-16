@@ -24,6 +24,7 @@ class InterviewTips : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_interview_tips, container, false)
 
+        val btnBackArrow: ImageButton = view.findViewById(R.id.btnBackArrow)
         val spinner: Spinner = view.findViewById(R.id.SpinnerDropDown)
         val items = resources.getStringArray(R.array.interview)
 
@@ -49,6 +50,17 @@ class InterviewTips : Fragment() {
 
             override fun onNothingSelected(parent: AdapterView<*>) {
                 // Do nothing
+            }
+        }
+
+        btnBackArrow.setOnClickListener {
+            activity?.supportFragmentManager?.run {
+                if (backStackEntryCount > 0) {
+                    popBackStack()
+                } else {
+                    // Handle the case where there's no fragment in the stack
+                    activity?.finish()  // or any other handling
+                }
             }
         }
 

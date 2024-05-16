@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.interview -> {
                     val transaction = fragmentManager.beginTransaction()
-                    val fragment = JobDetail()
+                    val fragment = InterviewPrep()
                     transaction.replace(binding.frameLayout.id, fragment)
                     transaction.addToBackStack(null)
                     transaction.commit()

@@ -1,6 +1,8 @@
 package com.example.careerhunt
 
 import android.app.AlertDialog
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
@@ -11,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.commit
@@ -31,11 +34,26 @@ class PracticeInterview : Fragment(), PracticeQuestionInteraction {
     private lateinit var adapter: PracticeQuestionsAdapter
     private var isSpinnerInitialized = false
     private lateinit var categorySpinner: Spinner
+    private lateinit var sharedIDPreferences: SharedPreferences
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_practice_interview, container, false)
+        sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
+        val btnBackArrow: ImageButton = view.findViewById(R.id.btnBackArrow)
+
+        btnBackArrow.setOnClickListener {
+            activity?.supportFragmentManager?.run {
+                if (backStackEntryCount > 0) {
+                    popBackStack()
+                } else {
+                    // Handle the case where there's no fragment in the stack
+                    activity?.finish()  // or any other handling
+                }
+            }
+        }
         setupSpinners(view)
         setupRecyclerView(view)
         setupEndButton(view)
@@ -135,7 +153,7 @@ class PracticeInterview : Fragment(), PracticeQuestionInteraction {
             }
             val answerFAQ = Answer_FAQ(faqAnsID, answer, faqId)
             answerRef.child(faqAnsID).setValue(answerFAQ).addOnSuccessListener {
-                historyRef.push().setValue(InterPrac_History(faqAnsID, getCurrentUserId()))
+                historyRef.push().setValue(InterPrac_History(faqAnsID, getCurrentUserId().toInt()))
                 Toast.makeText(context, "Answer saved successfully.", Toast.LENGTH_SHORT).show()
                 replaceFragment(PracticeResult())
             }.addOnFailureListener {
@@ -145,10 +163,9 @@ class PracticeInterview : Fragment(), PracticeQuestionInteraction {
 
     }
 
-
-    private fun getCurrentUserId(): Int {
-        // Implement logic to retrieve the current user's ID
-        return 1  // Example ID
+    private fun getCurrentUserId(): String {
+        // Retrieve userId from SharedPreferences
+        return sharedIDPreferences.getString("userid", "") ?: ""
     }
 
     private fun replaceFragment(fragment: Fragment) {

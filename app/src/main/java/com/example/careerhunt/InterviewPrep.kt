@@ -41,6 +41,17 @@ class InterviewPrep : Fragment(), QuestionClickCallback {
     ): View {
         binding = FragmentInterviewPrepBinding.inflate(inflater, container, false)
 
+        binding.btnBackArrow.setOnClickListener {
+            activity?.supportFragmentManager?.run {
+                if (backStackEntryCount > 0) {
+                    popBackStack()
+                } else {
+                    // Handle the case where there's no fragment in the stack
+                    activity?.finish()  // or any other handling
+                }
+            }
+        }
+
         setupSpinner()
         setupButtonListeners()
         setupUI()
