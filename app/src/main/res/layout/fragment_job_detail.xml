@@ -31,7 +31,7 @@
             android:scaleType="centerCrop"
             android:src="@drawable/baseline_arrow_back_24"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintEnd_toStartOf="@+id/QuestionAns"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +39,7 @@
             app:tint="#FFFFFF" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/QuestionAns"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="JOB DETAILS"
@@ -62,7 +62,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintStart_toEndOf="@+id/QuestionAns"
             app:layout_constraintTop_toTopOf="parent"
             app:tint="#FFFFFF" />
 

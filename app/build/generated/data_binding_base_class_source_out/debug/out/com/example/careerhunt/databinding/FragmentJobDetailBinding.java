@@ -24,6 +24,9 @@ public final class FragmentJobDetailBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final TextView QuestionAns;
+
+  @NonNull
   public final Button btnApply;
 
   @NonNull
@@ -99,17 +102,15 @@ public final class FragmentJobDetailBinding implements ViewBinding {
   public final ScrollView scrollView2;
 
   @NonNull
-  public final TextView textView;
-
-  @NonNull
   public final TextView textView14;
 
   @NonNull
   public final ConstraintLayout uploadResume;
 
-  private FragmentJobDetailBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnApply,
-      @NonNull ImageButton btnBack, @NonNull Button btnCheckLocation, @NonNull ImageButton btnSave,
-      @NonNull ImageView comIcon, @NonNull TextView comName, @NonNull TextView companyAddressResl,
+  private FragmentJobDetailBinding(@NonNull ConstraintLayout rootView,
+      @NonNull TextView QuestionAns, @NonNull Button btnApply, @NonNull ImageButton btnBack,
+      @NonNull Button btnCheckLocation, @NonNull ImageButton btnSave, @NonNull ImageView comIcon,
+      @NonNull TextView comName, @NonNull TextView companyAddressResl,
       @NonNull TextView companyPhoneResl, @NonNull TextView descResult, @NonNull TextView descTitle,
       @NonNull ConstraintLayout detailBottom, @NonNull ConstraintLayout detailContainer,
       @NonNull ConstraintLayout detailMiddle, @NonNull ConstraintLayout detailTop,
@@ -117,9 +118,9 @@ public final class FragmentJobDetailBinding implements ViewBinding {
       @NonNull TextView jobTi, @NonNull TextView jobTy, @NonNull TextView lblCompanyAddress,
       @NonNull TextView lblSalaryResult, @NonNull TextView lblpostDate, @NonNull View line,
       @NonNull TextView lvlPostDateResult, @NonNull ScrollView scrollView2,
-      @NonNull TextView textView, @NonNull TextView textView14,
-      @NonNull ConstraintLayout uploadResume) {
+      @NonNull TextView textView14, @NonNull ConstraintLayout uploadResume) {
     this.rootView = rootView;
+    this.QuestionAns = QuestionAns;
     this.btnApply = btnApply;
     this.btnBack = btnBack;
     this.btnCheckLocation = btnCheckLocation;
@@ -145,7 +146,6 @@ public final class FragmentJobDetailBinding implements ViewBinding {
     this.line = line;
     this.lvlPostDateResult = lvlPostDateResult;
     this.scrollView2 = scrollView2;
-    this.textView = textView;
     this.textView14 = textView14;
     this.uploadResume = uploadResume;
   }
@@ -177,6 +177,12 @@ public final class FragmentJobDetailBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.QuestionAns;
+      TextView QuestionAns = ViewBindings.findChildViewById(rootView, id);
+      if (QuestionAns == null) {
+        break missingId;
+      }
+
       id = R.id.btnApply;
       Button btnApply = ViewBindings.findChildViewById(rootView, id);
       if (btnApply == null) {
@@ -323,12 +329,6 @@ public final class FragmentJobDetailBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textView;
-      TextView textView = ViewBindings.findChildViewById(rootView, id);
-      if (textView == null) {
-        break missingId;
-      }
-
       id = R.id.textView14;
       TextView textView14 = ViewBindings.findChildViewById(rootView, id);
       if (textView14 == null) {
@@ -341,11 +341,12 @@ public final class FragmentJobDetailBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentJobDetailBinding((ConstraintLayout) rootView, btnApply, btnBack,
-          btnCheckLocation, btnSave, comIcon, comName, companyAddressResl, companyPhoneResl,
-          descResult, descTitle, detailBottom, detailContainer, detailMiddle, detailTop,
-          expectedSalary, jobCat, jobLoca, jobTi, jobTy, lblCompanyAddress, lblSalaryResult,
-          lblpostDate, line, lvlPostDateResult, scrollView2, textView, textView14, uploadResume);
+      return new FragmentJobDetailBinding((ConstraintLayout) rootView, QuestionAns, btnApply,
+          btnBack, btnCheckLocation, btnSave, comIcon, comName, companyAddressResl,
+          companyPhoneResl, descResult, descTitle, detailBottom, detailContainer, detailMiddle,
+          detailTop, expectedSalary, jobCat, jobLoca, jobTi, jobTy, lblCompanyAddress,
+          lblSalaryResult, lblpostDate, line, lvlPostDateResult, scrollView2, textView14,
+          uploadResume);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

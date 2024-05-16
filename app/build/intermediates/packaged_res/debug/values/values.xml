@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="InterviewCat">
+        <item>Common Question</item>
+        <item>Accounting</item>
+        <item>Administrative</item>
+        <item>Office Support</item>
+        <item>Art and Design</item>
+        <item>Banking and Finance</item>
+        <item>Customer Service</item>
+        <item>Construction</item>
+        <item>Consulting</item>
+        <item>Education</item>
+        <item>Engineering</item>
+        <item>Farming and Animal</item>
+        <item>Healthcare</item>
+        <item>Human Resource</item>
+        <item>IT and Computing</item>
+        <item>Manufacturing</item>
+        <item>Marketing</item>
+        <item>Science</item>
+        <item>Retail</item>
+        <item>Sales</item>
+        <item>Insurance</item>
+        <item>Hospitality</item>
+    </string-array>
     <string-array name="interview">
         <item>FAQ</item>
         <item>Interview Tips</item>

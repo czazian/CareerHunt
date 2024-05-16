@@ -10,6 +10,31 @@
         <item>Practice Interview</item>
     </string-array>
 
+    <string-array name="InterviewCat">
+        <item>Common Question</item>
+        <item>Accounting</item>
+        <item>Administrative</item>
+        <item>Office Support</item>
+        <item>Art and Design</item>
+        <item>Banking and Finance</item>
+        <item>Customer Service</item>
+        <item>Construction</item>
+        <item>Consulting</item>
+        <item>Education</item>
+        <item>Engineering</item>
+        <item>Farming and Animal</item>
+        <item>Healthcare</item>
+        <item>Human Resource</item>
+        <item>IT and Computing</item>
+        <item>Manufacturing</item>
+        <item>Marketing</item>
+        <item>Science</item>
+        <item>Retail</item>
+        <item>Sales</item>
+        <item>Insurance</item>
+        <item>Hospitality</item>
+    </string-array>
+
     <!-- User management part-->
     <string name="edit_profile">Edit Profile</string>
     <string name="job_listing">Job Listing</string>

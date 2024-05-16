@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MiddleContainer"
+    android:layout_width="367dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="12dp"
+    android:layout_marginEnd="16dp"
+    android:background="@drawable/rounded_shape">
+
+    <TextView
+        android:id="@+id/QuestionTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Can you please tell a bit yourself?"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/HorizonLine"
+        android:layout_width="375dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="12dp"
+        android:background="#D8D7D7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/QuestionTitle" />
+
+    <TextView
+        android:id="@+id/noOfQuest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="1/2"
+        app:layout_constraintBottom_toBottomOf="@+id/QuestionTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/QuestionTitle" />
+
+    <TextView
+        android:id="@+id/tvRedo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Redo"
+        android:textColor="#A5A5A5"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBtnRedo"
+        app:layout_constraintStart_toEndOf="@+id/imgBtnRedo"
+        app:layout_constraintTop_toTopOf="@+id/imgBtnRedo" />
+
+    <TextView
+        android:id="@+id/QuestionAns"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Your answer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HorizonLine" />
+
+    <View
+        android:id="@+id/HorizonLine2"
+        android:layout_width="375dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="16dp"
+        android:background="#D8D7D7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/QuestionAns" />
+
+    <ImageButton
+        android:id="@+id/imgBtnRedo"
+        android:layout_width="38dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#FFFFFF"
+        android:src="@drawable/baseline_edit_document_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HorizonLine2" />
+
+    <ImageButton
+        android:id="@+id/imgBtnCopy"
+        android:layout_width="32dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#000000"
+        android:src="?attr/actionModeCopyDrawable"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HorizonLine2" />
+
+    <TextView
+        android:id="@+id/tvCopy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Copy answer"
+        android:textColor="#A5A5A5"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBtnCopy"
+        app:layout_constraintEnd_toStartOf="@+id/imgBtnCopy"
+        app:layout_constraintTop_toTopOf="@+id/imgBtnCopy" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

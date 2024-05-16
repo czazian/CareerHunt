@@ -16,6 +16,10 @@
         "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\layout\\register_popout.xml"
     },
     {
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-83:\\layout\\practice_result.xml",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\layout\\practice_result.xml"
+    },
+    {
         "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-83:\\layout\\fragment_view_applied_job.xml",
         "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\layout\\fragment_view_applied_job.xml"
     },
@@ -64,6 +68,10 @@
         "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\layout\\alumni_list_item.xml"
     },
     {
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-83:\\layout\\fragment_practice_interview.xml",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\layout\\fragment_practice_interview.xml"
+    },
+    {
         "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-83:\\layout\\fragment_practice__interview.xml",
         "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\layout\\fragment_practice__interview.xml"
     },
@@ -104,8 +112,16 @@
         "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\layout\\fragment_job_listing.xml"
     },
     {
+        "merged": "com.example.careerhunt.app-mergeDebugResources-83:/layout/fragment_interview_tips.xml",
+        "source": "com.example.careerhunt.app-main-86:/layout/fragment_interview_tips.xml"
+    },
+    {
         "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-83:\\layout\\fragment_interview_tips.xml",
         "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\layout\\fragment_interview_tips.xml"
+    },
+    {
+        "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-83:\\layout\\practice_question.xml",
+        "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\layout\\practice_question.xml"
     },
     {
         "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-83:\\layout\\layout_child.xml",
@@ -162,10 +178,6 @@
     {
         "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-83:\\layout\\fragment_faq.xml",
         "source": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-86:\\layout\\fragment_faq.xml"
-    },
-    {
-        "merged": "com.example.careerhunt.app-mergeDebugResources-83:/layout/fragment_interview_prep.xml",
-        "source": "com.example.careerhunt.app-main-86:/layout/fragment_interview_prep.xml"
     },
     {
         "merged": "C:\\Users\\kahya\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-83:\\layout\\job_viewholder.xml",

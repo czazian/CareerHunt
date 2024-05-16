@@ -4,6 +4,7 @@ anim fade_in
 anim fade_out
 anim slide_in_bottom
 anim slide_out_bottom
+array InterviewCat
 array interview
 array jobCategory
 array job_field
@@ -62,6 +63,7 @@ drawable baseline_drag_handle_242
 drawable baseline_edit_document_24
 drawable baseline_email
 drawable baseline_email_focused
+drawable baseline_favorite_24_red
 drawable baseline_favorite_border_24
 drawable baseline_house_24
 drawable baseline_ios_share_24
@@ -128,6 +130,8 @@ id Container
 id FAQlist
 id ForgetPassFrag
 id HorizonLine
+id HorizonLine1
+id HorizonLine2
 id LblCongrats
 id LblFAQ
 id LblPracticeInterview
@@ -136,14 +140,10 @@ id LblTipsBDA
 id LblTipsBTB
 id MiddleContainer
 id OverviewTitle
+id QuestionAns
 id QuestionTitle
 id SampleAnswerTitle
-id SecondHorizonLine
 id SecondMiddleContainer
-id SecondQuestionTitle
-id SecondbtnKeyboard
-id SecondnoOfQuest
-id Secondtvkeyboard
 id SpinnerDropDown
 id action_jobListing_to_addJob
 id addJob
@@ -208,10 +208,10 @@ id chatBox
 id clock
 id comIcon
 id comName
-id commonQuestionsTitle
 id compLogo
 id companyAddressResl
 id companyPhoneResl
+id constraintLayout
 id constraintLayout1
 id constraintLayout2
 id constraintLayout3
@@ -248,10 +248,6 @@ id ibDragHandle
 id imageButton
 id imageButton10
 id imageButton11
-id imageButton3
-id imageButton4
-id imageButton5
-id imageButton6
 id imageButton7
 id imageButton8
 id imageButton9
@@ -260,6 +256,9 @@ id imageView2
 id imageView3
 id imageView4
 id imageView5
+id imgBtnBack
+id imgBtnCopy
+id imgBtnRedo
 id imgCompany
 id imgLogo
 id imgViewProfile
@@ -329,6 +328,7 @@ id numOfNotification
 id overallContainer
 id part
 id post_button_box
+id practiceSpnCat
 id profileImage
 id profilePic
 id profilepic
@@ -350,6 +350,8 @@ id rbPersonal
 id rdlGroup
 id recommendedContainer
 id recommendedJobRecyclerView
+id recyclerViewPracticeQuestions
+id recyclerViewResults
 id regBAFrag
 id registerFrag
 id rgAccType
@@ -362,6 +364,7 @@ id salaryRange
 id sampleAnswer
 id scrollView2
 id scrollView3
+id scrollableContent
 id searchBox
 id searchBtn
 id searchContainer
@@ -379,7 +382,6 @@ id submitBtn
 id submitbtn
 id swMode
 id tbPreferences
-id textView
 id textView10
 id textView10Content
 id textView11
@@ -387,7 +389,6 @@ id textView11Content
 id textView12
 id textView14
 id textView2
-id textView3
 id textView4
 id textView5
 id textView6
@@ -413,6 +414,7 @@ id tfName
 id tfNewPass
 id tfPass
 id tfPhone
+id titleQuestion
 id titleUploadResume
 id top
 id topContainer
@@ -423,6 +425,7 @@ id tvCommentShow
 id tvCompEmail
 id tvCompName
 id tvContent
+id tvCopy
 id tvEmail
 id tvItemDropdown
 id tvJobCategory
@@ -431,11 +434,12 @@ id tvLikeNum
 id tvLocation
 id tvName
 id tvNum
+id tvPersonal
+id tvRedo
 id tvSchool
 id tvTime
 id tvTitle
 id tvUsername
-id tvkeyboard
 id txtAccType
 id txtApplied
 id txtBookmark
@@ -472,7 +476,6 @@ id uploadResume
 id userProfileContainer
 id userProfileLayout
 id view
-id view2
 id writeCommentSection
 layout activity_login_container
 layout activity_main
@@ -495,7 +498,7 @@ layout fragment_job_detail
 layout fragment_job_listing
 layout fragment_login_screen
 layout fragment_notification
-layout fragment_practice__interview
+layout fragment_practice_interview
 layout fragment_practice_result
 layout fragment_register_account
 layout fragment_register_business
@@ -511,6 +514,8 @@ layout item_question
 layout job_viewholder
 layout layout_child
 layout layout_group
+layout practice_question
+layout practice_result
 layout register_popout
 layout upload_resume
 layout view_applicant_holder
