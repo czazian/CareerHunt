@@ -13,6 +13,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.careerhunt.databinding.ActivityLoginContainerBinding
+import com.example.careerhunt.interfaces.LocaleChangeListener
+import com.example.careerhunt.session.loginSession
+import java.util.Locale
 
 //this is the correct and latest one
 
@@ -57,7 +60,7 @@ class LoginContainer : AppCompatActivity() {
         userType = sharedUserTypePreferences.getString("userType", "") ?: ""
         val isDarkMode = sharedPreferences.getBoolean("night", false)
 
-        // Apply dark mode if enabled
+      // Apply dark mode if enabled
         if (isDarkMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
