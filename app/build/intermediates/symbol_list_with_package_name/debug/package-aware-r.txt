@@ -3459,6 +3459,7 @@ id bounceStart
 id btnAccept
 id btnAddAlumniComm
 id btnAddJob
+id btnAddNow
 id btnApplied
 id btnApply
 id btnBack
@@ -3856,6 +3857,7 @@ id nextArrorButton
 id noJobIndicator
 id noOfQuest
 id noPhtLayout
+id noRecordBox
 id noScroll
 id noState
 id none
@@ -4075,6 +4077,7 @@ id textView12
 id textView13
 id textView14
 id textView15
+id textView16
 id textView2
 id textView3
 id textView4

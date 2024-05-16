@@ -2,6 +2,7 @@ package com.example.careerhunt
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Build
@@ -27,6 +28,7 @@ import com.bumptech.glide.Glide
 import com.example.careerhunt.data.Alumni
 import com.example.careerhunt.data.Alumni_community_comment
 import com.example.careerhunt.dataAdapter.AlumniCommunityComment_adapter
+import com.example.careerhunt.dataAdapter.AlumniCommunityYourPost_adapter
 import com.example.careerhunt.dataAdapter.AlumniCommunity_adapter
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -48,6 +50,7 @@ class AlumniCommunityDetail : Fragment() {
     private lateinit var alumniCommentList : ArrayList<Alumni_community_comment>
     private lateinit var recyclerView : RecyclerView
     private lateinit var storageRef: StorageReference
+    private lateinit var tvComment : TextView
 
     private lateinit var sharedIDPreferences : SharedPreferences
 
@@ -73,8 +76,9 @@ class AlumniCommunityDetail : Fragment() {
         val tvDate : TextView = view.findViewById(R.id.tvTime)
         val tvLikeNum : TextView = view.findViewById(R.id.tvLikeNum)
         val btnLike : ImageButton = view.findViewById(R.id.btnLike)
+        val btnShare : ImageButton = view.findViewById(R.id.btnShare)
 
-        val tvComment : TextView = view.findViewById(R.id.tvComment)
+        tvComment = view.findViewById(R.id.tvComment)
 
         val postId : String? = arguments?.getString("postId")
 
@@ -133,6 +137,24 @@ class AlumniCommunityDetail : Fragment() {
                         }
                         dbRefAlumni.child(postId.toString()).child("personal_liked").setValue(alumni?.personal_liked)
 
+                    }
+
+                    //when share button is click
+                    btnShare.setOnClickListener {
+                        var data =  """
+                            ALumni Post by ${arguments?.getString("username")},
+                            
+                            Title: ${alumni?.title}
+                            Content: ${alumni?.content}
+            
+                            From CarrerHunt
+                        """
+                        val intent = Intent(Intent.ACTION_SEND)
+                        intent.type = "text/plain"
+                        intent.putExtra(Intent.EXTRA_TEXT, data)
+
+                        // Start the activity with the sharing Intent
+                        requireContext().startActivity(Intent.createChooser(intent, "Share to:"))
                     }
                 }
             }
@@ -234,6 +256,7 @@ class AlumniCommunityDetail : Fragment() {
                     val adapter = AlumniCommunityComment_adapter()
                     adapter.setData(alumniCommentList)
                     recyclerView.adapter = adapter
+                    checkEmptyCommentList(recyclerView.adapter as AlumniCommunityComment_adapter)
 
                 }
             }
@@ -242,6 +265,15 @@ class AlumniCommunityDetail : Fragment() {
             }
         })
 
+    }
+
+    private fun checkEmptyCommentList(adapter : AlumniCommunityComment_adapter) {
+        Log.d("item list in adapter = ", adapter.itemCount.toString())
+        if (adapter.itemCount > 0) {
+            tvComment.text = adapter.itemCount.toString() + " Comment(s)"
+        } else {
+            tvComment.text = "No Comment"
+        }
     }
 
 }
