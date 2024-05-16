@@ -14,8 +14,6 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
-import com.example.careerhunt.data.Application_Status
-import com.example.careerhunt.data.Apply_Job
 import com.example.careerhunt.data.Job
 import com.example.careerhunt.data.Personal
 import com.google.firebase.storage.FirebaseStorage
@@ -32,8 +30,6 @@ class Applicant_details : Fragment() {
         val view = inflater.inflate(R.layout.fragment_applicant_details, container, false)
         // Retrieve the Job object from arguments
         val applicant: Personal? = arguments?.getSerializable("applicant") as? Personal
-        val appliedJob: Apply_Job? = arguments?.getSerializable("appliedJob") as? Apply_Job
-
         storageRef = FirebaseStorage.getInstance().getReference()
 
 
@@ -44,7 +40,7 @@ class Applicant_details : Fragment() {
         val btnViewResume : Button = view.findViewById(R.id.btnViewResume)
         val btnAccept : Button = view.findViewById(R.id.btnAccept)
         val btnReject : Button = view.findViewById(R.id.btnReject)
-        val back: ImageButton = view.findViewById(R.id.btnBack)
+        val btnBack : ImageButton = view.findViewById(R.id.btnBack)
 
 
         tvApplName.text = applicant?.name.toString()
@@ -53,16 +49,8 @@ class Applicant_details : Fragment() {
         tvApplPhone.text = applicant?.phoneNum.toString()
 
 
-        val personalID = applicant?.personalID
-        val applicatioID = appliedJob?.apply_jobID
-
-        back.setOnClickListener() {
-            getFragmentManager()?.popBackStackImmediate()
-        }
-
-
         btnViewResume.setOnClickListener(){
-            val ref = storageRef.child("Resume").child(applicatioID.toString() + ".pdf")
+            val ref = storageRef.child("Resume").child(applicant?.personalID.toString() + ".pdf")
 
             ref.downloadUrl
                 .addOnSuccessListener { uri ->
@@ -83,10 +71,6 @@ class Applicant_details : Fragment() {
                 putExtra(Intent.EXTRA_TEXT, "you are invited to join an interview section.") // Add email body
             }
             startActivity(intent)
-
-
-            ///Working with storing status into firebase
-            val application = Application_Status()
         }
 
         btnReject.setOnClickListener(){
@@ -97,9 +81,9 @@ class Applicant_details : Fragment() {
             startActivity(intent)
         }
 
-
-
-
+        btnBack.setOnClickListener() {
+            requireActivity().onBackPressed()
+        }
 
         return view
     }

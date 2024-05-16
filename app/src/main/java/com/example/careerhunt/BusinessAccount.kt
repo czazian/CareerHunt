@@ -45,15 +45,12 @@ class BusinessAccount : Fragment() {
         // Access SharedPreferences from MainActivity
         sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
         // Retrieve userId from SharedPreferences
-        userId = sharedIDPreferences.getString("userid", "") ?: ""
+        userId = sharedIDPreferences.getString("userid","")?:""
         retrieveCompRecord()
 
-        sharedLogoutPreferences =
-            requireContext().getSharedPreferences("logoutStatus", Context.MODE_PRIVATE)
-        sharedUserTypePreferences =
-            requireContext().getSharedPreferences("userType", Context.MODE_PRIVATE)
-        sharedStatusPreference =
-            requireContext().getSharedPreferences("isFirstTime", Context.MODE_PRIVATE)
+        sharedLogoutPreferences = requireContext().getSharedPreferences("logoutStatus", Context.MODE_PRIVATE)
+        sharedUserTypePreferences = requireContext().getSharedPreferences("userType", Context.MODE_PRIVATE)
+        sharedStatusPreference = requireContext().getSharedPreferences("isFirstTime", Context.MODE_PRIVATE)
 
         binding.btnFAQ.setOnClickListener() {
             val fragmentManager = requireActivity().supportFragmentManager
@@ -88,12 +85,7 @@ class BusinessAccount : Fragment() {
             var userSelected = false // Flag to track user selection
 
             // Inside the onItemSelected method of the spinner's OnItemSelectedListener
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 if (userSelected) {
                     val language: String = parent.getItemAtPosition(position).toString()
 
@@ -118,10 +110,10 @@ class BusinessAccount : Fragment() {
             val intent = Intent(requireContext(), LoginContainer::class.java)
             sharedIDPreferences.edit().clear().apply()
             sharedUserTypePreferences.edit().clear().apply()
-            sharedStatusPreference.edit().putBoolean("isFirstTime", true).apply()
-            sharedPreferences.edit().putBoolean("night", false).apply()
+            sharedStatusPreference.edit().putBoolean("isFirstTime",true).apply()
+            sharedPreferences.edit().putBoolean("night",false).apply()
 
-            sharedLogoutPreferences.edit().putBoolean("logoutStatus", true).apply()
+            sharedLogoutPreferences.edit().putBoolean("logoutStatus",true).apply()
             startActivity(intent)
             requireActivity().finish() // this is to prevent user return back to login page
         }
@@ -171,7 +163,7 @@ class BusinessAccount : Fragment() {
     private fun retrieveCompRecord() {
         val tvCompName: TextView = binding.tvCompName
         val tvCompEmail: TextView = binding.tvCompEmail
-        val profileImg: ImageView = binding.profilePic
+        val profileImg : ImageView = binding.profilePic
 
         myRef = FirebaseDatabase.getInstance().getReference("Company")
 
@@ -184,7 +176,7 @@ class BusinessAccount : Fragment() {
                             tvCompName.text = comp.compName
                             tvCompEmail.text = comp.email
                             // Load profile image
-                            if (comp.compProfile != "") {
+                            if(comp.compProfile!= ""){
                                 val profileImageUrl = comp.compProfile
                                 Glide.with(requireContext()).load(profileImageUrl).into(profileImg)
                             }

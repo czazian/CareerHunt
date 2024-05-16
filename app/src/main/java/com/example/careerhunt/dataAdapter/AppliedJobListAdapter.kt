@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.careerhunt.R
 import com.example.careerhunt.data.Apply_Job
 import com.example.careerhunt.data.Company
 import com.example.careerhunt.data.Job
+import com.example.careerhunt.data.Personal
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -69,8 +71,8 @@ class AppliedJobListAdapter() : RecyclerView.Adapter<AppliedJobListAdapter.MyVie
     }
 
     // Retrieve Job data
-    private fun fetchJobData(jobId: String?, callback: (Job?, Company?) -> Unit) {
-        myRef = FirebaseDatabase.getInstance().getReference("Job").child(jobId.toString())
+    private fun fetchJobData(jobId: String, callback: (Job?, Company?) -> Unit) {
+        myRef = FirebaseDatabase.getInstance().getReference("Job").child(jobId)
 
 
         myRef.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -102,7 +104,7 @@ class AppliedJobListAdapter() : RecyclerView.Adapter<AppliedJobListAdapter.MyVie
 
 
     // Retrieve Company Data
-    private fun fetchCompanyData(companyID: Int, callback: (Company?) -> Unit) {
+        private fun fetchCompanyData(companyID: Int, callback: (Company?) -> Unit) {
         val companyRef =
             FirebaseDatabase.getInstance().getReference("Company").child(companyID.toString())
 

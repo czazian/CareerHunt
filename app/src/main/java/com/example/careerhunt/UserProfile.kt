@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.careerhunt.data.Personal
 import com.example.careerhunt.databinding.FragmentUserProfileBinding
+import com.example.careerhunt.interfaces.LocaleChangeListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -40,10 +41,10 @@ class UserProfile : Fragment() {
     private var isLanguageSelectionByUser = false // Set initially to true
     lateinit var sharedLogoutPreferences: SharedPreferences
 
-    /*  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-          super.onViewCreated(view, savedInstanceState)
-          retrieveUserRecord()
-      }*/
+  /*  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        retrieveUserRecord()
+    }*/
 
     override fun onCreateView(
 
@@ -148,29 +149,29 @@ class UserProfile : Fragment() {
              }
          }
 */
-        /*
-                binding.spLanguage.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                    override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                        val language: String = parent.getItemAtPosition(position).toString()
+/*
+        binding.spLanguage.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
+                val language: String = parent.getItemAtPosition(position).toString()
 
-                        // Save selected language preference
-                        sharedLangPreferences.edit().putString("language", language).apply()
+                // Save selected language preference
+                sharedLangPreferences.edit().putString("language", language).apply()
 
-                        // Set the new locale configuration
-                        val locale = Locale(language)
-                        Locale.setDefault(locale)
-                        val config = Configuration()
-                        config.locale = locale
-                        resources.updateConfiguration(config, resources.displayMetrics)
+                // Set the new locale configuration
+                val locale = Locale(language)
+                Locale.setDefault(locale)
+                val config = Configuration()
+                config.locale = locale
+                resources.updateConfiguration(config, resources.displayMetrics)
 
-                        // Recreate the activity to apply the language changes
-                        requireActivity().recreate()
-                    }
+                // Recreate the activity to apply the language changes
+                requireActivity().recreate()
+            }
 
-                    override fun onNothingSelected(parent: AdapterView<*>?) {
-                        Toast.makeText(requireContext(), "No language selected", Toast.LENGTH_SHORT).show()
-                    }
-                }*/
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                Toast.makeText(requireContext(), "No language selected", Toast.LENGTH_SHORT).show()
+            }
+        }*/
 
         /*---------------------------------
         // Retrieve saved language preference from SharedPreferences
@@ -296,20 +297,20 @@ class UserProfile : Fragment() {
             requireActivity().finish() // this is to prevent user return back to login page
         }
 
-        /*  //DeleteAccount
-          binding.btnDeleteAcc.setOnClickListener(){
-              // If any invalid input
-              val builder = AlertDialog.Builder(requireContext())
-              builder.setTitle("Delete Account")
-                  .setMessage("Confirm to Delete")
-                  .setPositiveButton("YES") { dialog, _ ->
-                      deleteAccount()
-                  }
-                  .setNegativeButton("NO"){dialog,_ ->
-                      Toast.makeText(requireContext(), "Account not deleted.", Toast.LENGTH_SHORT).show()
-                  }
-              builder.show()
-          }*/
+      /*  //DeleteAccount
+        binding.btnDeleteAcc.setOnClickListener(){
+            // If any invalid input
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Delete Account")
+                .setMessage("Confirm to Delete")
+                .setPositiveButton("YES") { dialog, _ ->
+                    deleteAccount()
+                }
+                .setNegativeButton("NO"){dialog,_ ->
+                    Toast.makeText(requireContext(), "Account not deleted.", Toast.LENGTH_SHORT).show()
+                }
+            builder.show()
+        }*/
 
         //For dark mode
         sharedPreferences = requireContext().getSharedPreferences("Mode", Context.MODE_PRIVATE)
@@ -332,27 +333,27 @@ class UserProfile : Fragment() {
             }
         }
 
-        /* ------------------------NEEED  TO UNCOMMENT LATER
-        binding.btnBookmark.setOnClickListener(){
-              val fragment = BookmarkListing()
+      /* ------------------------NEEED  TO UNCOMMENT LATER
+      binding.btnBookmark.setOnClickListener(){
+            val fragment = BookmarkListing()
 
-              val transaction = activity?.supportFragmentManager?.beginTransaction()
-              transaction?.replace(R.id.frameLayout, fragment)
-              transaction?.addToBackStack(null)
-              transaction?.commit()
-          }*/
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frameLayout, fragment)
+            transaction?.addToBackStack(null)
+            transaction?.commit()
+        }*/
         return view
     }
 
     private fun setLocale(language: String) {
         if(language!=""){
-            val locale = Locale(language)
-            Locale.setDefault(locale)
-            val config = Configuration(resources.configuration)
-            config.setLocale(locale)
-            resources.updateConfiguration(config, resources.displayMetrics)
-            // Recreate activity to apply changes
-            requireActivity().recreate()}
+        val locale = Locale(language)
+        Locale.setDefault(locale)
+        val config = Configuration(resources.configuration)
+        config.setLocale(locale)
+        resources.updateConfiguration(config, resources.displayMetrics)
+        // Recreate activity to apply changes
+        requireActivity().recreate()}
     }
 
 
@@ -473,6 +474,6 @@ class UserProfile : Fragment() {
 
       // Recreate activity to apply changes
       requireActivity().recreate()
-}*/
+    }*/
 
 }

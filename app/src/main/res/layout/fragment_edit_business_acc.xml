@@ -77,17 +77,17 @@
         app:layout_constraintTop_toBottomOf="@id/cardView"
         tools:layout_editor_absoluteY="258dp" />
 
-    <EditText
-        android:id="@+id/tfEditCompEmail"
+    <TextView
+        android:id="@+id/tvEditCompEmail"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/custom_input"
+        android:paddingStart="10dp"
+        android:gravity="start|center_vertical"
         android:drawablePadding="12dp"
         android:ems="10"
-        android:inputType="textEmailAddress"
-        android:paddingStart="10dp"
-        android:textColor="@color/black"
+        android:textColor="@android:color/darker_gray"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
@@ -116,6 +116,7 @@
         android:background="@drawable/custom_input"
         android:drawablePadding="12dp"
         android:ems="10"
+        android:gravity="start|center_vertical"
         android:inputType="text"
         android:paddingStart="10dp"
         android:textColor="@color/black"
@@ -123,7 +124,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.629"
         app:layout_constraintStart_toEndOf="@+id/txtEditCompName"
-        app:layout_constraintTop_toBottomOf="@id/tfEditCompEmail" />
+        app:layout_constraintTop_toBottomOf="@id/tvEditCompEmail" />
 
     <TextView
         android:id="@+id/txtEditCompPhone"
@@ -149,6 +150,7 @@
         android:ems="10"
         android:inputType="phone"
         android:paddingStart="10dp"
+        android:gravity="start|center_vertical"
         android:textColor="@color/black"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -185,6 +187,7 @@
         android:paddingStart="10dp"
         android:textColor="@android:color/black"
         android:textSize="17sp"
+        android:gravity="start|center_vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/txtEditCompAdd"
