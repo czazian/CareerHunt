@@ -4,6 +4,10 @@
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\item_question.xml"
     },
     {
+        "merged": "com.example.careerhunt.app-mergeDebugResources-4:/layout/fragment_applicant_details.xml",
+        "source": "com.example.careerhunt.app-main-7:/layout/fragment_applicant_details.xml"
+    },
+    {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_register_account.xml",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_register_account.xml"
     },
@@ -52,10 +56,6 @@
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_business_account.xml"
     },
     {
-        "merged": "com.example.careerhunt.app-mergeDebugResources-4:/layout/job_viewholder.xml",
-        "source": "com.example.careerhunt.app-main-7:/layout/job_viewholder.xml"
-    },
-    {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_alumni_community_add.xml",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_alumni_community_add.xml"
     },
@@ -80,12 +80,12 @@
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_login_screen.xml"
     },
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_practice_result.xml",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_practice_result.xml"
-    },
-    {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_register_business.xml",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_register_business.xml"
+    },
+    {
+        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_practice_result.xml",
+        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\fragment_practice_result.xml"
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-mergeDebugResources-4:\\layout\\fragment_practice__interview.xml",

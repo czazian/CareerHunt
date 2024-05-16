@@ -29,9 +29,6 @@ public final class FragmentJobListingBinding implements ViewBinding {
   public final ImageButton btnAddJob;
 
   @NonNull
-  public final ImageButton btnNotification;
-
-  @NonNull
   public final Button btnShowAllLatest;
 
   @NonNull
@@ -83,10 +80,9 @@ public final class FragmentJobListingBinding implements ViewBinding {
   public final TextView txtRecommendedTitle;
 
   private FragmentJobListingBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ImageButton btnAddJob, @NonNull ImageButton btnNotification,
-      @NonNull Button btnShowAllLatest, @NonNull Button btnShowAllRecommended,
-      @NonNull ConstraintLayout container, @NonNull TextView lblLatestTitle,
-      @NonNull TextView lblUserName, @NonNull TextView lblWelcome,
+      @NonNull ImageButton btnAddJob, @NonNull Button btnShowAllLatest,
+      @NonNull Button btnShowAllRecommended, @NonNull ConstraintLayout container,
+      @NonNull TextView lblLatestTitle, @NonNull TextView lblUserName, @NonNull TextView lblWelcome,
       @NonNull NestedScrollView nestedScrollView, @NonNull RecyclerView newJobRecyclerView,
       @NonNull ConstraintLayout newPostedContainer, @NonNull TextView noJobIndicator,
       @NonNull ConstraintLayout overallContainer, @NonNull ShapeableImageView profileImage,
@@ -96,7 +92,6 @@ public final class FragmentJobListingBinding implements ViewBinding {
       @NonNull TextView txtRecommendedTitle) {
     this.rootView = rootView;
     this.btnAddJob = btnAddJob;
-    this.btnNotification = btnNotification;
     this.btnShowAllLatest = btnShowAllLatest;
     this.btnShowAllRecommended = btnShowAllRecommended;
     this.container = container;
@@ -146,12 +141,6 @@ public final class FragmentJobListingBinding implements ViewBinding {
       id = R.id.btnAddJob;
       ImageButton btnAddJob = ViewBindings.findChildViewById(rootView, id);
       if (btnAddJob == null) {
-        break missingId;
-      }
-
-      id = R.id.btnNotification;
-      ImageButton btnNotification = ViewBindings.findChildViewById(rootView, id);
-      if (btnNotification == null) {
         break missingId;
       }
 
@@ -253,9 +242,9 @@ public final class FragmentJobListingBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentJobListingBinding((ConstraintLayout) rootView, btnAddJob, btnNotification,
-          btnShowAllLatest, btnShowAllRecommended, container, lblLatestTitle, lblUserName,
-          lblWelcome, nestedScrollView, newJobRecyclerView, newPostedContainer, noJobIndicator,
+      return new FragmentJobListingBinding((ConstraintLayout) rootView, btnAddJob, btnShowAllLatest,
+          btnShowAllRecommended, container, lblLatestTitle, lblUserName, lblWelcome,
+          nestedScrollView, newJobRecyclerView, newPostedContainer, noJobIndicator,
           overallContainer, profileImage, progressIndicator, recommendedContainer,
           recommendedJobRecyclerView, topContainer, txtRecommendedTitle);
     }

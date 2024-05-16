@@ -14,7 +14,8 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
 
-class ViewApplicantAdapter(private var listener: ViewApplicant
+class ViewApplicantAdapter(
+    private var listener: ViewApplicant
 ) : RecyclerView.Adapter<ViewApplicantAdapter.ViewApplicantHolder>() {
 
     private var personalList = emptyList<Personal>()

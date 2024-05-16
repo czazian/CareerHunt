@@ -4,12 +4,12 @@
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable-night\\baseline_job_field.xml"
     },
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_logout_24.xml.flat",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_logout_24.xml"
-    },
-    {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_people_alt_24.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_people_alt_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_logout_24.xml.flat",
+        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_logout_24.xml"
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_speaker_phone_24.xml.flat",
@@ -36,16 +36,16 @@
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_data_exploration_24_green.xml"
     },
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_location_on_24.xml.flat",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_location_on_24.xml"
+        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_layout_group.xml.flat",
+        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\layout_group.xml"
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\menu_bottom_navigation.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\menu\\bottom_navigation.xml"
     },
     {
-        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_layout_group.xml.flat",
-        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\layout\\layout_group.xml"
+        "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_location_on_24.xml.flat",
+        "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_location_on_24.xml"
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
@@ -492,10 +492,6 @@
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\anim\\fade_in.xml"
     },
     {
-        "merged": "com.example.careerhunt.app-merged_res-5:/layout_job_viewholder.xml.flat",
-        "source": "com.example.careerhunt.app-main-7:/layout/job_viewholder.xml"
-    },
-    {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_baseline_phone.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\baseline_phone.xml"
     },
@@ -682,6 +678,10 @@
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\drawable_link_hower.xml.flat",
         "source": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-main-7:\\drawable\\link_hower.xml"
+    },
+    {
+        "merged": "com.example.careerhunt.app-merged_res-5:/layout_fragment_applicant_details.xml.flat",
+        "source": "com.example.careerhunt.app-main-7:/layout/fragment_applicant_details.xml"
     },
     {
         "merged": "C:\\Users\\koyas\\.gradle\\daemon\\8.2\\com.example.careerhunt.app-merged_res-5:\\layout_view_published_holder.xml.flat",

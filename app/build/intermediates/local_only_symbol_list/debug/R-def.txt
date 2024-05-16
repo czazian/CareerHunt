@@ -196,7 +196,6 @@ id btnKeyboard
 id btnLike
 id btnLogin
 id btnLogout
-id btnNotification
 id btnPersonal
 id btnPost
 id btnPractice
@@ -330,7 +329,6 @@ id line
 id line1
 id line2
 id line3
-id lkApplicant
 id locationIcon
 id locationLayout
 id loginFrameLayout
@@ -361,7 +359,6 @@ id part
 id post_button_box
 id profileImage
 id profilePic
-id profilepic
 id progressIndicator
 id progressIndicatorSearch
 id publishedJobFragment
@@ -476,6 +473,7 @@ id tvPostId
 id tvSchool
 id tvTime
 id tvTitle
+id tvTotalCount
 id tvUsername
 id tvViewCRNum
 id tvViewNum
