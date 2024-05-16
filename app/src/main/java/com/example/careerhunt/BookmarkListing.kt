@@ -91,6 +91,7 @@ class BookmarkListing : Fragment(), BookmarkInterface.ProcessCompletionListener,
         binding.bookMarkRecyclerView.adapter = adapter
         binding.bookMarkRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        var isDialogShown = false
         query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 bookmarkListingList.clear()
@@ -118,27 +119,31 @@ class BookmarkListing : Fragment(), BookmarkInterface.ProcessCompletionListener,
 
                 } else {
                     onAllProcessesCompleted()
-                    MaterialAlertDialogBuilder(requireContext())
-                        .setTitle("Bookmark empty")
-                        .setMessage("Sorry, your bookmark is currently empty, please add something into the bookmark and come back again!")
-                        .setPositiveButton(resources.getString(R.string.sure)) { dialog, which ->
-                            val fragment = JobListing()
+                    if (!isDialogShown) { // Show the dialog only if it hasn't been shown before
+                        isDialogShown = true // Set the flag to true
+                        onAllProcessesCompleted()
+                        MaterialAlertDialogBuilder(requireContext())
+                            .setTitle("Bookmark empty")
+                            .setMessage("Sorry, your bookmark is currently empty, please add something into the bookmark and come back again!")
+                            .setPositiveButton(resources.getString(R.string.sure)) { dialog, which ->
+                                val fragment = JobListing()
 
-                            val navigationView =
-                                requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-                            navigationView.selectedItemId = R.id.home
+                                val navigationView =
+                                    requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+                                navigationView.selectedItemId = R.id.home
 
-                            //Back to previous page with animation
-                            val transaction = activity?.supportFragmentManager?.beginTransaction()
-                            transaction?.replace(R.id.frameLayout, fragment)
-                            transaction?.setCustomAnimations(
-                                R.anim.fade_out,  // Enter animation
-                                R.anim.fade_in  // Exit animation
-                            )
-                            transaction?.addToBackStack(null)
-                            transaction?.commit()
-                        }.show()
-                    return
+                                //Back to previous page with animation
+                                val transaction = activity?.supportFragmentManager?.beginTransaction()
+                                transaction?.replace(R.id.frameLayout, fragment)
+                                transaction?.setCustomAnimations(
+                                    R.anim.fade_out,  // Enter animation
+                                    R.anim.fade_in  // Exit animation
+                                )
+                                transaction?.addToBackStack(null)
+                                transaction?.commit()
+                            }.show()
+                        return
+                    }
                 }
             }
 

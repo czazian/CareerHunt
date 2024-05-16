@@ -24,7 +24,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/uniqlo"
+            android:src="@drawable/empty_img"
             app:layout_constraintBottom_toBottomOf="@+id/lblCompanyName"
             app:layout_constraintEnd_toStartOf="@+id/lblJobTitle"
             app:layout_constraintHorizontal_bias="0.0"

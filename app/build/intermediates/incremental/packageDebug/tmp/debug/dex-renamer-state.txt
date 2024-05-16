@@ -1,14 +1,14 @@
-#Thu May 16 12:20:54 MYT 2024
-base.0=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.2=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
-base.3=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\11\\classes.dex
-base.4=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\2\\classes.dex
-base.5=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
-base.6=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\8\\classes.dex
-base.7=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\9\\classes.dex
-base.8=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
-base.9=C\:\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes3.dex
+#Thu May 16 13:54:53 SGT 2024
+base.0=C\:\\GitHub\\CareerHunt\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=C\:\\GitHub\\CareerHunt\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.2=C\:\\GitHub\\CareerHunt\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
+base.3=C\:\\GitHub\\CareerHunt\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\11\\classes.dex
+base.4=C\:\\GitHub\\CareerHunt\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\2\\classes.dex
+base.5=C\:\\GitHub\\CareerHunt\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
+base.6=C\:\\GitHub\\CareerHunt\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\8\\classes.dex
+base.7=C\:\\GitHub\\CareerHunt\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\9\\classes.dex
+base.8=C\:\\GitHub\\CareerHunt\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+base.9=C\:\\GitHub\\CareerHunt\\CareerHunt\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes3.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=10/classes.dex

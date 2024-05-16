@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.careerhunt.data.Personal
 import com.example.careerhunt.databinding.FragmentUserProfileBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -90,6 +91,20 @@ class UserProfile : Fragment() {
             fragmentTransaction.replace(R.id.frameLayout, newFragment)
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
+        }
+
+
+        binding.btnBookmark.setOnClickListener(){
+            val fragment = BookmarkListing()
+
+            val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frameLayout, fragment)
+            transaction?.setCustomAnimations(
+                R.anim.fade_in,  // Enter animation
+                R.anim.fade_out  // Exit animation
+            )
+            transaction?.addToBackStack(null)
+            transaction?.commit()
         }
 
 
