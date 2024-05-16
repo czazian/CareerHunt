@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.careerhunt.app-mergeDebugResources-82:/values-port/values-port.xml",
+            "outputFile": "com.example.careerhunt.app-mergeDebugResources-3:/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\kahya\\.gradle\\caches\\transforms-3\\c2e0b25c4b0e76b2675cee4fffba9d21\\transformed\\appcompat-1.6.1\\res\\values-port\\values-port.xml",
+                    "source": "C:\\Users\\koyas\\.gradle\\caches\\transforms-3\\c2e0b25c4b0e76b2675cee4fffba9d21\\transformed\\appcompat-1.6.1\\res\\values-port\\values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -3,6 +3,7 @@ package com.example.careerhunt.data
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 import java.sql.Blob
 
 data class Personal(
@@ -14,7 +15,7 @@ data class Personal(
     var profileImg:String="",
     var phoneNum:String ="",
     var gender : String="",
-    var jobField:String="")
+    var jobField:String=""):Serializable
 
 /*@Entity(tableName= "personal_table")
 data class Personal(

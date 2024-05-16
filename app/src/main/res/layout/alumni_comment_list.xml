@@ -60,19 +60,35 @@
         app:layout_constraintTop_toTopOf="@+id/userProfileLayout"
         android:layout_marginStart="10dp">
 
+
         <TextView
             android:id="@+id/tvCommentShow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:autoSizeMaxTextSize="100sp"
+            android:autoSizeMinTextSize="12sp"
+            android:autoSizeStepGranularity="2sp"
+            android:autoSizeTextType="uniform"
             android:background="@drawable/border"
             android:backgroundTint="#138ef0"
             android:padding="8dp"
-            android:text="halo my nablwdwefw wefwefwefwf wefwefw"
+            android:text="testing"
             android:textColor="@color/white"
             android:textSize="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="left" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="right" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

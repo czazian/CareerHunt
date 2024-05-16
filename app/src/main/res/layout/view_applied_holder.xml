@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/appliedContainer"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@drawable/border"
@@ -23,54 +23,57 @@
             android:id="@+id/tvJobTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="1dp"
+            android:layout_marginStart="20dp"
             android:text="Software Engineer"
             android:textSize="23dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/tvCompName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.15"
-            app:layout_constraintStart_toEndOf="@+id/compLogo"
+            app:layout_constraintStart_toEndOf="@+id/cardView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvCompName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="160dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="4dp"
             android:text="Uniqlo Malaysia"
             android:textColor="@android:color/darker_gray"
             android:textSize="18dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/tvLocation"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cardView"
             app:layout_constraintTop_toBottomOf="@+id/tvJobTitle" />
 
-        <ImageView
-            android:id="@+id/compLogo"
-            android:layout_width="70dp"
-            android:layout_height="75dp"
-            android:layout_marginStart="8dp"
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/comp_logo" />
+            app:layout_editor_absoluteX="160dp">
+
+            <ImageView
+                android:id="@+id/compLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/profile_pic" />
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/tvLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
             android:drawableStart="@drawable/baseline_location_on_24"
-            android:text="Seri Kembangan, Selangor"
+            android:text="Seri Kembangan"
             android:textColor="@android:color/darker_gray"
             android:textSize="18dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/compLogo"
-            app:layout_constraintTop_toBottomOf="@+id/tvCompName" />
-
-
+            app:layout_constraintBaseline_toBaselineOf="@+id/tvCompName"
+            app:layout_constraintStart_toEndOf="@+id/tvCompName" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -91,6 +91,8 @@
     <string name="published_job">Published Job</string>
     <string name="setting_page">SETTING PAGE</string>
 
+    <string name="sure">Sure</string>
+
     <string-array name="state">
         <item></item>
         <item>Kuala Lumpur</item>

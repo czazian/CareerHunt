@@ -257,8 +257,6 @@
     <color name="textColorExpanded">#00BCD4</color>
     <color name="uploadResumeBtn">#138ef0</color>
     <color name="white">#FFFFFFFF</color>
-    <item name="btnCommentSent" type="id"/>
-    <item name="btnSent" type="id"/>
     <string name="account_type">Account Type</string>
     <string name="app_name">CareerHunt</string>
     <string name="applicant_applied">Applicant Applied:</string>
@@ -320,6 +318,7 @@
     <string name="save_changes">Save Changes</string>
     <string name="setting_page">SETTING PAGE</string>
     <string name="submit">Submit</string>
+    <string name="sure">Sure</string>
     <string name="user_profile">User Profile</string>
     <string name="view_applicant">View Applicant</string>
     <string name="view_resume">View Resume</string>

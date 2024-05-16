@@ -184,7 +184,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.49"
             app:shapeAppearanceOverlay="@style/circleImageView" />
 
         <TextView
@@ -208,6 +207,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
             android:text="Koyasu_An"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
@@ -221,26 +221,11 @@
             android:id="@+id/btnAddJob"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/button_click"
             android:padding="5dp"
             android:scaleType="centerCrop"
             android:src="@drawable/baseline_add_box_24"
-            app:layout_constraintBottom_toBottomOf="@+id/btnNotification"
-            app:layout_constraintEnd_toStartOf="@+id/btnNotification"
-            app:layout_constraintTop_toTopOf="@+id/btnNotification"
-            app:tint="#FFFFFF" />
-
-        <ImageButton
-            android:id="@+id/btnNotification"
-            android:layout_width="40dp"
-            android:layout_height="35dp"
-            android:layout_marginEnd="20dp"
-            android:adjustViewBounds="false"
-            android:background="@drawable/button_click"
-            android:padding="5dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/baseline_notifications_none_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"

@@ -19,6 +19,7 @@ import com.example.careerhunt.data.Personal
 import com.example.careerhunt.databinding.FragmentBusinessAccountBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
@@ -26,9 +27,12 @@ import com.google.firebase.database.ValueEventListener
 class BusinessAccount : Fragment() {
     private lateinit var binding: FragmentBusinessAccountBinding
     private lateinit var sharedIDPreferences: SharedPreferences
-    private var database =
-        FirebaseDatabase.getInstance("https://careerhunt-e6787-default-rtdb.asia-southeast1.firebasedatabase.app/")
-    private var myRef = database.reference
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var myRef: DatabaseReference
+    lateinit var sharedUserTypePreferences: SharedPreferences
+    lateinit var sharedStatusPreference: SharedPreferences
+    lateinit var sharedLogoutPreferences: SharedPreferences
+
     private var userId: String = ""
 
     override fun onCreateView(
@@ -44,6 +48,9 @@ class BusinessAccount : Fragment() {
         userId = sharedIDPreferences.getString("userid","")?:""
         retrieveCompRecord()
 
+        sharedLogoutPreferences = requireContext().getSharedPreferences("logoutStatus", Context.MODE_PRIVATE)
+        sharedUserTypePreferences = requireContext().getSharedPreferences("userType", Context.MODE_PRIVATE)
+        sharedStatusPreference = requireContext().getSharedPreferences("isFirstTime", Context.MODE_PRIVATE)
 
         binding.btnFAQ.setOnClickListener() {
             val fragmentManager = requireActivity().supportFragmentManager
@@ -84,10 +91,10 @@ class BusinessAccount : Fragment() {
 
                     if (language == "Chinese") {
                         // Set locale to Chinese
-                        //(requireActivity() as MainActivity).setLocale("ch")// based on the string value that created
+                        (requireActivity() as MainActivity).setLocale()// based on the string value that created
                     } else {
                         // Set locale to English
-                        //(requireActivity() as MainActivity).setLocale("en")
+                        (requireActivity() as MainActivity).setLocale()
                     }
                 }
                 userSelected = true // Set flag to true after user selection
@@ -98,19 +105,37 @@ class BusinessAccount : Fragment() {
             }
         }
 
-
+        // Logout
         binding.btnLogout.setOnClickListener() {
             val intent = Intent(requireContext(), LoginContainer::class.java)
+            sharedIDPreferences.edit().clear().apply()
+            sharedUserTypePreferences.edit().clear().apply()
+            sharedStatusPreference.edit().putBoolean("isFirstTime",true).apply()
+            sharedPreferences.edit().putBoolean("night",false).apply()
 
+            sharedLogoutPreferences.edit().putBoolean("logoutStatus",true).apply()
             startActivity(intent)
-            requireActivity().finish() // this is to prevent user return back to profile page
+            requireActivity().finish() // this is to prevent user return back to login page
         }
+
+        //For dark mode
+        sharedPreferences = requireContext().getSharedPreferences("Mode", Context.MODE_PRIVATE)
+        val nightMode = sharedPreferences.getBoolean("night", false) // false = day mode
+
+        // means it is true = make it become night mode
+        if (nightMode) {
+            binding.swMode.isChecked = true
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+
         binding.swMode.setOnCheckedChangeListener() { buttonView, isChecked ->
             // isChecked will be true if the switch is turned on, false otherwise
             if (isChecked) {
                 changeDarkMode()
+
             } else {
                 changeDayMode()
+
             }
         }
         return view
@@ -119,11 +144,20 @@ class BusinessAccount : Fragment() {
     private fun changeDarkMode() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         Toast.makeText(requireContext(), "Change Dark Mode", Toast.LENGTH_SHORT).show()
+        saveDarkModeState(true) // Save dark mode state
+
     }
 
     private fun changeDayMode() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         Toast.makeText(requireContext(), "Change Day Mode", Toast.LENGTH_SHORT).show()
+        saveDarkModeState(false) // Save dark mode state
+    }
+
+    private fun saveDarkModeState(isDarkMode: Boolean) {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("night", isDarkMode)
+        editor.apply()
     }
 
     private fun retrieveCompRecord() {
@@ -131,19 +165,14 @@ class BusinessAccount : Fragment() {
         val tvCompEmail: TextView = binding.tvCompEmail
         val profileImg : ImageView = binding.profilePic
 
+        myRef = FirebaseDatabase.getInstance().getReference("Company")
 
-        myRef.child("Company").child(userId.toString())
+        myRef.child(userId)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
                         val comp = snapshot.getValue(Company::class.java)
                         if (comp != null) {
-                            Toast.makeText(
-                                requireContext(),
-                                "id real : " + comp.companyID,
-                                Toast.LENGTH_SHORT
-                            ).show()
-
                             tvCompName.text = comp.compName
                             tvCompEmail.text = comp.email
                             // Load profile image
@@ -153,7 +182,6 @@ class BusinessAccount : Fragment() {
                             }
                         }
                     } else {
-                        // if the user id not found in Firebase
                         Toast.makeText(
                             requireContext(),
                             "User with ID $userId not found",
@@ -163,7 +191,6 @@ class BusinessAccount : Fragment() {
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    // Handle error
                     Toast.makeText(
                         requireContext(),
                         "Error: ${error.message}",

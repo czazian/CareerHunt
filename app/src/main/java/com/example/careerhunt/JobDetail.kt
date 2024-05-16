@@ -6,6 +6,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.OpenableColumns
@@ -20,12 +21,21 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.example.careerhunt.data.Apply_Job
 import com.example.careerhunt.data.Bookmark
 import com.example.careerhunt.data.Company
 import com.example.careerhunt.data.Job
+import com.example.careerhunt.dataAdapter.ImageAdapter
 import com.example.careerhunt.databinding.FragmentJobDetailBinding
+import com.google.android.gms.tasks.Tasks
+import com.google.android.material.carousel.CarouselSnapHelper
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -33,6 +43,12 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
 class JobDetail : Fragment() {
@@ -47,12 +63,17 @@ class JobDetail : Fragment() {
     private lateinit var sharedIDPreferences: SharedPreferences
 
     private var lastID: Long = 0
-    private var jobID: Long = 0
+    private var jobID: String = ""
     private var personalID: Long = 0
     private var userId: String = ""
     private var userType: String = ""
     private var thisBookmark: Bookmark? = null
     private var existBookMarkID: String? = ""
+    private lateinit var imageRecyclerView: RecyclerView
+    private var imageList: ArrayList<String> = arrayListOf()
+    private var totalImages: Int = 0
+    private var loadedImages: Int = 0
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,6 +81,8 @@ class JobDetail : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentJobDetailBinding.inflate(layoutInflater, container, false)
+
+        storageRef = FirebaseStorage.getInstance().getReference()
 
         //Get UserID & UserType
         sharedIDPreferences = requireContext().getSharedPreferences("userid", Context.MODE_PRIVATE)
@@ -72,11 +95,15 @@ class JobDetail : Fragment() {
 
 
         checkBookmarkExist()
-        if(userType == "Company") {
+        getImages()
+
+        if (userType == "Company") {
             binding.btnApply.visibility = View.GONE
             val layoutParams = LinearLayout.LayoutParams(50, LinearLayout.LayoutParams.WRAP_CONTENT)
             binding.btnApply.layoutParams = layoutParams
             binding.detailBottom.layoutParams.height = 0
+            binding.btnSave.visibility = View.INVISIBLE
+            binding.btnSave.isClickable = false
         }
 
 
@@ -108,9 +135,8 @@ class JobDetail : Fragment() {
         binding.descResult.text = job!!.jobDescription.toString()
 
 
-        //Get JobID and Personal ID
-        jobID = job!!.jobID.toString().toLong()
-        personalID = 1 //Hard code data
+        //Get JobID
+        jobID = job!!.jobID.toString()
 
 
         //Back Button
@@ -127,7 +153,6 @@ class JobDetail : Fragment() {
             uploadDialog = AlertDialog.Builder(this.requireContext(), R.style.CustomAlertDialog)
                 .setView(dialogToDisplay)
                 .create()
-
             uploadDialog.show()
 
             val uploadButton = dialogToDisplay.findViewById<Button>(R.id.btnSelectFile)
@@ -161,9 +186,9 @@ class JobDetail : Fragment() {
         binding.btnSave.setOnClickListener() {
             checkBookmarkExist()
 
-            if(thisBookmark == null){
+            if (thisBookmark == null) {
                 //Perform add bookmark action
-                val bookmark = Bookmark(jobID, userId.toLong(), userType)
+                val bookmark = Bookmark(jobID, userId.toLong())
 
                 //Insert into Firebase with Last ID + 1
                 dbRef = FirebaseDatabase.getInstance().getReference("Bookmark")
@@ -189,7 +214,7 @@ class JobDetail : Fragment() {
                 val query = dbRef.orderByKey().equalTo(existBookMarkID!!.toString())
                 query.addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
-                        if(dataSnapshot.exists()) {
+                        if (dataSnapshot.exists()) {
                             dataSnapshot.ref.child(existBookMarkID!!.toString()).removeValue()
                             Toast.makeText(
                                 requireContext(),
@@ -250,8 +275,8 @@ class JobDetail : Fragment() {
                                 //Create Object
                                 val applyjob = Apply_Job(
                                     (lastID + 1),
-                                    jobID,
-                                    personalID
+                                    jobID.toString(),
+                                    userId.toLong()
                                 )
 
                                 //Insert into Firebase with Last ID + 1
@@ -320,8 +345,7 @@ class JobDetail : Fragment() {
     }
 
 
-
-    private fun checkBookmarkExist(){
+    private fun checkBookmarkExist() {
         //GET all bookmarks first
         dbRef = FirebaseDatabase.getInstance().getReference("Bookmark")
 
@@ -336,24 +360,22 @@ class JobDetail : Fragment() {
                         jobId = bmSnapshot.child("jobID").value.toString()
                         userID = bmSnapshot.child("userID").value.toString()
                         type = bmSnapshot.child("userType").value.toString()
-                        Log.e("Bookmark STATUS (jobId)=" , jobId)
-                        Log.e("Current STATUS (jobId)=" , jobID.toString())
-                        Log.e("Bookmark STATUS (userID)=" , userID)
-                        Log.e("Current STATUS (userID)=" , userId)
-                        Log.e("Bookmark STATUS (type)=" , type)
-                        Log.e("Current STATUS (type)=" , userType)
+                        Log.e("Bookmark STATUS (jobId)=", jobId)
+                        Log.e("Current STATUS (jobId)=", jobID.toString())
+                        Log.e("Bookmark STATUS (userID)=", userID)
+                        Log.e("Current STATUS (userID)=", userId)
 
 
-                        if(userID == userId && jobID.toString() == jobId && type == userType) {
-                            Log.e("Bookmark STATUS =" , "Bookmark is exist with ID <$bookmarkID>")
-                            thisBookmark = Bookmark(userID.toLong(), jobId.toLong() , type)
+                        if (userID == userId && jobID.toString() == jobId) {
+                            Log.e("Bookmark STATUS =", "Bookmark is exist with ID <$bookmarkID>")
+                            thisBookmark = Bookmark(jobId, userID.toLong())
                             existBookMarkID = bookmarkID
 
                             binding.btnSave.setImageResource(R.drawable.baseline_bookmark_24)
 
                             break
                         } else {
-                            Log.e("Bookmark STATUS =" , "Bookmark is not exist")
+                            Log.e("Bookmark STATUS =", "Bookmark is not exist")
                             thisBookmark = null
 
                             binding.btnSave.setImageResource(R.drawable.baseline_bookmark_border_24)
@@ -405,5 +427,58 @@ class JobDetail : Fragment() {
                 Log.e("ERROR", error.toString())
             }
         })
+    }
+
+    private fun setupImageRecyclerView() {
+
+        imageRecyclerView = binding.carouselRecyclerView
+        CarouselSnapHelper().attachToRecyclerView(imageRecyclerView)
+        imageRecyclerView.adapter = ImageAdapter(imageList = imageList)
+        Log.e("TAG", "=> setupImageRecyclerView()")
+
+    }
+
+    private fun getImages() {
+        val ref = storageRef.child("compImage")
+        ref.listAll()
+            .addOnSuccessListener { listResult ->
+                totalImages = listResult.items.count { item ->
+                    val imageName = item.name
+                    val parts = imageName.split("|")
+                    val jobIDFromFB = parts[0]
+                    jobIDFromFB == jobID
+                }
+
+                if (totalImages == 0) {
+                    val dynamicTextview = TextView(requireContext())
+                    dynamicTextview.text = "No photo has been uploaded to this job."
+                    binding.noPhtLayout.addView(dynamicTextview)
+                    binding.carouselRecyclerView.layoutParams.height = 0
+                } else {
+
+                    // Iterate through each item (image) in the list
+                    listResult.items.forEach { item ->
+                        val imageName = item.name
+                        val parts = imageName.split("|")
+                        val jobIDFromFB = parts[0]
+                        if (jobIDFromFB == jobID) {
+                            Log.e("Image Get", "Image Get => $jobIDFromFB")
+
+                            item.downloadUrl.addOnSuccessListener { uri ->
+                                val imageUrl = uri.toString()
+                                Log.e("URL", "URL GET = $imageUrl")
+                                imageList.add(imageUrl)
+
+                                loadedImages++
+                                if (loadedImages == totalImages) {
+                                    setupImageRecyclerView()
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
     }
 }
